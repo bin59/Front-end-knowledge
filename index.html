@@ -18,14 +18,51 @@
     <div id="app"></div>
     <script>
       window.$docsify = {
-        name: 'Front End Knowledge', // 文档标题，会显示在侧边栏顶部
+        name: '前端知识&&笔记', // 文档标题，会显示在侧边栏顶部
         repo: 'https://github.com/bin59/Front-end-knowledge', // 右上角Github图标链接
         loadNavbar: true, // 默认加载 _navbar.md，作为顶部导航栏
         loadSidebar: true, //默认加载 _sidebar.md，作为侧边栏
         subMaxLevel: 6,
+        coverpage: true, //docsify便会默认加载 _coverpage.md，来作为封面的格式。
+        search: {
+          paths: 'auto',
+          placeholder: '搜索',
+          noData: '找不到结果',
+          depth: 3,
+        },
       }
     </script>
     <!-- Docsify v4 -->
     <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+    <!-- 搜索插件 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+    <!-- 一键复制插件 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
+    <!-- 代码高亮 -->
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-c.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-shell-session.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-http.min.js"></script>
+    <!-- 主题 -->
+    <!-- <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/docsify/themes/buble.css"
+    /> -->
+    <!-- <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/docsify/themes/dark.css"
+    /> -->
+    <!-- <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/docsify/themes/pure.css"
+    /> -->
+    <!-- 比较好的主题插件 -->
+    <!--
+      
+      https://docsify-darklight-theme.boopathikumar.me/#/installation
+https://osiris-ui.github.io/osiris/#/quick-start
+ -->
   </body>
 </html>
