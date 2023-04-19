@@ -3,8 +3,12 @@
 
 站点:
 
-[http://binxiaobin.nndx.ml](http://binxiaobin.nndx.ml/#/)
+[http://binxiaobin.nndx.ml](http://binxiaobin.nndx.ml)
 
-[https://binbin59.gitee.io/front-end-knowledge]( https://binbin59.gitee.io/front-end-knowledge)
 
-Powered by [docsify](https://docsify.js.org/)
+[front-end-knowledge]( https://binbin59.gitee.io/front-end-knowledge)
+
+
+
+
+> Powered by [docsify](https://docsify.js.org/)
