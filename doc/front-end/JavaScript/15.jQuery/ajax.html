@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script src="../../libraries/jq/jQuery v 3.6.0.js"></script>
+    <script>
+        $.ajax({
+            type:'POST',
+            url:'http://studentback.dfbuff.top/postMethod',
+            header:{
+                'token':'12321321'
+            },
+            data:{
+                'type':'冷笑话'
+            },
+            // 获取成功
+            success:function(res){
+                console.log(res)
+            },
+            // 无论成功或失败都会触发
+            complete:function() {
+                console.log('一直触发')
+            }
+        })
+
+        jQuery.get({
+            url:'http://studentback.dfbuff.top/getMethod?type=冷笑话',
+            success:res =>console.log(res)
+        })
+
+        $.post({
+            url:'http://studentback.dfbuff.top/postMethod',
+            data:'type=图片',
+            success:res=>console.log(res)
+        })
+        
+    </script>
+</body>
+</html>

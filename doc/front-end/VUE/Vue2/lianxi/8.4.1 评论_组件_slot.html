@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>改造评论组件</title>
+</head>
+<body>
+    <!-- 
+        一个组件的追求
+        1.所有的变量都不在组件中定义
+            如、inputs 里面的ipt
+            要学会如何在组件中使用v-model？
+        2.是由页面的插槽决定的 
+-->
+    <div id="app">
+        <!-- 用户输入评论 -->
+        <!-- <inputs @gotobaba="handler"></inputs> -->
+        <pinglun v-model="ipt" @handlerclick="handler"> 
+            <template v-slot>
+                <div v-for="item in list">
+                    {{item.name}} {{item.time}} {{item.contents}} {{item.count}}
+                    <button @click="zan(item)" >点赞</button>
+                    <button @click="top(item)">置顶</button>
+                    <button @click="del(item)">删除</button>
+                </div>
+            </template>
+        </pinglun>
+        <!-- 渲染用户的评论 -->
+        <!-- 评论 ？ 实践：todolist -->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+   <script>
+       let pinglun = {
+           props:['value'],
+           template:`
+                    <div>
+                        <textarea name="" id="" cols="30" rows="10" 
+                         :value="value"
+                         @keyup.enter="$emit('handlerclick',$event.target.value)"></textarea>
+                        
+                         <slot></slot>
+                    </div>
+                    `,
+            // methods:{
+            //     handlerClick(data){
+            //         // this.$emit('gotobaba',this.ipt)
+            //         console.log(data,1111)
+                    
+            //     }
+            // }
+       }
+    //    let prints = {
+    //        template:`
+    //             <div>
+    //                 <slot></slot>
+    //             </div>
+    //         `,
+            
+    //    }
+       let vm = new Vue({
+           el:'#app',
+           components:{
+            pinglun,
+             
+           },
+           data:{
+                ipt:'',
+                list:[
+                    {
+                        id:1,
+                        name:'alex',
+                        contents:'今晚吃大排档',
+                        count:0,
+                        time:'2021-10-11'
+                    },
+                    {
+                        id:2,
+                        name:'melon',
+                        contents:'今晚吃海鲜',
+                        count:0,
+                        time:'2021-10-12'
+                    }
+                ]
+           },
+           methods:{
+                handlerClick(data){
+                        // this.$emit('gotobaba',this.ipt)
+                        console.log(data,1111)
+                        
+                    },
+                handler(data){
+                    this.ipt = data
+                    //在这个地方完成添加操作
+                    if(this.ipt === ''){
+                        alert('请求输入内容')
+                        return;
+                    }
+                    this.list.push({
+                            id:this.list.length,
+                            name:'xxx',
+                            contents:this.ipt,
+                            count:0,
+                            time:'xxxx-xx-xx'
+                    })
+                    this.ipt = ''
+                },
+                zan(item){
+                    item.count++
+                },
+                top(item){
+                    this.list.splice(this.list.indexOf(item),1)
+                    this.list.unshift(item)
+                },
+                del(item){
+                    this.list.splice(this.list.indexOf(item),1)
+                }
+           }
+       })
+   </script>
+</body>
+</html>

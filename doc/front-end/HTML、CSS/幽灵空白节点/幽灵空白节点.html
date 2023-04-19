@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div{
+        background: black;
+    }
+    span{
+        display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+
+  <div>
+    <span></span>
+  </div>
+
+  <!-- 
+
+    可见div有高度，但是样式未设置其高度，span也未设置高度。
+
+    原因
+    因为它存在每个“行框盒子”前面，同时具有该元素字体和行高属性的0宽度的内联盒。
+
+    解决方法
+    img设置display为block；
+    父容器（如示例中的div）font-size设置为0；
+   -->
+
+</body>
+</html>

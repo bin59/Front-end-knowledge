@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="btn">点击</div>
+    <!-- 
+        普通函数的this
+            1、直接调用函数的时候，this指向的是全局window
+            2、对象调用函数，this指向的是这个对象
+            3、构造函数里面的this指向的是实例化的对象
+            4、绑定事件里的this指向的是事件对象
+            5、call、apply、bind可以改变普通函数的this指向
+
+            （普通函数的this，指向的是调用者，谁调用该函数那么this就指向谁）
+        
+     -->
+
+    <script>
+
+        // 1、直接调用函数
+        function fn(){
+            console.log(this)//window
+        }
+        fn()// window.fn() window调用的fn
+
+        // (function fn(){
+        //     console.log(this)//window
+        // })()
+
+        // 2.对象里面的函数
+        let obj ={
+            fn:function (){
+                console.log(this)//{fn: ƒ}
+                console.log('fn')
+            }
+        }
+        obj.fn()
+
+
+        let btn = document.querySelector('.btn')
+        btn.addEventListener('click',function (e){
+            console.log(e.target)//<div class="btn">点击</div>
+            console.log(this)//<div class="btn">点击</div>
+        })
+
+    </script>
+</body>
+</html>

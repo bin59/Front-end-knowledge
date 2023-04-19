@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.修改节点</title>
+    <style>
+        .box{
+            width: 100px;
+            height:100px;
+            border: 1px solid;
+        }
+        .clonebox{
+            width: 200px;
+
+            border: 2px dashed rgb(147, 235, 247);
+        }
+    </style>
+</head>
+<body>
+    <ol type="A"> 
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ol>
+    <br>
+    <button id="btn">按钮</button>
+
+    <!-- 克隆节点 -->
+    <div class="box">
+        <span>我是span标签</span>
+        <p>我是p标签</p>
+    </div>
+    <button id="cloneBtn">克隆</button>
+    <div class="clonebox">
+        克隆区域
+    </div>
+
+    <script>
+        /*
+        创造节点
+            document.createElement() 创建元素节点
+            document.createTextNode() 创建文本节点
+        添加节点
+            node.appendChild(element)  将一个节点添加到指定的父节点的末尾处(字符串、数字添加不了)
+            node.append(element)  将一个节点添加到指定的父节点的末尾处(可以是字符串、数字)
+
+        替换节点
+            node.replaceChild ( newNode, oldNode) 
+        插入节点
+            node.insertBefore(newElement,element) 
+
+        克隆节点
+            cloneNode(boolean)
+                boolean
+                    false代表的是浅克隆（当前第一层父节点）
+                    true代表的是深克隆（包括父节点的所有父节点）
+        */
+
+        let ol = document.querySelector("ol");
+        
+        let btn = document.getElementById("btn");
+        let newli = ol.appendChild(document.createElement("li"));
+        btn.onclick = function(){
+            // ol.appendChild(document.createTextNode("注释文本"));
+
+            // 在ol末尾添加  <li>新内容</li>
+            // newli.appendChild(document.createTextNode("新内容"));
+
+            // ol.replaceChild(newli,ol.children[2]);
+            ol.append('123455');
+            // ol.append(newli);
+        }
+
+
+        // 
+        let box = document.querySelector(".box"),
+            cloneBtn = document.getElementById("cloneBtn");
+
+        cloneBtn.onclick =()=>{
+            let cloneNode = box.cloneNode(true);
+
+            document.querySelector(".clonebox").appendChild(cloneNode);
+            
+
+        }
+
+
+        
+    </script>
+</body>
+</html>

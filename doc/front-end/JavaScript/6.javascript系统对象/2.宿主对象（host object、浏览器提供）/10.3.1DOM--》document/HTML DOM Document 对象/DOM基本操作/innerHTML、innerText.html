@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        
+        innerHTML:从对象的起始位置到终止位置的全部内容,包括Html标签。
+        outerHTML:除了包含innerHTML的全部内容外, 还包含对象标签本身。
+        innerText:从起始位置到终止位置的内容, 去除Html标签
+        outerText:从起始位置到终止位置的内容, 去除Html标签
+
+        JS是双向功能：获取对象的内容 或 向对象插入内容；
+     -->
+     <div id="test1">
+        <span style="color:red">
+            test1
+        </span> 
+        test2
+     </div>
+
+     <a href="javascript:alert(test1.innerHTML)">innerHTML内容</a><br>
+     <a href="javascript:alert(test1.innerText)">inerHTML内容</a><br>
+     <a href="javascript:alert(test1.outerHTML)">outerHTML内容</a><br>
+     <a href="javascript:alert(test1.outerText)">outerText内容</a><br>
+     <hr>
+
+    <!-- innerHTML向对象插入内容； -->
+    <p id="test2">嗨豆壳 www.hi-docs.com </p>
+    <input type="button" onclick="setInnerHTML()" value="innerHTML替换" />
+    <input type="button" onclick="setOuterHTML()" value="outerHTML替换" />
+
+    <script type="text/javascript">
+        function setInnerHTML(){
+            document.getElementById("test2").innerHTML = "<strong>设置标签的html内容</strong>";
+        }
+        function setOuterHTML(){
+            document.getElementById("text2").outerHTML = "嗨豆壳";
+        }
+
+    </script>
+<hr>
+<!-- 
+    　  innerHTML是符合W3C标准的属性，
+        innerText只适用于IE浏览器，
+    因此，尽可能地去使用innerHTML，而少用innerText，如果要输出不含HTML标签的内容，
+    可以使用innerHTML取得包含HTML标签的内容后，再用正则表达式去除HTML标签，
+    下面是一个简单的符合W3C标准的示例：
+ -->
+ <p>
+     <a href="javascript:alert(document.getElementById('test1').innerHTML.replace(/<.+?>/gim,''))">无HTML,符合W3C标准</a>
+ </p>
+
+
+
+</body>
+
+
+</html>

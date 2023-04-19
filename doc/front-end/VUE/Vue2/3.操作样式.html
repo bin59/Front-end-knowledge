@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 300px;
+            height: 100px;
+            background-color: rgb(130, 229, 233);
+        }
+        .active{
+            width: 500px;
+            font-size: 30px;
+            color: rgb(255, 80, 80);
+        }
+        .big{
+            color: rgb(237, 162, 100);
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- style行内(面试) class类型 (经常用) -->
+        <div class="box" v-bind:style="styleObj">
+            今晚吃吃鸡
+        </div>
+        <!-- 第一种：对象设置法，控制class是否存在,true-存在，false-不存在 -->
+        <div class="box" v-bind:class='classObj'>
+            对象设置法
+        </div>
+        <!-- 第二种 数组设置法-->
+        <div class="box" v-bind:class='classArr'>
+            数组设置法
+        </div>
+        <!-- 第三种 数组对象混合设置 -->
+        <div class="box" v-bind:class='classArr'>
+            数组对象混合设置
+        </div>
+        <!-- 第四种 字符设置法 -->
+        <div class="box" v-bind:class='classStr'>
+            字符设置法
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                styleObj:{fontSize:'30px','width':'500px'},
+                classObj:{active:true},
+                classArr:['active','big'],
+                classAO:['big',{active:false}],
+                classStr:'big active'
+            }
+        })
+    </script>
+</body>
+</html>

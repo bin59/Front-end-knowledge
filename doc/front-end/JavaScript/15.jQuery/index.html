@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn{
+            width: 100px;
+            height: 100px;
+            background-color: cornflowerblue;
+        }
+        .toggleActive{
+            background-color: coral;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" data-id=1>我是div</div>
+    <button class="btn">切换背景颜色</button>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script>
+        // 操作类名
+        $('div').addClass('box')
+        console.log($('.box'))
+
+        // 操作元素属性
+        let jqGetAttr = $('.box').attr('data-id')
+        console.log(jqGetAttr)
+        let jqSetAttr = $('.box').attr('data-id','100')
+        console.log(jqSetAttr);
+
+        let  getAtt = document.querySelector('.box').getAttribute('data-id')
+        console.log(getAtt);
+
+        // 点击事件
+        $('.btn').click(()=>{
+            $('.btn').toggleClass('toggleActive')
+        })
+
+    </script>
+</body>
+</html>

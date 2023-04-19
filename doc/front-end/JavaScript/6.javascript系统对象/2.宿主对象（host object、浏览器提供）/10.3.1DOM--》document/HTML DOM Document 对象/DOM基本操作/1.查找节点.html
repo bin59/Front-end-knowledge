@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.查找节点</title>
+</head>
+<body>
+
+    <!-- 1.查找子结点 -->
+    <div class="box">
+        <p>p</p>
+        <span>span</span>
+        <h4>h4</h4>
+    </div>
+
+    <script>//1.查找子结点
+        console.log("1.查找子结点");
+        
+        let dqs = document.querySelector(".box");
+        console.log(dqs);
+
+        /*****
+         获取所有的子节点   
+            Node.childNodes    （返回的是包含文本的节点集合，NodeList对象
+            Node.children   （返回的是元素节点集合，HTMLCollection对象）    用的最多
+        *****/
+
+        console.log(dqs.childNodes);
+
+        console.log(dqs.children);
+
+        /*****
+         获取单个的子节点 
+            Node.firstChild（返回是第一个子节点，包含文本集合）  ||  Node.firstElementChild（返回第一个元素子节点） 
+
+            Node.lastChild（返回是最后一个子节点，包含文本集合）  ||   Node.lastElementChild（返回最后一个元素子节点）
+        *****/
+
+        console.log(dqs.firstChild);
+        console.log(dqs.firstElementChild);
+        console.log(dqs.lastChild);
+        console.log(dqs.lastElementChild);
+    </script>
+
+    <!-- 2.查找父节点 -->
+    <div class="box1">
+        <div class="box2">
+            <div class="box3">
+                <p>p</p>
+                <span>span</span>
+            </div>
+        </div>
+    </div>
+
+    <script>// 2.查找父节点
+        console.log("2.查找父节点");
+
+        //2.1child.parentNode(返回父节点)
+        console.log("2.1parentNode");
+        console.log(document.querySelector(".box1").parentNode);// body
+        console.log(document.querySelector( "html" ).parentNode); // #document
+        console.log(document.querySelector("p" ).parentNode); // box3
+        //2.2child.parentElement(返回父元素节点)
+        console.log("2.2parentElement");
+        console.log(document.querySelector ( ".box1").parentElement); //body
+        console.log(document.querySelector ("html" ).parentElement); //  null
+        console.log(document.querySelector(".box1 p" ).parentElement); // box3
+
+        //2.3node.previousElementSibling（返回该节点的前一个同级元素）
+        console.log("2.3previousElementSibling");
+        console.log(document.querySelector ( ".box1").previousElementSibling); // <script>//查找子结点 ...<\/script>
+
+        //2.4node.previousSibling（返回该节点的前一个同级节点，包括文本节点）
+        console.log("2.4previousSibling");
+        console.log(document.querySelector ( ".box1").previousSibling); // #text
+
+         //2.5node.nextElementSibling（返回该节点的下一个同级元素）
+         console.log("2.5nextElementSibling");
+        console.log(document.querySelector ( ".box1").nextElementSibling); // <script>//查找父结点 ...
+        console.log(document.querySelector ( ".box1 span").nextElementSibling); //null
+        
+        //2.6node.nextSibling（返回该节点的下一个同级节点，包括文本节点）
+        console.log("2.6nextSibling");
+        console.log(document.querySelector ( ".box1").nextSibling); // #text
+    </script>
+
+
+
+
+</body>
+</html>

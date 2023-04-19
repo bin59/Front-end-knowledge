@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>组件的切换</title>
+    <style>
+      .v-enter,
+      .v-leave-to {
+        opacity: 0;
+        transform: translateX(150px);
+      }
+
+      .v-enter-active,
+      .v-leave-active {
+        transition: all 0.5s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 代码举例：（登录组件/注册组件，二选一） -->
+    <div id="app">
+      <!-- 一、使用v-if和v-else结合flag进行切换 -->
+      <!-- `.prevent`可以阻止超链接的默认事件 -->
+      <a href="" @click.prevent="flag=true">登录</a>
+      <a href="" @click.prevent="flag=false">注册</a>
+      <login v-if="flag"></login>
+      <register v-else="flag"></register>
+
+      <!-- 二、使用Vue提供的`<component>`标签实现组件切换 -->
+      <!-- component 占位符 ,  `:is` 属性-指定要展示的组件名称。
+            给is属性值设置为变量即可切换组件，变量值为组件名称
+         -->
+      <!-- 点击按钮后，设置变量`comName`为不同的值，代表着后面的component里显示不同的组件 -->
+      <a href="" @click.prevent="comName='login'">登录</a>
+      <a href="" @click.prevent="comName='register'">注册</a>
+      <component :is="comName"></component>
+
+      <!-- 通过 mode 属性,设置组件切换时候的 过渡动画 如： mode="out-in"-->
+      <transition mode="out-in">
+        <component :is="comName"></component>
+      </transition>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <script>
+      Vue.component('login', {
+        template: '<h3>登录组件</h3>',
+      })
+
+      Vue.component('register', {
+        template: '<h3>注册组件</h3>',
+      })
+
+      // 创建 Vue 实例，得到 ViewModel
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          flag: false,
+          comName: 'login', // 当前 component中的 :is 绑定的组件的名称
+        },
+        methods: {},
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        
+
+        默认插槽 具名插槽 作用域插槽
+        经典试题：你知道Vue中的插槽吗？简述区别
+
+        1、默认插槽
+        作用：让开发者在组件中可以插入使用（显示内容），让组件更加灵活、自定义
+        步骤：
+            挖坑
+                在组件中写一个slot标签，在组件中挖好了坑，等待填坑
+            填坑
+                在对应的视图组件双标签的内部，编写
+                <template v-slot>
+                这里编写的内容就是组件中显示的内容
+                </template>
+
+        2.具名插槽
+        step1 依照默认插槽的操作方式
+        step2 在组件中需要给
+            <slot name= ="boy"></slot>
+            给坑取名字.
+        step3 在视图中设置v-slot:boy实现一个萝卜一个坑。
+
+        3、作用域插槽
+        step1在组件中绑定一个数据
+            <slot :名称="数据"></slot>
+        step2在视图中，编写
+            <template slot-scope="props">
+                {{props.名称}}
+            </template>
+            最终视图会显示“数据”的内容
+
+    -->
+    <div id="app">
+        <alex>
+            <!-- 1、默认插槽 -->
+            <!-- <template v-slot>
+                1、默认插槽
+            </template> -->
+            <!-- 2.具名插槽 -->
+            <!-- 男孩插槽 -->
+            <!-- <template v-slot:boy>
+                2.具名插槽-boy
+            </template> -->
+            <!-- 女孩插槽 -->
+            <!-- <template v-slot:girl>
+                2.具名插槽-girl
+            </template> -->
+            <!-- 3.作用域插槽 -->
+            <template slot-scope="props">
+                3.作用域插槽 {{props.item}}
+            </template>
+
+        </alex>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        Vue.component('alex',{
+            // 1、默认插槽
+            // template:`<div>
+            //             <h3>
+            //                 <slot></slot>
+            //             </h3>
+            //         </div>`,
+            // 2.具名插槽
+            // template:`<div>
+            //             <h3>
+            //                 <slot name='boy'></slot>
+            //             </h3>
+            //             <div>
+            //                 <slot name='girl'></slot>
+            //             </div>
+            //         </div>`,
+            // 3、作用域插槽
+            template:`<div>
+                        <h3>
+                            <slot :item=15></slot>
+                        </h3>
+                    </div>`
+        })
+        let vm = new Vue({
+            el:'#app'
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.定位position</title>
+    <style>
+        body{
+            font-size: 20px;   
+            height: 2000px;                  
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+        }
+        /* 
+            定位（position）
+                -通过定位可以将元素摆放到页面的任意位置;
+                -日常开发中，浮动定位优先考虑，当页面出现多个页面元素层叠时，就会优先考虑定位布局。
+                    例如：网页中广告弹窗、半透明的蒙板层、悬浮按钮。
+                1.可选值：
+                    static 默认值：元素是静止的没有开启定位
+                    relative   开启元素的相对定位       参照于元素自己 
+                    absolute   开启元素的绝对定位       相对于其包含块进行定位的（position不为static的第一个父辈或者或祖辈元素）
+                    fixed      开启元素的固定定位       参照于浏览器的视口
+                    sticky     开启元素的粘滞定位       元素到达某个位置时将其固定
+
+                2.相对定位(position: relative):
+                    a.元素开启相对定位以后，如果不设置偏移量元素不会发生任何变化；
+                        偏移量（offset）
+                            top  当前定位元素上边界相对于其包含块的上边界
+                            bottom、left、 right
+                    b.相对定位是参照于元素自己在文档流中的位置进行定位的；
+                    c.相对定位会提升元素的层级；
+                    d.相对定位不会使元素脱离文档流；
+                    e.相对定位不会改变元素的性质，块还是块，行内还是行内；
+
+                    与margin属性相似，但是，不同的是
+                        通过margin顶开50像素，我们可以看到整个盒子的大小也跟着发生了变化，并且下面的子元素也跟着被顶开了50px。
+                        通过定位的top来进行偏移，父盒子的高度没有发生任何改变，但元素本身确实是往下移动了50像素的距离，并覆盖到了另一个
+                    元素上。而且，另一元素虽然被覆盖了，但是它的布局没有受到任何影响。
+
+                3.绝对定位(position: absolute):
+                    a.开启绝对定位以后，如果不设置偏移量元素不会发生变化；
+                    b.开启绝对定位以后，元素会从文档流中脱离，导致后续的页面结构改变；
+                    c.绝对定位会改变元素的性质，行内变成块，宽高被内容撑开，它的宽度并不是像实际块级元素那样占满一行；
+                    d.绝对定位会提升元素的层级；
+                    e.绝对定位是相对于其包含块进行定位的（不为static的第一个父辈或者或祖辈元素）；
+                        包含块（containing block）
+                            -正常情况下：包含块就是离最近的祖先块元素；
+                            -绝对定位的包含块:离它最近的开启了定位的块元素；
+                                如果所有祖先元素都没有开启定位则根元素就是它的包含块；
+
+                                    html(根元素、初始包含块)
+
+                    无依赖绝对定位
+                        一个绝对定位的元素，没有任何 left/right/top/bottom属性时，并且其祖先元素全部都是非定位元素，
+                            那这时这个元素发生绝对定位后，他会出现在哪？会保持在定位前的位置。
+
+                        它的作用场景，就是用在某些父元素不太适合去添加relative或者需要低耦合的场景，那就可以使用到无依
+                            赖绝对地位，再配合上margin来控制位移。
+
+                4.固定定位(position: fixed):
+                    -固定定位是一种特殊的绝对定位，所以固定定位大部分特点都和绝对定位一样；
+                        唯一不同的是固定定位永远参照于浏览器的视口进行定位,相当于固定在窗口，不会随着网页的滚动而滚动
+                    -也有无依赖，通过margin控制
+
+                5.粘滞定位(position: sticky):（新的定位方式，兼容性不是很好） 
+                    -和相对定位的特点基本一致；
+                        不同的是粘滞定位可以在元素到达某个位置时将其固定；
+            */
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: rgb(43, 174, 226);
+             position: relative;
+            /* 只有1向下移,1下面的不受影响 */
+             top: 80px;
+             left: 50px;
+
+             /* 如果是margin-top  2和2下面的都会下移 */
+             /* margin-top: 50px; */
+        }
+        .box2{
+            /* 绝对定位改变元素的性质，行内变成块，块的宽高被内容撑开 */
+            /* width: 200px; */
+            /* height: 200px; */
+            background-color: rgb(223, 226, 43);
+
+            /* 绝对定位 */
+            position:absolute;
+            top:250px;
+            left:50px;
+        }
+        .box3{
+            width: 300px;
+            height: 300px;
+            background-color: rgb(193, 57, 57);
+            /* 固定定位 */
+            position: fixed;
+            top: 100px;
+            left: 400px;
+        }
+        .box4{
+            width: 250px;
+            height: 250px;
+            background-color: rgb(151, 62, 110);
+            position:relative;
+        }
+        .box5{
+            width: 550px;
+            height: 100px;
+            background-color: rgb(24, 234, 45);
+            /* 粘滞定位*/
+            position:sticky;
+            top: 10px;
+        }
+
+
+        /* 
+                z-index
+                        在一个网页中，会存在多个定位的元素，这些元素发生重叠时，就涉及到了层叠的覆盖关系。因此CSS中规定了z-index属性，
+                    来为定位元素设定层叠级别。相对定位、绝对定位、固定定位都可以设置z-index。
+                        定位元素中，z-index越大，级别越高，反之亦然。如果将z-index设为负值，那层叠顺序会在HTML文档之后。万一真的出
+                    现z-index的值相同的情况，它就是按照渲染顺序，越靠后的越在上面，简单来说，后渲染的会覆盖先渲染的。
+            */
+            /* 
+                定位中要注意的问题
+                    a.绝对定位中同时设置两个方向的值
+                    当绝对定位的元素有固定宽高时
+                    由于浏览器的渲染规则为从左往右、从上往下的顺序进行渲染的，所以如果同时存在两个对立方向的值，那会首先考虑 `left` 和 `top` 的属性值。
+
+                    b.当绝对定位的元素没有固定宽高时（如下代码）                
+                    可以发现发现，元素会同时满足left和right 属性值，这是由于宽度为 auto时，它能够首先去满足写死的条件，然后再去调整自身宽度。
+            */
+            .father {
+            background-color: pink;
+            overflow: hidden;
+            position: relative;
+            top: 100px;
+            width: 200px;
+            height: 200px;
+            }
+            .son {
+                width: auto;
+                height: 50px;
+                background-color: skyblue;
+                position: absolute;
+                left: 50px;
+                right: 50px;
+            }
+        
+            /* 
+                relative最小影响化原则
+                    这个规则并不是一个必须遵守的规则，它是为了代码更加低耦合而存在的一种利于后期维护的规则。
+                        ●尽量不使用relative，如果想定位某个元素，首先考虑能否使用无依赖定位;
+                        ●如果场景一定要使用relative，那该relative 务必达到影响最小化;
+
+                    relative 最小影响化原则不仅规避了复杂场景可能出现样式问题的隐患，从日后的维护角度来说也是更
+                为方便。比如说一个月后，不需要右上角这个icon了，这时就需要进行css的修改。如果按照第一种绝对定位的
+                方法，relative 这个属性保持在粉色模块上，这行代码由于不确定性，经常会遗留在样式中不会删除。删掉可
+                能出bug，这个是绝大部分程序员的真实想法，这也是为什么随着项目不断的推进，冗余代码越来越多的原因。
+
+            */
+            .relative{
+                float: right;
+            }
+            .brother1 {
+                background-color: pink;
+                overflow: hidden;
+                width: 500px;
+                height: 500px;
+            }
+            .icon_box {
+                position: relative;
+            }
+            .icon {
+                width: 50px;
+                height: 50px;
+                background-color: skyblue;
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+            .brother2 {
+                width: 100px;
+                height: 100px;
+                background-color: skyblue;
+                margin-top: -100px;
+            }
+
+    </style>
+</head>
+<body>
+    <!-- position -->
+    <div class="box">啥都没有</div> 
+    <div class="box1">1.相对定位</div>
+    <div class="box3">
+        3.固定定位
+        <div class="box4">
+            box4
+            <div class="box2">2.绝对定位</div>
+        </div>
+    </div>
+    <div class="box5">5.粘滞定位</div>
+
+    <div class="father">
+        <div class="son"></div>
+    </div>
+
+    <!-- relative最小影响化原则 -->
+    <div class="relative">
+        <div class="brother1">
+            <div class="icon_box">
+                <div class="icon"></div>
+            </div>
+            <p>我是第1个文章标题</p>
+            <p>我是第2个文章标题</p>
+            <p>我是第3个文章标题</p>
+            <p>我是第4个文章标题</p>
+            <p>我是第5个文章标题</p>
+            <p>我是第6个文章标题</p>
+            <p>我是第7个文章标题</p>
+            <p>我是第8个文章标题</p>
+            <p>我是第9个文章标题</p>
+            <p>我是第10个文章标题</p>
+        </div>
+
+        <div class="brother2"></div>
+    </div>
+
+
+</body>
+</html>

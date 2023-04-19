@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Json</title>
+</head>
+<body>
+    <a href="https://www.runoob.com/json/json-tutorial.html">https://www.runoob.com/json/json-tutorial.html</a>
+    
+    <!-- 
+        JSON: JavaScript Object Notation(JavaScript 对象表示法)
+            是存储和交换文本信息的语法，类似 XML。
+            比 XML 更小、更快，更易解析。
+
+        JSON 是 用于存储和传输数据的格式。
+            通常用于服务端向网页传递数据 。
+
+        JSON 格式在语法上与创建 JavaScript 对象代码是相同的。
+        由于它们很相似，所以 JavaScript 程序可以很容易的将 JSON 数据转换为 JavaScript 对象。
+
+        JSON 语法规则
+            1.数据为 键值对形式。
+            2.数据由 , 分隔。
+            3.{}保存对象
+            4[]保存数组
+
+     -->
+
+     <script>
+         let dataObj = {
+            "name":"zhubin",
+            "id":1
+         }
+
+         console.log(String(dataObj))//[object Object]
+         console.log(JSON.stringify(dataObj))//转换成字符串   {"name":"zhubin","id":1}
+
+         let strJSON = JSON.stringify(dataObj),
+             parseJSON = JSON.parse(strJSON)
+             for(let k in parseJSON){
+                 console.log([parseJSON[k]])// ['zhubin']   [1]
+             }
+     </script>
+<!-- 
+    JSON.parse()
+    JSON 通常用于与服务端交换数据。
+
+    在接收服务器数据时一般是字符串。
+
+    我们可以使用 JSON.parse() 方法将数据转换为 JavaScript 对象。
+
+    语法
+    JSON.parse(text[, reviver])
+    参数说明：
+
+    text:必需， 一个有效的 JSON 字符串。
+    reviver: 可选，一个转换结果的函数， 将为对象的每个成员调用此函数。
+    JSON 解析实例
+    例如我们从服务器接收了以下数据：
+
+    { "name":"runoob", "alexa":10000, "site":"www.runoob.com" }
+    我们使用 JSON.parse() 方法处理以上数据，将其转换为 JavaScript 对象：
+
+    var obj = JSON.parse('{ "name":"runoob", "alexa":10000, "site":"www.runoob.com" }');
+ -->
+
+    <!-- 获取json -->
+    <script>
+         fetch("./jsonData.json").then(response=>{
+            return response.json()//转json格式返回值，解析为可读数据
+         }).then(data=>{
+             console.log(data)//获取请求成功的结果
+         }).catch(err=>{
+             console.log(err);//获取请求失败的结果
+         })
+    </script>
+</body>
+</html>

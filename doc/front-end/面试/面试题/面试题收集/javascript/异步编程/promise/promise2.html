@@ -1,0 +1,32 @@
+Promise面试题 1.有下列图片数组，请你封装一个loadImg()函数，
+保证所有图片加载完毕之后，才渲染到页面上（提示Promise.all() load事件） const
+imgs = [
+"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F2020-07-14%2F5f0d73297a1f0.jpg&refer=http%3A%2F%2Fpic1.win4000.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1623310243&t=b57b92fc55f6f0abfc59340c0149f4e3",
+"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3390236050,1680302736&fm=26&gp=0.jpg",
+"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1866528976,659262407&fm=26&gp=0.jpg"
+]; function loadImg(){ } img.onload = ()=>{ 图片加载完毕触发的事件 }
+2.有下列图片数组，请你封装一个loadImg()函数，
+要求，每次最多请求3张图片，当3张图片的其中1张已经加载完毕之后，
+开始加载第四张，如此类推，直到最后一张加载完毕 urls = [
+"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F2020-04-28%2F5ea7ee935183d.jpg&refer=http%3A%2F%2Fpic1.win4000.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1634046295&t=7920586fb7982b62d17190027662f0d9",
+"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fdik.img.kttpdq.com%2Fpic%2F2%2F1196%2Fb7dbeed00f9d2719.jpg&refer=http%3A%2F%2Fdik.img.kttpdq.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1634046295&t=53245d4eb2437ea5e53c6c76de02d40f",
+"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F2020-04-03%2F5e86f2244fe53.jpg&refer=http%3A%2F%2Fpic1.win4000.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1634046295&t=212fe8adfbb6107c55c08edea9b7c421",
+"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_match%2F0%2F3123324254%2F0.jpg&refer=http%3A%2F%2Finews.gtimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1634046295&t=0a30daa4d6667f9c40ab92fae3652554",
+"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F2019-02-20%2F5c6d08f51fbec.jpg&refer=http%3A%2F%2Fpic1.win4000.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1634046295&t=a448dfb43fd11632a6dde0b191347aaf",
+"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F2020-04-03%2F5e86f220079f7.jpg&refer=http%3A%2F%2Fpic1.win4000.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1634046295&t=c5412ffa3898c99ce837f732c649e5e1",
+"https://gimg2.baidu.com/image_search/src=http%3A%2F%2F01.minipic.eastday.com%2F20170622%2F20170622170647_a785fb3336b95f8de6ae54e54436f126_4.jpeg&refer=http%3A%2F%2F01.minipic.eastday.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1634046460&t=cb39edbaa8b7aef3faf276c7d454e521",
+"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2F45ab992b00d13b2f5c8a8514e87fe77e6d713e1f.jpg&refer=http%3A%2F%2Fi0.hdslb.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1634046460&t=6ec006e6ad2858d723ddab6d705ecb56",
+"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.visionunion.com%2Fadmin%2Fdata%2Ffile%2Fimg%2F20070625%2F20070625005817.jpg&refer=http%3A%2F%2Fwww.visionunion.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1634046460&t=9bf8a49b611a81ff1dce39a39b742fe9",
+"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg1.xiazaizhijia.com%2Fwalls%2F20150909%2F1920x1080_7b84b7e1e1d26ea.jpg&refer=http%3A%2F%2Fimg1.xiazaizhijia.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1634046460&t=105a1be85f7e1a831ec6ec5d010e8c2e",
+"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fgss0.baidu.com%2F7Po3dSag_xI4khGko9WTAnF6hhy%2Fzhidao%2Fpic%2Fitem%2F91529822720e0cf388bc9bc20b46f21fbe09aa44.jpg&refer=http%3A%2F%2Fgss0.baidu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1634046460&t=46c7b2dbed7bbbd3c9f9919e24cea196"
+] 3.红绿灯 function red(){ console.log("red..."); } function green(){
+console.log("green..."); } function yellow(){ console.log("yellow..."); }
+请编写startLoopLight函数实现一下输出效果？（中小型） // 循环输出 // red //
+wait(1000ms) // green // wait(2000ms) // yellow // wait(3000ms) // red //
+wait(1000ms) startLoopLight([ [red, 1000], [green, 2000], [yellow, 3000]]);
+4.请你标写一个retry函数，实现请求次数限制的功能？(快手) //
+存在一个request(option, callback)函数用来进行ajax请求 //
+请使用实现一个retry()函数。 // request({ // url: "./", // method: "GET", //
+data: { // param: { // } // } // }, (error, data)=>{ // if(error == null){ //
+console.log(data); // }else{ // // error handler... // } // }); function
+retry(5,){ }

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Object.defineProperty()  ES6
+
+      // 数据劫持
+      // 在这个例子中vm是没有数据data中有数据
+      // 经过Object.defineProperty()之后，
+      // vm就有了数据，vm劫持了data的数据
+
+      let data = { msg: '小黑', obj: { a: 1, b: 2 } }
+      //如果有复杂数据类型，就要递归深度劫持
+      let vm = {}
+      Object.defineProperty(vm, 'msg', {
+        // 可遍历
+        enumerable: true,
+        // 可配置（可读写）
+        configurable: true,
+        get() {
+          console.log('get')
+          return data.msg
+          // vue做收集依赖
+        },
+        set(newValue) {
+          console.log('set', newValue)
+          // vue更新视图
+        },
+      })
+      console.log(vm, 'vm')
+
+      console.log(vm.msg)
+      //说明，当我访问被数据劫持的属性的时候，会自动调用get方法
+      vm.msg = '小黄'
+      //说明，当我设置被数据劫持的属性的时候，会自动调用set方法
+
+      // Obiect.defineProperty () 将数据访问变得更加详细与复杂、从开发的角度来说，
+      // 导致我们的操作性越强
+    </script>
+  </body>
+</html>

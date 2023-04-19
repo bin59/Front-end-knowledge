@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+html,
+body {
+  .wrapper {
+    #box1 {
+      .filter {
+        width: 200px;
+        height: 200px;
+        background-color: darkseagreen;
+        border-radius: 50%;
+        margin: 0 auto;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        // CSS3 filter(滤镜) 属性  https://www.runoob.com/cssref/css3-pr-filter.html
+        // filter: none | blur() | brightness() | contrast() | drop-shadow() | grayscale() | hue-rotate() | invert() | opacity() | saturate() | sepia() | url();
+        // 滤镜通常使用百分比 (如：75%), 当然也可以使用小数来表示 (如：0.75)。
+        filter: drop-shadow(0px 0px 20px red);
+        // drop-shadow和box-shadow
+        // https://blog.csdn.net/tianmd_Eric/article/details/86613416
+        p {
+          text-align: center;
+          line-height: 200px;
+        }
+      }
+    }
+  }
+}

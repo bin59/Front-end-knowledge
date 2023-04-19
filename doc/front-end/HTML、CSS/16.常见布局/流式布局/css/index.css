@@ -1,0 +1,229 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+.web {
+  min-width: 1280px;
+}
+.web header .container {
+  width: 77%;
+  margin: 0 auto;
+  padding: 15px 0 30px;
+}
+.web header .container .top {
+  padding-bottom: 20px;
+}
+.web header .container .top > ul {
+  display: flex;
+  justify-content: flex-end;
+}
+.web header .container .top > ul li {
+  padding: 0 5px;
+}
+.web header .container .top > ul li a {
+  color: #b3b2b2;
+}
+.web header .container .top > ul li a:hover {
+  transition: all 0.3s;
+  font-weight: bold;
+  color: #000;
+}
+.web header .container .bottom {
+  display: flex;
+  justify-content: space-between;
+}
+.web header .container .bottom .logo {
+  width: 25.5%;
+}
+.web header .container .bottom .right {
+  width: 61%;
+  align-self: flex-end;
+}
+.web header .container .bottom .right ul {
+  display: flex;
+}
+.web header .container .bottom .right ul li {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+.web header .container .bottom .right ul li a {
+  color: #7a7878;
+  font-size: 14px;
+  font-weight: bold;
+}
+.web header .container .bottom .right ul li::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-bottom: 4px solid #1abc9c;
+  position: absolute;
+  top: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.3s;
+}
+.web header .container .bottom .right ul li:hover::after {
+  display: block;
+  width: 100%;
+}
+.web header .container .bottom .right ul li:hover a {
+  color: #f64f5b;
+  transition: all 0.3s;
+}
+.web main .cover {
+  height: 995px;
+  background: url("../img/banner.png") no-repeat;
+  background-position: 0 -100px;
+  background-size: contain;
+  position: relative;
+}
+.web main .cover .middle .imgBox {
+  width: 44%;
+  position: absolute;
+  left: -5%;
+  top: 16%;
+}
+.web main .cover .middle .content {
+  width: 47%;
+  position: absolute;
+  right: 16%;
+  top: 23%;
+  text-align: right;
+  color: #fff;
+}
+.web main .cover .middle .content h4 {
+  font-size: 26px;
+  margin-bottom: 5.5%;
+  letter-spacing: -1px;
+}
+.web main .cover .middle .content h3 {
+  font-size: 30px;
+  margin-bottom: 14.3%;
+}
+.web main .cover .middle .content .btnBox button {
+  padding: 3.3% 8.3%;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #1abc9c;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+}
+.web main .cover .middle .content .btnBox button:last-child {
+  margin-left: 15px;
+  background-color: #3498db;
+}
+.web main .cover .bottom .imgBox {
+  width: 37%;
+  max-width: 500px;
+  position: absolute;
+  right: 7%;
+  bottom: 0;
+}
+.web main .cover .bottom .content {
+  width: 48.1%;
+  color: #34495e;
+  position: absolute;
+  bottom: 7%;
+  left: 12%;
+}
+.web main .cover .bottom .content h5 {
+  font-size: 18px;
+  margin-bottom: 27px;
+}
+.web main .cover .bottom .content p {
+  font-size: 14px;
+  line-height: 30px;
+}
+.web main .todolist {
+  background-color: #38373d;
+  padding: 35px 0 100px;
+}
+.web main .todolist .container {
+  width: 61%;
+  margin: 0 auto;
+}
+.web main .todolist .container .title {
+  color: #fff;
+  text-align: center;
+  padding-bottom: 40px;
+}
+.web main .todolist .container .title h4 {
+  font-size: 26px;
+}
+.web main .todolist .container .title h5 {
+  font-size: 18px;
+}
+.web main .todolist .container .itemList {
+  display: flex;
+}
+.web main .todolist .container .itemList .item {
+  flex: 1;
+  margin: 0 35px;
+  text-align: center;
+  color: #fff;
+}
+.web main .todolist .container .itemList .item .icon {
+  margin: 0 auto;
+  width: 63%;
+}
+.web main .todolist .container .itemList .item p {
+  font-size: 16px;
+  padding: 27px 0 31px;
+}
+.web main .todolist .container .itemList .item span {
+  font-size: 12px;
+}
+.web main .new {
+  padding-bottom: 90px;
+}
+.web main .new .container {
+  width: 61%;
+  margin: 0 auto;
+}
+.web main .new .container .title {
+  width: 62.2%;
+  margin: 0 auto;
+  padding: 19px 0;
+  font-size: 26px;
+  color: #57616c;
+  text-align: center;
+  border-bottom: 2px solid #e7e7e7;
+}
+.web main .new .container .itemList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.web main .new .container .itemList .item {
+  width: 47%;
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+}
+.web main .new .container .itemList .item .icon {
+  width: 80px;
+}
+.web main .new .container .itemList .item .text {
+  flex: 1;
+  margin-left: 20px;
+  font-size: 14px;
+  color: #5f5f61;
+  position: relative;
+  text-align: justify;
+}
+.web main .new .container .itemList .item .text span {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}/*# sourceMappingURL=index.css.map */

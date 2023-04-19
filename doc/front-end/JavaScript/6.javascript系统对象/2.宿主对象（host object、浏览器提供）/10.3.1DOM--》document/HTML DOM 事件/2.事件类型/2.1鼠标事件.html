@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="box">
+        <p class="p"></p>
+    </div>
+    <script>
+
+
+        let div = document.querySelector(".box"),
+            p = document.querySelector(".p"),
+            o=i=1;
+
+
+        div.onmouseup =()=>console.log("mouseup");
+        div.onclick=()=> console.log("click");
+        div.ondblclick=()=>console.log("dblclick");
+        div.onmousemove=()=>console.log("mousemove");
+        div.onmouseover=()=>console.log("mouseover"+i++);
+        div.onmouseenter=()=>console.log("mouseenter"+o++);
+        div.oncontextmenu=()=>console.log("contextmenu");
+
+        div.addEventListener("mousemove",(e)=>{
+            div.style.transform="translateX(200px)";
+            div.style.backgroundColor="red";
+        });
+
+    </script>
+
+
+    
+        <!--                                                                                                                                       
+        鼠标事件
+            mousedown：按下鼠标键时触发，包括右键和前进后退。
+            mouseup：释放按下的鼠标键时触发，包括右键和前进后退键。
+            click：单击事件，除了右键和前进后退。
+            dblclick： 双击事件，鼠标左键（或中键）被双击。
+gb  
+            事件触发顺序（双击时）： mousedown -> mouseup -> click -> mousedown -> mouseup -> click -> dblclick。
+
+            mousemove：鼠标移动事件。
+
+            mouseover：移入事件。鼠标在节点内部移动,会触发多次。
+            mouseout：移出事件。
+
+            mouseenter：移入事件。只触发一次
+            mouseleave：移出事件。
+
+            contextmenu：右键事件，弹出右键菜单，它可能是鼠标右键触发的，也可能是键盘的菜单键触发的。
+        
+            mouseover和mouseenter的不同点： 
+                1.事件的触发时机
+                  mouseover：当鼠标移入元素或子元素都会触发事件。
+                    mouseenter：当鼠标移入元素才会触发事件。
+                2.是否支持冒泡
+                    mouseenter事件不支持冒泡！！
+                    而mouseover事件支持冒泡
+        
+        -->
+        <a href="./2.1.1mouseover_mouseenter.html">mouseover和mouseenter的不同点 </a><br>
+
+          
+
+
+
+
+
+
+
+
+<!-- 
+
+            var div = document.getElementById("div")
+            var p   = document.getElementById("p")
+            div.onmouseover=function(){
+                console.log("div")
+            }
+            p.onmouseover=function(){
+                console.log("p")            
+            }                               //冒泡阶段
+            div.onmouseenter=function(){
+                console.log("div")
+            }
+            p.onmouseenter=function(){
+                console.log("p")
+            }                               //捕获阶段
+
+            鼠标事件属性
+            MouseEvent.altKey
+            MouseEvent.ctrlKey
+            MouseEvent.metaKey
+            MouseEvent.shiftKey
+            分别代表鼠标事件发生时，是否按下了对应的键盘按键。返回值为布尔值。
+    
+            document.body.onclick=function(e){
+                e=e||window.event
+                console.log("altKey:"+e.altKey);            //是否按下alt键
+                console.log("ctrlKey:"+e.ctrlKey);          //是否按下Ctrl键
+                console.log("metaKey:"+e.metaKey);          //是否按下meta键
+                console.log("shiftKey:"+e.shiftKey);        //是否按下shift键
+            }
+    
+            MouseEvent.button属性返回一个数值，表示事件发生时按下了鼠标的哪个键。
+            0代表左键
+            1代表中键
+            2代表右键
+    
+            document.body.onmousedown=function(e){
+                e=e||window.event
+                console.log(e.button)
+            }
+     -->
+<!-- 
+
+            MouseEvent.clientX，MouseEvent.clientY
+            MouseEvent.clientX属性返回鼠标位置相对于浏览器窗口左上角的水平坐标，
+            MouseEvent.clientY属性返回鼠标位置相对于浏览器窗口左上角的垂直坐标，
+            这两个属性都是只读属性。
+    
+            document.body.onmousedown=function(e){
+                e=e||window.event
+                console.log(e.clientX,e.clientY)
+            }
+    
+            MouseEvent.offsetX，MouseEvent.offsetY
+            MouseEvent.offsetX属性返回鼠标位置距离事件作用对象左侧边缘的水平距离，
+            MouseEvent.offsetY属性返回鼠标位置距离事件作用对象左侧边缘的垂直距离，
+            这两个属性都是只读属性。
+    
+            div.onclick=function(e){
+                e=e||window.event
+                console.log(e.offsetX,e.offsetY)
+                //鼠标事件触发时,当前鼠标位置距离目标节点左上角的距离
+            }
+    
+            MouseEvent.pageX，MouseEvent.pageY
+            MouseEvent.pageX属性返回鼠标位置距离文档左侧边缘的距离，
+            MouseEvent.pageY属性返回鼠标位置距离文档顶部的距离。
+            这两个属性都是只读属性。
+    
+            document.body.onclick=function(e){
+                e=e||window.event
+                console.log("pageY:"+e.pageY)               //距离文档顶部
+                console.log("clientY:"+e.clientY)           //距离可视窗口顶部
+            }
+    
+            MouseEvent.movementX，MouseEvent.movementY(了解)
+            MouseEvent.movementX属性返回上一个mousemove事件与当前mousemove事件间的水平位移，
+            MouseEvent.movementY属性返回上一个mousemove事件与当前mousemove事件的垂直距离。
+            这两个属性都是只读属性。
+            e.screenX,e,screenY
+            距离屏幕的水平和垂直距离
+            鼠标滚轮事件
+            滚轮事件在火狐浏览器中是DOMMouseScroll，而在其他浏览器中是onmousewheel。
+            向上下滚就保存到e.detail里面
+            火狐：e.detail 滴太哦
+            向上滚动返回值为大于0
+            向下滚动返回值为小于0
+            非火狐：e.wheelDelta 带哦特
+            向上滚动返回值为小于0
+            向下滚动返回值为大于0
+    -->
+
+
+
+    <script>
+        //!   function wheelEvent(e){
+        //                 e=e||window.event
+        //                 if(e.detail){   //判断是否支持e.detail    支持的话说明是火狐
+        //                     if(e.detail<0){
+        //                         console.log("向上滚动")
+        //                     }else{
+        //                         console.log("向下滚动")
+        //                     }
+        //                 }else{          //不支持,说明是其他浏览器
+        //                     if(e.wheelDelta<0){
+        //                         console.log("向下滚动")
+        //                     }else{
+        //                         console.log("向上滚动")
+        //                     }
+        //                 }
+        //             }
+                    
+        //     document.body.onmousewheel=wheelEvent                           
+        //     document.body.addEventListener("mousewheel",wheelEvent)         //非火狐
+        //     document.body.addEventListener("DOMMouseScroll",wheelEvent)     //火狐
+    </script>
+
+
+</body>
+</html>

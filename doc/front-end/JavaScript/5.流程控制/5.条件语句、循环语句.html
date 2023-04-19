@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5条件语句</title>
+  </head>
+  <body>
+    <script>
+      // 1.if 、 if...else if...  语句
+      let _name = prompt('请输入名字')
+      if (_name != null && _name.length > 5) {
+        alert('不能超过5个')
+      } else if (_name != null && _name != '' && _name != ' ') {
+        // _name != ""  可以点击确定不弹出 , _name !=null可以点击取消不弹出
+        // _name != " " 单个空格判断   那怎么判断多个空格呢？
+        alert('你好！' + _name)
+      } else {
+        alert('请填写内容')
+      }
+
+      var num1 = parseInt(prompt('请输入您的年龄'))
+      if (num1 > 18) {
+        console.log('恭喜你成年了')
+      } else {
+        console.log('小屁孩')
+      }
+
+      //2。switch语句
+      let d = new Date().getDay() //获取星期数
+      switch (d) {
+        case 1: // case 查找的值1:
+          console.log('今天是星期一') // 执行的代码块
+          break //防止向后穿透   本身的含义是，强制跳出
+        case 2: // case 查找的值2:
+          console.log('今天是星期二')
+          break
+        case 3:
+          console.log('今天是星期三')
+          break
+        case 4:
+          console.log('今天是星期四')
+          break
+        case 5:
+          console.log('今天是星期五')
+          break
+        case 6:
+          console.log('今天是星期六')
+          break
+        case 0:
+          console.log('今天是星期日')
+          break
+        default:
+          //关键词用来规定查找不到的值
+          console.log('我怎么知道今天是星期几？？？')
+          break
+      }
+
+      // 注意事项：
+      // switch case语句判断时判断值的大小也判断数据类型（全等于===）
+      // default相当于else：可以省略
+      // default位置可以变化，如果放在case之前，一定要加上break。
+
+      // 3.循环语句
+      //（1）for循环语句
+      for (let a = 1; a <= 3; a++) {
+        console.log(a)
+      }
+
+      //（2）while循环语句   先判断，再执行
+      {
+        let a = 1
+        while (a <= 9) {
+          console.log(a)
+          a++
+        }
+        // （3）do...while循环语句  先执行，再判断
+        let b = 1
+        do {
+          console.log(b)
+          b++
+        } while (b <= 9)
+
+        // break 中断所有的控制流程
+        for (let i = 1; i < 10; i++) {
+          if (i == 5) {
+            break //中断所有资源
+          }
+          console.log(i)
+        }
+      }
+
+      // 假死循环(不确定查找次数)
+      let a = 1
+      while (true) {
+        if (a == 5) {
+          //a=5时就中断后面不输出
+          break
+        }
+        console.log(a)
+        a++
+      }
+
+      // continue   跳出当前符合条件的流程，继续下一个流程
+      for (let b = 0; b < 5; b++) {
+        if (b == 3) {
+          //只有3没有输出
+          continue
+        }
+        console.log(b)
+      }
+    </script>
+  </body>
+</html>

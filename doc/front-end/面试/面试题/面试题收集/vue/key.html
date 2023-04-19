@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <input type="text" v-model="name" />
+        <button @click="add">添加</button>
+      </div>
+      <ul>
+        <!-- 没key 当选中吕不为时，添加楠楠后选中的确是李斯，并不是我们想要的结果，我们想要的是当添加楠楠后，一种选中的是吕不为-->
+        <li v-for="(item, i) in list">
+          <!-- 有key 同样当选中吕不为时，添加楠楠后依旧选中的是吕不为。-->
+          <!-- <li v-for="(item, i) in list" :key="item.id"> -->
+          <input type="checkbox" /> {{item.name}}
+        </li>
+      </ul>
+    </div>
+    <script src="../../VUE/study/vue.js"></script>
+    <script>
+      // 创建 Vue 实例，得到 ViewModel
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          name: '',
+          newId: 3,
+          list: [
+            { id: 1, name: '李斯' },
+            { id: 2, name: '吕不韦' },
+            { id: 3, name: '嬴政' },
+          ],
+        },
+        methods: {
+          add() {
+            //注意这里是unshift
+            this.list.unshift({ id: ++this.newId, name: this.name })
+            this.name = ''
+          },
+        },
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            width: 300px;
+            border: 1px solid black;
+        }
+        .top{
+            text-align: center;
+            width: 300px;
+            display: flex;
+        }
+        .top>li{
+            flex-grow:1;
+            height: 20px;
+            list-style: none;
+        }
+        li.active{
+            background-color:rgb(135, 252, 226);
+        }
+        .content{
+            position: relative;
+        }
+        .content>li{
+            width: 300px;
+            height: 100px;
+            background-color: rgb(135, 252, 226);
+        }
+        .content>li:not(:nth-child(1)){
+            /* display:none; */
+            /* 还可以用绝对定位+层级/translationZ */
+            position: absolute;
+            transform: translateZ(10px);
+        }
+
+        /* .content>.active{
+            position: absolute;
+            transform: translateZ(10px);
+        } */
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul class="top">
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        
+        <!-- <div class="content">a</div>
+        <div class="content">b</div>
+        <div class="content">c</div> -->
+        <ul class="content">
+            <li class="active">a</li>
+            <li>b</li>
+            <li>c</li>
+        </ul>
+    </div>
+
+    <script>
+        let li = document.querySelectorAll("li"),
+            content =document.querySelectorAll(".content>li"),
+            lastIndex = 0;//设置上一步操作的下标
+
+        li.forEach((val,index)=>{
+            val.onclick= function(){
+
+                // 循环所有li并移除样式，但是浪费性能
+                // for(let i=0;i<li.length;i++){
+                //     li[i].classList.remove("active");
+                // };
+
+                // 清除上一个操作
+                li[lastIndex].classList.remove("active");
+                // content[lastIndex].style.display="none";
+                content[index].style.transform="none";
+
+                //清除完记录下标
+                lastIndex=index;
+
+                val.classList.add("active");
+                // content[index].style.display="block";
+                content[index].style.transform="translateZ(10px)";
+
+            };
+        });
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /*
+        在实际开发时，可能会遇到一些超出我们预料的情况。比如某个模块我们设置了固定宽高，但是文字内容太多了，导致部分的内容溢出到模块之外，这时就需要通过 `overflow` 来将溢出的内容进行处理。
+        ```css
+        overflow: visible | hidden | scroll | auto;
+        ```
+        * visible：默认值，超出的内容将会被显示出来；
+        * hidden：内容会被修剪，超出的内容会修剪隐藏掉；
+        * scroll：内容会被修剪，哪怕内容没有超出，盒子还是会以滚动条的形式显示出来；
+        * auto：当内容超出时，浏览器会以滚动条的形式显示出来，如果内容没有超出，则按默认的情况来显示。
+        `overflow` 这一个属性是同时针对水平方向和垂直方向的，如果想针对某一个方向的溢出进行处理，可以通过 `overflow-y` 或者 `overflow-x` ，两种属性的取值和 `overflow` 一样。
+
+
+        ### 1.	实现文本超出隐藏
+        #### 1.1	单行文本溢出处理
+        简单粗暴的方法就是添加 `overflow: hidden` 来剪切掉超出的内容，如果为了要内容更加美观，可以通过以下代码
+
+
+        要将超出文本以省略号的形式展示，那必须要包含三个代码
+
+        * 首先是核心代码 `overflow: hidden` ；
+        * 然后是 `text-overflow: ellipsis` ，它是用来表示文本溢出后，以**怎样的方式**来处理溢出的文本，`ellipsis` 就是代表省略号；
+        * 最后是 `white-space: nowrap` 让这段文字保持不换行；
+
+
+
+        #### 1.2	多行文本溢出处理
+        多行文本超出显示为省略号的需求，可以直接由后台来控制，前端工程师也可以实现这个功能。
+
+        不过前端要实现多行文本溢出，首先可以通过JS，另一种就是纯HTML+CSS。
+        * 核心代码 `overflow: hidden` ；
+        * `display: -webkit-box` 这是为了让一下两个属性生效的前置条件，将对象作为弹性伸缩盒子模型展示；
+        * `webkit-box-orient` 设置伸缩和对象的子元素的排列方式；
+        * `-webkit-line-clamp` 这个属性用来限制在一个块元素显示的文本的行数，它的效果实现的前置条件就是上面两个属性；由于这个属性已经帮我集成了 `text-overflow: ellipsis` ，所以我们不需要再单独设置文本溢出的样式了。 
+
+        */
+         /* overflow使用来处理内容溢出的
+                hidden 超出的内容被剪切隐藏
+                visible 默认值，被显示
+                scroll 滚动条的方式
+                auto  超出滚动条，没有超出默认
+
+                针对某一方向 overflow-x或者overflow-y */
+
+        /* 1.单行文本溢出处理 */
+            .dh{
+                overflow:hidden;
+                text-overflow:ellipsis;
+                white-space:nowrap;
+            }
+        /* 2.多行文本 */
+            .dhwbyc{
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 3;
+            }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        定时器  (都是异步任务)
+         setTImeout 延时定时器（一次性定时器）
+                setInterval  重复定时器按指定周期（毫秒数）来调用函数，直到被关闭
+                clearInterval 停止定时器 
+                clearTimeout 停止定时器
+                    定时器编号：就是定时器返回的值（正整数）  浏览器自动排的
+
+     -->
+    <script>
+         let timer1,timer2,timer4;
+        // 延时定时器  setTImeout
+            // setTimeout(function(){
+            //     console.log("定时器1");
+            // },2000);//2000 -->毫秒数、ms
+
+            timer1=setTimeout(function(){
+                console.log("定时器1");
+                // clearTimeout(timer2);//加上以后timer2不会执行
+            },1000);//2000 -->毫秒数、ms
+
+            timer2=setTimeout(function(){
+                console.log("定时器2");
+            },2000);//2000 -->毫秒数、ms
+
+        // 重复定时器    setInterval
+            timer3 = setInterval(function(){
+                console.log("定时器3");
+            },1000);
+
+            let i=0;
+            timer4=setInterval(function(){
+                i++;
+                // i  定时器编号，5时停止定时器
+                if(i==3){
+                    clearInterval(timer3);
+                }else if(i==4){
+                    clearInterval(timer4);
+                }
+                console.log("定时器4",i);
+            },1000);//
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul{
+            width: 90%;
+            background-color: rgb(253, 239, 214);
+            margin: 0 auto;
+            padding: 5px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        li{
+            width: 384px;
+            height: 216px;
+            margin: 5px;
+        }
+        img{
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    <!-- css实现  background-image-->
+    <style>
+        /* li:first-child{
+            background-image: url(../img/img1.jpg);
+        }
+        li:nth-child(2){
+            background-image: url(../img/img2.jpg);
+        } li:nth-child(3){
+            background-image: url(../img/img3.jpg);
+        } li:last-child{
+            background-image: url(../img/img4.jpg);
+        } */
+    </style>
+</head>
+<body>
+    <div class="imgBox">
+        <ul>
+            <!-- html实现   style="display: none;"-->
+            <!-- <li><img  style="display: none;" alt="" src="./img/img1.jpg"></li>
+            <li><img  style="display: none;" alt=""  src="./img/img2.jpg"></li>
+            <li><img  style="display: none;" alt=""  src="./img/img3.jpg"></li>
+            <li><img  style="display: none;" alt=""  src="./img/img4.jpg"></li> -->
+
+            <!--css实现  background-image  -->
+            <!-- <li></li>
+            <li></li>
+            <li></li>
+            <li></li> -->
+
+            <!--  css+js实现-->
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+
+        </ul>
+    </div>
+    <!-- 
+        什么是预加载 
+        资源预加载是性能优化的另一种技术, 预先告知浏览器某些资源需要提前加载(提前使用到)
+
+        为什么要使用预加载
+        1、为了给用户更好的体验
+        2、减少请求等待时间
+        
+        弊大于利
+        1、增加资源的加载(增加服务器的压力)
+
+        预加载的实现原理
+        1、html实现
+        2、css实现(background)
+        3、css+js实现
+     -->
+
+     <!-- css+js实现 -->
+     <button class="btn">加载预加载图片</button>
+     <script>
+        let list = document.querySelectorAll("li"),
+            btn = document.querySelector( ".btn" ),
+            imgArr =[]//存储img标签,src的值是预先请求过的
+
+        // 封装页面加载完毕之后再开始预加载
+        function load(){
+            console.log("预加载");
+            list.forEach( function (val,idx) {
+                // 保存需要预先加载的图片(预加载)
+                let newImg = new Image()
+                newImg.src = `./img/img${idx+1}.jpg`
+                // 存放到数组，暂时不需要渲染
+                imgArr.push(newImg)
+            })
+            console.log(imgArr[0])
+        }
+
+
+
+        // 页面（整个html包括css、js）和图片加载完毕之后,再进行预加载
+        winloadFn(load)
+
+        function winloadFn(fn){
+            // 获取页面的onload事件函数体
+            let winload = window.onload
+            // console.log(winload)
+            // 判断是否window存在load事件
+            if(typeof window.onload == "function"){
+                // 页面的结构和图片加载完毕之后触发的事件
+                window.addEventListener("load",()=>{
+                    // 页面的结构和图片加载完毕之后再进行预加载
+                    if(winload){
+                        // 存在onload事件就先执行
+                        winload()
+                    }
+                    // 后执行预加载
+                    fn()
+                })
+            } else{
+                // window不存在load事件，那就直接执行预加载
+                winload = fn
+                // console.log(winload)
+            }
+        }
+
+        btn. addEventListener( "click", function (){
+            imgArr.forEach((val,idx)=>{
+                list[idx].appendChild(val)
+            })
+        })
+
+    </script>
+</body>
+</html>

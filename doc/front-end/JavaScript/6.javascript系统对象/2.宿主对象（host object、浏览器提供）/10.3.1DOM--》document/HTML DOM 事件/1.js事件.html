@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js事件</title>
+</head>
+<body>
+    <!-- 
+        js事件
+            事件是jaavscript和DOM的交互桥梁（对事件作出反应）
+            事件通常是和函数结合使用的，这样就可以通过发生的事件来驱动函数执行
+
+        js事件包括DOM0级、DOM1级、DOM2级、DOM3级事件
+
+        1.DOM0级事件   以后用得不多
+            具有极好的跨浏览器的优势，会以最快的速度绑定事件
+
+            1.在html标签绑定事件
+                <div onclick="执行代码"></div>
+            2.在script标签内
+                node.onclick = function(){
+                    执行代码；
+                };
+            删除DOM0级事件将对应的事件属性设置为null
+                node.onclick =null;
+        
+     -->
+
+     <!-- DOM0级事件,例如：每次点击加一 -->
+     <h1>0</h1>
+     <button id="btn" onclick="fn();addFn();">按钮</button>
+     <button id="btn2" >按钮</button>
+     <script>
+         let h1 = document.querySelector("h1"),
+            btn = document.getElementById("btn"),
+            btn2 = document.getElementById("btn2");
+
+        // DOM0级事件绑定多个事件，只能绑定一次事件（同一个行为），后者事件会覆盖前者事件；
+        btn2.onclick=fn;//后面不用写()
+        btn2.onclick=addFn;
+        
+        function fn(){
+            console.log(h1.innerHTML);
+        }
+        function addFn(){
+            h1.innerHTML= ++h1.innerHTML;
+        }
+
+     </script>
+
+     <!--  
+         2.DOM2级事件
+            addEvebtListener事件，IE的DOM2级事件通过attachEvent绑定事件；可以给
+            某一个元素的同一行为绑定多个函数（方法），并且会分别执行
+
+            addEventListener
+                语法
+                    将监听器注册到EventTaget上，当该对象触发指定的是事件时，指定的回调函数就会被执行
+                参数
+                    type 监听指定事件类型
+                    callback 当指定的事件被触发的时候，会接受一个事件通知执行回调函数
+                    boolean  默认值false,冒泡阶段触发 
+                            true,捕获阶段触发 
+    -->
+     
+     <button class="box">按钮</button>
+
+     <script>
+         let box = document.querySelector(".box");
+
+        // 同一个行为，执行多个函数 
+         box.addEventListener("click",function(){
+             console.log(123);
+         },false);
+         box.addEventListener("click",fn(),{
+            //  绑定一次事件
+             once:true
+             
+        });
+
+     </script>
+
+</body>
+</html>

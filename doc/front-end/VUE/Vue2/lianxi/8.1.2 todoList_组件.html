@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todoList</title>
+</head>
+<body>
+    <!-- 用户输入内容 -->
+    <template id="add">
+        <div>
+            <!-- trim 自动过滤输入内容最开始  和 最后的 空格，中间的会保留一个空格，多的会被过滤掉 -->
+            <input type="text" v-model.trim="ipt" @keyup.enter="handlerIpt">
+        </div>
+    </template>
+
+    <!-- 渲染未完成 arr-->
+    <template id="unfinish">
+        <div>
+            <h2>未完成的事情</h2>
+            <div v-for="item in unfinishlist">
+                <input type="checkbox" @click.prevent="handlerCheck(item)">
+                {{item.contents}}
+                <button @click="del(item)">删除</button>
+            </div>
+
+            <h2>已完成的事情</h2>
+            <div v-for="item in finishlist">
+                <input type="checkbox" checked @click.prevent="handlerCheck(item)">
+                {{item.contents}}
+                <button @click="del(item)">删除</button>
+            </div>
+        </div>
+    </template>
+
+    <div id="app">
+        <add @gotobaba='addData'></add>
+        <unfinish :res='list'></unfinish>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+   <script>
+        Vue.component('add',{
+            template:'#add',
+            data(){
+                return{
+                    ipt:'',
+                    list:[
+                        {
+                        id:0,
+                        contents:'吃饭',
+                        isChecked:false
+                        }      
+                    ]  
+                }
+            },
+            created(){
+                this.$emit('gotobaba',this.list)
+            },
+            methods:{
+                handlerIpt(){
+                    if(this.ipt=='') return
+                    this.list.push({
+                        id:this.list.length,
+                        contents:this.ipt,
+                        isChecked:false
+                    })
+                    this.$emit('gotobaba',this.list)
+                    this.ipt = ''
+                }
+            }
+       })
+
+       Vue.component('unfinish',{
+           props:['res'],
+           template:'#unfinish',
+           methods: {
+                handlerCheck(item){
+                    this.res[item.id].isChecked = !item.isChecked
+                },
+                del(item){
+                    this.res.splice(item.id,1);
+                    //因为删除之后，id是不会动态的变化
+                    //重新排序，给id动态赋值，为了后续删除
+                    this.res.forEach((ele,index) => {
+                        ele.id = index
+                    });
+                }
+           },
+            computed:{
+                unfinishlist(){
+                    return this.res.filter(ele=>ele.isChecked=== false)
+                },
+                finishlist(){
+                    return this.res.filter(ele=>ele.isChecked=== true)
+                }
+            }
+       })
+
+       let vm = new Vue({
+           el:'#app',
+           data:{
+                list:[]
+           },
+           methods: {
+               addData(data){
+                   this.list=data
+               }
+           }
+        })
+   </script>
+</body>
+</html>

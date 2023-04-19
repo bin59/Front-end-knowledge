@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        ul{
+            padding:0;
+            margin:0;
+            list-style:none;
+        }
+		ul li{
+			display: block;
+		}
+        .container{
+            width:800px;
+            margin:20px auto;
+        }
+        .container li{
+            border-bottom:1px dotted #ddd;
+            padding:10px;
+            margin:10px 0;
+        }
+        textarea{
+            display:block;
+            width:100%;
+            height:60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>过滤敏感字符---握草,快滚,尼玛,神经,tmd,wc...</h1>
+        <ul id="ul">
+        <!--  
+            <li></li>
+            <li></li>
+         -->
+        </ul>
+        <textarea id="tBox"></textarea>
+        <input type="button" id="btn" value="发送"/>
+    </div>
+    
+    <script>
+        var ul = document.getElementById('ul');
+        var tBox = document.getElementById('tBox');
+        var btn = document.getElementById('btn');
+        var arr = [];
+        btn.addEventListener("click",function(){
+            if(!tBox.value){//判断文本框是否为空
+                alert("不能为空！")
+            }else{
+                //不为空执行保存逻辑
+                arr.push(tBox.value);
+                var str = "";	
+                arr.forEach(function(i){
+                    str="<li>"+i+"</li>";
+                });
+                //字符串分割成字符串数组，设置敏感字符
+                var mg = "握草,快滚,尼玛,神经,tmd,wc".split(",");
+                console.log(mg);
+                mg.forEach(function(a){
+                    //RegExp接收参数,模式字符串(g,i)全局模式g，不区分大小写模式i
+                    var reg = new RegExp(a,"gi");
+                    //replace替换，原来的str不会被改变,这是替换成一个新的字符串,覆盖了原来的那个str
+                    str = str.replace(reg,"**");
+                    
+                })
+                ul.innerHTML += str;
+                tBox.value = "";
+                tBox.focus();
+            }
+        }
+        )
+    </script>
+    <!-- 
+    RegExp() 对象
+    正则表达式是描述字符模式的对象。
+    正则表达式用于对字符串模式匹配及检索替换，是对字符串执行模式匹配的强大工具。
+    replace() 
+    方法用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。
+     -->
+</body>
+</html>

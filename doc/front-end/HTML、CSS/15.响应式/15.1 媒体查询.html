@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15.响应式</title>
+    <style>
+        /* 媒体查询
+        1媒体查询的概述
+            由于主流设备比较繁杂，每一款设备的具体尺寸都打相同，这就导致了一个机型
+        上所合适的样式在另一款机型上面，可能就会出现布局错乱或者样式不一致的情况。这时，
+        就需要一功能来保证在不同的分辨率上或者不同的设备上，样式可以进行动态的改变。
+            
+            媒体查询的诞生，就解决了这一问题。媒体查询可以根据不同的设备、不同的屏幕尺寸
+        来设置不同的样式，分别适应PC端、移动端。
+            
+            媒体查询可以检测很多东西:
+                ● 自动检测viewport(视口)的宽度和高度;
+                ● 设备宽度和高度，还能识别旋转方向（(手机横向或者竖向);
+                ● 分辨率大小;
+
+        1.1关于媒体查询的历史
+            其实，媒体查询并不是CSS3产物，它早就在CSS2的时候就有一定的使用频率了。不过，
+        在CSS2中，媒体查询只使用于<style>标签和<link>标签中，并且是以一个叫 media的属性存在的。
+                ● screen:计算机屏幕;
+                ● tty:电传打字机;tv:电视设备;
+                ● projection:放映机;print:打印机;
+                ● all:所有设备。
+
+                <style media="screen">
+                    .box { background-color: skyblue; }
+                </style>
+                该段代码表示，这个.box样式只有在设备是计算机屏幕的情况下，才会生效。
+        2.CSS3 媒体查询的语法规则
+            @media mediatype and/not/only (media feature){ CSS-Code }
+
+            要使用媒体查询，首先要通过@media来声明一个媒体查询;然后通过mediatype来规
+        定媒体的类型，这里的类型包含all(所有设备)。print(打印机) 、screen(电脑屏幕、
+        平板电脑、智能手机) 、speech(屏幕阅读器)﹔接着就是括号内的媒体特性，这个特征的
+        写法和CSS类似，都是属性名∶属性值(min-width: 700px)﹔最后打括号里的就是CSS样式了。
+
+            逻辑运算符
+                ● not:用来排除某种设备，比如说排除打印机，@medai not print; 
+                ● only:用于指定某种特定的设备。对于支持媒体查询的移动设备来说，如果存在only关键字，
+            移动设备的浏览器就会忽略only关键字并直接根据后面的表达式应用样式文件;如果该设备不支持媒
+            体查询，但仍能读取媒体特性的浏览器来说，遇到only关键字时会忽略这个样式文件。
+                ● and:媒体查询中用来连接多种媒体特性，一个媒体查询中可以包含0个或者多个表达式,
+                    例如:
+                    @media screen and (max-width: 1000px) and (min-width: 500px) { 
+                        .box{color:red;}
+                    } 
+
+        2.1 使用方法
+            在使用媒体查询时，一定要保证媒体查询的位置要放在CSS样式的最后面。这是因为为元素设
+        置CSS样式时，假如与媒体查询中的样式是相同属性时，下面的CsS样式会覆盖上面的CSS样式，如果
+        不将媒体查询放在最后，它的样式将不会生效。
+
+        2.2媒体特性
+            由于媒体特性包含特别多的属性，但实际开发时，我们更多的是使用 min-width和 max-widt作
+        为一个边界条件。
+
+            2.2.1 最小宽度min-width
+                min-width是指当前媒体类型大于或等于指定的宽度时(即达到最小宽度的条件时)，大括
+            号内的样式生效。[min-width,∞]
+
+            2.2.2最大宽度max-width
+                规定最大宽度为700px，当浏览器窗口宽度小于或等于700px时，主体背景的颜色是 skyblue ，
+            若宽度大于700px，则会使用pink。[0,max-width]。
+
+            2.2.4not关键字
+                使用not来排除某些特定的设备类型
+
+                注： not( xxx  and  xxx  ) ==>> not xxx or not xxx 满足其中一个就行
+
+                @media not print and ( max-width: 200px) {
+                    body {
+                        background: blue;
+                    }
+                }
+                该段代码就是表示，当在非打印设备或者宽度大于200px的设备中才能使用。
+    
+    
+        .box{
+            background-color: skyblue;
+            width: 200px;
+            height: 200px;
+            font-size: 50px;
+        } */
+
+        /* 这里表示的是非屏幕或者小于900屏幕时才能使用*/
+
+        @media not screen and (min-width:900px){
+                    .box{
+                        background-color: pink;
+                        font-size: 70px;
+                    }
+                    body{
+                        background-color: rgb(255, 196, 119);
+                    }
+                }
+
+    </style>
+</head>
+<body>
+    <div class="box">媒体查询
+
+    </div>
+</body>
+</html>

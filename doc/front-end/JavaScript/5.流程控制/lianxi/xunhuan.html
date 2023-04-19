@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>循环练习</title>
+  </head>
+  <body>
+    <script>
+      // 2.循环输出1-100 里奇数
+      // 方法一：
+      // for(let i =1;i<=100;i++){
+      //     if(i%2 !== 0){
+      //         console.log(i);
+      //     }
+      // }
+      // 方法一.2 for + if + continue
+      // for(let i =1;i<=100;i++){
+      //     if(i%2 == 0){
+      //         continue;
+      //     }
+      //     console.log(i);
+      // }
+
+      // // 方法二
+      // let a =1;
+      // while(a<=100){
+      //     if(a%2 !== 0)
+      //         console.log(a);
+      //     a++;
+      // };
+
+      // // 方法三
+      // let b =1;
+      // do{
+      //     if(b%2 !== 0)
+      //         console.log(b);
+      //     b++;
+      // }while(b <=100)
+
+      // 方法四:   i+=2    !!!
+      // for(var i = 1;i<=99;i+=2){
+      //     console.log(i);
+      // }
+
+      // 3.有一分数序列：2/1，3/2，5/3，8/5，13/8，21/13...求出这个数列的前20项之和。   !!!
+      // (程序分析：请抓住分子与分母的变化规律。)
+
+      // let sum = 0,a = 2,b = 1;
+      // for(let i = 1;i<=20;i++){
+      //     let y= a/b;//原式
+      //     sum += y;//累加y                                 
+
+      //     let d =a;
+      //     a +=b;
+      //     b=d;
+      // }
+      // console.log(sum);
+
+      // b  a    a+b b     a+b + b   a+b      a+b +b+ a+b       a+b +b
+      // 2/1   (1+2)/2    ((1+2)+2)/(1+2)  (((1+2)+2)+(1+2))/((1+2)+2)
+
+
+
+      // 4.有一座桥，当你身上所拥有的钱大于30000时，每过一次桥则需要支付3000元。
+      // 当你身上的钱小于或等于30000时，每过一次桥则需要支付你身上10%的钱。
+      // 已知有一个人身上有33000元，问此人能过这座桥多少次之后，身上的钱会少于100块?
+
+      //  方法一：   for + if
+      // let i = 0;
+      // for(let money = 33000;money>100;i++){
+      //     if(money >33000 ){
+      //     money -=3000;
+      //     }else
+      //     money -=0.1 * money;
+      // };
+      // console.log(i);
+
+      //方法二：for + if + break;
+      // let money = 33000;
+      // for(let i = 0;i>=0;i++){
+      //     if(money >30000 ){
+      //         money -=3000;
+      //     }else if(money > 100){
+      //         money -= 0.1 * money;
+      //     }else{
+      //         console.log(i);
+      //         break;
+      //     }
+      // };
+
+      //方法三：  while最好用
+      //  let i =0,money = 33000;
+      //  while(money>100){
+      //      if(money>30000){
+      //          money -=3000;
+      //      }else
+      //          money -= 0.1*money;
+      //      i++;
+      //  };
+      //  console.log(i);
+
+
+
+      // 5.小明去存1000钱，每天会产生1%的利息，求问，30天后，小明可以拿回多少钱
+      // // 方法一
+       let money = 1000;
+      //   for(let i = 1;i<=30;i++){
+      //     // money +=0.01*money;
+      //       money *= 1.01;
+      //   }
+      //   console.log(money);
+
+      // // 方法二
+      // function s(n1){
+      //   let money2 = 1000;
+      //   for(let i2= 1;i2<=n1;i2++){
+      //     money2 *=1.01;
+      //   }
+      //   return money2;
+      // }
+      // console.log(s(30));
+
+      // // 方法三   
+      function getSum(b){
+          if(b==0){
+            return money;
+          } 
+          return getSum(b-1)*1.01;//
+      }
+      console.log(getSum(30));
+
+
+      /**********************************
+      6.小明题目升级版，小明拿着1000块在周一买入基金，一开户立给10块红利，
+      **********************************/
+      
+      // 	逢周六日没有利息，平时利息为1%，请问30天后，小明可以拿回多少钱？
+      // // 方法一  我是直接算出有利息的天数
+      // let money = 1010;
+      // let day = parseInt(30/7)*5 + 30%7;
+      // for(let i = 1;i<=day;i++){
+      //     money += 0.01 * money;
+      // }
+      // console.log(money);
+
+      // // 方法二  分别     周六日   else有利息
+      // var sum = 1010;
+      // for(var i1 = 1;i1<=30;i1++){
+      //     if(i1%7==0||i1%6==0){
+      //         sum = sum;
+      //     }
+      //     else{
+      //         sum*=1.01;
+      //     }
+      // }
+      // console.log(sum);
+
+      // // 方法三
+      // function getSum(n){
+      //     if(n==0){
+      //         return 1000;
+      //     }
+      //     else{
+      //         if(n%7==0||n%6==0){
+      //             return getSum(n-1);
+      //         }
+      //         else{
+      //             return getSum(n-1)*1.01;
+      //         }
+      //     }
+      // }
+      // console.log(getSum(30));
+
+      /**********************************
+      7.九九乘法表 
+      **********************************/
+      // //正常的九九乘法表    3×1=3	3×2=6	3×3=9  
+      // document.write("<table  border=1><tbody>");
+      // for (let a = 1; a <= 9; a++) {
+      //   document.write("<tr>");
+      //   for (let b = 1; b <= a; b++) {//3×1=3	3×2=6	3×3=9
+      //     let c = a + "×" + b + "=" + a * b;
+      //     document.write("<td> " + c + "</td>");
+      //   }
+      //   document.write("</tr>");
+      // }
+      // document.write("</tbody></table><br/>");
+
+      // //倒过来的九九乘法表    
+      // document.write("<table  border=1><tbody>");
+      // for (let a = 9; a > 0; a--) {
+      //   document.write("<tr>");
+      //   for (let b = 1; b <= a; b++) {
+      //     let c = b + "×" + a + "=" + a * b;
+      //     document.write("<td> " + c + "</td>");
+      //   }
+      //   document.write("</tr>");
+      // }
+      // document.write("</tbody></table><br/>");
+
+      // //正常的九九乘法表  往右排
+      // document.write("<table  border=1><tbody>");
+      // for (let a = 1; a <= 9; a++) {
+      //   document.write("<tr>");
+
+      //   for(let i=1;i<=9-a;i++){
+      //     document.write("<td> " + "</td>");
+      //   }
+
+      //   // for (let b = 1; b <= a; b++) {//3×1=3	3×2=6	3×3=9
+      //   for (let b = a; b > 0; b--) {//  3×3=9	3×2=6	3×1=3
+      //     // let c = a + "×" + b + "=" + a * b;
+      //     let c = b + "×" + a + "=" + a * b;//
+      //     document.write("<td> " + c + "</td>");
+      //   }
+      //   document.write("</tr>");
+      // }
+      // document.write("</tbody></table><br/>");
+
+      // //倒过来的九九乘法表     往右靠
+      // document.write("<table  border=1><tbody>");
+      // for (let a = 9; a > 0; a--) {
+      //   document.write("<tr>");
+
+      //   for (let i = 9; i >a; i--) {
+      //     document.write("<td> " +"</td>");
+      //   }
+
+      //   // for (let b = 1; b <= a; b++) { //1×9=9	2×9=18	3×9=27	4×9=36	5×9=45	6×9=54	7×
+      //     for (let b = a; b >0; b--) {  //9×9=81	8×9=72	7×9=63	6×9=54	5×9=45	
+      //     let c = b + "×" + a + "=" + a * b;
+      //     document.write("<td> " + c + "</td>");
+      //   }
+      //   document.write("</tr>");
+      // }
+      // document.write("</tbody></table><br/>");
+
+      /**********************************
+      8.给一个不多于5位的正整数，要求：一、求它是几位数，二、逆序打印出各位数字。  !!!
+      **********************************/
+      // let num = prompt("请输入一个不多于五位的正整数");
+      // let i= num.length;
+      // if(i<=5 && num != "" &&num !=null){
+      //     for(let g =1;g <=i;g++){
+      //         let a =parseInt(num/(10^(i-g))); //abcd/10^(4-1)=a      
+      //         num -= a * 10^(i-g);      //num= abcd-a*10^(4-1)=bcd      
+
+
+      //         console.log(a)     //a
+      //     }
+      //     alert("这是一个"+ i+ "位数 ");
+      // }else
+      //     alert("请输入一个正整数");
+
+
+
+      // num = 43431;
+      // i=0;
+      // var s = 1;
+
+      // while(num>0){
+      //   console.log("i:"+num);
+      //   num=parseInt(num/10);
+      //   i++;
+      // }
+      // console.log("length:"+i);
+
+      // var num = 43431;
+      // var max = num;
+      // var result=0;
+      // while(num>0){
+      //     console.log(num+"%"+10+"="+(num%10));
+      //     if(num>10){
+      //         result =(result + parseInt(num%10))*10;
+      //     }
+      //     else{
+      //         result +=num;
+      //     }
+      //     num=parseInt(num/10);
+      // }
+      // console.log(max+"->"+result);
+
+
+        // 位数
+        // var num = 12345;
+        // var i = 0;
+        // while (num > 0) {
+        //     num = parseInt(num / 10);
+        //     i++;
+        // };
+         // console.log(i + "位数");
+
+        // 逆序
+        // var num = 12345;
+        // var count = 0;
+        // var str = "";
+        // for (var i = String(num).length - 1; i >= 0; i--) {
+        //     str += String(num)[i];
+        // };
+        // console.log(Number(str));
+
+
+
+      // 9.求100个随机数之和，随机数要求为0—9的整数
+      // var s = 0;
+      // for(var i = 0;i<100;i++){
+      //     var num = parseInt(Math.random()*10);
+      //     s += num;
+      // }
+      // console.log("总和："+s);
+
+      // 10.通过键盘输入一个任意的正整数（建议这个数比3大），在网页中输出3至这个数之间所有能被3整除的数字
+      // let num = prompt("请输入一个大于3的正整数:");
+      // for(let i =num;i>=3;i--){
+      //     if(i%3 == 0){
+      //         console.log(i);
+      //     }
+      // }
+
+      // 11.黑白棋   奇数行 && 奇数列 || 偶数行 && 偶数列
+      // document.write("<table cellspacing=0><tbody>");
+      // for(let i = 1;i<=8;i++){//行数
+      //     document.write("<tr>");
+      //     for(let j = 1;j<=8;j++){//列数
+
+      //       // 我是分开讨论  奇数行的奇数列a和偶数列b、偶数行的偶数列a和奇数列b
+      //         // if(i%2==1){//奇数行
+      //         //     if(j%2==1){//奇数列
+      //         //         document.write("<td style=' width: 40px;height: 40px;background-color: #28180b;'>"+"</td>");
+      //         //     }else{
+      //         //         document.write("<td style='background-color: #ceb384;'class='td2'>"+"</td>");
+      //         //     }
+      //         // }else{//偶数行
+      //         //     if(j%2==0){//偶数列
+      //         //         document.write("<td style=' width: 40px;height: 40px;background-color: #28180b;'>"+"</td>");
+      //         //     }else{
+      //         //         document.write("<td style='background-color: #ceb384;' class='td2'>"+"</td>");
+      //         //     }
+      //         // }
+
+      //         // 整合   奇数行的奇数列或者偶数行的偶数列一个颜色，else一个颜色
+      //         if(i%2==1&&j%2==1||i%2==0&&j%2==0){
+      //             document.write("<td style=' width: 40px;height: 40px;background-color: #28180b;'>"+"</td>");
+      //         }else{
+      //             document.write("<td style='background-color: #ceb384;'class='td2'>"+"</td>");
+      //         }
+      //     }
+      //     document.write("</tr>");
+      // }
+      // document.write("</tbody></table>");
+
+
+        /**********************************************
+        12.(提高题)输入一整数A，判断它是否素数（除了自己和1之外，不能被其它数除数）   !!!
+        **********************************************/
+
+        // var num = parseInt(prompt("请输入整数："));
+        // var flag = true;
+        // // 直接从2开始，并且<num，这取值范围符合不能整除条件的就是素数
+        // for (var i = 2; i < num; i++) {
+        //     if (num % i == 0) {
+        //         // 能被其它数整除,那么就不是素数，直接改成false
+        //         flag = false;
+        //         break;
+        //     }
+        // };
+        // if (flag) {
+        //     console.log(num + "是素数");
+        // } else {
+        //     console.log(num + "不是素数");
+        // }
+
+
+        /**********************************
+        13.(提高题)将100元整钞换成20元、10元、5元、2元、1元零钱，要求零钱总张数为30张，求有多少种换法？假如要求每种纸币必须至少有一张，又有多少种换法呢？
+        ************************************/
+       // 总张数为30张，求有多少种换法
+        // var a, b, c, d, e;
+        // var num = 0; //初始化
+        // for (a = 0; a <= 100; a++) {
+        //     for (b = 0; b <= (100 - a) / 2; b++) {
+        //         for (c = 0; c <= (100 - a - 2 * b) / 5; c++) {
+        //             for (d = 0; d <= (100 - a - 2 * b - 5 * c) / 10; d++) {
+        //                 for (e = 0; e <= (100 - a - 2 * b - 5 * c - 10 * d) / 20; e++) { //可以等于
+        //                     if (a + b + c + d + e === 30 && (a + 2 * b + 5 * c + 10 * d + 20 * e === 100)) {
+        //                         num++;
+        //                     }
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
+        // document.write(num);
+
+        
+        // 每种纸币必须至少有一张，又有多少种换法
+        // var a, b, c, d, e;
+        // var num = 0; //初始化
+        // for (a = 1; a <= 100; a++) {
+        // b 就是2块钱的张数，(100 - 1 * a) / 2 就是 剩余钱2块钱的张数
+        //     for (b = 1; b <= (100 - 1 * a) / 2; b++) {
+        //         for (c = 1; c <= (100 - a - 2 * b) / 5; c++) {
+        //             for (d = 1; d <= (100 - a - 2 * b - 5 * c) / 10; d++) {
+        //                 for (e = 1; e <= (100 - a - 2 * b - 5 * c - 10 * d) / 20; e++) { //可以等于
+        //                     if (a + b + c + d + e === 30 && (a + 2 * b + 5 * c + 10 * d + 20 * e === 100)) {
+        //                         num++;
+        //                     }
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
+        // document.write(num);
+        
+
+
+    </script>
+  </body>
+</html>

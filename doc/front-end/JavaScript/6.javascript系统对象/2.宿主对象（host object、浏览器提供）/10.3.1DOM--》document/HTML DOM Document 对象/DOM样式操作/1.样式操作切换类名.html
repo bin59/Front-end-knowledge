@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM样式操作</title>
+    <style>
+        .box{
+            width: 150px;
+            height: 150px;
+            background-color: rgb(248, 220, 160);
+        }
+        .active{
+            width: 150px;
+            height: 150px;
+            background-color: rgb(252, 156, 185);
+        }
+        .com{
+            width: 150px;
+            height: 150px;
+            background-color: rgb(136, 241, 177);
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box2"></div>
+    <button id="togBtn">切换类名</button>
+    <!-- 
+        操作类名（动态切换类名）
+        className  读取或改写元素class的属性
+        classList
+            返回元素的类名，classList属性是只读
+            add()      在元素中添加一个或多个类名
+            remove()   在元素中删除一个或多个类名
+            toggle()   在元素中切换类名
+                参数： 
+                    切换的类名  
+                    布尔值（可选）
+                        true  只有不存在类名的时候才强制添加类名；
+                        false  只有存在类名的时候才强制移除类名；
+                        不填布尔值
+                            强制添加和强制移除类名
+        contains(
+            class
+            返回布尔值，指定类名是否存在
+            true  元素包含指定类名
+            false  元素不包含指定类名
+            )
+ 
+     -->
+
+     <script>
+        let box = document.querySelector(".box");
+        let box2 = document.querySelector(".box2");
+        let togBtn = document.getElementById("togBtn");
+        //  className
+         
+        //  读取类名
+         console.log(box.className);//box
+
+        //  改写类名
+        //  box.className = "active";
+        //  console.log(box.className);//active
+
+
+        // 在原本的基础上添加类名   +=
+         box.className+=" com";//这样可能会出现重复的类名
+         console.log(box.className);//box com
+
+
+        //  classList
+        
+        console.log(box2.classList);
+
+        // box2添加active类名
+        box2.classList.add("active","com","box");
+        console.log(box2.classList);
+
+        // box2删除com类名
+        box2.classList.remove("com","box2");
+        console.log(box2.classList);//
+
+        // 通过点击切换类名
+        togBtn.onclick = function(){
+            box2.classList.toggle("box",true);
+            console.log(box2.classList.contains("box2"));//false
+            console.log(box2.classList.contains("active"));//true
+            console.log(box2.classList.contains("box"));//true
+        };
+
+
+
+
+        
+
+
+
+
+     </script>
+</body>
+</html>

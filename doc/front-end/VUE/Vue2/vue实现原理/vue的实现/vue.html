@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>差值表达式</h1>
+      {{msg}}
+      <h2>实现指令</h2>
+      <div v-text="msg"></div>
+      <h2>实现数据的双向绑定</h2>
+      {{count}}
+      <input type="text" v-model="count" />
+    </div>
+    <script src="./dep.js"></script>
+    <script src="./watcher.jss"></script>
+    <script src="./observer.js"></script>
+    <script src="./compiler.js"></script>
+    <script src="./miniVue.js"></script>
+    <script>
+      let vm = new MiniVue({
+        el: '#app',
+        data: {
+          msg: 'hello',
+          count: 0,
+          person: { name: '小黑' },
+        },
+      })
+      vm.msg = '小红'
+    </script>
+  </body>
+</html>

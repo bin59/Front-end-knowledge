@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        html {
+            /* padding-top: 20px; */
+        }
+
+        /* body {
+            padding-top: 10px;
+        } */
+
+        .box {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            padding-left: 10px;
+            background-color: gray;
+        }
+
+        .box1 {
+            width: 100px;
+            height: 100px;
+            border: 6px solid #f00;
+            padding: 10px;
+            margin-left: 11px;
+            background-color: pink;
+            overflow-y: scroll;
+        }
+
+        .box1>span {
+            display: block;
+            width: 300px;
+            height: 100px;
+            border: 10px solid #000;
+            padding: 10px;
+        }
+
+        .box2 {
+            width: 100px;
+            height: 100px;
+            border: 5px solid #ff0;
+            padding: 20px;
+            margin-left: 12px;
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="box1">
+            <span>我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1</span>
+        </div>
+        <div class="box2">我是box2</div>
+    </div>
+
+    <!-- 
+    offset系列 
+    (偏移, 包括这个元素在文档占用的所有显示宽度)
+        offsetParent
+            当前元素的父级元素(position不为static), 如果都没设置, 那么默认值根据根元素定位
+        offsetWidth 
+            当前元素的真实宽度(左右padding + width + 左右border)    
+        offsetHeight
+            当前元素的真实高度(上下padding + height + 上下border) 
+        offsetTop
+            当前元素的距离顶部偏移量(offsetParent元素paddingTop + 中间元素【其他元素】的offsetHeight + marginTop)
+        offsetLeft
+            当前元素的距离左边偏移量(offsetParent元素paddingLeft + 中间元素【其他元素】的offsetWidth + marginLeft)
+        
+        client系列
+        (指元素本身的可视内容，不包括border、滚动条、overflow:hidden被隐藏部分)
+            clientWidth
+                当前元素的可见宽度(width + 左右padding)
+            clientHeight
+                当前元素的可见高度(height + 上下padding)
+            clientTop
+                当前元素设置的边框(上border)
+            clientLeft
+                当前元素设置的边框(左border)
+
+        scroll系列
+        (指滚动, 包括这个元素没显示出来的实际宽、高度，包括padding，不包括border、滚动条)
+            scrollWidth
+                当前元素的滚动宽度(相对于是clientWidth, width + 左右padding)
+            scrollHeight
+                当前元素的滚动高度(相对于是clientHeight, height + 上下padding)
+            scrollTop
+                当前元素的向下滚动的高度(当前元素最顶端和可视内容最顶端的距离)
+            scrollLeft
+                当前元素的向左滚动的高度(当前元素最左端和可视内容最左端的距离)
+    -->
+
+    <script>
+        let box1 = document.querySelector(".box1");
+        let box2 = document.querySelector(".box2");
+        let span = box1.querySelector("span");
+
+
+        function getOffsetValue(el) {
+            //  获取offset系列
+            console.log(el.offsetParent);
+            console.log(`offsetWidth----->${el.offsetWidth}`);
+            console.log(`offsetHeight----->${el.offsetHeight}`);
+            console.log(`offsetTop----->${el.offsetTop}`);
+            console.log(`offsetLeft----->${el.offsetLeft}`);
+            //  获取client系列
+            console.log(`clientWidth----->${el.clientWidth}`);
+            console.log(`clientHeight----->${el.clientHeight}`);
+            console.log(`clientTop----->${el.clientTop}`);
+            console.log(`clientLeft----->${el.clientLeft}`);
+            //  获取scroll系列
+            console.log(`scrollWidth------>${span.scrollWidth}`);
+            console.log(`scrollHeight------>${span.scrollHeight}`);
+            console.log(`scrollTop------>${box1.scrollTop}`);
+            console.log(`scrollLeft------>${box1.scrollLeft}`);
+        };
+
+        box1.addEventListener("click", function (event) {
+            getOffsetValue(box1);
+        });
+
+        box2.addEventListener("click", function () {
+            getOffsetValue(box2);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>这是b页面</p>
+    <p>姓名：<span id="name"></span></p>
+    <p>年龄：<span id="age"></span></p>
+    
+
+    <script>
+        let data = location.search
+            ,obj = {}
+        console.log(data)
+
+        // data = data.split("?")[1].split("&");
+        data = data.slice(1).split("&")
+        console.log(data);
+
+        data.forEach(val => {
+            obj[val.split("=")[0]] = val.split("=")[1];
+        });
+        console.log(obj);
+
+        
+        // decodeURI() 函数可对 encodeURI() 函数编码过的 URI 进行解码。
+        document.getElementById("name").innerHTML=decodeURI(obj["name"]);
+        document.getElementById("age").innerHTML=obj["age"];
+
+
+        var uri="my test.php?name=哈哈哈&car=saab";
+        document.write(encodeURI(uri)+ "<br>");    //my%20test.php?name=%E5%93%88%E5%93%88%E5%93%88&car=saab
+        document.write(decodeURI(uri));       //my test.php?name=哈哈哈&car=saab
+
+
+
+
+    </script>
+</body>
+</html>

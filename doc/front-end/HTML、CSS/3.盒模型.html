@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盒子模型</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* 
+            盒子模型         
+            什么是盒子模型？
+                盒模型、盒子模型、框模型（box model）
+                -css将页面中的所有元素都设置为一个矩形的盒子
+                -将元素设置为矩形的盒子后，对页面的布局就变成将不同的盒子摆放到不同的位置
+                -每一个盒子都有以下几个部分组成：
+                    内容区（content）
+                    内边距（padding）
+                    边框（border）
+                    外边距（margin）   
+                    
+            ## 标准盒模型和怪异盒模型
+            ### 1.	标准盒模型
+
+            * width：代表内容区域的宽度；
+            * height：代表内容区域的高度；
+            * 盒子总宽：width + 内边距 + 边框 + 外边距；
+
+            ### 2.	怪异盒模型
+
+            * width：代表的是 内容区宽度 + 内边距 + 边框；
+            * height：代表 内容区高度 + 内边距 + 边框；
+            * 盒子总宽：width + 外边距；
+
+            ### 3.	box-sizing 属性
+
+            通过这个属性，可以规定盒子是以**标准盒模型**还是**怪异盒模型（IE盒模型）**来渲染。
+
+            ```css
+            box-sizing: content-box | border-box;
+            ```
+
+            * content-box：默认值，以标准盒模型模式去解析计算；
+            * border-box：以怪异盒模型去解析计算。
+                    
+                    
+         */
+
+
+
+        .box1{
+            /* 
+            1.内容区，
+                -元素中所有的子元素和文本内容都在内容区中排序
+                -内容区的大小由width和height两个属性来设置
+                -width和height是指内容区
+            */
+            width: 200px;
+            height: 200px;
+            background-color: rgb(140, 235, 203);
+
+            /*
+            2.边框（border）,边框属于盒子的边缘 
+            2.1边框的宽度
+                -一般默认3px
+                -值的情况：可以绝对单位也可以相对单位，但是不能用百分比和负值
+                    四个值：上   右   下   左
+                    三个值：上     左右    下
+                    两个值：  上下     左右
+                    一个值：    上下左右
+            */
+            border-width: 10px;
+            border:10px;
+            border:10px 5px 1px;
+
+            /* 2.2 边框的颜色 */
+            border-color: red;
+
+            /* 
+            2.3边框样式
+                -none 默认值，必须要填写边框的类型；
+                -solid ：定义一个实现边框；
+                -dotted ：点线边框；
+                -dashed ：虚线边框
+                -double ：定义两个边框
+            */
+            border-style: solid;
+
+            /* 上面是单独设置，也可以合并设置，如下： */
+            /* 四个框的属性 */
+            border:10px red solid;
+            /* 设置三个边的所有属性，把一个框设置为none即可 */
+            border:10px rgb(241, 169, 110) solid;
+            border-right:none;
+            
+            /* 
+            3.外边距 margin
+                父子元素相邻外边距，子元素的会传递给父元素（上外边距），
+                即父元素随着子元素下移，会影响页面的布局;
+
+                margin: auto | <length> | <percentage>
+                    -auto:自动计算外边距
+                    -length: 具体单位，px,em,cm
+                    -percentage: 宽度为百分比时，是基于父元素的宽度的百分比的外边距，如果父元素没有宽度，那就寻找祖辈元素的宽度，如果祖辈元素也没有定义宽度，那
+                    就按照屏幕的宽度来作为参考对象。
+                    思考题：为什么不参考高度，参考父元素的宽度？
+
+                3.1 外边距的合写属性
+                    与2.1相同
+                    四个值：上   右   下   左
+                    三个值：上     左右    下
+                    两个值：  上下     左右
+                    一个值：    上下左右
+            */
+            margin-top: 100px;
+            margin:100px;
+            margin:100px 200px 300px;
+
+            /* 在父元素之中水平居中，块级元素 */
+            /* 首先，0代表的垂直方向的外边距为0，水平方向的外边距为auto。由于auto会让浏览器自动计算外边距的值，他会将剩余空间平均分配
+            到外边距的两边，具体计算过程：左右外边距具体的值 = （父级元素内容宽度 - 含边框内边距的当前元素的宽度）/2。
+
+            auto这个属性值就做了一件事：将父元素的剩余空间，平均分配到了元素的左右外边距，从而实现了水平居中的效果。
+            */
+            margin: 0 auto;
+          /* 一定要先设一个宽度width */
+          /* width: 100px; */
+        }
+
+        /*  4. 内边距——padding */
+        .box3{
+            /* 盒中盒的width的值默认为auto不用设置，内边距就不会影响盒子大小了 */
+            height:200px;
+            background-color:red;
+            border:10px rgb(0, 255, 76) solid;
+             /* 
+                -padding的值与外边距相似
+                -也有四个方向的写法
+                -内边距没有负值，设置负值时相当于padding:0;
+                -宽度的单位为百分比时，也是基于父元素的宽度的百分比进行计算的
+           
+                内边距会影响盒子大小
+                背景颜色会延伸到内边距上
+            */
+            padding: 100px;       
+        }
+        .inner{
+            width:100%;
+            height:100%;
+            background-color: blue;
+        } 
+
+        /* 
+            一些小问题
+                border:0;表示设置了边框，不过边框为0，此时浏览器是正常的渲染边框，会占用内存
+                border:none;表示边框被取消了，浏览器不回进行任何边框的渲染，不会占据内存空间
+            纵向外边距叠加
+                在默认情况下两个块级元素均设置了纵向的外边距，第一个元素的下外边距会与第二个元素的上外边距发生重合。
+
+                之所以产生这个问题，原因在于最早的段落设置，最初的HTML中p标签都存在默认的上下外边距，为的是和别的元素产生一定的距离。但是用在多个段落中时，多个p元素上下排列，这就导致了每个p元素之间的距离变得很大。出于这样的考虑，浏览器解析了设置纵向外边距叠加的规则。
+
+                解决这个问题并不难，可以将元素设置为浮动、添加overflow:hidden等属性。
+        */
+
+         /* 5.盒子的尺寸*/
+         .box4{
+            width: 100px;
+            height: 100px;
+            background-color: darkcyan;
+            padding: 10px;
+            border: 10px red solid;
+            /* 
+                默认情况下（标准盒模型 content-box），盒子可见框的大小由内容区、内边距和边框共同决定（怪异盒模型 border-box  ie盒模型是宽高来设置），不包括外边距；
+                    box-sizing 用来设置盒子尺寸的计算方式（设置width和height的作用）；
+                        可选值：
+                            content-box（标准盒模型） 默认值，宽度和高度用来设置内容区的大小；
+                            border-box（怪异盒模型 ie盒模型） 宽度和高度用来设置整个盒子可见框的大小：width和height 指的是内容区、内边距、边框的总大小；
+            */ 
+            box-sizing: content-box;
+        }
+
+        /* 6.轮廓和圆角 */
+        /* 6.1 圆角 border-radius */
+        .box2{
+            width:200px;
+            height:100px;
+            background-color: rgb(49, 212, 190);
+
+            /* border-radius: 用来设置圆角,圆角设置的圆的半径大小*/
+
+            /* 6.1.1 同时设置四个角 
+                border-radius: 可以分别设置四个角的值
+                    四个值： 左上 右上 右下 左下
+                    三个值： 左上 右上/左下 右下
+                    两个值： 左上/右下  右上/左下
+            */
+            /* border-radius: 50px 100px 50px; */
+            /* border-radius: 100px 400px 400px 100px; */
+
+            /* 定义每个角的横向半径和纵向半径， 用"/"隔开就行:  横向半径/纵向半径 */
+            /* border-radius:40px/90px; */
+
+            /* 数值为百分比时 
+                  比如：将元素设置为一个圆形，50%，计算方式:
+                    左边距离上边： （height*50%）=xxx px；
+                    上边距离左边：（width*50%）=xxx px；
+            */
+            /* border-radius: 50%; */
+
+            /* 6.1.2 单独设置一个角 */
+            /* border-top-left-radius: 50px;*/
+            /* border-top-right-radius: 50px;*/
+            /* border-bottom-left-radius: 50px;*/
+            /* border-bottom-right-radius: 50px;*/
+
+            /* 如果要单独设置一个角的横向半径和纵向半径，只需要用空格隔开两个值，而不需要用"/" */
+            /* border-top-right-radius: 50px 100px; */
+           
+        }
+        /* 6.2轮廓 */
+        .box2:hover{
+            /*
+                outline用来设置元素的轮廓线，用法和border一模一样
+                    轮廓和边框不同的点，就是轮廓不会影响到可见的大小
+             */
+            outline: 10px red solid;
+        }
+
+        /* 阴影 */
+        .box5{
+            width:200px;
+            height:200px;
+            background-color: darkcyan;
+            /* 
+                box-shadow 用来设置元素的阴影效果，不会影响到页面的布局
+                    第一个值：水平偏移值，正值向右移动，负值向左
+                    第二个值：垂直偏移值，正-下，负-左
+                    第三个值：阴影的模糊半径
+                    第四个值：阴影的颜色
+            */
+        }
+    </style>
+</head>
+<body>
+    <main>
+
+        <div class="box1">box1
+        </div>
+        
+        <div class="box3">box3红色
+            <div class="inner">box.inner内容区蓝色</div>
+        </div>
+        <div class="box4">box4</div>
+        <br>
+
+        <div class="box2">
+            box2
+        </div>
+    </main>
+</body>
+</html>

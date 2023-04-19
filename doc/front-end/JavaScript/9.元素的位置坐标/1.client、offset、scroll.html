@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>offset</title>
+    <style>
+        .box{
+            width: 400px;
+            height: 400px;
+            background-color: rgb(214, 131, 221);
+            border: rgb(112, 109, 107) 4px solid;
+        }
+        .box1{
+            width: 130px;
+            height: 130px;
+            padding: 10px;
+            margin: 12px;
+            background-color: rgb(128, 127, 221);
+            overflow-y: scroll;
+            /* direction:  */
+            border: rgb(217, 255, 80) 4px solid;
+        }
+        .box1>span{
+            display: block;
+            width: 250px;
+            height: 300px;
+            padding: 10px;
+            margin: 12px;
+            border: rgb(255, 194, 80) 4px solid;
+            background-color: cornsilk;
+
+        }
+        .box2{
+            width: 140px;
+            height: 140px;
+            padding: 10px;
+            margin: 12px;
+            background-color: rgb(127, 219, 181);
+            border: rgb(80, 150, 255) 4px solid;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+    1.offset
+    指偏移，包括这个元素在文档中占用的所有显示宽度，包括滚动条、padding、border，不包括overflow隐藏的部分
+        offsetParent：当前元素的父级元素(position不为static)，如果都没设置，那么默认值根据根元素定位
+        offsetwidth：当前元素的真实宽度(左右padding + width +左右border)
+        offsetHeight：当前元素的真实宽度(上下padding + height + 上下border)
+        offsetTop：当前元素的距离顶部偏移量(offsetParent元素paddingTop ＋中间元素（其他元素）的offsetHeight + marginTop)
+        offsetLeft：当前元素的距离左边偏移量(offsetParent元素paddingLeft ＋中间元素（其他元素）的offsetwidth + marginLeft)
+
+    2.client
+    指元素本身的可视内容，不包括border、滚动条、overflow:hidden被隐藏部分
+        clientwidth：当前元素的可见宽度(width +左右padding)
+        clientHeight：当前元素的可见高度(height + 上下padding)
+        clientTop：当前元素设置的边框(上border)
+        clientLeft：当前元素设置的边框(左border)
+
+    3.scroll
+    指滚动，包括这个元素没显示出来的实际宽度，包括padding，不包括滚动条、border
+        scrollHeight 获取对象的滚动高度，对象的实际高度；
+        scrollWidth 获取对象的滚动宽度
+        scrollLeft 设置或获取位于对象左边界和窗口中目前可见内容的最左端之间的距离
+        scrollTop 设置或获取位于对象最顶端和窗口中可见内容的最顶端之间的距离
+    -->
+    <div class="box">
+        <div class="box1">
+            <span>我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1我是box1</span>
+        </div>
+        <div class="box2"></div>
+    </div>
+    <script>
+        let box1 = document.querySelector(".box1"),
+            box2 = document.querySelector(".box2",
+            span = document.querySelector("span"));
+
+        box1.onclick=()=>{
+            console.log(box1.clientHeight);
+            console.log(box1.clientWidth);
+            console.log(box1.clientTop);
+            console.log(box1.clientLeft);
+        }
+        span.onclick=()=>{
+            console.log(span.scrollWidth);
+            console.log(span.scrollHgight);
+            console.log(span.scrollTop);
+            console.log(span.scrollLeft);
+        }
+    </script>
+</body>
+</html>

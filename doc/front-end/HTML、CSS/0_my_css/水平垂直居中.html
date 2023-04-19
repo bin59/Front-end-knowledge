@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .container {
+            width: 1080px;
+        }
+        .wrapper {
+            margin: 10px;
+            /* float: left; */
+            width: 200px;
+            height: 200px;
+            background: rgb(121, 171, 245);
+            border-radius: 10px;
+        }
+        
+        .center {
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            background: rgb(182, 252, 240);
+            border-radius: 5px;
+        }
+        .clearfix::before,
+        .clearfix::after{
+            content: '';
+            display: table;
+            height: 0;
+            clear: both;
+        }
+        
+        /* 
+            水平居中 
+                1.块级元素水平居中
+                2.行内元素水平居中 
+
+            水平+垂直居中 
+                一、居中元素有宽高固定
+                    absolute + 负margin
+                    absolute + margin auto
+                    absolute + calc
+
+                二、居中元素宽高不固定
+                    absolute + transform
+                    flex
+                    line-height
+                    css-table
+
+            PC端有兼容性要求，宽高固定，推荐absolute+负margin
+            PC端有兼容要求，宽高不固定，推荐css-table
+            PC端无兼容性要求，    宽高不固定      推荐flex
+            移动端推荐使用flex
+        */
+
+        /* 水平 */
+        /* 1.块级元素水平居中*/
+        .center01 {
+            margin:0 auto;
+        }
+
+        /* 2.行内元素水平居中 */
+        .center02{
+            text-align:center;
+
+        }
+        
+
+        /* 垂直 */
+        /* 一、仅居中元素定宽高适用 */
+        /*1：元素绝对定位，4个方向的值均为0，设置margin: auto;
+            注意：IE7及之前版本不支持*/
+        .wrapper1 {
+            position: relative;
+        }
+        .center1 {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+
+        /*2:元素绝对定位，使用负margin值，其值为元素宽度的负一半*/
+
+        .center2 {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -50px 0 0 -50px;
+            /* margin-left: -50px;
+            margin-top: -50px; */
+
+        }
+
+        /* 3 既然top的百分比是基于元素的左上角，那么在减去宽度的一半就好了*/
+        .center2a {
+            position: absolute;
+            top: calc(50% - 50px);
+            left: calc(50% - 50px);
+        }
+        
+        /* 二、 居中元素不定宽高*/
+        /*1：absolute + transform
+            元素绝对定位，left与top值设置为50%，并做transform偏移-50%，-50%*/
+        .center3 {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /*2：flex
+            父级转变为弹性盒子，主轴交叉轴居中对齐*/
+        .wrapper4 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        /*3.lineheight
+            把box设置为行内元素，通过text-align就可以做到水平居中，通过vertical-align可以在垂直方向做到居中*/
+            .wrapper5 {
+                line-height: 200px;
+                /* 让子元素水平居中 */
+                text-align: center;
+                font-size: 0px;
+            }
+            .center5 {
+                font-size: 16px;
+                display: inline-block;
+                /* 垂直方向做到居中 */
+                vertical-align: middle;
+                /* 从父元素继承line-height */
+                line-height: initial;
+            }
+
+            /*4.css-table
+                css新增的table属性，可以让我们把普通元素，变为table元素的现实效果 */
+            .wrapper6 {
+                line-height: 200px;
+                /* 让子元素水平居中 */
+                text-align: center;
+                font-size: 0px;
+            }
+            .center6 {
+                font-size: 16px;
+                display: inline-block;
+                /* 垂直方向做到居中 */
+                vertical-align: middle;
+                /* 从父元素继承line-height */
+                line-height: initial;
+            }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        水平
+        <div class="box clearfix">
+            <!-- 水平 -->
+            <div class="wrapper">
+                <div class="center center01">
+                    <p> 块级元素</p>
+                </div>
+            </div>
+            <div class="wrapper wrap">
+                <div class="center center02">
+                    <p>行内元素</p>
+                </div>
+            </div>
+        </div>
+
+        水平垂直
+        <div class="box">
+            <div class="wrapper wrapper1">
+                <div class="center center1">
+                    <p>absolute + transform</p>
+                </div>
+            </div>
+            <div class="wrapper wrapper1">
+                <div class="center center2">
+                    <p> flex</p>
+                </div>
+            </div>
+            <div class="wrapper wrapper1">
+                <div class="center center2a">
+                    <p> 3</p>
+                </div>
+            </div>
+            <div class="wrapper wrapper1">
+                <div class="center center3">
+                   <P>4</P>
+                </div>
+            </div>
+            <div class="wrapper wrapper4">
+                <div class="center center4">
+                   <P>5</P>
+                </div>
+            </div>
+            <div class="wrapper wrapper5">
+                <div class="center center5">
+                   <p>6</p>
+                </div>
+            </div>
+            <div class="wrapper wrapper6">
+                <div class="center center6">
+                   <p>7</p>
+                </div>
+            </div>    
+        </div>
+    </div>
+</body>
+
+</html>

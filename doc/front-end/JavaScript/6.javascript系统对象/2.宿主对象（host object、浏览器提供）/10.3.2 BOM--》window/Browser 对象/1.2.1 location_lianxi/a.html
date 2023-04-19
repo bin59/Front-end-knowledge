@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a</title>
+    
+</head>
+<body>
+
+    <p>这是a页面</p>
+
+    <!-- form表单 -->
+     <!--<form action="./b.html" method="GET">
+            <div><span> 姓名:</span><input type="text" name="name"></div>
+            <div><span> 年龄:</span><input type="text" name="age"></div>
+        <button>发送给b页面</button>
+
+    </form> -->
+
+    
+    <!-- 不用form表单 -->
+    <div><span> 姓名:</span><input type="text" name="name" id="name"></div>
+    <div><span> 年龄:</span><input type="text" name="age" id="age"></div>
+    <button class="btn">发送给b页面</button>
+
+    <script>
+        let name =document.getElementById("name"),
+            age = document.getElementById("age");
+
+        document.querySelector(".btn").addEventListener("click",()=>{
+            location.href=`./b.html?name=${name.value}&age=${age.value}`;
+        });
+
+
+
+
+    </script>
+</body>
+</html>

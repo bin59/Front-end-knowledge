@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 400px;
+            height: 400px;
+            background-color: rgb(214, 131, 221);
+            border: rgb(112, 109, 107) 4px solid;
+        }
+        .box1{
+            width: 130px;
+            height: 130px;
+            padding: 10px;
+            margin: 12px;
+            background-color: rgb(128, 127, 221);
+            border: rgb(217, 255, 80) 4px solid;
+        }
+        .box2{
+            width: 140px;
+            height: 140px;
+            padding: 10px;
+            margin: 12px;
+            background-color: rgb(127, 219, 181);
+            border: rgb(80, 150, 255) 4px solid;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        offsetX/Y 鼠标相对于事件源元素左上角的x,y坐标
+            设置或获取鼠标指针位置相对于触发事件的对象的x/y坐标(不包括边框，触发点在边框就会返回负值)
+        clientx/Y 鼠标指针相对与游览器窗口可视区左上角的位置
+            设置或获取鼠标指针位置相对于窗口客户区域的坐标，其中客户区域不包括窗口自身的控件和滚动条。
+        pageX/Y
+            鼠标指针的位置，相对于文档开头左上角的位置。
+        screenX  鼠标指针相对于显示器左上角的位置
+            设置或获取获取鼠标指针位置相对于用户屏幕的坐标。
+        x,y
+            设置或获取鼠标指针位置相对于父文档的x/y像素坐标。
+     -->
+    <div class="box">
+        <div class="box1"></div>
+        <div class="box2"></div>
+    </div>
+    <script>
+        let box2 = document.querySelector(".box2");
+           
+        // 事件坐标
+        box2.addEventListener("click",e=>{
+            console.log("offset:",e.offsetX,e.offsetY);
+            console.log("client:",e.clientX,e.clientY);
+            console.log("screen:",e.screenX,e.screenY);
+            console.log("page:",e.pageX,e.pageY);
+            console.log("x,y:",e.x,e.y);
+        })
+    </script>
+</body>
+</html>

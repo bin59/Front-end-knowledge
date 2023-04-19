@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 150px;
+            height: 150px;
+            border: 1px dashed #000;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        常用事件
+        点击事件   onclick 属性可以使用与所有 HTML 元素，除了 ：<base>, <bdo>, <br>, <head>, <html>, <iframe>, <meta>, <param>, <script>, <style>, 和 <title>.
+            click
+        鼠标事件
+            mousedown、mouseup、mouseenter、mouseleave、mouseout、mouseover.mousemove
+        键盘事件
+            keydown、keyup
+        input事件
+            focus、blur、change
+    -->
+
+    <input type="text" name="" id="">
+    <div class="box"></div>
+
+    <script>
+        let box = document.querySelector(".box");
+        box.onmouseover = function () {
+            box.style.backgroundColor = "#f00";
+        };
+
+        box.onmouseleave = function () {
+            box.style.backgroundColor = "#fff";
+        };
+
+        document.onkeydown = function () {
+            console.log("键盘摁下事件");
+        };
+
+        document.onkeyup = function () {
+            console.log("键盘松开事件");
+        };
+    </script>
+
+    <input type="text" id="fname" onblur="myFunction()">
+    <script>
+        function myFunction(){
+            var x=document.getElementById("fname");
+            x.value=x.value.toUpperCase();
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lx</title>
+</head>
+<body>
+    <script>
+        function Fn(){
+            a=function (){
+                console.log('我是a函数')
+            }
+            console.log(this);
+            return this
+        }
+
+        Fn.a=function (){
+            console.log('我是Fn里面的a函数')
+        }
+
+        Fn.prototype.a=function(){
+            console.log('我是Fn原型对象a函数')
+        }
+
+        let a = function(){
+            console.log('我是全局a函数');
+        }
+
+        Fn.a()//我是Fn里面的a函数'
+        a()//我是全局a函数
+
+        // Fn().a()//报错，this指向的是window
+        // Fn ().a()//把let改为 var    我是a函数
+
+        new Fn.a()//我是Fn里面的a函数   实例化的是Fn里面的a new Fn.a().__proto__ = Fn.a.prototype
+        new Fn().a()//我是Fn原型对象a函数   实例化的是a new Fn().__proto__ = Fn.prototype
+        
+        new new Fn().a()//我是Fn原型对象a函数
+
+    </script>
+</body>
+</html>

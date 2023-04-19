@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+        <style>
+        .contents{
+            	width: 300px;
+                height: 300px;
+                background-color:skyblue;
+                position: absolute;
+                left: 0;
+                top:200px;
+                display: none;
+                font-size: 40px;
+        }
+        .active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+    1 父子通讯
+        使用场景:通常只用在一层
+        优点:设置简单，逻辑清晰。
+        缺点:当父子层级多层，变得非常复杂
+        实现核心: 1.父传子v-bind实现
+                2.子传父this.$emit事件派发实现 -->
+
+    <div id="app">
+        <btns @gotobaba="handlerIndex"></btns>
+        <!-- btns中的数据index传递给app,因为btns 和app 他们是父子 
+        子向父传递数据 index -->
+        <contents :ids="index"></contents>
+        <!-- 父向子传递数据 index -->
+        <!-- index =1 -->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        let btns = {
+            template:`
+                    <div>
+                        <div v-for="(ele,index) in title" class="btn" >
+                            <button @click="hanlder(index)">{{ele.item}}</button>
+                        </div>
+                    </div>
+                     `,
+            data(){
+                return{
+                    title:[
+                    {item:'html'},
+                    {item:'css'},
+                    {item:'js'},
+                    {item:'vuejs'},
+                 ]
+                }
+            },
+            methods:{
+                hanlder(index){
+                    //this.$emit(事件名称，数据数据)
+                    //事件派发
+                    this.$emit('gotobaba',index)
+                }
+            }
+        }
+        let contents = {
+            // props用来声明变量  
+            // props中设置的名称，一定要和等号左边的名称相同
+            // 已经变成了当前组件的一个可以使用的变量
+            props:['ids'],
+            template:`
+                        <div>
+                            <div v-for="(ele,index) in contents" 
+                                class="contents" 
+                                v-bind:class="{active:index==ids}">
+                                {{ele.item}}
+                            </div>
+                        </div>
+                     `,
+            data(){
+                return{
+                    contents:[
+                        {item:'html-contents'},
+                        {item:'css-contents'},
+                        {item:'js-contents'},
+                        {item:'vuejs-contents'}
+                     ]
+                }
+            },
+            created(){
+                console.log(this.ids)
+            }
+        }
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                index:0
+            },
+            components:{
+                btns,
+                contents
+            },
+            methods:{
+                handlerIndex(data){
+                    console.log(data,'下标')
+                    this.index = data
+                }
+            }
+        })
+    </script>
+</body>
+</html>

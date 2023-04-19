@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todoList</title>
+</head>
+<body>
+    <div id="app">
+        <add v-model.trim="ipt" >
+            <template v-slot>
+                <div>
+                    <button @click="addData">添加</button>
+                    <h2>未完成的事情</h2>
+                    <div v-for="item in unfinishlist">
+                        <input type="checkbox" @click.prevent="handlerCheck(item)">
+                        {{item.contents}}
+                        <button @click="del(item)">删除</button>
+                    </div>
+
+                    <h2>已完成的事情</h2>
+                    <div v-for="item in finishlist">
+                        <input type="checkbox" checked @click.prevent="handlerCheck(item)">
+                        {{item.contents}}
+                        <button @click="del(item)">删除</button>
+                    </div>
+                    </div>
+            </template>
+        </add>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        Vue.component('add',{
+            props:['value'],
+            template:`<div>
+                        <input type="text"  
+                        :value='value'
+                        
+                        @input="$emit('input',$event.target.value)">
+
+                        <slot></slot>
+                    </div> `   
+       })
+
+       let vm = new Vue({
+           el:'#app',
+           data:{
+                ipt:'',
+                list:[
+                        {
+                        id:0,
+                        contents:'吃饭',
+                        isChecked:false
+                        },
+                        {
+                        id:1,
+                        contents:'睡觉',
+                        isChecked:false
+                        }       
+                    ]  
+           },
+           methods: {
+               addData(){
+                   if(this.ipt=='') return
+                    this.list.push({
+                        id:this.list.length,
+                        contents:this.ipt,
+                        isChecked:false
+                    })
+                    this.ipt = ''
+               },
+               handlerCheck(item){
+                    this.list[item.id].isChecked = !item.isChecked
+                },
+                del(item){
+                    this.list.splice(item.id,1);
+                    //因为删除之后，id是不会动态的变化
+                    //重新排序，给id动态赋值，为了后续删除
+                    this.list.forEach((ele,index) => {
+                        ele.id = index
+                    });
+                }
+            },
+            computed:{
+                unfinishlist(){
+                    return this.list.filter(ele=>ele.isChecked=== false)
+                },
+                finishlist(){
+                    return this.list.filter(ele=>ele.isChecked=== true)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

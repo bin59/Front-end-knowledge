@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>localStorage和sessionStorage</title>
+</head>
+<body>
+    <!-- 
+        localStorage和sessionStorage是本地存储的方式(比cookie优秀)
+            特点:
+                普遍标准限制大小在5M左右(大小限制和不同浏览器有关)
+                键值对形式进行存储
+
+        localStorage 本地存储 
+            用于长久保留整个网页的数据，保存的数据没有过期时间,直到手动去除浏览器缓存
+
+            设置 localStorage.setItem(键名，键值)
+            获取 localStorage.getItem(键名)
+            删除 localStorage.removeItem(键名)
+
+        sessionStorage 会话存储
+            用于保存临时同一个窗口的数据，关闭窗口之后数据就会被删除
+
+            设置 sessionStorage.setItem(键名，键值)
+            获取 sessionStorage.getItem(键名)
+            删除 sessionStorage.removeItem(键名)
+     -->
+     <script>
+         localStorage.setItem("say","阿巴阿巴")
+         localStorage.setItem("obj",JSON.stringify({
+             "name":"zhubin"
+         }))
+         localStorage.setItem("imgObj",JSON.stringify({
+             "path":["01.png","02.png"]
+         }))
+         localStorage.removeItem("say")
+
+         console.log(localStorage.getItem("say"))
+         console.log(JSON.parse(localStorage.getItem("obj")))
+         console.log(JSON.parse(localStorage.getItem("imgObj")))
+
+
+         sessionStorage.setItem("aaa","aaaaassss")
+         console.log(sessionStorage.getItem("aaa"));
+
+     </script>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.box table{
+            width: 1000px;
+        }
+        .imgBox{
+            width:1000px;
+            /* 图片下面有空白，设置成块元素就可以去掉白边 */
+            display: block;
+        }
+        .form_header{
+            margin: 0px;
+            display: inline-block;
+            width: 70px;
+        }
+         .btn_box{
+            margin-left: 70px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <!-- 
+            认识form表单
+            form 表单的作用 ———— 实现对话
+            每个用户在浏览网页的时候，都会向后台索要数据，然后将获得的数据展示在浏览器上面。除了要索要数据之外，客户端有时也需要向后台发送一定的数据。
+            在没有JS的时候，表单是唯一能够实现客户端与服务端通信的工具。
+
+            1.可以用到form表单发送数据的场景
+                注册登录:
+                在一个表单中填写账号密码等信息，然后将信息发送到服务器。服务器收到这个数据过后，首先去数据库里面查询是否存在相同的账号，如果存在，就返回注册失败或者说账号已存在；数据库中不存在该账号，那就告知用户注册成功。
+    
+                搜索功能:
+                在很多网站，比如淘宝、京东、百度，当用户需要输入一些内容，之后点击搜索按钮就可以看到和这个内容相关的搜索结果。在这个过程中，就涉及到数据的发送与获取
+    
+            2.表达的基本结构：
+                一个可以和后台进行数据交互的表单，至少要包含 form表单主体、输入框、提交按钮。
+    
+                2.1 form表单的主体：
+                form 表单表示的是一个包含框，本身不存在任何实质性的显示内容。它主要的作用是负责数据的处理，包括对每个元素的数据采集、打包、发送到指定的服务器上。
+                    -action 属性：用于设置表单中的数据提交给谁，换句话说就是表单提交数据的目标文件。
+                        进行表单提交的目的是为了让后台对用户提交的数据进行处理。
+                    -method 属性：用于设置表单数据的提交方法，可以设置 GET POST 两个值。
+                        GET：比较常用的一个提交方法，用法简洁性好，以 明文发送数据（数据会通过地址栏传递），由于URL有一定的长度限制，所以说，用GET方法传递的数据是有限的；
+                        POST：安全性比GET请求好，因为是以 暗文发送数据(不通过地址栏传递)，并且这个是没有数据大小限制的。
+                            GET 请求时：
+                            file:///H:/binbin/bin/WEB_work/Web_Study/Web_Study/study/html%E3%80%81css%E3%80%81js/HTML%E3%80%81CSS/CSS.html?username=201707024228&password=qqq
+    
+                        在实际开发过程中，并不需要考虑到应该采用什么方法。因为具体的方法是有后端开发工程师来决定的。
+                        如果说这个接口可以用GET和POST
+    
+                    -enctype 编码类型：enctype属性用户设置表单中输入数据发送到服务器时，采用的编码类型。简而言之就是设置打包表单数据的方法。
+                        application/x-www-form-urllecoded:将表单中的数据编码成 键值对的形式发送给服务器；
+                        multipart/form-data:将表单的数据编码成 一条消息 ，每个表单域对应信息中的一个部分；
+                        text/plain:将表单中的数据编码成 纯文本 的格式，不太建议使用。
+    
+                            当编码类型为：application/x-www-form-urllecoded 时，数据发送的格式为：
+                            "username = lyan&password = 123321"
+    
+                            当编码类型为 multipart/form-data 时，数据发送的格式为：
+                            data = {
+                                    username = {"lyan"}
+                                    password = {"123321"}
+                                }
+                            这两种形式乍一看好像没有太大区别，但在JS中表达的类型确实完全不一样的，所以用到的处理方式也不同。
+                    
+                2.1 input 元素
+                文本、密码、提交、按钮、下拉框、单选框、复选框、文件、日期、搜索框、重置    
+    
+                常用的input属性
+                    * type：用来定义表单域的类型；
+                    * name：规定元素的名称，提交数据时，会作为键名的一个功能；
+                    * placeholder：占位符，也可以理解为提示信息；
+                    * value: 表单域的值；
+                    * readonly：只读，不能修改该属性；虽然是只读，但是提交数据时，会将该数据一并提交；
+                    * disabled：禁用，不能修改该属性；禁用后，该数据不会被提交到服务端；
+                    * checked：默认选中选择框，由于键名和键值相同，可以直接写为 checked；
+                    * required：必填项，提交表单的时候，该内容不能为空；
+                    * minlength：最小长度，内容的长度不能小于该属性设置的值；
+                    * maxlength：最大长度，内容长度不能大于该属性设置的值；
+                    * autocomplate：自动填充功能，配合 name 属性去使用的。
+         -->
+         <form action="./CSS.html" method="POST">
+            
+            <!-- 文本框 value="文本框的值" placeholder="占位符，也可以理解为提示信息"-->
+             <input type="text"  placeholder="占位符，也可以理解为提示信息" name="username"/><br>
+            
+             <!-- 密码框 所输入的值会默认替换为***或··· -->
+             <input type="password"   name="password" id="" /><br>
+             
+             <!--数值框 只能输入数值类型，不能输入字母和特殊符号，但是e是例外，所以后面的表单验证时，要排除e。并且浏览器带有步进箭头，可以控制增加或者减小。
+                    min:允许的最小值
+                    max:允许的最大值
+                    step:控制箭头增量或减量的大小
+             -->
+             <input type="number"  min="10" max="100" step="5"><br>
+    
+             <!-- 单选框 type="radio 代表该元素显示为单选框，在表现上是一个空心圆的选择框. 同一组选项数据的name值要相同，如下csgo和吃饭都为name="hobby"，如果-->
+             <input type="radio" name="hobby" value="csgo"/>csgo <br/>
+             <input type="radio" name="hobby" id="eat" value="吃饭"/>
+             <label for="eat">吃饭</label><br/>
+    
+             <!-- checked默认选中 -->
+             <input type="text" name="hobby" value="睡觉" checked>睡觉 <br>
+    
+             <!--label 标签 ：通过label标签可以将文字与对应的表单域绑定
+                label标签是用来定义表单控制间的关系，当用户选择该标签时，
+			浏览器会自动将焦点转到和标签相关的表单控件上。
+            
+                 第一种方法：通过表单的id属性，与label标签的for属性进行绑定，此时用户点击文字系统会自动把对应的表单域聚焦
+                    缺点：容易造成id的滥用,后期开发可能id重复，书写也麻烦
+                 第二种方法用label标签包裹文本与表单域，如果包含了多个表单域，那所有文本只会聚焦到第一个表单域上
+
+             -->
+    
+             <!-- 复选框：type="checkbox" 代表该元素显示为复选框，在表现上是一个空心方形的选择框。 -->
+             <label><input type="checkbox" name="habit" id="" value=""/>csgo <br/></label>
+             <label><input type="checkbox" name="habit" id="" value=""/>吃饭 <br/></label>
+             <label><input type="checkbox" name="habit" id="" value=""/>睡觉 <br/></label>
+    
+             <!-- 文件域  
+                type="file" ：表示该元素以文件域的形式显示，它的作用就是将计算机上的资源发送到服务器。
+                必须要设置 method="POST" multipart/form-data。否则表单数据将会提交失败。
+                multiple 该属性决定了用户是否可以上传多个文件
+                file：这个属性可以规定用户只能上传某种类型的文件
+            -->
+             <input type="file" id="" name="" multiple>
+    
+             <!-- 提交按钮 -->
+             <input type="submit" value="提交">
+             <!-- 重置按钮 -->
+             <input type="reset" value="重置">
+             <!-- 普通按钮  没有任何特殊功能 基本要配合JS去实现自定义功能-->
+             <input type="button">
+
+            <!-- 下拉菜单 -->
+            <!-- select 标签用于定义下拉菜单或者列表框。-->
+             <select>
+                <!-- selected：表示默认情况下选中的元素。 -->
+                <option value="" selected></option>
+                <option></option>
+                <option></option>
+            </select>
+
+            <!-- optgroup` 元素用于在下拉菜单中定义分组选项，再通过 `label` 属性去定义分组名称； -->
+            <select>
+                <optgroup label="xxx">
+                    <option></option>
+                </optgroup>
+            </select>
+         </form>
+         <br><hr>
+    
+
+         <form action="./CSS.html" method="GET">
+            <!-- required 必填项，提交时不能为空，后面通过JS实现 -->
+             <input type="text" name="username" required minlength="6" maxlength="20"/><br>
+    
+             <!-- readonly:只读属性 -->
+             <input type="text" name="mail" value="qq.com" readonly/><br>
+             <!-- disabled 禁用属性-->
+             <input type="text" name="mail" value="qq.com" disabled/><br>
+    
+
+            <select name="province" id="">
+                <optgroup label="广州市">
+                    <option value="1">1</option>
+                    <option value="1">2</option>
+                </optgroup>
+                <optgroup label="深证市">
+                    <option value="2">1</option>
+                    <option value="2">2</option>
+                </optgroup>
+            </select>
+    
+            <!-- button作为按钮，标签内部的内容，会作为按钮的内容去显示，可以是一段文字，也可以是一张图片。
+                    type:button、reset、submit。如果说不设置type属性的值，一般主流浏览器都会默认用作submit提交按钮
+            -->
+            <button>
+                <img src="..../picture/binbin.jpg" alt="">
+            </button>
+            <br>
+    
+            <!-- textarea：用于设置多行文本
+                textarea 标签一般用于设置**多行文本**，如果说需要用户输入大量的数据，就可以考虑该标签。比如：论坛的回复模块、网购的评价模块等。
+                wrap属性
+                    * virtual：默认值，当内容大于文本区域时，会自动换行，但是自动换行当位置不包含换行符；
+                    * physical：当内容大于文本区域时，会自动换行，但是会记录下换行符，提交信息时，也会将换行符进行提交；
+                    * off：当内容超出文本区域时，不会触发自动换行，取而代之的是页面滚动条；
+            -->
+            <form action="" method="GET">
+                <textarea name="" id="" cols="30" rows="10" wrap="off"></textarea><br>
+                <input type="submit">
+            </form>
+            <br>
+    
+            <input type="submit" value="提交">
+        </form>
+        <hr><br>
+    
+        <!-- 用户注册页面练习 -->
+        <p><b>用户注册页面</b></p> 
+        <form action="./registerok.html" method="POST">
+            <table>
+                <tr><td>用户名： </td><td><input type="text" name="username" id="" value=""></td></tr>
+                <tr><td>密&nbsp;码： </td><td><input type="text" name="username" id="" value=""></td></tr>
+                <tr><td>确认密码：</td><td><input type="text" name="password" id="" value=""></td></tr>
+                <tr><td>性别：</td><td><label><input type="radio" name="sex" value="男">男</label>
+                        <label><input type="radio" name="sex" value="女">女</label></td></tr>
+                 <tr><td>爱好：</td><td><label><input type="checkbox" name="hobby" value="听音乐">听音乐</label>
+                    <label><input type="checkbox" name="hobby" value="看电影">看电影</label>
+                    <label><input type="checkbox" name="hobby" value="玩游戏">玩游戏</label></td></tr>
+                <tr><td> 你所在的城市：</td><td>
+                    <select name="" id="">
+                        <option value="1" selected>广州市</option>
+                        <option value="2">深圳市</option>
+                    </select> 
+                </td></tr>
+                <tr><td>照片：</td><td><input type="file" id="" name="" value="照片" multiple></td></tr>
+                <tr><td>个人简介：</td><td><textarea name="" id="" cols="30" rows="10"></textarea></td></tr>
+                <tr><td></td><td><input type="submit" value="提交">
+                <input type="reset" value="重置"></td></tr>
+            </tr>
+        </table>
+        </form>
+        <br>
+        <hr>
+
+        <!-- 企业站练习 -->
+        <div class="box">
+            <div class="header">
+                <img src="./picture/form_picture/logo.jpg" alt="">
+            </div>
+            <div class="content">
+                <table border="1" cellspacing="0" cellpadding="0">
+                    <tbody>
+                        <!-- 导航栏 -->
+                        <tr height="50px">
+                            <th width="100px"><a href="./index.html">首页</a></th>
+                            <th><a href="#company">公司简介</a></th>
+                            <th><a href="./news.html">新闻资讯</a></th>
+                            <th><a href="./project.html">产品中心</a></th>
+                            <th><a href="./tel.html">联系我们</a></th>
+                        </tr>
+                        <tr>
+                            <td colspan="5"><img class="imgBox" src="./picture/form_picture/banner.jpg" alt="banner" ></td>
+                        </tr>
+                        <!-- 登录注册页面 -->
+                        <tr height="120px">
+                            <td colspan="2">
+                                <form action="./login.html" >
+                                    <!-- 每一个input加上div包裹住 -->
+                                    <!-- 用户名 -->
+                                    <div class="username">
+                                        <!-- 给用户名和密码设置固定的宽度，后面的输入框紧跟着就会自动对齐 -->
+                                        <p class="form_header">用户名：</p>
+                                        <input type="text" name="" id="" />
+                                    </div>
+                                    <!-- 密码 -->
+                                    <div class="password">
+                                        <p class="form_header">密码：</p>
+                                        <input type="password" name="" id="" />
+                                    </div>
+                                    <div class="btn_box">
+                                        <button>登录</button>
+                                        <button type="reset">重置</button>
+                                    </div>
+                                    <!-- 我写的...... -->
+                                    <!-- <table>
+                                        <tr><td>用户名：</td><td><input type="text" name="username" id="" value=""></td></tr>
+                                        <tr><td>密&nbsp;码：</td><td><input type="text" name="password" id="" value=""></td></tr>
+                                        <tr>
+                                            <td></td>
+                                            <td><input type="submit"  value="登录"><input type="submit"  value="重置">
+                                        </td></tr>
+                                    </table> -->
+                                </form>
+                            </td>
+                            <!-- 新闻列表区域 -->
+                            <td colspan="3">
+                                <ul>
+                                    <!-- 文字和时间是不一样的类型，要分开写 -->
+                                    <li><span class="news_title">韩国军舰爆炸沉海&nbsp;军方分析或因内部爆炸&nbsp;</span><span class="news_time">2010-03-27&nbsp;16:42</span></li>
+                                    <li><span>韩国军舰爆炸沉海&nbsp;军方分析或因内部爆炸&nbsp;</span><span>2010-03-27&nbsp;16:42</span></li>
+                                    <li><span>韩国军舰爆炸沉海&nbsp;军方分析或因内部爆炸&nbsp;</span><span>2010-03-27&nbsp;16:42</span></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <!-- 图片展示区域 -->
+                        <tr>
+                            <td><img src="./picture/form_picture/4.gif" alt=""></td>
+                            <td><img src="./picture/form_picture/5.gif" alt=""></td>
+                            <td><img src="./picture/form_picture/6.gif" alt=""></td>
+                            <td><img src="./picture/form_picture/7.gif" alt=""></td>
+                            <td><img src="./picture/form_picture/8.gif" alt=""></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="company">
+                <a href="#article">跳转到段落AAA</a>
+                    <p>中国房地产开发集团公司于 1981年1月16日经国务院批准组建， 是全国成立最早的房地产开发企业 。原名为中国房屋建设开发公司， 1987年11月更名为中国房地产开发总公司。1993年1月，经国务院批准，更名为中国房地产开发集团公司，并以该公司为核心组建中国房地产开发集团， 是国有独资企业。国家建设部副部长萧桐、杨慎，建设银行王岐山曾在公司第一、二届董事会中任董事长和副董事长。 XX年4月国务院国资委任命了新一届领导班子 。XX 年 10 月 10 日由国资委任命新一届董事会，董事会由九人组成，分别为：董事长甄少华，董事：徐立鹏、王江涛、张青林、任传俊、范晓复、潘崇义、于长春、赵如冰。经营班子由五人组成，分别为：总经理徐立鹏，副总经理沈东进、陈忠发、韩旭升、诸一军。</p>
+                    <p>中国房地产开发集团公司于 1981年1月16日经国务院批准组建， 是全国成立最早的房地产开发企业 。原名为中国房屋建设开发公司， 1987年11月更名为中国房地产开发总公司。1993年1月，经国务院批准，更名为中国房地产开发集团公司，并以该公司为核心组建中国房地产开发集团， 是国有独资企业。国家建设部副部长萧桐、杨慎，建设银行王岐山曾在公司第一、二届董事会中任董事长和副董事长。 XX年4月国务院国资委任命了新一届领导班子 。XX 年 10 月 10 日由国资委任命新一届董事会，董事会由九人组成，分别为：董事长甄少华，董事：徐立鹏、王江涛、张青林、任传俊、范晓复、潘崇义、于长春、赵如冰。经营班子由五人组成，分别为：总经理徐立鹏，副总经理沈东进、陈忠发、韩旭升、诸一军。</p>
+                    <p>中国房地产开发集团公司于 1981年1月16日经国务院批准组建， 是全国成立最早的房地产开发企业 。原名为中国房屋建设开发公司， 1987年11月更名为中国房地产开发总公司。1993年1月，经国务院批准，更名为中国房地产开发集团公司，并以该公司为核心组建中国房地产开发集团， 是国有独资企业。国家建设部副部长萧桐、杨慎，建设银行王岐山曾在公司第一、二届董事会中任董事长和副董事长。 XX年4月国务院国资委任命了新一届领导班子 。XX 年 10 月 10 日由国资委任命新一届董事会，董事会由九人组成，分别为：董事长甄少华，董事：徐立鹏、王江涛、张青林、任传俊、范晓复、潘崇义、于长春、赵如冰。经营班子由五人组成，分别为：总经理徐立鹏，副总经理沈东进、陈忠发、韩旭升、诸一军。</p>
+            </div>
+        </div>     
+</body>
+</html>

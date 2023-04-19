@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        优点：Dreamweaver，可视化操作的方式去自动生成table布局类型的网页，操作简单、特别容易上手。
+另一方面，table表格布局对所有浏览器的兼容性特别的好，布局错乱的问题就特别少。
+        缺点：table布局最大的缺点就是容易导致网页的嵌套程度特别深，容易导致网页的代码量特别大。从SEO上来说，如果关键的信息放在这个table表格里面去展示，是不利于SEO的。最开始就是用来展示数据，而非用来布局的一个工具。
+
+        table的基本标签：
+            table：定义一个表格；
+            caption：表格的标题；
+            thead：表格当中的头部区域；
+            tbody：表格的主体内容区域；
+            tfoot：定义表格的尾部区域；
+            tr：定义一个表格行；
+            th：定义一个表头单元格；
+            td：定义一个表格单元格；
+            colgroup:定义一个列分组
+            col:指定某一列的样式或者属性值（单标签）
+               span：代表col占了多少列
+
+            table单元格的属性：
+                width:整个数据表的宽度(table表格)
+                height:整个数据表的宽度
+                border:定义表格边框的宽度，取值为0时代表隐藏边框线；
+                cellpadding:定义数据表单元格与边框之间的距离；
+                cellspacing:定义数据表单元格的边界，也就是单元格与单元格之间的距离。
+
+            表格元素的一些问题
+            2.1 caption 它是否是必须要写的？
+            这个标签并不是必须的。对于一个数据表来说，标题可存在也可不存在。caption 是完全可以省略的。h2、h3。
+
+            2.2 tbody thead tfoot 元素是否必须书写？
+            它们都是非必须书写的。数据表可能存在表头、表尾，也可能不存在这些元素，完全根据需求去决定的。tbody 也是可有可无，现在主流的浏览器都会自动为数据内容区域添加 `tbody` 标签。开发时尽量还是带上 `tbody` 。
+
+            2.3 tbody thead tfoot 元素的顺序能改变吗？
+            完全可以改变。浏览器会读取到对应的标签名，然后**智能地**将标签放在合适的位置
+     -->
+     <!-- 基本格式 -->
+     <table>
+        <tr>
+            <td></td>
+        </tr>
+    </table>
+
+    <!-- 
+        嵌套规则：
+           table 元素下只能包含 caption thead tbody tfoot col colgroup，
+           thead tbody tfoot 下面可直接包含tr 
+           tr 下面包含 th 和 td；
+
+       td和thead中th的区别？
+   
+       table的宽度与高度：
+           宽高的值，可以用px来表示，也可以纯数字。
+           在默认情况下，表格的宽度是由内容去撑开的，border边框、边距的值。
+           如果单独设置了 width 属性去定义表格宽度，那么里面单元格的宽度将会自动分配，直到加起来的宽度等于设置的宽度。
+           注意事项：当内容的实际宽度超过了 width 设置的值，table 表格会忽略掉 width 值，由内容去撑开实际宽度。
+
+       table 单元格合并：
+           行合并：rowspan；
+           列合并：colspan；
+           属性值是数字，表示的是合并的行数和列数；
+           需要注意的是，合并单元格并不是真正意义上的合并，而是将自身的大小进行了一个拓展；
+           合并的方向：从左往右，从上往下去合并（拓展）。                             
+     -->
+     <!-- 
+         如何让第一列width:50px，第二列～第四列200px，第五列由内容撑开 
+           colgroup:定义一个列分组
+           col:指定某一列的样式或者属性值（单标签）
+               span：代表col占了多少列
+       -->
+     <table border="2" align="center" cellspacing="0" cellpadding="10" >
+       <colgroup>
+           <col span="1" width="50px"/>
+           <col span="3" width="200px"/>
+           <col span="1" >
+       </colgroup>
+         <!-- tr>td{$}*5 -->
+       <tr>
+           <td>第1行第1列</td>
+           <td>第1行第2列</td>
+           <td>第1行第3列</td>
+           <td>第1行第4列</td>
+           <td>第1行第5列</td>
+       </tr>
+       <tr>
+           <td>第2行第1列</td>
+           <td colspan="3" rowspan="2">合并的单元格</td>    
+           <td>第1行第5列</td>
+        </tr>
+        <tr>
+            <td>第3行第1列</td>
+            <td>第3行第5列</td>
+        </tr>
+        <tr>
+            <td>第4行第1列</td>
+            <td>第4行第2列</td>
+            <td>第4行第3列</td>
+            <td>第4行第4列</td>
+            <td>第4行第5列</td>
+        </tr>
+   </table>
+
+    <table border="1"  align="center"  bordercolor="blue" cellspacing="2" cellpadding="5">
+        <caption>课程表</caption>
+        <thead>
+            <tr>
+                <th>项目</th>
+                <th colspan="5">上课</th>
+                <th colspan="2">休息</th>
+            </tr>
+            <tr>
+                <th>星期</th>
+                <th>星期一</th>
+                <th>星期二</th>
+                <th>星期三</th>
+                <th>星期四</th>
+                <th>星期五</th>
+                <th>星期六</th>
+                <th>星期日</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="4">上午</td>
+                <td>语文</td>
+                <td>数学</td>
+                <td>英语</td>
+                <td>英语</td>
+                <td>物理</td>
+                <td>计算机</td>
+                <td rowspan="4">休息</td>
+            </tr>
+            <tr>
+                <td>数学</td>
+                <td>数学</td>
+                <td>地理</td>
+                <td>历史</td>
+                <td>化学</td>
+                <td>计算机</td>
+
+            </tr>
+            <tr>
+                <td>化学</td>
+                <td>语文</td>
+                <td>体育</td>
+                <td>计算机</td>
+                <td>英语</td>
+                <td>计算机</td>
+            </tr>
+            <tr>
+                <td>政治</td>
+                <td>英语</td>
+                <td>体育</td>
+                <td>历史</td>
+                <td>地理</td>
+                <td>计算机</td>
+            </tr>
+            <tr>
+                <td rowspan="2">下午</td>
+                <td>语文</td>
+                <td>数学</td>
+                <td>英语</td>
+                <td>英语</td>
+                <td>物理</td>
+                <td>计算机</td>
+                <td rowspan="2">休息</td>
+            </tr>
+            <tr>
+                <td>数学</td>
+                <td>数学</td>
+                <td>地理</td>
+                <td>历史</td>
+                <td>化学</td>
+                <td>计算机</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

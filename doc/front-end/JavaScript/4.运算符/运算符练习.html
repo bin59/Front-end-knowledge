@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var bar = true,
+            number = 0;
+        console.log(bar + 0);//1
+        console.log(bar + "xyz");//truexyz
+        console.log(bar + true);//2
+        console.log(+true);//1
+        console.log(!'bluej');//false
+        console.log(number++);//0
+        console.log(++number);//2
+        console.log(number);//2
+
+        //练习，输入A,B,相加输出结果
+        let A = prompt("请输入数字A");
+        let B = prompt("请输入数字B");
+
+        alert("A+B的结果=" + A+B);//错误，输出的是字符串，"A+B的结果="是字符串  ，  + 连接字符串
+        alert("A+B的结果=" + (A+B));//错误，输出的还是是字符串，输入的A、B是字符串
+
+        // 方法一
+        // let sum = Number(A) + Number(B);
+        // alert("A+B的结果="+ sum);
+        // 方法二
+        // // alert("A+B的结果="+ +A + +B);//错误，还是字符串想
+        // alert("A+B的结果="+ (+A + +B));//()优先级高，先计算（）里面的
+        // 方法三
+        // alert("A+B的结果="+(A -= (-B)));//减号转换为数字
+
+        // 1.需求：要求用户输入一个整数，判断这个数是否在100~200之间的数
+        // let num = prompt("请输入一个整数");
+        // let Num = num >=100 && num <= 200
+        // alert(Num?"在100~200之间" : "不在100~200之间");
+
+    </script>
+</body>
+</html>

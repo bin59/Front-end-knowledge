@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ol type="I">
+        <li>列表01</li>
+        <li>列表02</li>
+        <li>列表03</li>
+        <li>列表04</li>
+        <li>列表05</li>
+    </ol5>
+    <script src="../../libraries/jq/jQuery v 3.6.0.js"></script>
+    <script>
+        let arr=[1,2,3,4,5,67,8],
+            obj={
+                id:1,
+                name:'小黑'
+            }
+        $.each((idx,val)=>{
+            console.log(idx,val)
+        })
+
+        $('ol>li').eq(0).css('background','green')
+        $('ol>li').eq(3).css({
+            'background':'red',
+            'color':'#fff'
+        })
+
+        let res
+        res = $('ol>li').filter((idx)=>{
+            return idx == 2
+        })
+        res.css('background','green')
+    </script>
+
+</body>
+</html>

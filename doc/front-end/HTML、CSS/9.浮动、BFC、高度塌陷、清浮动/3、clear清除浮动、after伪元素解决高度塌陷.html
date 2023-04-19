@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9.1clear清除浮动</title>
+    <style>
+    /* 一、clear清除浮动 */
+        .box{
+            background-color: rgb(240, 201, 154);
+            font-size: 50px;
+            margin-bottom: 150px;
+        }
+        .box1{ 
+            width: 200px;
+            height: 200px;
+            background-color: rgb(52, 141, 214);
+            float:left;
+            /* overflow: hidden; */
+        }
+        .box2{ 
+            width: 300px;
+            height: 300px;
+            background-color: rgb(126, 226, 226);
+            float:right;
+        }
+         /* 
+            如果希望实现子元素的浮动布局，但是又希望父级元素由内容撑开高度时，又或者不希望影响其他后面的兄弟元素，
+        这时就需要对浮动元素进行一个微操，这些微操的主要目的是清除浮动带来的影响。
+
+            由于box1的浮动，导致box3位置上移
+                也就是box3受到了box1浮动的影响，位置发生了改变
+            如果我们不希望某个元素因为其他元素浮动的影响而改变位置，
+            可以通过clear属性来清除浮动元素对当前元素所产生的影响
+
+            clear:
+                清除浮动元素对当前元素所产生的影响
+
+                left  清除左侧浮动元素对当前元素的影响
+                right  清除右侧浮动元素对当前元素的影响
+                both  清除两侧中最大影响的那一侧
+
+                原理：设置清除浮动以后，浏览器会自动为元素添加一个上外边距，以使其位置不受其他元素的影响
+            */
+
+        /* 如果通过空标签设置clear，但是有很多弊端，会添加很多大量的无语义标签 */
+        /* .clear{
+            clear: both;
+        }     */
+        .box3{ 
+            width: 100px;
+            height: 100px;
+            background-color: rgb(129, 226, 126);
+            /* box2注释掉以后，受到box1的影响 */
+            /* clear:left; */
+            /* 有box2，受到box1和box2两个浮动元素对他的影响 */
+            /* clear:right; */
+            clear:both;
+        }
+
+        /* 并非所有浮动元素的兄弟元素都要设置clear属性，只需要在浮动的下一个元素上加clear就行，后面的也就不会受到影响
+            如在box3上设置clear，后面的box4就不用设置，而且box的高度也被撑起来 */
+        /* 如果希望在第二个元素（浮动元素)与第三个元素〈正常元素)之间有一定的间距，给第三个元素添加margin-top 来实现间距的话会失效(会和上方空白处叠加)，
+            这时可以给浮动元素添加margin-bottom来消除这种影响。
+*/
+        .box4{
+            width: 100px;
+            height: 100px;
+            background-color: rgb(48, 167, 44);
+            /* float: right; */
+        }
+        /* 前面一个元素box3设置了clear:both后，后面的元素box4右浮动时的情况？ */
+
+    /* 二、使用after伪元素解决高度塌陷 */
+        .boxA{ 
+           border: 10px red solid;
+           margin-bottom: 150px;
+
+           /* （注释boxC）通过开启BFC方式解决，但是会存在一些缺陷，这里不会出现，但是在一些特定的场景会出现  并不是最完美 */
+           /* overflow: hidden; */
+        }
+        .boxB{ 
+            width: 100px;
+            height: 200px;
+            background-color: rgb(126, 226, 226);
+            float:left;
+        }
+
+        /* 
+            box3没有脱离文档流，box1就被box3撑开，box3清除了box2对他的影响，出现在box2下面，
+            所以box1就会随着box2的高度改变（实际上是被box3撑开的，box3有上边距）
+        */
+        /* .boxC{ 
+           clear:both;
+        } */
+        
+        .boxA::after{
+            /* content: 'hello'; */
+            content: '';
+            /* 
+                默认after伪元素是一个行内元素不独占一行，清除了浮动的影响也看不出效果，
+                需要转换为块元素，同理hello没用直接去掉 
+            */
+            display: block;
+            clear: both;
+        }
+
+
+        
+/* 三、clearfix */
+        .boxa{
+            width: 200px;
+            height: 200px;
+            background-color: bisque;
+        }
+        .boxa::before{
+            content: '';
+
+            /* block不起作用 */
+            /* display: block; */
+
+            /* inline-block也不行，还会多出一部分 */
+            /* display: inline-block; */
+
+            /* table完美解决外 */
+            /* display: table; */
+        }
+        .boxb{
+            width: 100px;
+            height: 100px;
+            background-color: rgb(63, 179, 224);
+            /*
+                外边距重叠
+                    父子元素相邻外边距，子元素的会传递给父元素（上外边距）,即box1随着box2下移 
+                可以用伪元素，把box1和box2隔开
+             */
+            margin-top: 100px;
+        }
+
+        /* 
+        伪元素清除浮动的实际应用:由于清除浮动会广泛存在于页面开发中，因为为了不书写大量重复的代码，所以一般
+            会将清除浮动的代码通过一个类名来设置保存于样式重置文件中，然后在多个地方进行复用
+            clearfix 这个样式可以同时解决高度塌陷和外边距重叠的问题，当你遇到这些问题时，直接使用clearfix这个类即可 
+        */
+        .clearfix::before,
+        .clearfix::after{
+            content: '';
+            /* block和table都可以解决高度塌陷的问题，但是table既可以解决高度塌陷又可以解决外边距重叠的问题，所以直接使用table*/
+            display: table;
+            /* height为0是为了防止高度对其他页面 布局产生影响 */
+            height: 0;
+           
+            clear: both;
+            /* 使生成的内容不可见，并允许可能被生成内容盖住的内容可以进行点击和交互 */
+            visibility: hidden;
+        }
+        .clearfix{
+            /*为IE6，7的兼容性设置*/
+            zoom: 1; 
+             /* after伪类，触发IE下haslayout,使元素根据自身内容计算宽高，它的效果和height:1%一样。 */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- <div class="box">
+        <div class="box1">1</div>
+        <div class="box2">2</div>
+        <div class="box3">3</div>
+           <div class="clear"></div>
+        <div class="box4">4</div>
+    </div>
+  -->
+
+
+    <!-- <div class="boxA">
+
+        <div class="boxB"></div> -->
+
+        <!-- 
+            box3 高度塌陷是属于表现上（css）的问题，div是html上的一个结构（html），这里等于用结构处理表现上的问题。
+            虽然可以解决问题，但是凭空在页面上加了一个标签，这样有点不合适，
+            我们希望css的问题由css自己解决，所以把box3删了,通过after伪元素解决
+        -->
+        <!-- <div class="boxC"></div> -->
+    <!-- </div>   -->
+
+
+    <!-- clearfix  -->
+    <div class="boxa clearfix">
+    <!-- <div class="boxa"> -->
+        <div class="boxb"></div>
+    </div>
+
+</body>
+</html>

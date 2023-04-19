@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cookie</title>
+</head>
+<body>
+    <!--
+         Cookie 用于存储 web 页面的用户信息。
+         
+         浏览器在本地按照一定规律存储一些文本字符串(cookie)，每当浏览器向服务器发送
+         请求的携带这些字符，服务器就会根据字符串去判断浏览器的信息(状态)，比如登录、
+         订单、浏览记录。服务器就可以根据不同的cookie识别出不同的用户信息
+
+         特点：
+            可以设置cookie过期时间
+            限制大小为4kb左右，超出部分会被裁切
+    -->
+    <script>
+
+        //1.创建Cookie
+        document.cookie="name=zhubin; id=1; token=60fcfdhfhifjoiforoijo"
+        // 2.读取 Cookie
+        // 将以字符串的方式返回所有的cookie类型格式（;后面有一个空格）： name=zhubin; id=1; token=60fcfdhfhifjoiforoijo; expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/; UM_distinctid=17b1aaf3b4b7f2-0dadf39015f586-4343363-144000-17b1aaf3b4c867; CNZZDATA1259441963=1331519350-1628235365-%7C1628235365; CNZZDATA1266957935=729627005-1629447005-%7C1629447005
+        // console.log(document.cookie)
+
+
+        // 3.设置过期时间（UTC或GMT时间）
+        // expires过期时间(浏览器的默认是session也就是当前会话时间，cookie 在浏览器关闭时删除)
+        // toUTCString世界统一时间(世界标准时间)，简称UTC
+        let t = new Date(new Date().getTime()+ 5000).toUTCString()
+        document.cookie = `timeout=5秒后过期; expires=${t}`
+        setTimeout(()=>console.log(document.cookie),5000)
+
+
+        document.cookie="expires=Mon, 27 Sep 2021 16:02:00 GMT" 
+        
+        
+
+        // 4.设置访问（cookie共享域名）域名   domain= 域名
+        document.cookie="domainName=cookie共享域名; domain=localhost"
+
+        // 5.使用 path 参数告诉浏览器 cookie 的路径。默认情况下，cookie 属于当前页面。
+        document.cookie="say:zhubin666; path=/front-end/technology/JavaScript/16.cookie/test.html"
+
+        
+        // 6.获取cookie存储为对象
+        console.log( getCookie(document.cookie));
+        function getCookie(data){
+              // forEach()方法
+            let obj = {}
+            data.split("; ").forEach(val => 
+                obj[val.split("=")[0]] = val.split("=")[1]
+            )
+            return obj
+
+            // reduce()方法
+            // return data.split("; ").reduce(function (total, item, idx) {
+            //     total[item.split("=")[0]] = item.split("=")[1];
+            //     return total
+            // }, {});
+
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+@charset "UTF-8";
+*{
+    margin: 0;
+    padding: 0;
+}
+
+@function vw($vw){
+    @return $vw/750*100/2+vw;
+}
+
+.box1{
+    width:vw(250);
+    height:100px ;
+    background-color: aqua;
+}

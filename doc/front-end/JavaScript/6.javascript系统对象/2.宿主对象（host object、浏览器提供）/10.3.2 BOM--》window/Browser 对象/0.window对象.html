@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">跳转</button> 
+    <p>1111</p>   
+
+
+    <script>
+        /**
+        window对象方法(window.xxxx     window可省略不写)
+            alert()      信息提示框
+            prompt()     输入框
+            confirm()    确认取消框         
+            event || window.event(IE要写window)
+
+            定时器  (都是异步任务)
+                setTImeout 延时定时器（一次性定时器）
+                setInterval  重复定时器按指定周期（毫秒数）来调用函数，直到被关闭
+                clearInterval 停止定时器 
+                clearTimeout 停止定时器
+                    定时器编号：就是定时器返回的值（正整数）  浏览器自动排的
+
+            Location对象   Window 对象的一个部分，可通过 window.location属性来访问
+            
+            navigator对象  包含有关访问者浏览器的消息
+                navigator.platform    返回操作系统类型
+                navigator.appName     浏览器名称
+                nav1gator.appversion  浏觅器版本
+                navigator.language    浏览器设置的语言
+                navigator.userAgent   浏览器设置User-Agent字符串，浏览器User-Agent信息
+
+        ·   screen对象 包含有关访问者浏览器的屏幕消息
+                screen.width 返回屏幕的总宽
+                screen.height 返回屏幕的总高
+                screen.availwidth 不包括wifdow任务栏  
+                screen.availHeight 不包括wifdow任务栏 
+                screen.colorDepth 返回目标设备调色板的比特深度
+                screen.pixelDepth 每像素的位数（返回屏幕的颜色分辨率）
+
+            history对象 包含有关访问者浏览器的历史记录
+                length 返回历史列表中的网址数   （IE、Opera都是从0开始）
+                history.back( )  返回上一页(前一个历史记录)
+                history.forward() 返回下一页(后一个历史记录)
+                history.go(数量)  返回某个具体页面(正数前进,负数后退)
+
+        */
+
+        // alert("222");//  确认
+        // confirm("111");//  确认，取消
+
+        // prompt() 输入框
+        /*
+            输入对话框：prompt（”提示信息”，默认值）
+            输入框：根据提示要输入的信息
+
+            确定：得到输入的至 或者 默认值 （值的类型是String类型）   _name != ""  可以点击确定不弹出
+            取消：得到的是null（值的类型是object类型）  _name !=null可以点击取消不弹出
+
+            注意：prompt中的默认值是可选值，推荐大家写上，（兼容性的问题）；
+            实际当中少用
+        */
+
+
+        // navigator对象
+        console.log(navigator.platform);//Win32
+        console.log(navigator.appName);//Netscape
+        console.log(navigator.appVersion);//5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36
+        console.log(navigator.language);//zh-CN
+        console.log(navigator.userAgent);//Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36
+       
+
+        //判断浏览器是否是IE浏览器    IE10 我是IE浏览器     IE11以后也会显示  我不是IE浏览器
+        if(window.navigator.userAgent.indexOf ("MSIE") != -1) {
+            console.log("我是IE浏览器");
+            }else {
+            console.log("我不是IE浏览器");
+        }
+
+        //  screen对象
+        console.log(screen.width); //1536
+        console.log(screen.height); //864
+        console.log(screen.availWidth); //1536
+        console.log(screen.availHeight);//任务栏隐藏时864   隐藏时834
+        console.log(screen.colorDepth);//24
+        console.log(screen.pixelDepth);//24
+
+        // history对象
+        console.log(history.length);
+
+        document.getElementById("btn").addEventListener("click",()=>{
+            location.href="file:///H:/binbin/bin/web/study/front-end/technology/JavaScript/10.javasc%E7%B3%BB%E7%BB%9F%E5%AF%B9%E8%B1%A1/3.%E5%AE%BF%E4%B8%BB%E5%AF%B9%E8%B1%A1%EF%BC%88%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%90%E4%BE%9B%EF%BC%89/10.3.2%20BOM/Browser%20%E5%AF%B9%E8%B1%A1/test.html";
+       
+        });
+
+
+      
+
+
+
+    </script>
+    
+</body>
+</html>

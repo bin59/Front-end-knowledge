@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .baba{
+            width: 500px;
+            height: 500px;
+            background-color: rgb(236, 112, 112);
+        }
+        .son{
+            width: 300px;
+            height: 300px;
+            background-color: rgb(231, 166, 25);
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 不推荐v-on:click='直接写js操作' ,
+            这样写v-on:click=‘事件处理函数名’，一定要放在methods中-->
+        <!-- 
+            关于事件对象的获取，需要分情况:
+                1.如果事件处理函数没有参数的传递，直接在函数的定义中设置参数e,即可获取
+                2.如果事件处理函数中涉及参数的传递，多设置一个$event的参数进行传递即可
+         -->
+         <!-- v-on:的简写 @    v-bind: 的简写 :  ，如，:class-->
+        <button @click='handler(1,$event)'>点击</button>{{count}}
+        
+        <!-- 
+            事件修饰符 
+            .stop
+            .prevent
+            .capture
+            .self
+            .once
+            .passive
+        -->
+        <!-- 如下点击son，baba也会触发,加修饰符就可以阻止 -->
+        <div class="baba" @click='babaHandler'>
+            <div class="son" @click.stop='sonHandler'></div>
+        </div>
+
+        <!-- 
+            keyup
+            一些常用的按键 
+            .enter
+            .tab
+            .delete (捕获“删除”和“退格”键)
+            .esc
+            .space
+            .up
+            .down
+            .left
+            .right
+        -->
+        <input type="text" v-model='ipt'  @keyup.enter="keyUp">{{ipt}}
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                count:0,
+                ipt:''
+            },
+            methods: {
+                handler(i,e){
+                     this.count++
+                     console.log(i,e);
+                },
+                babaHandler(){
+                    alert('baba')
+                },
+                sonHandler(){
+                    alert('son')
+                },
+                keyUp(e){
+                    console.log(e.target.value);
+                    this.ipt=e.target.value
+                }
+            }
+        })
+    </script>
+</body>
+</html>

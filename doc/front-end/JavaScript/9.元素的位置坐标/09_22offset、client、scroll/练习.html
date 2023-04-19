@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        div {
+            width: 127px;
+            height: 127px;
+            background-color: rgba(0, 0, 0, .5);
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+
+    <script>
+        let mask = document.querySelector("div");
+
+        document.addEventListener("mousemove", function (e) {
+            // console.log(e.clientX, e.clientY);
+
+            let x = e.clientX - mask.offsetWidth / 2;
+            let y = e.clientY - mask.offsetHeight / 2;
+
+            mask.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    </script>
+</body>
+
+</html>

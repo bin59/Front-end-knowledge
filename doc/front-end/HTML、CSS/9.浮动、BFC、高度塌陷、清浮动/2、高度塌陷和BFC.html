@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9.浮动、高度塌陷和BFC</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        /* 高度塌陷和BFC */
+        .outer{
+            border:10px peru solid;
+
+            /* 
+            BFC(Block Formattomg Context)块级格式化环境
+                -BFC是一个CSS中的一个隐含元素的属性，可以为一个元素开启BFC，该元素会变成一个独立的布局区域
+                -元素开启BFC的特点：
+                    1.开启BFC的元素不会被浮动元素所覆盖；
+                    2.开启BFC的元素子元素和父元素外边距不会重叠；(父子元素相邻外边距，子元素的会传递
+                        给父元素（上外边距）,即父元素随着子元素下移)
+                    3.开启BFC的元素可以包含浮动的子元素。
+
+                -以下任意一种都能触发BFC */
+                
+            /* 1、设置元素的浮动：高度没塌，但是从文档流中脱离，宽度没了，而且下面的黄块被盖住、副作用比较大不推荐 */
+            /* float: left; */
+
+            /* 2、将元素设置为行内块元素（行内块不适合作为外部的布局容器）：高度没塌、但是宽度也没了、副作用比较大不推荐 */
+            /* display: inline-block; */
+
+            /* 3、将元素的overflow设置为一个非visible的值
+                    overflow:scroll 高度没塌宽度没丢但是有滚动条 
+                    -常用方式
+                        为元素设置 overflow: hidden（auto也行不常用）开启BFC以使其可以包含浮动元素 
+                        这种方式副作用比较小，是最方便最快捷的一个“临时处理方案”，并不是最完美的方案
+                        
+                4. absolute 和 fixed
+                5.body根元素就是最大的一个BFC渲染区域
+            */
+
+            /* overflow: scroll; */
+            overflow: hidden;
+        }
+        .inner{ 
+            width: 100px;
+            height: 100px;
+            background-color: plum;
+            /* 
+                高度塌陷问题：
+                    在浮动布局中，父元素的高度默认是被子元素撑开的
+                        当子元素浮动后，其会完全脱离文档流，子元素从文档流中脱离,将会无法撑起父元素的高度，导致父元素
+                    的的高度丢失,其下的元素和会自动上移，导致页面布局混乱。
+                所以高度塌陷是的浮动布局中比较常见的问题，要进行处理
+             */
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <!-- 高度塌陷和BFC -->
+    <div class="outer">
+        <div class="inner">
+            高度塌陷和BFC
+        </div>
+    </div>
+    <div style="width: 150px;height:150px;background-color:yellow;"></div>
+</body>
+</html>

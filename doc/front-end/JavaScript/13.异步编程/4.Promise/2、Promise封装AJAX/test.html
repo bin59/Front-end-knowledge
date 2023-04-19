@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./2、Promise封装AJAX.js"></script>
+    <script>
+        // 接口地址: 
+        // https://api.apiopen.top/getJoke
+        // http://studentback.dfbuff.xyz/getMethod?type=图片
+
+        // POST请求
+        let api1 = "http://studentback.dfbuff.xyz/postMethod";
+        let api2 = "http://studentback.dfbuff.xyz/getMethod";
+        let data = {
+            "type": "图片"
+        };
+
+        ajax(api1, data, "POST").then(res => {
+                console.log(res);
+
+                return ajax(api2, data, "GET");
+            })
+            .then(res => {
+                console.log(res);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+
+        // GET请求
+        // ajax("http://studentback.dfbuff.xyz/getMethod?type=图片").then(res => {
+        //         console.log(res);
+        //         return ajax("http://studentback.dfbuff.xyz/getMethod?type=冷笑话");
+        //     })
+        //     .then(res => {
+        //         console.log(res);
+        //     })
+        //     .catch(err => {
+        //         console.log(err);
+        //     });
+    </script>
+</body>
+</html>
