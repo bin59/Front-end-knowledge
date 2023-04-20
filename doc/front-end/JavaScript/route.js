@@ -261,3 +261,29 @@ const arr = [
   'JavaScript_算法比较大小.js',
   'JavaScript_算法素数.js',
 ]
+
+const obj  = {}
+// 重复标题数组，已经打印过的不再打印
+const commonArr = []
+
+arr.forEach(item=>{
+  const itemArr = item.split('/')
+  const length = itemArr.length - 1
+  // 几级标题
+  let a= ''
+  // 文件夹
+  itemArr.forEach((itemArrItem,i) =>{
+    a += '#'
+    // 文件层级 并且 前面没有打印过
+    if(i < length && !commonArr.includes(itemArrItem)){
+      console.log(`${a} $(itemArr[i])`)
+      commonArr.push(itemArrItem)
+    }
+    // 最后一级：文件.xx
+    else if(!commonArr.includes(itemArrItem)){
+      console.log(
+        `- [${itemArrItem.replace('.md','')}]('doc/front-end/'${item}')`
+      );
+    }
+  })
+})
