@@ -1,0 +1,4 @@
+- [返回上一级 [13.异步编程]](doc/front-end/JavaScript/13.异步编程/)
+- [4.Promise](doc/front-end/JavaScript/13.异步编程/4.Promise/)
+  - [2、Promise封装AJAX](doc/front-end/JavaScript/13.异步编程/4.Promise/2、Promise封装AJAX/)
+  - [promise源码](doc/front-end/JavaScript/13.异步编程/4.Promise/promise源码/)

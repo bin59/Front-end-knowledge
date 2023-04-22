@@ -1,0 +1,4 @@
+- [返回上一级 [VUE]](doc/front-end/VUE/)
+- [配置环境](doc/front-end/VUE/配置环境/)
+  - [nodejs安装+Vue2.0环境搭建+VSCode](doc/front-end/VUE/配置环境/nodejs安装+Vue2.0环境搭建+VSCode.md)
+  - [vue项目cnpm run dev时出错解决方法](doc/front-end/VUE/配置环境/vue项目cnpm run dev时出错解决方法.md)

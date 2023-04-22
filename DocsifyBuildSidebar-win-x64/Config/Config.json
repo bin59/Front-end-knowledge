@@ -1,0 +1,14 @@
+{
+  "HomePath": "G:\\binbin\\web\\my\\Front-end-knowledge",
+  "IgnoreFile": [
+    "index.html",
+    ".nojekyll",
+    ".gitignore",
+    "_sidebar - 副本.md",
+    "README - 副本.md",
+    "_coverpage.md",
+    ""
+  ],
+  "IgnoreDir": [".git", ".github", ".history"],
+  "IgnoreDirNameContain": [".assets"]
+}

@@ -1,13 +1,12 @@
-<!--
- * @Author: binbin 81745365+bin59@users.noreply.github.com
- * @Date: 2023-02-22 19:43:07
- * @LastEditors: binbin 81745365+bin59@users.noreply.github.com
- * @LastEditTime: 2023-02-22 20:11:11
- * @FilePath: \web\study-web\Markdown\Markdown技巧.md
- * @Description:
- *
- * Copyright (c) 2023 by ${git_name_email}, All Rights Reserved.
--->
+<details markdown="1">
+  <summary>目录</summary>
+
+- [vue 全家桶](#vue-全家桶)
+  - [区块](#区块)
+
+</details>
+
+# vue 全家桶
 
 - _https://www.bbsmax.com/A/x9J2QZlWz6/_
 
