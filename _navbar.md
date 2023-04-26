@@ -1,7 +1,8 @@
 - [开发必备网站](doc/开发必备网站/开发必备网站.md)
 
 - [HTML、CSS](doc/front-end/HTML/HTML.md)
-- [HTML](doc/front-end/HTML、CSS/HTML.md)
+
+  - [HTML](doc/front-end/HTML、CSS/HTML.md)
 
 - [JavaScript](doc/front-end/JavaScript/1.JavaScript介绍及书写位置/1.1javascript介绍.md)
 
@@ -12,7 +13,9 @@
   - [ECMAScript](doc/front-end/JavaScript/ECMAScript/1.ECMAScript简介.md)
 
 - [TypeScript](doc\front-end\TypeScript\TypeScript.md)
-
+  - [TypeScript](doc/front-end/TypeScript/TypeScript.md)
+  - [1.快速上手](doc/front-end/TypeScript/1.快速上手/)
+  - [2.常用语法](doc/front-end/TypeScript/2.常用语法/)
 - [NodeJs](doc\front-end\NodeJs\NodeJs.md)
 
 - [Vue](doc/front-end/VUE/Vue2/1.Vue的介绍和vue-cli.md)
