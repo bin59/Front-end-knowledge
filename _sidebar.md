@@ -22,8 +22,7 @@
         - [scss](doc/front-end/HTML、CSS/16.常见布局/流式布局/scss/)
       - [前端常见的几种布局方式](doc/front-end/HTML、CSS/16.常见布局/前端常见的几种布局方式.md)
     - [9.浮动、BFC、高度塌陷、清浮动](doc/front-end/HTML、CSS/9.浮动、BFC、高度塌陷、清浮动/)
-    - [CSS 层叠规则及元素隐藏](doc/front-end/HTML、CSS/CSS层叠规则及元素隐藏/)
-      - [CSS 层叠规则及元素隐藏](doc/front-end/HTML、CSS/CSS层叠规则及元素隐藏/CSS层叠规则及元素隐藏.md)
+
     - [media](doc/front-end/HTML、CSS/media/)
       - [audio](doc/front-end/HTML、CSS/media/audio/)
       - [video](doc/front-end/HTML、CSS/media/video/)
