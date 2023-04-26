@@ -107,17 +107,17 @@
 
           - [4 种实现数组填充默认值的方式](doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/3.Array/4种实现数组填充默认值的方式.md)
 
-          - [7.1 Array 数组](doc/front-end/JavaScript/6.javascript 系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/3.Array/7.1 Array 数组.md)
-          - [7.2 数组常用方法](doc/front-end/JavaScript/6.javascript 系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/3.Array/7.2 数组常用方法.md)
-          - [7.3 数组遍历](doc/front-end/JavaScript/6.javascript 系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/3.Array/7.3 数组遍历.md)
-          - [7.3.1 reduce 方法详解](doc/front-end/JavaScript/6.javascript 系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/3.Array/7.3.1 reduce 方法详解.md)
+          - [7.1 Array 数组](doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/3.Array/7.1.Array数组.md)
+          - [7.2 数组常用方法](doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/3.Array/7.2.数组常用方法.md)
+          - [7.3 数组遍历](doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/3.Array/7.3.数组遍历.md)
+          - [7.3.1 reduce 方法详解](doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/3.Array/7.3.1.reduce方法详解.md)
           - [lianxi_array](doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/3.Array/lianxi_array.md)
 
         - [4.String](doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/4.String/)
           - [lianxi](doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/4.String/lianxi/)
             - [String 字符串练习(1)](<doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/4.String/lianxi/String字符串练习(1).md>)
             - [String 字符串练习(2)](<doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/4.String/lianxi/String字符串练习(2).md>)
-          - [8.1 String 字符串](doc/front-end/JavaScript/6.javascript 系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/4.String/8.1 String 字符串.md)
+          - [8.1 String 字符串](doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/4.String/8.1.String字符串.md)
           - [判断某个字符串是否包含另一个字符串](doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/4.String/判断某个字符串是否包含另一个字符串.md)
         - [5.Boolean](doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/5.Boolean/)
         - [6.Number](doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/6.Number/)
@@ -126,9 +126,13 @@
         - [9.Error 类](doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/9.Error类/)
           - [Error](doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/9.Error类/Error/)
           - [EvalError、RangeError、ReferenceError、SyntaxError、TypeError、URIError](doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/9.Error类/EvalError、RangeError、ReferenceError、SyntaxError、TypeError、URIError/)
-        - [Global 和 Math--内置对象（又叫 Build-in object、静态对象）](doc/front-end/JavaScript/6.javascript 系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/Global 和 Math--内置对象（又叫 Build-in object、静态对象）/)
-          - [Global](doc/front-end/JavaScript/6.javascript 系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/Global 和 Math--内置对象（又叫 Build-in object、静态对象）/Global/)
-          - [Math](doc/front-end/JavaScript/6.javascript 系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/Global 和 Math--内置对象（又叫 Build-in object、静态对象）/Math/)
+        - [Global 和 Math--内置对象（又叫 Build-in_object、静态对象）](doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/Global和Math--内置对象（又叫Build-in_object、静态对象）/)
+
+          - [Global](doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/Global和Math--内置对象（又叫Build-in_object、静态对象）/Global/)
+
+            [1](doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/Global和Math--内置对象（又叫Build-in_object、静态对象）/Global/1.md)
+
+          - [Math](doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/Global和Math--内置对象（又叫Build-in_object、静态对象）/Math/)
 
       - [2.宿主对象（host object、浏览器提供）](doc/front-end/JavaScript/6.javascript 系统对象/2.宿主对象（host object、浏览器提供）/)
         - [10.3.1DOM--》document](doc/front-end/JavaScript/6.javascript 系统对象/2.宿主对象（host object、浏览器提供）/10.3.1DOM--》document/)
