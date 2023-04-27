@@ -4,9 +4,11 @@
 
 ## 主页
 
-站点 1:[binxiaobin.nndx.ml](http://binxiaobin.nndx.ml)
+站点 1:[github/front-end-knowledge](https://bin59.github.io/Front-end-knowledge)
 
-站点 2:[front-end-knowledge](https://binbin59.gitee.io/front-end-knowledge)
+站点 2:[gitee/front-end-knowledge](https://binbin59.gitee.io/front-end-knowledge)
+
+站点 3:[binxiaobin.nndx.ml](http://binxiaobin.nndx.ml)
 
 ## 侧边栏目录生成（sidebar.md）
 
