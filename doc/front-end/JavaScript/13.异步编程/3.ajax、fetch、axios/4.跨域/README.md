@@ -1,2 +1,0 @@
-- [返回上一级 [3.ajax、fetch、axios]](doc/front-end/JavaScript/13.异步编程/3.ajax、fetch、axios/)
-- [4.跨域](doc/front-end/JavaScript/13.异步编程/3.ajax、fetch、axios/4.跨域/)

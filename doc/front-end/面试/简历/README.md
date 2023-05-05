@@ -1,3 +1,0 @@
-- [返回上一级 [面试]](doc/front-end/面试/)
-- [简历](doc/front-end/面试/简历/)
-  - [简历技巧](doc/front-end/面试/简历/简历技巧.md)

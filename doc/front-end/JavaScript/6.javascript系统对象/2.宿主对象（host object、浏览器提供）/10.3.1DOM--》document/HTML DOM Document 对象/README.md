@@ -1,5 +1,0 @@
-- [返回上一级 [10.3.1DOM--》document]](doc/front-end/JavaScript/6.javascript系统对象/2.宿主对象（host object、浏览器提供）/10.3.1DOM--》document/)
-- [HTML DOM Document 对象](doc/front-end/JavaScript/6.javascript系统对象/2.宿主对象（host object、浏览器提供）/10.3.1DOM--》document/HTML DOM Document 对象/)
-  - [DOM基本操作](doc/front-end/JavaScript/6.javascript系统对象/2.宿主对象（host object、浏览器提供）/10.3.1DOM--》document/HTML DOM Document 对象/DOM基本操作/)
-  - [DOM样式操作](doc/front-end/JavaScript/6.javascript系统对象/2.宿主对象（host object、浏览器提供）/10.3.1DOM--》document/HTML DOM Document 对象/DOM样式操作/)
-  - [lx](doc/front-end/JavaScript/6.javascript系统对象/2.宿主对象（host object、浏览器提供）/10.3.1DOM--》document/HTML DOM Document 对象/lx/)

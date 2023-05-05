@@ -1,2 +1,0 @@
-- [返回上一级 [HTML DOM Document 对象]](doc/front-end/JavaScript/6.javascript系统对象/2.宿主对象（host object、浏览器提供）/10.3.1DOM--》document/HTML DOM Document 对象/)
-- [lx](doc/front-end/JavaScript/6.javascript系统对象/2.宿主对象（host object、浏览器提供）/10.3.1DOM--》document/HTML DOM Document 对象/lx/)

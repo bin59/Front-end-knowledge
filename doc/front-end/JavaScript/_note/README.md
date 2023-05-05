@@ -1,3 +1,0 @@
-- [返回上一级 [JavaScript]](doc/front-end/JavaScript/)
-- [_note](doc/front-end/JavaScript/_note/)
-  - [面试题](doc/front-end/JavaScript/_note/面试题.md)

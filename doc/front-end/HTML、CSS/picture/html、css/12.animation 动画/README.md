@@ -1,2 +1,0 @@
-- [返回上一级 [html、css]](doc/front-end/HTML、CSS/picture/html、css/)
-- [12.animation 动画](doc/front-end/HTML、CSS/picture/html、css/12.animation 动画/)

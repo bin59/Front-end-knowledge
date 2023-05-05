@@ -1,2 +1,0 @@
-- [返回上一级 [JavaScript]](doc/front-end/JavaScript/)
-- [3.数据类型](doc/front-end/JavaScript/3.数据类型/)

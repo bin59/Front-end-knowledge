@@ -1,8 +1,0 @@
-- [返回上一级 [test_webpack]](doc/front-end/tools/webpack/test_webpack/)
-- [src](doc/front-end/tools/webpack/test_webpack/src/)
-  - [assets](doc/front-end/tools/webpack/test_webpack/src/assets/)
-    - [images](doc/front-end/tools/webpack/test_webpack/src/assets/images/)
-  - [common](doc/front-end/tools/webpack/test_webpack/src/common/)
-  - [css](doc/front-end/tools/webpack/test_webpack/src/css/)
-  - [js](doc/front-end/tools/webpack/test_webpack/src/js/)
-  - [public](doc/front-end/tools/webpack/test_webpack/src/public/)

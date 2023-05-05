@@ -1,2 +1,0 @@
-- [返回上一级 [6.构造函数]](doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/1、2对象和函数/2.Function/6.构造函数/)
-- [练习](doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/1、2对象和函数/2.Function/6.构造函数/练习/)

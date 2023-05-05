@@ -1,3 +1,0 @@
-- [返回上一级 [优化]](doc/front-end/优化/)
-- [vue优化](doc/front-end/优化/vue优化/)
-  - [vue优化](doc/front-end/优化/vue优化/vue优化.md)

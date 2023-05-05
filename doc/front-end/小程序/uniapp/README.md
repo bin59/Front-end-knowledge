@@ -1,5 +1,0 @@
-- [返回上一级 [小程序]](doc/front-end/小程序/)
-- [uniapp](doc/front-end/小程序/uniapp/)
-  - [资源](doc/front-end/小程序/uniapp/资源/)
-  - [uniapp基础](doc/front-end/小程序/uniapp/uniapp基础.md)
-  - [vscode创建uniapp项目](doc/front-end/小程序/uniapp/vscode创建uniapp项目.md)

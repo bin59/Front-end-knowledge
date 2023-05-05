@@ -1,4 +1,0 @@
-- [返回上一级 [Vue2]](doc/front-end/VUE/Vue2/)
-- [note](doc/front-end/VUE/Vue2/note/)
-  - [note](doc/front-end/VUE/Vue2/note/note.md)
-  - [_vue_study](doc/front-end/VUE/Vue2/note/_vue_study.md)

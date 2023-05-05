@@ -1,2 +1,0 @@
-- [返回上一级 [_参考]](doc/front-end/JavaScript/ECMAScript/_参考/)
-- [ES7](doc/front-end/JavaScript/ECMAScript/_参考/ES7/)

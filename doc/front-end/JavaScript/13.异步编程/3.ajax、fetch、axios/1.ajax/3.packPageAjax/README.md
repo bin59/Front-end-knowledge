@@ -1,2 +1,0 @@
-- [返回上一级 [1.ajax]](doc/front-end/JavaScript/13.异步编程/3.ajax、fetch、axios/1.ajax/)
-- [3.packPageAjax](doc/front-end/JavaScript/13.异步编程/3.ajax、fetch、axios/1.ajax/3.packPageAjax/)

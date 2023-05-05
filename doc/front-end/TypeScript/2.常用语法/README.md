@@ -1,6 +1,0 @@
-- [返回上一级 [TypeScript]](doc/front-end/TypeScript/)
-- [2.常用语法](doc/front-end/TypeScript/2.常用语法/)
-  - [2.1 基础类型](doc/front-end/TypeScript/2.常用语法/2.1.基础类型.md)
-  - [2.2 接口](doc/front-end/TypeScript/2.常用语法/2.2.接口.md)
-  - [2.3 类](doc/front-end/TypeScript/2.常用语法/2.3.类.md)
-  - [2.4 函数](doc/front-end/TypeScript/2.常用语法/2.4.函数.md)

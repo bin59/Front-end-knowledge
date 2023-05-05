@@ -1,2 +1,0 @@
-- [返回上一级 [JavaScript]](doc/front-end/JavaScript/)
-- [2.变量](doc/front-end/JavaScript/2.变量/)

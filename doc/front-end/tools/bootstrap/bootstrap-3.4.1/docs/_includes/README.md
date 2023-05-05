@@ -1,7 +1,0 @@
-- [返回上一级 [docs]](doc/front-end/tools/bootstrap/bootstrap-3.4.1/docs/)
-- [_includes](doc/front-end/tools/bootstrap/bootstrap-3.4.1/docs/_includes/)
-  - [components](doc/front-end/tools/bootstrap/bootstrap-3.4.1/docs/_includes/components/)
-  - [css](doc/front-end/tools/bootstrap/bootstrap-3.4.1/docs/_includes/css/)
-  - [getting-started](doc/front-end/tools/bootstrap/bootstrap-3.4.1/docs/_includes/getting-started/)
-  - [js](doc/front-end/tools/bootstrap/bootstrap-3.4.1/docs/_includes/js/)
-  - [nav](doc/front-end/tools/bootstrap/bootstrap-3.4.1/docs/_includes/nav/)

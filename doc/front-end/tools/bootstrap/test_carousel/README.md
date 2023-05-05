@@ -1,6 +1,0 @@
-- [返回上一级 [bootstrap]](doc/front-end/tools/bootstrap/)
-- [test_carousel](doc/front-end/tools/bootstrap/test_carousel/)
-  - [css](doc/front-end/tools/bootstrap/test_carousel/css/)
-  - [fonts](doc/front-end/tools/bootstrap/test_carousel/fonts/)
-  - [img](doc/front-end/tools/bootstrap/test_carousel/img/)
-  - [js](doc/front-end/tools/bootstrap/test_carousel/js/)

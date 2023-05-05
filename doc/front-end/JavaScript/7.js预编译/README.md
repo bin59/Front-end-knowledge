@@ -1,2 +1,0 @@
-- [返回上一级 [JavaScript]](doc/front-end/JavaScript/)
-- [7.js预编译](doc/front-end/JavaScript/7.js预编译/)

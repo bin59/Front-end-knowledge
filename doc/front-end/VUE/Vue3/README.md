@@ -1,5 +1,0 @@
-- [返回上一级 [VUE]](doc/front-end/VUE/)
-- [Vue3](doc/front-end/VUE/Vue3/)
-  - [1.认识Vue3](doc/front-end/VUE/Vue3/1.认识Vue3.md)
-  - [2.Vue3项目搭建](doc/front-end/VUE/Vue3/2.Vue3项目搭建.md)
-  - [note](doc/front-end/VUE/Vue3/note.md)

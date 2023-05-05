@@ -1,3 +1,0 @@
-- [返回上一级 [小程序]](doc/front-end/小程序/)
-- [微信支付](doc/front-end/小程序/微信支付/)
-  - [pay](doc/front-end/小程序/微信支付/pay.md)

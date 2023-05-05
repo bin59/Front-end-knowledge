@@ -1,3 +1,0 @@
-- [返回上一级 [_参考]](doc/front-end/JavaScript/ECMAScript/_参考/)
-- [ES11](doc/front-end/JavaScript/ECMAScript/_参考/ES11/)
-  - [js](doc/front-end/JavaScript/ECMAScript/_参考/ES11/js/)

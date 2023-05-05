@@ -1,4 +1,0 @@
-- [返回上一级 [优化]](doc/front-end/优化/)
-- [_JavaScript优化](doc/front-end/优化/_JavaScript优化/)
-  - [防抖和节流](doc/front-end/优化/_JavaScript优化/防抖和节流/)
-  - [javascript优化](doc/front-end/优化/_JavaScript优化/javascript优化.md)

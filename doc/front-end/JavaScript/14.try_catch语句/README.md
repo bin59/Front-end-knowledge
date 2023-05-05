@@ -1,2 +1,0 @@
-- [返回上一级 [JavaScript]](doc/front-end/JavaScript/)
-- [14.try_catch语句](doc/front-end/JavaScript/14.try_catch语句/)

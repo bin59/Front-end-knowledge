@@ -1,2 +1,0 @@
-- [返回上一级 [13.异步编程]](doc/front-end/JavaScript/13.异步编程/)
-- [2.异步编程，宏、微任务任务](doc/front-end/JavaScript/13.异步编程/2.异步编程，宏、微任务任务/)

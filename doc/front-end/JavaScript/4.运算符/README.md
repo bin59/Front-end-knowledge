@@ -1,2 +1,0 @@
-- [返回上一级 [JavaScript]](doc/front-end/JavaScript/)
-- [4.运算符](doc/front-end/JavaScript/4.运算符/)

@@ -1,7 +1,0 @@
-- [返回上一级 [HTML、CSS]](doc/front-end/HTML、CSS/)
-- [16.常见布局](doc/front-end/HTML、CSS/16.常见布局/)
-  - [流式布局](doc/front-end/HTML、CSS/16.常见布局/流式布局/)
-    - [css](doc/front-end/HTML、CSS/16.常见布局/流式布局/css/)
-    - [img](doc/front-end/HTML、CSS/16.常见布局/流式布局/img/)
-    - [scss](doc/front-end/HTML、CSS/16.常见布局/流式布局/scss/)
-  - [前端常见的几种布局方式](doc/front-end/HTML、CSS/16.常见布局/前端常见的几种布局方式.md)

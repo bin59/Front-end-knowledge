@@ -1,2 +1,0 @@
-- [返回上一级 [12.懒加载、预加载]](doc/front-end/JavaScript/12.懒加载、预加载/)
-- [img](doc/front-end/JavaScript/12.懒加载、预加载/img/)

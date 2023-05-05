@@ -1,2 +1,0 @@
-- [返回上一级 [一些扩展]](doc/front-end/JavaScript/ECMAScript/2.ES6新特性/一些扩展/)
-- [内置对象扩展](doc/front-end/JavaScript/ECMAScript/2.ES6新特性/一些扩展/内置对象扩展/)

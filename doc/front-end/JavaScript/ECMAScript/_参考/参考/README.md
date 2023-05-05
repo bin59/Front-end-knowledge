@@ -1,8 +1,0 @@
-- [返回上一级 [_参考]](doc/front-end/JavaScript/ECMAScript/_参考/)
-- [参考](doc/front-end/JavaScript/ECMAScript/_参考/参考/)
-  - [02-ES5中的严格模式](doc/front-end/JavaScript/ECMAScript/_参考/参考/02-ES5中的严格模式.md)
-  - [03-ES5中的一些扩展](doc/front-end/JavaScript/ECMAScript/_参考/参考/03-ES5中的一些扩展.md)
-  - [04-ES6：变量 let、const 和块级作用域](doc/front-end/JavaScript/ECMAScript/_参考/参考/04-ES6：变量 let、const 和块级作用域.md)
-  - [06-ES6：箭头函数](doc/front-end/JavaScript/ECMAScript/_参考/参考/06-ES6：箭头函数.md)
-  - [08-字符串、数组、对象的扩展](doc/front-end/JavaScript/ECMAScript/_参考/参考/08-字符串、数组、对象的扩展.md)
-  - [ES6：Symbol](doc/front-end/JavaScript/ECMAScript/_参考/参考/ES6：Symbol.md)

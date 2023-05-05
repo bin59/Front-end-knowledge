@@ -1,6 +1,0 @@
-- [返回上一级 [面试题收集]](doc/front-end/面试/面试题/面试题收集/)
-- [javascript](doc/front-end/面试/面试题/面试题收集/javascript/)
-  - [异步编程](doc/front-end/面试/面试题/面试题收集/javascript/异步编程/)
-    - [promise](doc/front-end/面试/面试题/面试题收集/javascript/异步编程/promise/)
-    - [事件循环](doc/front-end/面试/面试题/面试题收集/javascript/异步编程/事件循环/)
-  - [javascript面试题-记录](doc/front-end/面试/面试题/面试题收集/javascript/javascript面试题-记录.md)

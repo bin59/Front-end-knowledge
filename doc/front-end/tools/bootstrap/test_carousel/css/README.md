@@ -1,2 +1,0 @@
-- [返回上一级 [test_carousel]](doc/front-end/tools/bootstrap/test_carousel/)
-- [css](doc/front-end/tools/bootstrap/test_carousel/css/)

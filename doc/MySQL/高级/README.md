@@ -1,2 +1,0 @@
-- [返回上一级 [MySQL]](doc/MySQL/)
-- [高级](doc/MySQL/高级/)

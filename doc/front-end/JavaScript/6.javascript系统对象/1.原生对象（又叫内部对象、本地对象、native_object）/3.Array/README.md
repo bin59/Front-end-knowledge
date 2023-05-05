@@ -1,8 +1,0 @@
-- [返回上一级 [1.原生对象（又叫内部对象、本地对象、native_object）]](doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/)
-- [3.Array](doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/3.Array/)
-  - [4种实现数组填充默认值的方式](doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/3.Array/4种实现数组填充默认值的方式.md)
-  - [7.1 Array数组](doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/3.Array/7.1 Array数组.md)
-  - [7.2 数组常用方法](doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/3.Array/7.2 数组常用方法.md)
-  - [7.3 数组遍历](doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/3.Array/7.3 数组遍历.md)
-  - [7.3.1 reduce方法详解](doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/3.Array/7.3.1 reduce方法详解.md)
-  - [lianxi_array](doc/front-end/JavaScript/6.javascript系统对象/1.原生对象（又叫内部对象、本地对象、native_object）/3.Array/lianxi_array.md)

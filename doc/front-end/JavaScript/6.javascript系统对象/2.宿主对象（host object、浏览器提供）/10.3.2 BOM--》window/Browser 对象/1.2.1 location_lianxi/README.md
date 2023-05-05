@@ -1,2 +1,0 @@
-- [返回上一级 [Browser 对象]](doc/front-end/JavaScript/6.javascript系统对象/2.宿主对象（host object、浏览器提供）/10.3.2 BOM--》window/Browser 对象/)
-- [1.2.1 location_lianxi](doc/front-end/JavaScript/6.javascript系统对象/2.宿主对象（host object、浏览器提供）/10.3.2 BOM--》window/Browser 对象/1.2.1 location_lianxi/)

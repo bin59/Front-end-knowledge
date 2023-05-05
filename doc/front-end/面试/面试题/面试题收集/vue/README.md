@@ -1,4 +1,0 @@
-- [返回上一级 [面试题收集]](doc/front-end/面试/面试题/面试题收集/)
-- [vue](doc/front-end/面试/面试题/面试题收集/vue/)
-  - [vue2.0、vue3.0比较](doc/front-end/面试/面试题/面试题收集/vue/vue2.0、vue3.0比较.md)
-  - [vue面试题](doc/front-end/面试/面试题/面试题收集/vue/vue面试题.md)

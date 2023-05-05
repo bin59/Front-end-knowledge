@@ -1,2 +1,0 @@
-- [返回上一级 [2.ES6新特性]](doc/front-end/JavaScript/ECMAScript/2.ES6新特性/)
-- [Module](doc/front-end/JavaScript/ECMAScript/2.ES6新特性/Module/)

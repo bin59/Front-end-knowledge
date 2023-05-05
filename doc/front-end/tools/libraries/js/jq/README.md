@@ -1,2 +1,0 @@
-- [返回上一级 [js]](doc/front-end/tools/libraries/js/)
-- [jq](doc/front-end/tools/libraries/js/jq/)

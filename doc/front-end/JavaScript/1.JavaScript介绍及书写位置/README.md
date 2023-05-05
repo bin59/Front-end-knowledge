@@ -1,3 +1,0 @@
-- [返回上一级 [JavaScript]](doc/front-end/JavaScript/)
-- [1.JavaScript介绍及书写位置](doc/front-end/JavaScript/1.JavaScript介绍及书写位置/)
-  - [1.1javascript介绍](doc/front-end/JavaScript/1.JavaScript介绍及书写位置/1.1javascript介绍.md)

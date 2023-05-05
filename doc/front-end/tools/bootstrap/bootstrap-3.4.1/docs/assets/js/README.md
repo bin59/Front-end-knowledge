@@ -1,4 +1,0 @@
-- [返回上一级 [assets]](doc/front-end/tools/bootstrap/bootstrap-3.4.1/docs/assets/)
-- [js](doc/front-end/tools/bootstrap/bootstrap-3.4.1/docs/assets/js/)
-  - [src](doc/front-end/tools/bootstrap/bootstrap-3.4.1/docs/assets/js/src/)
-  - [vendor](doc/front-end/tools/bootstrap/bootstrap-3.4.1/docs/assets/js/vendor/)
