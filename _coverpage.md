@@ -5,4 +5,4 @@
 > bin 小斌的个人知识空间
 
 [GitHub](https://github.com/bin59/Front-end-knowledge)
-[Get Started](#bin-小斌的个人知识空间)
+[Get Started](doc/开发必备网站/开发必备网站.md)

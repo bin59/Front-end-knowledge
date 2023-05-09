@@ -1,13 +1,25 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>vw布局</title>
-    <link rel="stylesheet" href="./scss/index.css">
     <style>
-        /* 
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .box1 {
+        width: 16.6666666667vw;
+        height: 100px;
+        background-color: aqua;
+      } /*# sourceMappingURL=index.css.map */
+    </style>
+    <style>
+      /* 
             移动端布局
             1.当盒模型等属性遇到百分比
             1.1 margin和padding使用百分比做单位
@@ -83,18 +95,17 @@
                 750px下测量的宽度/ 750 * 100 
          */
 
-
-         .box{
-             width: 100vw;
-             height: 100vh;
-             background-color: bisque;
-         }
+      .box {
+        width: 100vw;
+        height: 100vh;
+        background-color: bisque;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="box">
-        <div class="box1"></div>
+      <div class="box1"></div>
     </div>
-
-</body>
+  </body>
 </html>
+```

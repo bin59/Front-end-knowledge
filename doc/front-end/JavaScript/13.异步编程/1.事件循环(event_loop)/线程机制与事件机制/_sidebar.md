@@ -1,4 +1,0 @@
-- [返回上一级 [1.事件循环(event_loop)]](doc/front-end/JavaScript/13.异步编程/1.事件循环(event_loop)/)
-- [线程机制与事件机制](doc/front-end/JavaScript/13.异步编程/1.事件循环(event_loop)/线程机制与事件机制/)
-  - [01_进程与线程](doc/front-end/JavaScript/13.异步编程/1.事件循环(event_loop)/线程机制与事件机制/01_进程与线程.md)
-  - [02_浏览器内核](doc/front-end/JavaScript/13.异步编程/1.事件循环(event_loop)/线程机制与事件机制/02_浏览器内核.md)
