@@ -1,4 +1,0 @@
-- [返回上一级 [MySQL]](doc/MySQL/)
-- [资料](doc/MySQL/资料/)
-  - [images](doc/MySQL/资料/images/)
-  - [尚硅谷_宋红康_MyCat课程讲义](doc/MySQL/资料/尚硅谷_宋红康_MyCat课程讲义.md)
