@@ -118,6 +118,8 @@
 
 书签
 
+10.翻译
+
 ### Markown 相关
 
 - markdownlint 规范命名规则的。
