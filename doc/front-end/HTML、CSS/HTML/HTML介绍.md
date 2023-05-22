@@ -1,7 +1,7 @@
 <details markdown="1">
   <summary>目录</summary>
 
-- [HTML](#html)
+- [HTML 基础](#html基础)
   - [简介](#简介)
   - [HTML5 的基本结构](#html5-的基本结构)
     - [文档声明（doctype）](#文档声明doctype)
@@ -14,7 +14,7 @@
 
 </details>
  
-# HTML
+# HTML基础
 
 ## 简介
 
