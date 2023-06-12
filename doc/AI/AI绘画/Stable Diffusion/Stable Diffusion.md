@@ -10,8 +10,13 @@
   - [三、LoRA](#三lora)
     - [1.LoRA](#1lora)
     - [2.LyCORIS](#2lycoris)
+    - [3.LoHa](#3loha)
   - [四、模型(ckpt)](#四模型ckpt)
     - [1.camelliamix:](#1camelliamix)
+    - [2.majicMIX 系列](#2majicmix-系列)
+    - [3.cetusMix](#3cetusmix)
+    - [4.GhostMix](#4ghostmix)
+    - [6.sixZongzi 国风 配合 hanfu LoRA 使用](#6sixzongzi-国风-配合-hanfu-lora-使用)
   - [五、一些资源](#五一些资源)
   - [六、一些提示词：](#六一些提示词)
   - [七、以上都在网盘：](#七以上都在网盘)
@@ -69,7 +74,75 @@ https://github.com/Mikubill/sd-webui-controlnet.git
 
 [关于 LoRA、LyCORIS 和 LoCon 的类型说明、使用方法和插件神器](https://zhuanlan.zhihu.com/p/626260866)
 
+LyCORIS，LoHa，LoRA，LoCon，(IA)^3，LoKR，DyLoRA 等等，是什么意思！
+
+其实这些是微调技术的分类和其算法。
+
+LoRA、LyCORIS、LoCon 是一些技术项目的名称。
+
+LoCon 已被 LyCORIS 合并，过去需要的扩展 LoCon 现在不再需要，只需安装 LyCORIS 的扩展即可。
+
+LoHa，(IA)^3，LoKR，DyLoRA 是 LyRORIS 的学习算法之一。在算法学习时指定使用。
+
+这些基本上在使用时不需要担心，但是如果要使用 LyCORIS 和 LoCon 学习的 LoRA，则需要注意使用 LyCORIS 专用的扩展程序（稍后会提到）。
+
 ### 1.LoRA
+
+好用的 LoRA 模型推荐
+
+https://zhuanlan.zhihu.com/p/627369913
+
+- 胶片风 FilmG2 https://zhuanlan.zhihu.com/p/625912991
+
+- LASER - 镭射衣 https://civitai.com/posts/278109
+  ![](https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/a4430221-7bf0-4743-8f20-7bf70e50ef11/width=792/00042-3798378045.jpe)
+
+- 马面裙
+
+https://www.liblibai.com/#/model/6053
+
+马面裙 LORA 使用说明
+
+明代马面裙 lora
+
+触发词: "light green/red/blue/yellow/purple long skirt" ,"birds/flowers/leaf print"
+
+总之，发挥想象力尽可能地改一改这些词，你的想象力越丰富，生成的种类就越丰富，当然，不能超出模型的限制。
+
+```
+prompt:
+
+(long skirt:1.2),(blue flowers print:1.2),(yellow flowers print:1.2),(red flowers print:1.3),(birds print:1.2),(leaf print:1.2),1 girl,full body, (short hair:1.1), (realistic:1.7),((best quality)),absurdres,(ultra high res),(photorealistic:1.6),photorealistic,octane render,(hyperrealistic:1.2), (photorealistic face:1.2), (8k), (4k), (Masterpiece),(realistic skin texture), (illustration, cinematic lighting,wallpaper),( beautiful eyes:1.2),((((perfect face)))),(cute),(standing),(black hair),(short hair),black eyes,red lips, (outdoors),<lora:Ma-Mian_skirt:0.75>,  <lora:JapaneseDollLikeness_v15:0.4>,
+
+Negative prompt:
+
+(worst quality:2), (low quality:2), (normal quality:2),(uneven eyes),lowres, normal quality,bad anatomy,bad face,(uneven eyes),paintings,ugly, bad hands,open mouth,multiple girls,extra faces, extro breasts, multiple breasts,obese, fat rolls,extra arms, extra eyes,inverted nipples,extra ears,nipple rings,severed arm, bad arm, nipple bar,asymmetrical eyebrows,big mouth,
+
+Sampler:Eulera
+
+model:中国服饰LORA合集【更新中】
+
+CFG scale:7
+
+steps:25
+
+seed:4090662923
+```
+
+- 汉服 hanfu
+  https://www.liblibai.com/#/model/1166
+
+  v3.0 tags 触发词
+
+明风汉服: hanfu, ming style
+
+宋风汉服: hanfu, song style
+
+唐风汉服: hanfu, tang style
+
+晋风汉服: hanfu, jin style
+
+汉风汉服: hanfu, han style
 
 ### 2.LyCORIS
 
@@ -77,21 +150,111 @@ https://github.com/Mikubill/sd-webui-controlnet.git
 
 网盘下载：Saya-pov missionary(breast grab).safetensors
 
+### 3.LoHa
+
+[[LoHa] Sinsya/辰砂/しんしゃ Concept (With HD dataset& noise version)](https://civitai.com/models/84700?modelVersionId=90042)
+
 ## 四、模型(ckpt)
 
 ### 1.camelliamix:
 
 下载：https://huggingface.co/Powidl43/CamelliaMix/tree/main
 
+### 2.majicMIX 系列
+
+https://zhuanlan.zhihu.com/p/633697969
+
+- majic 系列分了好几个，分别是：
+
+- majicMIX realistic：主打真实系，是通用版本。
+
+- majicMIX sombre：和 realistic 差不太多，但是带了一点点阴暗的色调。内置了 VAE 所以不需要单独用。
+
+- majicMIX fantasy：风格非常炸裂美好，但是远距离脸部需要 inpaint 以达成最好效果。
+
+- majicMIX lux:融合了，realistic 和 fantasy，是适合抽卡博梦想的模型。
+
+- majicMIX horror：偏恐怖主题。
+
+LiblibAi 模型下载链接（国内可用）：
+
+```
+
+https://www.liblibai.com/#/model/4961
+
+https://www.liblibai.com/#/model/4969
+
+https://www.liblibai.com/#/model/4963
+
+https://www.liblibai.com/#/model/4962
+
+https://www.liblibai.com/#/model/6668
+```
+
+### 3.cetusMix
+
+[AI 模型推荐（2）cetusMix 模型测评|附链接](https://www.bilibili.com/read/cv23080208/)
+
+### 4.GhostMix
+
+下载：https://www.liblibai.com/#/model/5775
+
+[GhostMix 下载/使用/效果图](https://zhuanlan.zhihu.com/p/632433091)
+
+### 6.sixZongzi 国风 配合 hanfu LoRA 使用
+
+下载：https://www.liblibai.com/#/model/1312
+
+```
+prompt:masterpiece, professional lighting, photon mapping, radiosity, physically-based rendering,1girl, full body,absurdres, highres, skyline, beautiful detailed sky, covered nipples,(white hanfu, (tang style:1.3)),<lora:hanfu_v30:0.55>,blue eyes,<lora:eyesgenLoraWIP_v1:0.4>,.
+
+Negative prompt:(EasyNegative:1.4), (ng_deepnegative_v1_75t), (worst quality:1.4), (low quality:1.4) , (monochrome:1.1), lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, normal quality, jpeg artifacts, (signature, watermark, username:1.4), blurry, bad feet, multiple breasts, (mutated hands and fingers:1.5 ), (long body :1.3), (mutation, poorly drawn :1.2) , black-white, liquid body, liquid tongue, disfigured, malformed, mutated, anatomical nonsense, text font ui, malformed hands, long neck, blurred, lowers, bad proportions, bad shadow, uncoordinated body, unnatural body, fused breasts, bad breasts, huge breasts, poorly drawn breasts, extra breasts, liquid breasts, heavy breasts, missing breasts, huge haunch, huge thighs, huge calf, fused hand, missing hand, (holding), muscles, abs,Exposed leg,bad-artist-anime,bad_prompt.
+
+Sampler:DPM++2MKarras
+model:六个粽子 sixZongzi
+CFG scale:6
+steps:25
+seed:793437189
+```
+
 ## 五、一些资源
 
-https://civitai.com/posts/151840（需要上网）
+1. https://civitai.com/posts/151840（需要魔法上网）
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/a7LwBur2oSk11EQBxg0icRl7yziaVT4lSJXOBgcmYQ75eD48f9hBpOODdpXZbiaUTtuLF0icOPZBrbfuwQEfPRk06g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
 
-https://huggingface.co（国内可用）
+2. 模型等下载 https://huggingface.co（国内可用,下载慢）
+
+3. 烧脑社区 https://www.hotiq.cn/
+
+4. stable-diffusion 小白使用大全+插件和模型推荐 2.0
+
+https://zhuanlan.zhihu.com/p/630393846
+
+5. liblibai
+   模型下载、图片广场 https://www.liblibai.com/#/ 下载速度快
 
 ## 六、一些提示词：
+
+1. https://www.hotiq.cn/8507.html
+
+```
+正面词
+
+gradient background, standing,Wide angle
+a girl, Sexy and slim,pretty face, Leakage of navel,Long silver hair,Big eyes, Shut up ,Sexy breasts,Pink decoration,Bare shoulders, casual pose, Upper body,abstract,   (realistic:0.8),<lora:chilloutmixss20_v20:0.3> <lora:dreamyGirlsFace_dreamyFace:0.4> <lora:fashionGirl_v54:0.3> <lora:shojovibe_v11:0.3> <lora:hanfu_v29:0.7>
+
+负面词
+
+ (worst quality:2), (low quality:2), (normal quality:2), lowres, normal quality, ((monochrome)), ((grayscale)),paintings, sketches,nipples, skin spots, acnes, skin blemishes, bad anatomy,facing away, looking away,tilted head, mult multiple girls, lowres,bad anatomy,bad hands, text, error, missing fingers,extra digit, fewer digits, blurry,bad feet,cropped,poorly drawn hands,poorly drawn face,mutation,deformed,worst quality,low quality,normal quality,jpeg artifacts,signature,watermark,extra fingers,fewer digits,extra limbs,extra arms,extra legs,malformed limbs,fused fingers,too many fingers,long neck,cross-eyed,mutated hands,polar lowres,bad body,bad proportions,gross,nipples,(bad hands:1.9), (bad feet:1.9), badhandv4
+
+参数:
+
+Steps: 20, Sampler: DPM++ 2M Karras, CFG scale: 7, Size: 712×512, Model hash: fc2511737a, Model: chilloutmix_NiPrunedFp32Fix, Denoising strength: 0.67, Clip skip: 2, ENSD: 31337, Hires upscale: 1.8, Hires steps: 10, Hires upscaler: Latent
+
+```
+
+![](https://www.hotiq.cn/wp-content/uploads/user_files/1/bbs/4975267_1682512940.png)
 
 <!-- NSFW
 
