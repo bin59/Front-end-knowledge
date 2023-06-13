@@ -177,6 +177,8 @@ https://www.liblibai.com/#/model/499
 
 - 汉服明风
 
+https://www.liblibai.com/#/model/5201
+
 ![](./汉服明风.png)
 
 汉服明风 Lora 模型，感受明朝风采吧！
