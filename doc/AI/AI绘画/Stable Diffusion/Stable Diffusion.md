@@ -175,8 +175,30 @@ https://www.liblibai.com/#/model/499
 
 ☑️ 青色碎花宋抹 cyan floral songmo
 
+- 汉服明风
+
+![](./汉服明风.png)
+
+汉服明风 Lora 模型，感受明朝风采吧！
+
+汉服明风文档: https://sleepy-oyster-204.notion.site/ming-style-6afc9d984e644946b6c31f8fd6db1c8b
+
+QQ 交流群 390640380
+
+微信交流群添加小助手 hanfuaigc
+
+Ming Tags
+☑️ 长衫 long coat ☑️ 短衫 short coat
+
+☑️ 马面裙 mamian skirt
+
+☑️ 交领 overlapping collar☑️ 圆领 round collar☑️ 竖领/立领 standing collar☑️ 方领 square collar
+
+❌ 材质优化中 (☑️ 刺绣 embroidery☑️ 织金 woven gold☑️ 妆花/仿妆花 makeup flower ☑️ 补服 bufu）
+
 - Icfgirl LoRa
-- ![](./QQ截图20230613220902.png)
+
+  ![](./QQ截图20230613220902.png)
 
 https://www.liblibai.com/#/model/5298
 
@@ -248,7 +270,7 @@ Clip skip:2
 
 [![pCm6k9O.jpg](https://s1.ax1x.com/2023/06/13/pCm6k9O.jpg)](https://imgse.com/i/pCm6k9O)
 
-（2）
+（2）[LoHa] Oboro/朧 Concept (With multires noise version)
 
 https://www.liblibai.com/#/model/5930
 
