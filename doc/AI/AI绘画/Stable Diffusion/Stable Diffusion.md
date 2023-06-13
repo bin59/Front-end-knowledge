@@ -121,7 +121,7 @@ Negative prompt:
 [![pCm66KJ.md.png](https://s1.ax1x.com/2023/06/13/pCm66KJ.md.png)](https://imgse.com/i/pCm66KJ)
 
 - 汉服 hanfu
-  https://www.liblibai.com/#/model/1166
+- https://www.liblibai.com/#/model/1166
 
   v3.0 tags 触发词
 
@@ -135,6 +135,81 @@ Negative prompt:
 
 汉风汉服: hanfu, han style
 
+- 汉服宋风\_v3.1
+
+https://www.liblibai.com/#/model/499
+
+![](./QQ截图20230613221112.png)
+
+☑️ 长衫 long shan☑️ 短衫 short shan
+
+☑️ green/white/pink/red/blue/black/purple/yellow
+
+☑️ 绿/白/粉/红/蓝/黑/紫/黄 + 长衫或短衫 ☑️ 浅蓝 light blue ☑️ 浅绿 light green ☑️ 黄白 yellow with white☑️ 浅黄和白绿相间的短衫 light yellow with green with white short shan
+
+☑️ 百迭裙 pleated skirt
+
+☑️ white/red/green/blue/pink + pleated skirt
+
+☑️ 白/红/绿/蓝/粉 + pleated skirt
+
+☑️ 白金 white golden ☑️ 浅蓝 light blue ☑️ 渐变绿 gradient green
+
+☑️ 半透明白 translucent white
+
+☑️ 红青渐变 red cyan gradient ☑️ 红绿渐变 red green gradient
+
+☑️ 白绿相间的百迭裙 green with white
+
+☑️ 浅黄和白绿相间的百迭裙 light yellow with green with white pleated skirt
+
+☑️ 宋抹 songmo
+
+☑️ red/green/blue/white/orange/pink/yellow/purple
+
+☑️ 红/绿/蓝/白/橘/粉/黄/紫 + songmo
+
+☑️ 绿色碎花宋抹 green floral songmo
+
+☑️ 紫色碎花宋抹 purple floral songmo
+
+☑️ 青色碎花宋抹 cyan floral songmo
+
+- Icfgirl LoRa
+- ![](./QQ截图20230613220902.png)
+
+https://www.liblibai.com/#/model/5298
+
+V2 版本说明:
+
+1.这个版本是用 v1 版本,调整 LORA 的层级数值来做出优化的。
+
+2.这一版即使不用高清修复,效果依然还不错。
+
+3.模型污染问题减弱,相对更受控。
+
+4.减少油腻感。
+
+Version 2 Release Notes:
+
+This version is optimized by adjusting the layer values of LORA based on the V1 version.
+
+Even without Hires Fix, the results are still good.
+
+The model pollution issue has been reduced and is relatively more controlled.
+
+Reduced the greasy feeling.
+
+0.6-1.1
+
+这是一个网红脸模型,彩色的头发,半身肖像比较在行。
+
+触发关键词 (xx)
+
+This is an internet celebrity face model, with colorful hair, and is more skilled in half-body portraits.
+keyword: (xx)
+示例用到的名为 model 的基础模型在这里 https://huggingface.co/a1079602570/animefull-final-pruned/tree/main
+
 ### 2.LyCORIS
 
 安装 LyCORIS 模块：https://github.com/KohakuBlueleaf/a1111-sd-webui-lycoris
@@ -142,6 +217,8 @@ Negative prompt:
 网盘下载：Saya-pov missionary(breast grab).safetensors
 
 ### 3.LoHa
+
+（1）
 
 [[LoHa] Sinsya/辰砂/しんしゃ Concept (With HD dataset& noise version)](https://civitai.com/models/84700?modelVersionId=90042)
 
@@ -170,6 +247,13 @@ Clip skip:2
 [![pCm6VjH.jpg](https://s1.ax1x.com/2023/06/13/pCm6VjH.jpg)](https://imgse.com/i/pCm6VjH)
 
 [![pCm6k9O.jpg](https://s1.ax1x.com/2023/06/13/pCm6k9O.jpg)](https://imgse.com/i/pCm6k9O)
+
+（2）
+
+https://www.liblibai.com/#/model/5930
+
+![](./QQ%E6%88%AA%E5%9B%BE20230613215931.png)
+![](./QQ%E6%88%AA%E5%9B%BE20230613220021.png)
 
 ## 四、模型(ckpt)
 
