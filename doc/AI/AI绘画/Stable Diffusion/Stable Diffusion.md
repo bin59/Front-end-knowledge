@@ -117,6 +117,7 @@ Negative prompt:
 ```
 
 ![](https://s1.ax1x.com/2023/06/13/pCefawj.png)
+
 ![](https://s1.ax1x.com/2023/06/13/pCefdTs.png)
 
 - 汉服 hanfu
@@ -162,10 +163,13 @@ Clip skip:2
 
 ```
 
-![](https://s1.ax1x.com/2023/06/13/pCefY6S.jpg)
-![](https://s1.ax1x.com/2023/06/13/pCef3fP.jpg)
-![](https://s1.ax1x.com/2023/06/13/pCefGSf.jpg)
-![](https://s1.ax1x.com/2023/06/13/pCefJl8.jpg)
+[![pCm6Ege.jpg](https://s1.ax1x.com/2023/06/13/pCm6Ege.jpg)](https://imgse.com/i/pCm6Ege)
+
+[![pCm6A3D.jpg](https://s1.ax1x.com/2023/06/13/pCm6A3D.jpg)](https://imgse.com/i/pCm6A3D)
+
+[![pCm6VjH.jpg](https://s1.ax1x.com/2023/06/13/pCm6VjH.jpg)](https://imgse.com/i/pCm6VjH)
+
+[![pCm6k9O.jpg](https://s1.ax1x.com/2023/06/13/pCm6k9O.jpg)](https://imgse.com/i/pCm6k9O)
 
 ## 四、模型(ckpt)
 
