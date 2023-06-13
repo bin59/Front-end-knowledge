@@ -116,9 +116,9 @@ Negative prompt:
 
 ```
 
-![](https://s1.ax1x.com/2023/06/13/pCefawj.png)
+[![pCm6sv4.png](https://s1.ax1x.com/2023/06/13/pCm6sv4.png)](https://imgse.com/i/pCm6sv4)
 
-![](https://s1.ax1x.com/2023/06/13/pCefdTs.png)
+[![pCm66KJ.md.png](https://s1.ax1x.com/2023/06/13/pCm66KJ.md.png)](https://imgse.com/i/pCm66KJ)
 
 - 汉服 hanfu
   https://www.liblibai.com/#/model/1166
@@ -244,7 +244,7 @@ seed:793437189
 
 3. 烧脑社区 https://www.hotiq.cn/
 
-   ![](https://s1.ax1x.com/2023/06/13/pCefBYq.png)
+   [![pCm64PK.png](https://s1.ax1x.com/2023/06/13/pCm64PK.png)](https://imgse.com/i/pCm64PK)
 
 4. stable-diffusion 小白使用大全+插件和模型推荐 2.0
 
@@ -269,7 +269,7 @@ a girl, Sexy and slim,pretty face, Leakage of navel,Long silver hair,Big eyes, S
 
 ```
 
-![](https://www.hotiq.cn/wp-content/uploads/user_files/1/bbs/4975267_1682512940.png)
+[![pCmcKsJ.md.jpg](https://s1.ax1x.com/2023/06/13/pCmcKsJ.md.jpg)](https://imgse.com/i/pCmcKsJ)
 
 <!-- NSFW
 
