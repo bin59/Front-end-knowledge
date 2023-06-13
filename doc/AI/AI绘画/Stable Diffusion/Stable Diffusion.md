@@ -243,6 +243,7 @@ seed:793437189
 2. 模型等下载 https://huggingface.co（国内可用,下载慢）
 
 3. 烧脑社区 https://www.hotiq.cn/
+
    ![](https://s1.ax1x.com/2023/06/13/pCefBYq.png)
 
 4. stable-diffusion 小白使用大全+插件和模型推荐 2.0
