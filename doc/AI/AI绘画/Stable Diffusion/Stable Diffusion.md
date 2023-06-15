@@ -16,6 +16,7 @@
     - [2.majicMIX 系列](#2majicmix-系列)
     - [3.cetusMix](#3cetusmix)
     - [4.GhostMix](#4ghostmix)
+    - [5. IP DESIGN | 3D 化模型](#5-ip-design--3d-化模型)
     - [6.sixZongzi 国风 配合 hanfu LoRA 使用](#6sixzongzi-国风-配合-hanfu-lora-使用)
   - [五、一些资源](#五一些资源)
   - [六、一些提示词：](#六一些提示词)
@@ -325,6 +326,38 @@ https://www.liblibai.com/#/model/6668
 下载：https://www.liblibai.com/#/model/5775
 
 [GhostMix 下载/使用/效果图](https://zhuanlan.zhihu.com/p/632433091)
+
+### 5. IP DESIGN | 3D 化模型
+
+https://www.liblibai.com/#/model/14746
+
+针对 IP 设计训练模型，可以输出类似泡泡玛特的 3D 风格，也可以图生图将 2D 画面 3D 化，主要生成偏向 Q 版可爱风。
+
+V1.0 版本是原生版本，V1.1 是与 samaritan3dCartoon 模型的融合版本，前者风格偏可爱和 Q 版，后者适用性更强。
+
+Steps:30~40
+
+推荐:768\*1024（or 正方形）
+
+Sampler：DPM++2MKarras
+
+![](./00007-3260741950.jpg)
+
+```
+Prompts：pixar,3D,C4D,blender,1girl,solo,wings,long hair,jacket,black hair,shorts,pointy ears,dark-skinned female,ponytail,gradient,gradient background,hands in pockets,shirt,hair ornament,white shirt,green jacket,hoodie,(fairy wings:1.2),brown eyes,jewelry,open clothes,open jacket,looking down,fairy,hooded jacket,
+
+Neg_Prompts:(worst quality, low quality:1.4),(malformed hands:1.4),(poorly drawn hands:1.4),(mutated fingers:1.4),(extra limbs:1.35),(poorly drawn face:1.4),missing legs,(extra legs:1.4),missing arms,extra arm,ugly,huge eyes,fat,worst face,(close shot:1.1),text,watermark,blurry eyes,extra fingers,
+```
+
+![](./2004493191.jpg)
+
+```
+Pixar,1,(masterpiece),( top quality),(best quality),(official art),(unity),( 8k wallpaper),(ultra high res),(dynamic angle),( natural skin texture),(beautiful and aesthetic),(very detailed CG,complex details),Soft Light,ultra-short cheongsam,<lora:盲盒:0.7>,.
+
+(worst quality:2),(low quality:2),(normal quality:2),collage,artist name,signature,artist logo,watermark, DeepNegativeV1.x_V175T， EasyNegativeV2.
+```
+
+![](./QQ截图20230615211221.png)
 
 ### 6.sixZongzi 国风 配合 hanfu LoRA 使用
 
