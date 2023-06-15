@@ -22,6 +22,8 @@
   - [六、一些提示词：](#六一些提示词)
   - [七、以上都在网盘：](#七以上都在网盘)
 
+<img src="https://cdn.jsdelivr.net/gh/bin59/imgs@main/00022-3489660447.png"/>
+
 ## 一、Stable Diffusion 安装包
 
 ![CSDN图标](https://mmbiz.qpic.cn/mmbiz_png/a7LwBur2oSk11EQBxg0icRl7yziaVT4lSJV5YXUic3f2OzjN3t2XbjWxKm9hEAHNeRq3p8axLict4VnQxM8aToVDrQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1 'CSDN图标')
