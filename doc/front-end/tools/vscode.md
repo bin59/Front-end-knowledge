@@ -1,5 +1,17 @@
 # vscode
 
+有的扩展已经不更新，或者被内置，不需要安装了，
+
+不看不知道，一看吓一跳，这还是 20 年的帖子，已经这么多不需要用了
+
+如：Import Cost（占用高 cpu）、Path Intellisense、Path Autocomplete、Auto Rename Tag、npm Intellisense
+
+居然还有好多推荐用，而且我也一直在用！
+
+具体见：
+
+[那些你应该考虑卸载的 VSCode 扩展](https://juejin.cn/post/6844904115798016008)
+
 ## 一、vscode 插件
 
 ### vue 相关
@@ -37,9 +49,6 @@
 8.Highlight Matching Tag
 
 找的是标签的对象，当我点击一下 html 标签，配对的标签就会出现下划线来指示你谁和谁是一对
-9.Bracket Pair Colorizer 2
-
-选中一个括号以后，会出现一条线帮你找到它对应的另一半括号。
 
 10.Better Comments
 
