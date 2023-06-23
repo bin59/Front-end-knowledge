@@ -4,6 +4,8 @@
 
 ## 主页
 
+![](https://count.getloli.com/get/@:name)
+
 站点 1:[github/front-end-knowledge](https://bin59.github.io/Front-end-knowledge)
 
 站点 2:[gitee/front-end-knowledge](https://binbin59.gitee.io/front-end-knowledge)
@@ -44,6 +46,7 @@
 
 
 ```
+
 ## docsify 支持
 
 [【GitHub】docsify 进阶使用](https://juejin.cn/post/7004816405258305573)

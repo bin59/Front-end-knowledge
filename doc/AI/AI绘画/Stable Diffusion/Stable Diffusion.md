@@ -217,16 +217,6 @@ V2 版本说明:
 
 4.减少油腻感。
 
-Version 2 Release Notes:
-
-This version is optimized by adjusting the layer values of LORA based on the V1 version.
-
-Even without Hires Fix, the results are still good.
-
-The model pollution issue has been reduced and is relatively more controlled.
-
-Reduced the greasy feeling.
-
 0.6-1.1
 
 这是一个网红脸模型,彩色的头发,半身肖像比较在行。
@@ -234,7 +224,9 @@ Reduced the greasy feeling.
 触发关键词 (xx)
 
 This is an internet celebrity face model, with colorful hair, and is more skilled in half-body portraits.
+
 keyword: (xx)
+
 示例用到的名为 model 的基础模型在这里 https://huggingface.co/a1079602570/animefull-final-pruned/tree/main
 
 ### 2.LyCORIS
