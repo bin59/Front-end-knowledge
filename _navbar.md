@@ -1,4 +1,4 @@
-- [开发必备网站](doc/开发必备网站/开发必备网站.md)
+- [开发必备网站](doc/collect/开发必备网站.md)
 
 - [HTML、CSS](doc/front-end/HTML、CSS/HTML/HTML介绍.md)
 
@@ -25,5 +25,3 @@
 - [开发](doc/腾讯AollyTeam团队的代码规范.md)
 
 - [Markdown](doc/Markdown/Markdown技巧.md)
-
-- [MySQL]()
