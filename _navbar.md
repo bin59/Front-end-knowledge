@@ -1,4 +1,4 @@
-- [开发必备网站](doc/collect/开发必备网站.md)
+- [开发必备网站](doc/front-end/开发必备网站.md)
 
 - [HTML、CSS](doc/front-end/HTML、CSS/HTML/HTML介绍.md)
 

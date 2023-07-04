@@ -1,6 +1,4 @@
-开发工具
-
-1. Omatsuri
+Omatsuri
 
 一个渐进的 web 应用程序，有 12 个开源的前端工具：
 [omatsuri](https://omatsuri.app/)
