@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+.wrapper{
+    // 伪类
+    :is(#nav,#box1,#box2,#box3)a:hover{
+        color: crimson;
+        cursor: pointer;
+    }
+
+    /*
+    相当于：
+        #nav a:hover,
+        #box1 a:hover,
+        #box2 a:hover,
+        #box3 a:hover{
+            color: crimson;
+            cursor: pointer;
+        }
+    */
+
+    /* 向后兼容的版本:-*-any()
+    (It is not possible to group selectors into single rule,
+    because presence of invalid selector would invalidate whole rule.)*/
+    :-webkit-any(#nav,#box1,#box2,#box3)a:hover{
+        color: crimson;
+        cursor: pointer;
+    }
+    :-moz-any(#nav,#box1,#box2,#box3)a:hover{
+        color: crimson;
+        cursor: pointer;
+    }
+    :matches(#nav,#box1,#box2,#box3)a:hover{
+        color: crimson;
+        cursor: pointer;
+    }
+}

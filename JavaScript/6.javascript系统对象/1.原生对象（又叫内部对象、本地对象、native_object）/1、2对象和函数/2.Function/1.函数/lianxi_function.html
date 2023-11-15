@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.定义函数有几种方式
+            // 1. function fun(){}         //命名函数（函数名）
+            // 2. let fn = function(){}    //匿名函数（无函数名）
+            // 3.new Function();         //实例化对象（构造函数）
+            // 4.(function () {  xxx  })();  // 自执行函数(自动执行)
+       
+        // 2.retrun关键字的意义
+            // 停止当前函数执行, 并且返回对应值
+
+        // 3.函数是否可以重定义，会有什么事情发生
+            // 后面定义的函数会替代前面的函数
+
+        // 4.var和function关键字有什么特别功能？
+            // var 声明变量
+            // function  定义函数
+            // var、function  变量和函数提升（预解析）
+             // 使用var关键字和function关键字声明的变量，function 关键字声明的函数会被优先执行
+
+        // 5.请定义一个函数，该函数功能为，传入一个值，返回这个值的平方值
+        let n = prompt("输入一个数")
+            // 方法一
+            // function(){
+            //     return arguments[0]*arguments[0];
+            // }
+            // alert(10 +"的平方值："+fn1(10));
+
+
+            function fn1(n){
+                let a=n*n;
+                return a;
+            };
+            alert(n +"的平方值："+fn1(n))
+
+        // 6.请写出一个函数，功能为：传入三个值，则返回这三个值最大的那个值
+            let a,b,c
+            a = +prompt("请输入第一个数")
+            b = +prompt("请输入第二个数")
+            c = +prompt("请输入三一个数")
+            function maxNum(a,b,c){
+               return  Math.max(a,b,c)
+            }
+            alert(a+"，"+b+"，"+c+"中最大的数为："+maxNum(a,b,c));
+
+             // arguments.length   不知道传多少参数都可以找出最大值
+            // function fun(){
+            //     let max = arguments[0];
+            //     for(let i =0;i< arguments.length;i++){
+            //         if(max < arguments[i]){
+            //             max =arguments[i]
+            //         };
+            //     };
+            //     return max;
+
+            // };
+            // console.log(fun(1,2,3,3,5,6,6,54,4,));
+
+
+        // 7.请定义一个函数，输入一个N值，则计算出该值的，即：n! = 1*2*3*4*5*6*...*N
+            let N = prompt("请输入一个数");
+            function fun(N){
+                for(let i =N;i>1;i--){
+                   N*=i-1;
+                }
+                return N;
+            };
+            
+            alert(fun(N));
+            // console.log(fun(N));
+
+
+            // 递归怎么算？
+
+
+        // 8.使用add方法，让console输出的结果为true。  （面试题）
+        // let num =10;
+        // console.log(num.add(20) == 10); 
+
+        let num = 10;
+        num = {
+            add:function(num){
+                return num-10;
+            }
+        };
+        console.log(num.add(20) == 10); 
+
+        // {
+        //     键名:键值
+        // }
+
+    </script>
+</body>
+
+</html>

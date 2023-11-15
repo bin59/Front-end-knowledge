@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            position: relative;
+            width: 500px;
+            height: 50px;
+        }
+        .content{
+            position: absolute;
+            top: 20px;
+            width: 200px;
+            height: 30px;
+            background-color: rgb(224, 60, 60);
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+         
+         <!--  
+            v-if 条件渲染 true显示  false隐藏
+            除了可以设置ture或falsel以后，还可以写条件表达式 
+        -->
+        <div>
+            <!-- <div v-if='isShow'>你可以看到我</div> -->
+            <div v-if='1==1'>你可以看到我</div>
+            <!-- v-if\else中间不要穿插其他内容 ,会有警告 -->
+            <div v-else>你可以看到我</div> 
+        </div>
+            <!-- 
+                v-show 更v-if很像  
+                v-show 是控制css来决定元素的显示
+                v-if 是控制节点是否存在
+                使用场景:用在切换频率很高的组件上，用的v-show 不会引起浏览器的重排
+            --> 
+        <div>
+            
+            <div v-show='isShow'>11</div>
+            <div v-if='isShow'>22</div>
+        </div>
+
+        
+        <div class="box">
+            选项卡 
+            <button v-on:click='handler(1)'>按钮1</button>
+            <button v-on:click='handler(2)'>按钮2</button>
+            <button v-on:click='handler(3)'>按钮3</button>
+   
+            <div class="content" v-show="isShow2==1">内容1</div>
+            <div class="content" v-show="isShow2==2">内容2</div>
+            <div class="content" v-show="isShow2==3">内容3</div>
+        </div>
+        
+        <div>
+             渲染列表 
+             <div v-for='(item,idx ) in arr'>
+                {{item}}--{{idx}}
+            </div><br>
+            
+            <div v-for='(val,key ) in obj'>
+                {{val}}--{{key}}
+            </div><br>
+
+            <!-- 
+            不推荐v-for 和 v-if一起使用
+            <div v-for='item in obj2' v-if='item.age>20'>
+                {{item}}
+            </div>
+
+            如何做这种数据的过滤呢?
+            计算属性:
+            step1:先在写computed属性
+            step2:添加一个函数,一定要 带返回值，这个返回将来会显示在页面中
+            step3:回到视图，在双胡子模版语法写这个函数名
+            最终就会显示这个函数的返回值I
+
+            补充:功能: 1. 过滤的操作
+                    2.计算属性是具有缓存性
+
+             -->
+            <div>age大于20的 :{{newData}}</div><br>
+
+            <!--  -->
+            <p>简单的模板字符串：{{firstname+lastname}}</p>
+            <p>计算属性完成：{{fullName}}</p>
+            <!-- 
+                上面两个实现的效果都是在页面渲染字符串alex,但是他们底层运行原理不一样。
+                上者:页面每次加载都需要运行这个 + (拼接)的操作，浏览器就需要时间去操作,
+                下者:是通过计算属性完成拼接操作, 只会运行一次，具有缓存性,刷新之后，只要firstname或者lastName
+                不变化，都不会再此执行这个拼接操作
+             -->    
+        </div>
+
+        <!-- v-bind 动态修改属性 -->
+        <div v-bind:class="alex">
+            今晚吃鸡
+        </div>
+         
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                alex:'hahahaah',
+                firstname:'al',
+                lastname:'ex',
+                isShow:false,
+                isShow2:1,
+                arr:['red','black','blue'],
+                obj:{
+                    a:'1',
+                    b:'2'
+                },
+                obj2:[
+                    {
+                        name:'小黑',
+                        age:18,
+                        school:'新东方'
+                    },
+                    {
+                        name:'小红',
+                        age:121,
+                        school:'清华'
+                    },
+                    {
+                        name:'小白',
+                        age:18,
+                        school:'北大'
+                    }
+                ]
+            },
+            methods: {
+                handler(idx){
+                    this.isShow2 = idx
+                }
+            },
+            computed: {
+                newData(){
+                    return this.obj2.filter(val=>val.age>20)[0].name
+                },
+                fullName(){
+                    return this.firstname+this.lastname
+                }
+            }
+        })
+    </script>
+</body>
+</html>

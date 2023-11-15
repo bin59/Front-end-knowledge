@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active{
+            background-color: cornsilk;
+        }
+        .box{
+            width: 400px;
+            height: 200px;
+            background-color: cornflowerblue;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <button class="btn1">隐藏</button>
+    <button class="btn2">显示</button>
+    <button class="btn3">切换</button>
+    <button class="btn4">单击淡入效果</button>
+    <button class="btn5">单击淡出效果</button>
+    <button class="btn6">单击滑入效果</button>
+    <button class="btn7">单击滑出效果</button>
+    <div class="box active"></div>
+    <script src="../../libraries/jq/jQuery v 3.6.0.js"></script>
+    <script>
+        // 隐藏
+        $('.btn1').click(()=>{
+            $('.box').hide()
+        })
+        // 显示
+        $('.btn2').dblclick(()=>$('.box').show())
+        // 切换
+        $('.btn3').click(()=>$('.box').toggle())
+        // 单击淡入效果
+        $('.btn4').click(()=>$('.box').fadeIn(400,()=>{console.log('淡入')}))
+        // 单击淡出效果
+        $('.btn5').click(()=>$('.box').fadeOut(500,()=>{console.log('淡出')}))
+        // 单击滑入效果
+        $('.btn6').click(()=>$('.box').slideDown(500,()=>{console.log('滑入')}))
+        // 单击滑出效果
+        $('.btn7').click(()=>$('.box').slideUp(5000,()=>{console.log('滑出')}))
+    </script>
+</body>
+</html>

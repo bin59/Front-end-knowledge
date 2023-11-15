@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>正在加载</h1>
+    <script>
+        /*
+        Promise.resolve()
+        Promise.reject()
+        将现在的对象转换为Promise对象
+        功能等同于
+            new Promise(resolve =>resolve('操作成功))
+            new Promise(reject =>reject('操作失败))
+        */
+        {
+            Promise.resolve("成功操作").then(res=>console.log(res))
+            Promise.reject('操作失败').catch(err=>console.log(err))
+        }
+        /*
+        Promise.all()
+        将多个Promise实例包装成一个新的Promise实例，
+        （成功的返回值直接存在一个数组里面,按照填写顺序执行）
+        (失败的结果则返回最先被reject失败状态的值)
+        */
+        {
+            
+            let a=Promise.resolve('a')
+                ,b=Promise.resolve('b')
+                ,c=new Promise(((res,rej)=>{
+                    setTimeout(()=>{
+                        res('c')
+                    },1000)
+
+                    setTimeout(()=>{
+                        rej('c')
+                    },2000)
+                    // rej('c 失败')
+                }))
+                // ,d=Promise.reject('d 失败')
+                ,d=Promise.resolve('d ')
+
+            Promise.all([a,b,c,d]).then(res=>{
+                document.querySelector('h1').innerHTML='加载完成'
+                console.log(res)
+
+            }).catch(err=>console.log(err))
+        }
+        /*
+        Promise.race()
+        返回处理速度最快的Promise实例，不管结果本身是成功状态还是失败状态
+        */
+        {   
+            console.log('------------');
+            let a=new Promise(((res,rej)=>{
+                    setTimeout(()=>{
+                        rej('a2')
+                    },2000)
+                }))
+                ,b=new Promise(((res,rej)=>{
+                    setTimeout(()=>{
+                        rej('b2')
+                    },1000)
+                }))
+                ,c=new Promise(((res,rej)=>{
+                    setTimeout(()=>{
+                        rej('c2')
+                    },2000)
+                }))
+            Promise.race([a,b,c]).then(res=>{
+                console.log(res)
+            }).catch(err=>console.log(err))
+        }
+    </script>   
+
+    <script src="./2、Promise封装AJAX/2、Promise封装AJAX.js"></script>
+    <script>
+        console.log('----------------------');
+        {
+            let api1 = "http://studentback.dfbuff.xyz/postMethod",
+                api2 = "http://studentback.dfbuff.xyz/getMethod",
+                data = {"type": "图片"},
+                a=ajax(api1, data, "POST"),
+                b=ajax(api2, data, "GET")
+
+            Promise.race([a,b]).then(res=>{
+                console.log(res)
+            }).catch(err=>console.log(err))
+        }  
+    </script> 
+</body>
+</html>

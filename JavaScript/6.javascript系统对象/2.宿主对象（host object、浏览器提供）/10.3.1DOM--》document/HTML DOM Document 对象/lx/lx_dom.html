@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="submit" id="addBtn" value="添加一条新的访客信息" />
+    <input type="submit" id="delSelect" value="删除选中" />
+    <input type="submit" id="sortBtn" value="年龄从小到大" />
+    <input type="submit" id="selectAll" value="全选" />
+    <input type="submit" id="notSelectAll" value="取消全选" />
+    <input type="submit" id="disSelectAll" value="反选" />
+
+    <table border="1" cellspacing="0" cellpadding="10">
+      <tbody>
+        <tr>
+          <td>序列号</td>
+          <td>姓名</td>
+          <td>年龄</td>
+          <td>操作</td>
+          <td>选择</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      var info = [
+        {
+          name: "胡杭",
+          age: 16,
+        },
+        {
+          name: "胜明",
+          age: 22,
+        },
+        {
+          name: "军毅",
+          age: 21,
+        },
+        {
+          name: "晓华",
+          age: 13,
+        },
+        {
+          name: "盛聪",
+          age: 23,
+        },
+        {
+          name: "侦剑",
+          age: 32,
+        },
+        {
+          name: "红翔",
+          age: 25,
+        },
+        {
+          name: "超维",
+          age: 18,
+        },
+        {
+          name: "士琪",
+          age: 22,
+        },
+        {
+          name: "艳华",
+          age: 20,
+        },
+      ];
+
+      function id(x){
+        return document.getElementById(x);
+      };
+
+      let tbody = document.querySelector("tbody"),
+        addBtn = id("addBtn"),
+        delSelect = id("delSelect"),
+        sortBtn = id("sortBtn"),
+        selectAll = id("selectAll"),
+        notSelectAll = id("notSelectAll"),
+        disSelectAll = id("disSelectAll"),
+        delBtn, 
+        i = 0,
+        n = info.length;
+
+      // 添加一条新的访客信息
+      addBtn.onclick = () => {
+        if (i < n) {
+          let newtr = document.createElement("tr");
+          tbody.appendChild(newtr);
+          newtr.innerHTML = `
+            <td>${i + 1}</td>
+            <td>${info[i]["name"]}</td>
+            <td>${info[i]["age"]}</td>
+            <td><button>删除</button></td>
+            <td><input type="checkbox" name="select" value="select"></td>
+            `;
+		      i++;
+
+          delBtn = tbody.querySelectorAll("td>button");
+          // 遍历给每一个删除按钮绑定点击事件
+          delBtn.forEach(el => {
+            el.onclick = () => el.parentElement.parentElement.remove();
+          });
+         
+        };
+      };
+
+
+      /*
+      // 年龄从小到大
+      sortBtn.onclick = () => {
+        let tr = tbody.querySelectorAll("tr:not(:first-child)");//NodeList(5) [tr, tr, tr, tr, tr]
+        let trList = [],i = 0;
+
+        tr.forEach(val => {
+		      // let age = Number(val.querySelectorAll("td")[2].innerHTML); //得到转换为数字的age   16
+		      let age = Number(val.children[2].innerText); //用children更方便
+          let  trObj = {};
+          trObj["Age"] = age;
+          trObj["tr"] = tr[i];
+          trList.push(trObj); //  [{Age: 16, tr: tr}]
+          i++;
+        });
+        // console.log(trList); //  Array(3)[{Age: 16, tr: tr},{Age: 22, tr: tr},{Age: 21, tr: tr}]
+        trList.sort((a, b) => a.Age - b.Age);
+        // console.log(trList); //  [{Age: 16, tr: tr},{Age: 21, tr: tr},{Age: 22, tr: tr}]
+
+        // 插入数据到页面
+        // tbody.innerHTML = `<tr><td>序列号</td> <td>姓名</td><td>年龄</td><td>操作</td><td>选择</td></tr>`;
+        trList.forEach(val => {
+          // console.log(val["tr"]); //  <tr>...</tr>
+          // tbody.innerHTML =val["tr"]//数据没显示，显示的是:  [object HTMLTableRowElement]
+          tbody.append(val["tr"]);
+        });
+      };
+      */
+
+
+    //不用再弄数组装对象一个对象，直接用数组排序
+    // 年龄从小到大排序
+    sortBtn.onclick = () => {
+        let tr = tbody.querySelectorAll("tr:not(:first-child)"),
+          dataArr = [];//要把把得到的tr放入新数组
+        tr.forEach(item=>dataArr.push(item));
+        dataArr.sort((a, b) =>a.children[2].innerText - b.children[2].innerText);
+        dataArr.forEach(item=> tbody.appendChild(item));
+      };
+
+      // 删除选中
+      delSelect.onclick = () => {
+        let select = tbody.querySelectorAll("input[name='select']");
+        //el.checked  是否被选中： true  false true
+        select.forEach(el => el.checked&&el.parentElement.parentElement.remove());
+	    };
+      // 全选
+      selectAll.onclick=()=>tbody.querySelectorAll("input[name='select']").forEach(val=> val.checked=true);
+      // 取消全选
+      notSelectAll.onclick=()=> tbody.querySelectorAll("input[name='select']").forEach(val=> val.checked=false);
+      // 反选
+      disSelectAll.onclick=()=>tbody.querySelectorAll("input[name='select']").forEach(val=>val.checked=!val.checked);
+      // 这里可以用  用取反  val.checked=!val.checked 代替 三元表达式val.checked?(val.checked=false):(val.checked=true)  
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>书写位置</title>
+
+    <!-- 
+        2.JS代码需要编写到script标签中
+     -->
+    <script>
+      console.log("你猜我在哪里出来呢？");
+    </script>
+
+    <!-- 
+        3.写在外部js文件中
+        script标签一旦引入外部文件，就不能在标签里面编写代码了，即使编写了浏览器也会忽略 
+    -->
+    <script type="text/javascript" src="js/test.js"></script>
+    <!-- 如果需要可以新建一个新的script标签用于编写内部代码 -->
+  </head>
+
+  <body>
+    <!-- 
+        JavaScript的书写位置 
+    -->
+
+    <!-- 1、写在行内，虽然可以写在属性中，但他们属于结构与行为耦合，不方便维护，不推荐使用 -->
+    <!-- 编写到onclick属性中 -->
+    <button onclick="alert('内联脚本');">点我</button>
+    <!-- 编写到超链接的href属性中 -->
+    <a href="javascript:alert('点我一下')">点我一下</a>
+  </body>
+</html>
+
+<!-- 
+  
+注意问题
+  1.在一对script的标签中有错误的js代码,那么该错误的代码后面的js代码不会执行
+ 
+  2.如果第一对的script标签中有错误,不会影响后面的script标签中的js代码执行
+
+  3.script的标签中可以写什么内容 type="text/javascript"是标准写法或者写language="JavaScript"都可以
+
+  目前在我们的html页面中,type和language都可以省略,原因:html是遵循h5的标准
+  1.有可能会出现这种情况:script标
+
+  2.script标签在页面中可以出现多对
+
+  3.script标签一般是放在body的标签的最后的,有的时候会在head标签中,目前讲课的时候都在body标签的后面(body中的最后)
+
+  4.如果script标签是引入外部js文件的作用,那么这对标签中不要写任何的js代码,如果要写,重新写一对script标签,里面写代码
+
+ -->
+
+<!-- 
+  JS延迟加载的方式有哪些？（5）
+          （1）script写在页面底部
+          （2）使用defer属性延迟加载
+ -->

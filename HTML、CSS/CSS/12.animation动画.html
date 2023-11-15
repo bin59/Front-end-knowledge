@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* 
+
+        animation 动画
+            CSS动画与过渡的相同点是CSS属性都在一段时间内发生变化，而不同点就是动画对变化的方式有更
+        多的选择和控制。尤其是通过关键帧实现的CSS动画能设定是否以及如何重复动画，还能深度控制整个动
+        画的过程。
+
+        1.定义关键帧
+        帧，就是动画中最小单位的单幅影像画面，相当于电影胶片上的每一格镜头。关键帧，相当于二维动画里
+    的原画。指的就是角色或者物体运动或变化时关键动作所处的那一帧，关键帧与关键帧之间的每幅图像就可以由
+    软件来创建。
+        若想为元素添加动画效果，就必须得有一个关键帧，而这又要求又一个具名关键帧动画。首先要便用
+    @keyframes规则定义可以复用的CSS关键帧动画，并为动画起个名。然后，通过这个名称添加到对应的元素上。
+        
+        1.1设置关键帧动画
+        创建动画的第一步是使用ekeyframes为动画起一个名称，并在一对花括号中定义关键帧。
+        @keyframes runing{
+            ...
+            关键帧选择符
+        }
+        在命名动画时要留意，取名尽量不要带有特殊字符，可以下划线和连字符，但是不能以数字开头。另外，
+    不要使用none paused running infinite backwards forwards ,因为这些 是动画中的一些控制属性，
+    如果在简写的animation属性中取名带有这些，可能会导致动画失效。
+
+        1.2关键帧选择符
+        关键帧选择符知名声明的属性值应用到动画的哪个时间点，即动画播放到某个时刻，希望这个时刻的值
+    是什么属性。如果想设置动画开头的值，就可以在0%记号处声明，如果想在动画结尾，那就是100%。
+        可以是关键字from和to，另一种就是百分数。
+            @keyframe pao{
+                from{
+                    left:0;
+                    top:0;
+                }
+                to{
+                    left:100px;
+                    bottom:100px;
+                }
+            }
+
+            @keyframe pao{
+                0%{
+                    left:0;
+                    top:0;
+                }
+                25%{
+                    left:100px;
+                    top:300px;
+                }
+                50%{
+                    left:500px;
+                    top:500px;
+                }
+                100%{
+                    right:0px;
+                    bottom:0px;
+                }
+            }
+            
+        如果某一些时刻的属性值是相同的，那关键帧可以通过逗号隔开来一起书写
+            @keyframes pao {
+                0% {
+                    left:0;
+                }
+                25%,75% {
+                    top: 500px;
+                }
+                100% {
+                right: 0;
+                }
+            }
+
+        
+        2.将动画作用在元素上
+            定义好动画关键帧后，我们可以通过CSS相关的属性，来将动画依附到元素身上，并且控制动画的播放过程。如果要想动画效果能显示出来，必须要指明动画的名字、动画的时间。
+            2.1 动画的名称
+                animation-name:属性的值就是在@keyframes中声明的名字，它可以添加多个动画，每个动画用逗号隔开。
+                    animation-name:pao,pao1,pao2;
+            2.2 动画的时长
+                animation-duration:属性的值定义动画迭代一次用时多久，单位为秒（s）或者毫秒（ms）。
+                    animation-duration: 1s | .5s | 500ms;
+            2.3动画的迭代次数
+                有了上面两个声明，整个动画已经能跑起来了。但是如果需要动画连续播放好几次，
+            或者无数次，则可以通过迭代次数来控制它。
+                animation-iteration-count:<number> | infinite;
+            2.4 动画的播放方向
+                按照正常人的思维，动画正常播放应该是从0到100%。
+                animation-direction:normal | reverse | alternate | alternate-reverse;
+                    -normal:默认值，动画每次迭代都从0%到100%关键帧播放;
+                    -reverse:动画每次迭代都从100%到0%播放;
+                    -alternate∶交替迭代，第一次以normal播放，第二次以reverse播放，然后交替循环下去;
+                    -alternate-reverse:逆序交替迭代，第一次以reverse播放，第二次以normal播放。
+            2.5 动画的延时
+                animation-delay:<time>;
+                它的属性单位值为秒（s）或者毫秒（ms），在默认情况下是0。
+            2.6 动画的频率
+                这个和过渡的transition-timing-function非常的类似，它也能指明动画在一次循环迭代中如何过渡演进。
+                
+                animation-timing-function: linear | ease | ease-in | ease-out | ease-in-out | steps() | cubic-bezier( ) ;
+                2.6.1 贝塞尔曲线
+                    https://cubic-bezier.com
+            
+            2.7 动画的播放状态
+                animation-play-state:running | paused;
+
+            2.8 动画的填充次数
+                animation-fill-mode:none | forwards | backwards | both;
+                    -forwads:在动画播放结束后，即 animation-iteration-count设定
+                的迭代次数全部结束，结尾时的动画属性将继续作用在元素上;
+                    -backwards:如果存在animation-delay时，0%或100%关键帧定义的属性会
+                立马作用到元素上，而不会等待animation-delay结束才作用上去;
+                    -both:上面两种效果都存在。
+
+            2.9 简写属性
+                举个例子：
+                animation:pao 2s ease-in-out .5s infinite pasued;
+
+            3. 逐帧动画
+            在animation-timing-function 中存在这个属性值，一个从来没有见过的―—steps()。
+        与其叫属性.它更准确的叫法是步进时序函数。这个函数更适合用在小人动画上。Steps()时序
+        函数会把动画分成一系列登场的步幅。步进函数的第一个参数，必须是一个正整数。例如，一段
+        动画的持续时间为1秒，步数为10，那么动画就会分10步去完成，每一步时长为100毫秒。
+
+            为了更好的理解，可以拿翻书来举例。书的每一页中都会有一张图，每张图之间都有细微
+        的差异，在快速翻页过程中，图像的变化就类似动画的效果。使用一个子图集，配合上background-pisition
+        就可以实现动画效果了。要实现一个逐帧动画，首先要创建一个容器元素，把尺寸设置为每一帧所在图像的大
+        小(也就是每个小图像的尺寸)。
+
+
+            
+        */
+        @keyframes handsome{
+            from{
+                transform:translate(0,0);
+                width: 0;
+                height: 0;
+                background-color: yellow;
+            }
+            to{
+                transfrom:translate(500px,500px);
+                width: 100px;
+                height: 100px;
+                background-color: turquoise;
+            }
+        }
+        .box{
+            /* animation-name:handsome;
+            animation-duration: 2s;
+            animation-iteration-count:infinite;
+            animation-direction:normal;
+            animation-delay: 1;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
+            animation-play-state: paused; */
+            animation:handsome 2s .5s normal .5s ease-in paused forwards;
+        }
+
+
+        /* 逐帧动画 */
+        @keyframes rocket{
+            from{
+                background-position: 0 0;
+            }
+            to{
+                background-position: -892px 0;
+            }
+        }
+        .a{
+            width: 149px;
+            height: 250px;
+            background-image:url(./picture/html、css/12.animation\ 动画/p.jpg);
+            background-position: -892px 0;
+            animation: rocket 2s steps(6) infinite;
+        }
+        .b{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: pink;
+        }
+    </style>
+    <link rel="stylesheet" href="./style/animate.css-4.1.1/animate.css">
+</head>
+<body>
+    <div class="box"></div>
+    <div class="a"></div>
+    <div class="b animate_animated animate_rubbrBand"></div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            border: 5px dashed rgb(126, 234, 248);
+            border-radius: 50%;
+            animation: move 2s linear infinite;
+            animation-direction: alternate;
+        }
+
+        @keyframes move {
+            0%{
+                transform: translateX(0px) rotate(0);
+            }
+            100%{
+                transform: translateX(200px) rotate(360deg);
+            }
+        }
+        .active{
+            background-color: #f93;
+            border-radius:0;
+            transition:2s ease-in;
+        }
+
+    </style>
+    
+    
+</head>
+<body>
+    <div class="box"></div>
+    <button class="btn">按钮</button>
+    <!-- 
+        样式API
+            style  获取行内样式或设置行内样式   
+            getComuptedStrle(元素，元素的属性)
+                能获取页面属性的最终样式，并且能获取全部样式
+            getPropertyValue(元素属性)  获取元素属性值
+            cssText  样式文本
+
+     -->
+     <script>
+         let btn = document.querySelector(".btn");
+         let box = document.querySelector(".box");
+         btn.onclick = function(){
+            //  box.style.backgroundColor = "#f93";
+            //  box.style.borderRadius = 0;
+            //  box.style.transition = "2s ease-in"
+            // 写很多会影响性能
+
+            // box.classList.toggle("active");
+
+            // cssText
+            box.style.cssText = ""
+
+            console.log(window.getComuptedStyle(box,".style").getProperyValue("width"));
+         };
+         
+
+     </script>
+</body>
+</html>

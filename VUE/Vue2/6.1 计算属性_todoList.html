@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todoList</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 用户输入内容 -->
+        <!-- trim 自动过滤输入内容最开始  和 最后的 空格，中间的会保留一个空格，多的会被过滤掉 -->
+        <input type="text" v-model.trim="ipt" @keyup.enter="handlerIpt">
+       
+        <!-- 渲染用户内容 -->
+        <!-- 渲染未完成 arr-->
+        <h2>未完成的事情</h2>
+        <div v-for="item in unfinishlist">
+            <input type="checkbox" @click.prevent="handlerCheck(item)">
+            {{item.contents}}
+            <button @click="del(item)">删除</button>
+        </div>
+
+        <!-- 渲染已完成 arr1-->
+        <h2>已完成的事情</h2>
+        <div v-for="item in finishlist">
+            <input type="checkbox" checked @click.prevent="handlerCheck(item)">
+            {{item.contents}}
+            <button @click="del(item)">删除</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+   <script>
+       let vm = new Vue({
+           el:'#app',
+            data:{
+                ipt:'',
+                list:[
+                    {
+                        id:0,
+                        contents:'吃饭',
+                        isChecked:false
+                    },       
+                ]   
+            },
+            computed:{
+                unfinishlist(){
+                    return this.list.filter(ele=>ele.isChecked=== false)
+                },
+                finishlist(){
+                    return this.list.filter(ele=>ele.isChecked=== true)
+                }
+            },
+            methods:{
+                handlerIpt(){
+                    if(this.ipt=='') return
+                    this.list.push({
+                        id:this.list.length,
+                        contents:this.ipt,
+                        isChecked:false
+                    })
+                    this.ipt = ''
+                },
+                handlerCheck(item){
+                    this.list[item.id].isChecked = !item.isChecked
+                },
+                del(item){
+                    this.list.splice(item.id,1);
+                    //因为删除之后，id是不会动态的变化
+                    //重新排序，给id动态赋值，为了后续删除
+                    this.list.forEach((ele,index) => {
+                        ele.id = index
+                    });
+                }
+            }
+        })
+   </script>
+</body>
+</html>

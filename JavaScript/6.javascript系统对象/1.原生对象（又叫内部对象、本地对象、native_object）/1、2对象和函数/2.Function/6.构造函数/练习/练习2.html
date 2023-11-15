@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">自增</button>
+    <h1 id="num">0</h1>
+
+    <button id="btn1">自增</button>
+    <h1 id="num1">0</h1>
+    <script>
+        function Add(_btn, _num) {
+            this.btn = document.querySelector(_btn)
+            this.num = document.querySelector(_num)
+            // 实例化的时候会调用addFn()
+            this.addFn()
+        }
+
+        Add.prototype = {
+            constructor: Add,
+
+            // 存储this
+            // addFn() {
+            //     let _this = this;
+            //     this.btn.addEventListener("click", function () {
+            //         _this.num.innerHTML = Number(_this.num.innerText) + 1
+            //     })
+            // }
+
+            // 箭头函数
+            // addFn() {
+            //     this.btn.addEventListener("click", () =>{
+            //         this.num.innerHTML = Number(this.num.innerText) + 1
+            //     })
+            // }
+            
+            // 使用bind改变this指向
+            addFn(){
+                let _this = this;
+                this.btn.addEventListener("click", this.valFn.bind(_this))
+            },
+            // 修改值
+            valFn() {
+                this.num.innerHTML = Number(this.num.innerText) + 1
+            }
+        }
+
+        new Add("#btn", "#num")
+        new Add("#btn1", "#num1")
+
+
+        
+        // 在Array原型上添加sum方法
+        Array.prototype.sum=function(num){
+            let count = 0
+            for(let i = 0;i<=num;i++){
+                count+=i
+            }
+            return count
+        }
+
+        console.log(Array.prototype)
+        let arr = new Array()
+
+        console.log(arr.sum(100))
+
+
+    </script>
+</body>
+
+</html>

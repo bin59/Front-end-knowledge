@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* flex弹性盒子
+        1.弹性盒子基础
+        弹性盒子是一种简单而强大的布局方式，我们可以通过弹性盒子指明空间的分布方式、内容的对齐方式和元素
+    的视觉顺序。内容可以轻易地横向排列或者纵向排列，也可以沿着某一条轴布局。弹性盒子最突出的一个特点，能让元
+    素在不同屏幕尺寸下或者不同显示设备做好适应准备，因为内容可以根据空间的大小增减尺寸。
+
+        弹性盒子最突出的一个特点，能让元素在不同屏幕尺寸下或者不同显示设备做好适应准备，因为内容可以根据空间的
+    大小增减尺寸。
+        
+        弹性盒子依赖的是父子关系。在父元素上面声明display: flex来创建一个弹性容器，它主要负责内
+    部子元素的布置，控制子元素的布局。在弹性容器中的这些子元素，一般都叫弹性元素。
+
+        display:flex;
+
+        设为 Flex布局后，子元素的float、clear和vertical-align属性将失效。但是position属性，依然生效。
+
+        2.弹性容器
+        首先要完全理解的概念是弹性容器。display: flex声明的目标元素会成为弹性容器，容器内部的元素，不管是DOM节点
+    还是文本还是生成的内容，都称为弹性元素。弹性容器中，绝对定位的元素也叫弹性元素，不过确定其尺寸和位置时，需要
+    将这个弹性元素视为弹性容器中唯—一个弹性元素。
+
+        2.1 flex-direction 
+        决定主轴的方向（即项目的排列方向），弹性元素默认会按这条主轴方向进行排列。
+        flex-direction:row |row-reverse |columu |columu-reverse;
+            row 默认值：
+
+        2.2 flex-wrap
+        在flex布局中，当弹性元素个数过多时，并且超过了弹性容器的宽度，这时默认情况下会将子元素进行挤压，然后放在同一行主轴上
+    进行排列。默认情况下，弹性元素不会进行换行，并且允许元素缩减尺寸。同样的，我们可以通过flex-wrap来让元素进行换行处理。
+        
+        flex-wrap:nowrap |wrap |wrap-reverse;
+            nowrap:默认值，元素不换行；
+            wrap:元素允许换行；
+            wrap-reverse:只是决定多出的一行显示在第一行之后；
+
+        3. 布置弹性元素
+        为什么所有元素都主轴起边一侧紧挨在一起？
+
+        3.1 元素在主轴上的发布方式
+        justify-content:flex-start | flex-end | center |space-around |space-between | space-evenly;
+            flex-start:默认值，所有弹性元素都向主轴的起始边靠拢，每一行里的第一个弹性元素都紧靠主轴起始边的一侧;
+            flex-end:弹性元素紧靠主轴的终边进行排列，一行里的最后一个弹性元素向主轴的终边靠拢，前面各弹性元素紧挨后一个弹性元素;
+        与flex-direction: row-reverse不同，这个仅仅是将元素贴着终边排列，没有改变元素视觉上的布局顺序; 
+            center:把弹性元素作为一个整体，所有弹性元素会挤在一起，然后统一居中显示在主轴中点处，而不再向主轴起边或者终边靠拢。
+            space-around︰把余下的空间拆分开，然后平均地分配给每一个弹性元素，看起来就像每个元素四周都有等量的外边距;
+        这里要注意普通元素的外边距是第一个元素或最后一个元素与弹性容器间距离的两倍;当一行中只有一个元素，这个元素将会居中显示。
+            space-between:把每一行里的第一个弹性元素放在主轴的起始边，最后一个元素放在主轴的终边，然后剩下的每一对相
+        邻的弹性元素之间放置等量的空白(外边距);当主轴元素上只存在一个弹性元素时，它不会居中，而是会将它放在主轴的起始边。
+            space-evenly:把余下的空间平均拆分分配到每个元素上。
+
+        3.2 元素在侧轴方向上的分布方式
+            justify-content:
+            align-items:flex-start | flex-end | center | baesline;
+                3.2.1 起边对齐、终边对齐、居中对齐
+                这三个值是最常见，效果也相对简单的属性值。
+                flex-start将各  弹性元素在侧轴起始边处开始进行排列，这也是默认的显示方式;
+                flex-end将各元素在侧轴的终边开始进行排列;
+                center将弹性元素的中点与所在行的侧轴中点进行对齐，这也是我们常用的居中对齐的方法。
+                
+                3.2.2 align-self
+                如果想改变某个或某些弹性元素的对齐方式，而不是修改全部弹性元素，那就可以用到align-self这个属性，这
+                个属性的取值和align-items一样,只不过这个属性只会作用在当前弹性元素上。
+                
+                如:  div.son{}中将奇数弹性元素进行侧轴上的居中对齐
+                .son:nth-child(odd){
+                    align-self: center;
+                }
+
+        4.对齐内容
+        align-content: flex-start | flex-end | center | space-between | space-around | space-evenly;
+        
+        该属性定义弹性容器有额外空间时，在侧轴方向上如何对齐各弹性元素行。
+        
+        与之前的属性align-items比较,align-content 属性指定的是容器中侧轴方向上额外空间如何分配到弹性元素行之间和周围，
+    而align-items则是指定每一行弹性元素的分布位置，虽然在效果上会有相似的地方，但是实际上的作用是完全不同的。
+        
+        align-content它的默认值并不是 flex-start ，而是一个叫stretch的属性值。这个属性值，将额外的空间平均分配
+    到每个弹性元素中，增加行的侧轴尺寸，直到边与边重合。这也是导致我们弹性元素换行时，没有紧跟上一行元素的罪魁祸首。
+   
+        5.flex属性
+        flex:<flex-grow> <flex-shrink> <flex-basis> | none;
+
+        弹性布局最突出的一点，就是把弹性元素变得具有弹性，在主轴方向上调整弹性元素的宽度或者高度，可以占满可用的空间。
+    弹性容器会根据弹性增长因子分配额外的空间或者根据弹性缩减因子按比例缩小元素，以防溢出。
+
+        5.1 flex-grow
+        弹性增长因子。该属性定义有多余空间时，是否允许弹性元素增大，以及允许增大且有多余空间时，相对其他同辈的元素
+    以多大的比例去增大。简单来说，如果弹性容器有多余的空间，这空间将会按照弹性增长因子的比例去分配给各个弹性元素。
+
+        当设置.soncA增长因子为1时，多余的空间将会按照0:1的比例分配到每个元素上，
+    O就代表不分配，这样就会把剩余的空间全都添加到.sonA元素上。
+        flex-grow虽然可以设置很大的数值，但是实际上看的是每个元素之间的比例大小。
+    1:1.2和LU.2U.4U市术的双未定一件的。
+
+        5.2 flex-shrink
+        该属性指的是弹性缩减因子，当弹性容器定义的空间不足以容纳所有的弹性元素，
+    且不允许换行的情况下，每个弹性元素都会以缩减因子这个比例去缩小宽高。
+
+        flex-shrink: <number> ;
+
+        这个值和flex-grow一样，可以取数字，可以小数但不能负数。默认值为1;
+
+        按照例子的情况，子元索需要一共缩减150px，才能让sonC容纳进来。通过上面的
+    设置，150px将会以1:00的比例在每个弹性元索上进行缩减。所以sonA这个元素将会缩减150px。
+        
+        对于缩减因子，需要注意一个地方:如果某个弹性元素的内部存在无法缩小的元素
+    （例如图片、视频、文字）或者定义了宽高，那么这个弹性元素在达到这个内部元素的
+    宽度时，将会等同于flex-shrink: o时的效果，缩小这个操作将会交给其他弹性元素了。
+        
+        5.3 flex-basis
+        我们知道，弹性元素的尺寸受到内容及模型属性的影响，而且可以通过fl1ex的几
+    个属性来重置。其中flex-basis就定义了弹性元素的初始或者默认尺寸，即根据增长因
+    子和缩小因子分配或减小空间前，弹性元素的大小。
+
+        flex-basis: content | <length> | <percentage> ;
+
+        在效果上， flex-basis 虽然和 width的效果大体是一样的，但实际上，在Flex布
+    局中，弹性元素设置的width其实没有任何效果。这里其实并不是width直接生效，而是
+    flex-basis带来的作用。
+        回到flex-basis: auto这个属性值上，它具体的含义是弹性元素的基本尺寸是根据
+    自身的尺寸来决定的，而自身的尺寸和下面几个因素有关:
+
+            盒模型，默认作用在content-box 上;
+            width还有min-width和max-width等CSS属性;
+            content内容;
+
+            因为此时的(content 内容最小宽度超过了200px，于是flex-basis: 200px
+            不会按照宽度来显示，而是按照最小内容宽度显示了。但是通过width: 200px来
+            设置的尺寸，则会把弹性元素限制得死死的，字符直接溢出到外面。
+
+
+        5.4 简写属性
+        每个子属性的默认值： flex-grow: O、flex-shrink: 1、flex-basis: auto，
+
+        flex: 0 1 auto;
+
+        在一般开发时，我们都不太需要控制后面两个属性，因为会进行元素的换行处理。
+    所以一般只需要考虑它的增长因子。
+
+        flex: 1;
+        当flex属性只有一个值时且是正数时，这个值将会用作增长因子。
+
+
+        6. ordere属性
+        在默认情况下，弹性元素的显示和排列顺序在源码中的顺序是一致的。在某些情
+    况下，需要单独改变某个元素的排列位置，比如1，2，3的排列方式改为，1，3，2的
+    顺序。这时就可以通过order来控制。
+        
+        order: <integer>;
+        
+        默认值为O，意思是所有元素的顺序都是0，则代表在同一排序组中，元素是按照源
+    码中的顺序沿主轴方向进行排列。order的值，越小越靠前。
+ */
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        /* nav{ */
+            /* width: 500px;
+            height: 500px;
+            background-color: rgb(115, 188, 218); */
+
+            /* nav ul li中在nav用fkex不行，应在ul中使用 */
+            /* display: flex; */
+        /* } */
+        ul{
+            width: 500px;
+            height: 500px;
+            background-color: rgb(241, 238, 47);
+            display:flex;
+            /* ?????????????? */
+            flex-direction: row;
+            flex-wrap: wrap;
+            /* justify-content: flex-start;     */
+            /* justify-content: flex-end; */
+            /* justify-content: center; */
+            /* justify-content: space-between; */
+            /* align-items: flex-end; */
+        }
+        li{
+            width: 100px;
+            height: 100px;
+	        list-style:none;
+            background-color: rgb(132, 236, 167);
+            font-style: 50px;
+            text-align: center;
+            line-height: 100px;
+            border: 2px solid rgb(0, 0, 0);
+        }
+
+        .father{
+            width:400px;
+            height: 400px;
+            display: flex;
+            flex-direction: row;
+            /* flex-wrap: wrap; */
+            /* justify-content: center; */
+            /* justify-content: flex-start; */
+            /* align-items: center; */
+            /* align-content: flex-start; */
+            /* align-content: flex-end; */
+            /* align-content: flex-end; */
+            background-color: rgb(13, 255, 203);
+
+        }
+        .son{
+            width: 150px;
+            height: 150px;
+            background-color: rgb(248, 116, 116);
+            border: 2px solid rgb(0, 0, 0);
+            /* flex-grow: 0; */
+            flex-shrink: 0;
+
+        }
+        /* 只让奇数在下面垂直居中 */
+        .son:nth-child(odd){
+            background-color: rgb(144, 233, 159);
+            /* align-self: center; */
+        }
+
+
+
+        .father2{
+            width:400px;
+            height: 400px;
+            display: flex;
+            flex-direction: row;
+            background-color: rgb(13, 255, 203);
+
+        }
+        /* 只让奇数在下面垂直居中 */
+        .son2{
+            width: 150px;
+            height: 150px;
+            background-color: rgb(248, 116, 116);
+            border: 2px solid rgb(0, 0, 0);
+            /* flex-grow: 0; */
+            /* flex-shrink: 0; */
+        }
+        .sonA{
+            /* flex-grow: 1; */
+            /* flex-shrink: 1; */
+            background-color: rgb(248, 116, 116);
+        }
+        .sonB{
+            /* flex-grow: 1; */
+            /* flex-shrink: 1; */
+            background-color: rgb(231, 167, 167);
+        }
+
+        .sonson{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    
+     <div>
+         <nav>
+             <ul>
+                 <li>1</li>
+                 <li>2</li>
+                 <li>3</li>
+                 <li>4</li>
+                 <li>5</li>
+                 <li>6</li>
+                 <li>7</li>
+                 <li>8</li>
+             </ul>
+         </nav>
+     </div>
+
+     <div class="father">
+        <div class="son">1</div>
+        <div class="son">2</div>
+        <div class="son">3</div>
+        <div class="son">4</div>
+        <div class="son">5</div>
+        <div class="son">6</div>
+        <div class="son">7</div>
+        <div class="son">8</div>
+        <div class="son">9</div> 
+        <div class="son">10</div>
+    </div>
+    <br>
+
+    <div class="father2">
+        <div class="son2 sonA"></div>
+        <div class="son2 sonB"></div>
+        <div class="son2">
+            <!-- <div class="son2 sonson"> -->
+        </div>
+       <div class="son2"></div> 
+       <div class="son2"></div>
+       <div class="son2"></div>
+   </div>
+
+</body>
+</html>

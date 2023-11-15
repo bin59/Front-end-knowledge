@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <add @goto='addData'></add>
+        <pl :contents='contents' @likegoto='like' @delgoto='del' @topgoto='top'></pl>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        Vue.component('add',{
+            template:`<div>
+                        <textarea name="" id="" cols="30" rows="10"  v-model='ipt'></textarea>
+                        <button @click='btn'>发表</button>
+                    </div>`,
+            data(){
+                return{
+                    ipt:''
+                }
+            },
+            methods: {
+                btn(){
+                    this.$emit('goto',this.ipt)
+                },
+            }
+        })
+
+        Vue.component('pl',{
+            props:["contents"],
+            template:` <div >
+                            <p v-for='(item,idx) in contents'>
+                                {{item.name}} 
+                                {{item.content}} 
+                                {{item.date}} 
+                                {{item.like}}
+                                <button @click='like(item)'>点赞</button>
+                                <button @click='top(idx)'>置顶</button>
+                                <button @click='del(idx)'>删除</button>
+                            </p>
+                        </div>`,
+            methods: {
+                like(item){
+                    this.$emit('likegoto',item)
+                },
+                del(idx){
+                    this.$emit('delgoto',idx)
+                },
+                top(idx){
+                    this.$emit('topgoto',idx)
+                }
+            }
+        })
+
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                ipt:'',
+                contents:[
+                        {
+                            id:1,
+                            name:'小黑',
+                            content:'喜爱的',
+                            date:'2021-11-11',
+                            like:0
+                        }
+                    ]
+            },
+            methods: {
+                addData(data){
+                    this.ipt=data
+                    if(this.ipt =='') return
+                    this.contents.push({id:1,name:'xxx',content:this.ipt,date:'2021-11-11 ',like:0})
+                    this.ipt='' 
+                },
+                like(item){
+                    item.like++
+                },
+                del(idx){
+                    this.contents.splice(idx,1)
+                },
+                top(idx){
+                    this.contents.unshift(this.contents[idx])
+                    this.contents.splice(idx+1,1)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

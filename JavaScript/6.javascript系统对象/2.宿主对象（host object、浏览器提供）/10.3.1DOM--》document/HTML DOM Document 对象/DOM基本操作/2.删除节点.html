@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box01,
+        .box02 {
+            width: 150px;
+            height: 150px;
+            border: 1px dashed #000;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="box01">我是box01</div>
+        <div class="box02">
+            <h5>我是box02</h5>
+            <ul>
+                <li>列表1</li>
+                <li>列表2</li>
+                <li>列表3</li>
+            </ul>
+        </div>
+    </div>
+
+    <button id="btn">点击删除</button>
+
+    <script>
+        let box = document.querySelector(".box");
+        let box01 = document.querySelector(".box01");
+        let box02 = document.querySelector(".box02");
+        let btn = document.querySelector("#btn");
+
+        // 1、node.remove() 删除自身节点
+        // 删除box02的div 
+        // box02.remove(); 
+
+        //2、node.removeChild(子节点)    删除子节点
+        //删除box01的div 
+        // box.removeChild(box01);
+
+
+        // 通过点击事件  
+        btn.onclick = function () {
+            // console.log(box02.firstElementChild);
+            // box02.firstElementChild.remove(); // 删除box02里面的h5标签
+            // box02.remove(); // 删除box02的div 
+
+            box.removeChild(box01); //删除box01的div 
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        fetch()是 XMLHttpRequest的升级版，用于在JS脚本里面发出HTTP请求,浏览器原生提供这个对象
+        （基于Promise处理异步请求）
+     -->    
+     <div></div>
+     <script>
+         let div = document.querySelector("div")
+        //  GET请求
+         fetch("http://studentback.dfbuff.xyz/getMethod?type=图片",{
+             method:"GET",//method请求类型
+             headers:{//设置请求头，表单编码格式传输数据（参数）
+                 "Content-Type":"application/x-www-form-urlencoded"
+             }
+         }).then(response=>{
+            return response.json()//转json格式返回值，解析为可读数据
+         }).then(data=>{
+            //  console.log(data)//获取请求成功的结果
+            data.result.forEach(val => {
+               div.innerHTML +=`<img src="${val.content}">`
+            });
+         }).catch(err=>{
+             console.log(err);//获取请求失败的结果
+         })
+         
+
+        //  POST请求
+        fetch("http://studentback.dfbuff.xyz/postMethod",{
+             method:"POST",//method请求类型
+             body:"type=冷笑话&id=1",//设置放置请求体
+            //  body:JSON.stringify({
+            //      "type":"冷笑话"
+            //  }),
+             headers:{//设置请求头，表单编码格式传输数据（参数）
+                 "Content-Type":"application/x-www-form-urlencoded"
+                //  "Content-Type":"application/json"
+             }
+         }).then(response=>{
+            return response.json()//转json格式返回值，解析为可读数据
+         }).then(data=>{
+             console.log(data)//获取请求成功的结果
+         }).catch(err=>{
+             console.log(err);//获取请求失败的结果
+         })
+     </script>
+</body>
+</html>

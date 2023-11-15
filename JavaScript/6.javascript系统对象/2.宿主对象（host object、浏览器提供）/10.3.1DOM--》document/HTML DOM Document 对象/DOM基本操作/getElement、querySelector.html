@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <script>
+      function $(id) {
+        return typeof id == 'string' ? document.getElementById : null
+      }
+    </script>
+
+    <div id="a" class="b" data-="num1">
+      <ul>
+        <li>列表一</li>
+        <li>列表二</li>
+        <li>列表三</li>
+      </ul>
+    </div>
+    <div id="a" class="b">
+      <ul>
+        <li>列表一</li>
+        <li>列表二</li>
+        <li>列表三</li>
+      </ul>
+      <div>我是div</div>
+    </div>
+    <input type="text" name="d" value="我是input输入框" />
+    <input type="submit" name="d1" value="按钮" />
+    <input type="password" name="password" value="password" />
+
+    <script>
+      // getElement系列
+      // 返回一个节点或多个节点集合，HTMLCollection对象(NodeList)
+
+      //1.通过 id 获取 一个 元素节点
+      // 为什么是一个呢？因为 id 是唯一的,如果出现多个id会获取第一个
+      document.getElementById('box1')
+
+      //2.通过 标签名（元素名） 获取 元素节点数组， 返回带有指定标签名的对象集合。
+      document.getElementsByTagName('div')
+
+      //3.通过 class 获取 元素节点数组，返回节点集合
+      document.getElementsByClassName('hehe')
+
+      // 4.根据属性的name去查找对应的元素节点，返回NodeList集合,可以使用forEach遍历
+      docment.getElementsByName(' ')
+      // 既然方式二、方式三获取的是标签数组，那么习惯性是**先遍历之后再使用**。
+      // 特殊情况：数组中的值只有1个。即便如此，这一个值也是包在数组里的。这个值的获取方式如下：
+
+      document.getElementsByTagName('div')[0] //取数组中的第一个元素
+      document.getElementsByClassName('hehe')[0] //取数组中的第一个元素
+
+      // querySelector系列  新型的获取方法  ie8以上
+      //     (支持css3选择器)
+      //     返回一个节点或多个节点集合, NodeList对象(静态NodeList对象)
+      //     querySelector
+      //         返回匹配的第一个元素
+      //     querySelectorAll
+      //         返回匹配所有的元素,返回节点集合（类数组）
+
+      let a = document.getElementById('a')
+      let b = document.getElementsByClassName('b')
+      console.log(a)
+      console.log(b)
+      console.log(b[0])
+      console.log(b[1])
+
+      let c = document.getElementsByTagName('div')
+      console.log(c)
+      console.log(b[1].getElementsByTagName('div')[1])
+
+      let d = document.getElementsByName('d')
+      console.log(d)
+
+      document.getElementsByName('d1').onclick = function () {
+        b[1].remove() //删除第二个class类名
+        console.log(b)
+      }
+
+      let elquery = document.querySelector('div.b:first-child')
+      let elquery2 = document.querySelector('div.b')
+      console.log(elquery)
+      console.log(elquery2)
+
+      let elqueryAll = document.querySelectorAll('div.a>ul>li')
+      console.log(elqueryAll)
+
+      //查找password输入框
+      let e = document.querySelector("input[name='password']")
+      console.log(e)
+      let f = document.querySelectorAll("input[name='password']")
+      console.log(f[0])
+
+      document.getElementsByName('d1').onclick = function () {
+        b[1].remove() //删除第二个class类名
+        console.log(b)
+      }
+    </script>
+  </body>
+</html>

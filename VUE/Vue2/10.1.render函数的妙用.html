@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1-7决定了当前msg显示加粗程度
+        有一个组件demo : level="3"
+     -->
+    <div id="app">
+        <input type="text" v-model=ipt>
+        <demo :level='ipt'>
+            <template v-slot>
+                今晚吃小龙虾
+            </template>
+        </demo>     
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        Vue.component('demo',{
+            props:['level'],
+            render(h){
+                let a= 'h'+this.level
+                !this.level  && (a='h6')
+                // return h(a,{},[h('slot')])
+                // this.$slots.default获取slot
+                return h(a,{},this.$slots.default)
+            }
+        })
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                ipt:''
+            }
+        })
+    </script>
+</body>
+</html>

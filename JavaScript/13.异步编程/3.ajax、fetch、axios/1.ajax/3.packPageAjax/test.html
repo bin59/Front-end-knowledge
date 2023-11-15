@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+</head>
+<body>
+    <button class="getColdJoke">获取冷笑话</button>
+    <button class="getImg">获取冷图片</button>
+    <div class="content"></div>
+
+    <script src="./packageAjax.js"></script>
+    <script>
+
+        // get请求
+        ajax("get","http://studentback.dfbuff.xyz/getImgs?imgs_id=1",(res)=> console.log(res))
+
+        // post请求
+
+        let coldJoke = document.querySelector(".getColdJoke"),
+            img = document.querySelector(".getImg"),
+            content = document.querySelector(".content")
+         
+
+        // 获取冷笑话
+        coldJoke.addEventListener("click",()=>{
+            content.innerHTML=""
+            ajax("post","http://studentback.dfbuff.xyz/postMethod",
+                (res)=>{
+                    console.log(res)
+                    res.result.forEach(val => {
+                        content.innerHTML += val.content + '<hr>'
+                    }); 
+                },
+                {
+                    "type":"冷笑话"
+                }
+            )
+        })
+
+        // 获取图片
+        img.addEventListener("click",()=>{
+            content.innerHTML=""
+            ajax("post","http://studentback.dfbuff.xyz/postMethod",(res)=>{
+                console.log(res)
+                res.result.forEach(val => {
+                    content.innerHTML += `<img src="${val.content}">`
+                }); 
+                },
+                {
+                    "type":"图片"
+                }
+            )
+        })
+        
+    </script>
+</body>
+</html>

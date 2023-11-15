@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.事件代理</title>
+</head>
+<body>
+    <!--
+        事件代理(事件委托)
+            事件代理的实现原理是利用冒泡和目标元素，把处理的事件添加到父元素，
+            等待子元素事件的冒泡，并且可以通过父元素event.target判断哪个是子元素，
+            从而做出处理.
+
+        事件代理的优点
+            可以大量节约内存占用，减少事件注册
+            可以实现新增子节点时，无需再进行事件绑定，对于动态内容部分尤为适合;
+
+        事件代理的缺点
+            会自动触发冒泡事件
+     -->
+
+     <input type="text" class="txt">
+     <ol>
+         <li>
+             <span>敲代码</span>
+             <button>del</button>
+         </li>
+         <li>
+            <span>敲代码</span>
+            <button>del</button>
+        </li>
+     </ol>
+
+     <script>
+         let txtInp = document.querySelector(".txt"),
+            ol = document.querySelector("ol");
+
+            txtInp.addEventListener("keydown",(e)=>{
+                if(e.key == "Enter"&&txtInp.value){
+                    console.log(e.key);
+                    console.log("回车");
+                    console.log(txtInp.value);
+
+                    let newTr = document.cateElement("li");
+                    newTr.innerHTML = `
+                        <span>${txtInp.value}</span>
+                        <button>del</button>
+                    `;
+                    ol.appendChild(newTr);
+
+                    // 清空输入框的值
+                    txtInp.value = "";
+                };
+            });
+
+
+            // 事件代理（给del删除按钮绑定事件）
+            ol.addEventListener("click",e=>{
+                // 获取目标
+                console.log(e.target);
+                if(e.target.nodeName=="BUTTON"){
+                    console.log(e.target);
+                    e.target.parentElement.remove();
+                };
+                console.log(e);
+            });
+     </script>
+     
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 
+            v-model主要作用:用在表单操作上，实现数据的双向绑定
+            使用:在ipt上使用，v-model="变量'，data中声明
+
+            V- -model : 1.在表单上的基础使用
+                        2. v-mode1的实现原理
+                        3. v-model在组件上的使用(放到组件后讲)
+         -->
+         <!-- 单行表单 -->
+        <input type="text" v-model='ipt'>
+        {{ipt}}
+        <!-- 多行文本 -->
+        <textarea name="" id="" cols="30" rows="10" v-model='areaipt'></textarea>
+        {{areaipt}}
+
+        <!-- 多选框 -->
+        <h3>选择你的喜欢</h3>
+        <span v-for='item in food'>
+            {{item}}
+            <input type="checkbox" :value='item' v-model='checkedFood'> 
+        </span>
+        <h3>已选择</h3>
+        <span v-for="item in checkedFood">
+            {{item}}
+        </span>
+
+        <!-- 单选框 radio-->
+        <h3>性别</h3>
+        <span v-for='item in gender'>
+            {{item}}
+            <input type="radio" :value='item' v-model='chooseGender'>
+        </span>
+        <p>{{chooseGender}}</p>
+
+        <!-- 下拉框 -->
+        <select name="" id="" v-model='chooseCity'>
+            <option value="">请选择</option>
+            <option v-for='item in city' :value="item" >
+                {{item}}
+            </option>
+        </select>
+        <p>{{chooseCity}}</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                ipt:'',
+                areaipt:'',
+                food:['口水鸡','叫花鸡','炸鸡'],
+                checkedFood:[],
+                gender:['男','女','不详'],
+                chooseGender:'',
+                city:['1','2','3'],
+                chooseCity:''
+            }
+        })
+    </script>
+</body>
+</html>

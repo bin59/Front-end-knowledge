@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body >
+  <span id="newTime"></span>
+</body>
+<script>  
+    // 2021年9月2日17时4分51秒   按这种格式实时更新
+    let nDate ,y, mon, d, h, m, s,newTime;
+    function timeFn() {
+      nDate = new Date();
+      console.clear(); //清空日志
+      y = nDate.getFullYear();
+      mon = nDate.getMonth() + 1;
+      d = nDate.getDate();
+      h = nDate.getHours();
+      m = nDate.getMinutes();
+      s = nDate.getSeconds();
+      newTime = y + "年" + mon + "月" + d + "日" + h + "时" + m + "分" + s + "秒";
+      document.getElementById("newTime").innerHTML=newTime;
+      // console.log(newTime);
+
+      // 模板字符串
+      console.log(`${y}年${mon}月${d}日${h}时${m}分${s}秒`);
+    }
+
+    setInterval(function () {
+        timeFn();
+    }, 1000);
+
+</script>
+</html>

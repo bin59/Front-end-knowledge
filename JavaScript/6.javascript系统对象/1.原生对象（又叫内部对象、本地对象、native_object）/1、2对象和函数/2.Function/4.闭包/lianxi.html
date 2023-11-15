@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <li>01</li>
+    <li>02</li>
+    <li>03</li>
+
+    <!-- lianxi1 -->
+    <script>
+        let lis = document.querySelectorAll("li")
+
+        for (var i = 0; i < lis.length; i++) {
+            // console.log(i); // 0 1 2
+            (function (a) {
+                lis[a].addEventListener("click", function () {
+                    console.log(a);
+                })
+            })(i)//0 1 2
+        }
+
+    </script>
+
+    <!-- lianxi2 -->
+    <script>
+        function fn(a, b) {
+            // fn(0) a = 0, b = undefined
+
+            // fn(1, 0), a = 1, b = 0
+            // fn(2, 0), a = 2, b = 0
+            // fn(3, 0), a = 3, b = 0
+            // console.log("a", a)
+            console.log("b", b) // undefined, 0, 0, 0
+
+            return {
+                fn: function (c) {
+                    // c = 1, a = 0 >>>>> fn(1, 0)
+                    // c = 2, a = 0 >>>>> fn(2, 0)
+                    // c = 3, a = 0 >>>>> fn(3, 0)
+                    return fn(c, a)
+                }
+            }
+        }
+        var f = fn(0) // undefined
+        // console.log(f)// {fn:f () {...}}
+
+        // 调用的是f的返回值
+        // f.fn(1)// 0
+        // f.fn(2)// 0
+        // f.fn(3) // 0 
+
+        // f.fn(1).fn(2).fn(3)  0 1 2
+
+    </script>
+</body>
+</html>

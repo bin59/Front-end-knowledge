@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>backgroud</title>
+    <style>
+        .background{
+            width: 500px;
+            height: 1000px;
+            /* background-color:lightpink; */
+            /* background-image:url(./picture/binbin.jpg); */
+            /* background-repeat: no-repeat; */
+            /* background-repeat: repeat-x; */
+            /* background-position: center center; */
+            /* background-size:over; */
+            /* background-size:contain; */
+
+            /* 7. 复合写法 */
+            background: lightpink url(./picture/binbin.jpg) no-repeat center center/cover   fixed ;
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <!-- 
+            任何元素，不管是行级还是块级元都可以设置背景图片
+            1.background-color:lightpink;
+            2.background-image:url(./picture/binbin.jpg);
+            3.background-repeat  
+                属性定义了图像的平铺模式。是否及如何重复背景图像
+            
+                repeat	默认。背景图像将在垂直方向和水平方向重复。
+                repeat-y:只允许在纵轴上重复图片；
+                repeat-x只允许在横轴上重复图片；
+                no-repeat	背景图像将仅显示一次。
+                inherit	规定应该从父元素继承 background-repeat 属性的设置。
+
+            从原图像开始重复，原图像由 background-image 定义,并根据 background-position 的值放置。
+
+            4.图片定位
+                background-position:center center;
+                left | right | top | ceter| bottom：当设置两个值时，第一个表示水平方形，第
+            二个表示垂直方向；如果只传了一个值，那这个值代表水平、垂直都是center。
+                百分比：当设置两个值时，第一个 水平 第二个 锤直。只有一个值：它的垂直方向默认50%；
+                像素、其他单位值：同样有两个值，但是只有一个值时，它的第二个值默认为 center。
+
+            背景图像的位置是根据 background-position 属性设置的。如果未规定 background-position 属性，图像会被放置在元素的左上角。
+
+            5. backgrouond-attachment
+                设置背景图像是否固定或者随着页面的其余部分滚动。
+                backgrouond-attachment:scoll | fixed;
+
+                -scroll	默认值。背景图像会随着页面其余部分的滚动而移动。
+                -fixed  当页面的其余部分滚动时，背景图像不会移动。
+
+                fixed设置完成后，背景图片相当于固定在我们的屏幕上,而不是div盒子的中央。此时无论如何滚动屏幕，背景图片永远保存在center的位置。   
+
+            6. background-size 背景尺寸
+                通过背景尺寸，可以调整背景图的具体大小，同时可以设置平铺效果或者拉伸效果。
+                background-size: <length> | <percentage> | cover | contain
+
+                -auto:默认,就会变成不会让图像变形，会自动调整
+                -长度:可以设置两个值，第一个值代表水平宽度，第二个值代表纵向宽度;
+                -百分比:也是可以设置两个值，第一个相对于父盒子的宽度，第二个相对于父盒子的高度。当backgound-attachment 设为 
+            fixed时，相对的宽高并非父盒子的实际宽高，而是父盒子非滚动的宽高;
+                -cover:让图像完全覆盖元素的背景，注意这会让背景图超出背景的绘制区域;
+
+                -contain:会将图像缩放为正好放在背景区域的尺寸，允许有部分区域不被背景图像覆盖。
+
+
+            7. 复合写法
+                background: lightpink url(./picture/binbin.jpg) no-repeat center center/cover fixed ;
+                其他属性的具体属性顺序没有严格的要求，但是有两个限制规则：
+                -background-size必须紧随background-position,两个者之间用/隔开；
+                -值的规则仍然适用，就是横向在前，纵向在后。
+
+            8.关于背景要注意的一些问题
+            8.1 背景颜色和背景图，是从哪个区域开始显示的？（边框、内边距）
+                背景颜色是从边框处就开始渲染了，而背景图是从内边距区域开始渲染。
+                background-origin:bord-box | padding-box |content-box;
+                    bord-box:源图像的左上角将从边框区域的左上角开始渲染；
+                    padding-box：源图像的左上角将从内边距区域始渲染；
+                    content-box：源图像的左上角将从内容区始渲染；
+
+            8.2 页外CSS文件中的背景图片路径，是相对于CSS文件还是HTML文件呢？
+                由于css可能引入到不同的HTML文件中，如果是相对于HTML的路径，那我们无法确定到底是哪一个路径可以生效。
+            所以设计时考虑到这个因素，页外CSS样式中的背景图片的路径是相对于当前css文件来选择的。
+
+            8.3 background-size中的auto到底做了什么？
+                auto就会变成就是不会让图像变形的，会自动调整
+             -->
+    </div>
+</body>
+</html>

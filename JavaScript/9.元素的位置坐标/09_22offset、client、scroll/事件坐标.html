@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        html,
+        body {
+            height: 200vh;
+        }
+
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        .box1,
+        .box2 {
+            width: 100px;
+            height: 100px;
+            border: 10px solid #f00;
+            margin: 30px;
+        }
+
+        .box1 {
+            background-color: pink;
+        }
+
+        .box2 {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="box1"></div>
+        <div class="box2"></div>
+    </div>
+    <!-- 
+        offsetX/Y
+            触发点相对于触发dom的左上角距离(不包括边框， 触发点在边框就会返回负值)
+        
+        clientX/Y
+            触发点对于浏览器可视区域左上角距离
+        
+        pageX/Y
+        (不兼容ie678)
+            触发点对于文档区域左上角距离
+    -->
+    <script>
+        let box1 = document.querySelector(".box1");
+        let box2 = document.querySelector(".box2");
+        let box = document.querySelector(".box");
+
+        function fn(e) {
+            console.log(`offsetX------>${e.offsetX}`);
+            console.log(`offsetY------>${e.offsetY}`);
+
+            console.log(`clientX------>${e.clientX}`);
+            console.log(`clientY------>${e.clientY}`);
+
+            console.log(`pageX------>${e.pageX}`);
+            console.log(`pageY------>${e.pageY}`);
+        };
+
+        box1.addEventListener("click", function (event) {
+            fn(event);
+        });
+        box2.addEventListener("click", function (event) {
+            fn(event);
+        });
+        // box.addEventListener("click", function(event) {
+
+        // })
+    </script>
+</body>
+
+</html>

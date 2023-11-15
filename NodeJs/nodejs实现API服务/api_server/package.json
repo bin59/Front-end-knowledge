@@ -1,0 +1,14 @@
+{
+  "name": "api_server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@swc/core": "^1.2.107",
+    "@types/express": "^4.17.14",
+    "ts-node": "^10.4.0"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

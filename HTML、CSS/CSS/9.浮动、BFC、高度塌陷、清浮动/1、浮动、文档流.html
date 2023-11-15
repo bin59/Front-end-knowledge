@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9.浮动、高度塌陷和BFC</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        .a{
+            width: 600px;
+            height: 450px;
+        }
+        .b{
+            width: 200px;
+            height: 150px;
+        }
+        /* 
+            设置float属性来设置元素的浮动
+                none:默认值，不浮动
+                left:左
+                right:右
+                
+                注意：
+                    元素设置浮动以后，水平布局的等式便不需要强制成立，外边距就没有了；
+                    元素设置浮动后，会完全从文档流中脱离，不再占用文档流的位置，所以元素下边的还在文档流中的元
+                素会自动向上移动，但是文字并不会，会环绕在旁边（.box5）。
+
+                浮动的特点：
+                    1、浮动元素会完全脱离文档流，不再占据文档中的位置
+                    2、设置浮动以后元素会向父元素的左侧或右侧移动
+                    3、浮动元素默认不会从父元素中移出                        
+                    4、浮动元素向左或向右移动时，不会超过它前边的其它浮动元素
+                    5、如果浮动元素的上边是一个没有浮动的块元素，则浮动元素无法上移
+                    6、浮动元素不会超过它上边的浮动元素的兄弟元素，最多就是和它一样高
+                简单总结：
+                    浮动目前来讲它的主要作用就是让页面中的元素可以水平排列
+                        通过浮动可以制作一些水平方向的布局
+            */
+        .box1{
+            width: 200px;
+            height: 300px;
+            background-color:cadetblue;
+            
+            float:left;
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color:coral;
+            float: left;
+        }
+        .box3{
+            width: 200px;
+            height: 200px;
+            background-color:rgb(233, 194, 67);
+            float: left;
+        }
+        .box4{
+            width: 300px;
+            height: 300px;
+            background-color:rgb(21, 57, 219);
+        }
+        .box4:hover{
+            float: right;
+        }
+        .box5{
+            width:100px;
+            height:100px;
+            background-color: crimson;
+            /* 
+                浮动元素不会盖住文字，文字会自动环绕在浮动元素周围，
+                    所以我们可以利用浮动来设置文字环绕图片的效果
+                    这是创建浮动的初衷，并不是为了元素的布局去使用的。而是当时为了实现文字环绕图片的
+                效果，这也侧面说明了，浮动产生的脱离文档流并非真正意义上的脱离文档流。
+            */
+            float: left;
+        }
+        .box6{
+            background-color: rgb(0, 143, 209);
+            float: none;
+        }
+        .box7{
+            background-color: darkturquoise;
+            /* 
+                元素设置浮动以后，将会从文档流中脱离，元素的一些特点也会发生变化
+                脱离文档的特点：
+                    -块元素：
+                        1、块元素不再独占页面的一行
+                        2、脱离文档流以后，块元素的宽度和高度默认都被内容撑开
+                    -行内元素:
+                        行内元素脱离文档流以后会变成块元素，特点和块元素一样
+                    -脱离文档流以后，不需要再区分块和行内了
+            */
+            float: left;
+        }
+        /* 
+            文档流（normal folow）
+                -网页是一个多层的的结构，一层摞着一层
+                -通过CSS可以分别为每一层来设置样式
+                -作为用户来讲只能看到最顶上一层
+                -这些层中，最底下一层称为文档流，是网页的基础
+                    -我们所创建的元素默认都是在文档流中进行排序
+                对于我们来说元素主要有两个状态
+                    -在文档流中
+                    -不在
+
+                元素在文档流中有什么特点
+                    -块元素
+                        -块元素在页面独占一行
+                        -默认宽度是父元素的全部（会把父元素撑满）
+                        -默认高度是被内容撑开（子元素）
+
+                    -行内元素
+                        -不会独占一行，只会占自身的大小
+                        -在页面中左向右排列，如果一行中不能容纳下所有行内元素
+                            则元素会换到第二行继续自左向右排列（书写习惯一致）
+                        -行内元素的默认宽度和高度都是被内容撑开
+        */
+
+
+        .s2{
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+        }
+        .s1{
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: rgb(195, 255, 0);
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="a">
+        <div class="box1">box1</div>
+        <div class="box2">box2</div>
+        <div class="box3">box3</div>
+        <div class="box4">box4</div>
+    </div>
+
+
+    <div class="b">
+        <div class="box5">box5</div>
+        <p>
+            浮动元素不会盖住文字，文字会自动环绕在浮动元素周围,所以我们可以利用浮动来设置文字环绕图片的效果
+        </p>    
+    </div>
+
+    <div class="b">
+        <div class="box6">box6</div>
+        <br>
+        <div class="box7">box7</div>
+    </div>
+    
+    <div class="b">
+        <span class="s1">hello</span>
+        <span class="s2">hello</span>
+    </div>
+
+    <!-- float过程 -->
+    <div class="c">
+        <img src="./picture/html/float/float1.jpg" alt="1">
+        float过程
+        <img src="./picture/html/float/float2.jpg" alt="2">
+        <img src="./picture/html/float/float3.jpg" alt="3">
+    </div>
+</body>
+</html>

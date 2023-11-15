@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            border: 2px dashed blanchedalmond;
+        }
+        p{
+            background-color: darkorange;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        事件对象(event)
+            代表事件的状态，比如点击、鼠标移入移出、键盘事件等等
+            event.type
+                获取绑定的事件类型
+            event.target
+                事件目标，触发这个事件的对象
+            event.currentTarget
+                返回绑定事件的对象
+            event.pointerType
+                返回指针类型
+
+        IE中,event对象有srcElement属性，但是没有target属性。
+        firefox中，event对象有target属性，但是没有srcElement属性。
+        可以使用，var node = event.srcElement? event.srcElement:event.target;
+        或,var node = event.srcElement || event.target;
+
+     -->
+
+     <div class="box">
+         <p>哈哈哈</p>
+     </div>
+     <script>
+         let box = document.querySelector(".box"),
+            p = document.querySelector("p");
+
+        box.onclick = function (event) {
+            console.log(event);//PointerEvent
+            console.log(event.type);//获取绑定的事件类型 click
+            console.log(event.target);//事件目标，触发这个事件的对象 点击哈哈哈时：<p>哈哈哈</p>  点击哈哈哈外面的盒子：<div class="box">...</div>
+            console.log(event.currentTarget);//返回绑定事件的对象 <div class="box">...</div>
+            console.log(event.pointerType);//返回指针类型 mouse
+        }
+
+        // 键盘打一个s时
+        document.onkeydown = event=>{
+            console.log(event);//事件对象  KeyboardEvent {isTrusted: true, key: 's', code: 'KeyS', location: 0, ctrlKey: false, …}  
+            console.log(event.type);//事件类型  keydown
+            console.log(event.key);//键盘值    s
+            console.log(event.keyCode);//键盘编码  83
+        }
+
+     </script>
+
+
+   
+    
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--
+    什么是闭包?
+        子函数（内部函数）可以访问父函数（外部函数）的变量、参数（闭包可以从内层函数中访问外层函数的作用域）
+    闭包的特点
+        1、在函数外部可以访问函数内部声明的变量
+        2、局部变量会一直保存在内存中
+        3、避免污染全局作用域的变量
+        4、会造成内存泄露（内容会被长期占用，而不会被释放）
+    -->
+    <script>
+      function fn() {
+          var num =99
+          function fn1() {
+              console.log(num++)
+              // console.log(a)
+              // return num
+          }
+          return fn1
+      }
+
+      // 把指针存储到变量中
+      let res = fn()
+      res()//99
+      res()//100
+      res()//101
+
+      // 三个不同的指针
+      fn()()//99
+      fn()()//99
+      fn()()//99
+
+      /*
+      解析过程
+      1、执行fn(),产生fn函数作用域
+      
+      AO{
+          fn1:function fn1(){...},
+          num:undefined
+      }
+
+      闭包的变量
+        2、num = 99; 
+        执行第一次res函数完毕之后， num = 99 + 1
+        执行第二次res函数完毕之后， num = 99 + 1 + 1
+        执行第三次res函数完毕之后， num = 99 + 1 + 1 + 1
+
+        res保存的是fn的闭包
+        3、 res = fn1(){...}
+
+        4、执行第一次res函数，产生res函数作用域
+        第一次res AO {}
+        console.log(num++); // 99
+
+        5、执行第二次res函数，产生res函数作用域
+        第二次res AO {}
+        console.log(num++); // 100
+
+        6、执行第三次res函数，产生res函数作用域
+        第三次res AO {}
+        console.log(num++); // 101
+        */
+    </script>
+
+    <script>
+        // lx1  
+        for (var i = 0; i < 5; i++) {
+
+            // setTimeout(function() {
+            //     console.log(i)
+            // }, 1000)//5 5 5 5 5
+
+            // 使用闭包
+            (function (a){
+                setTimeout(function() {
+                    console.log(a)
+                }, 1000)
+            })(i)//0 1 2 3 4
+
+        }
+
+        // lx2
+        var arr = []
+        for(var i= 0;i<3;i++){
+            // （1）使用闭包
+            // arr[i] = (function (a){
+            //     return function(){
+            //         console.log(a)
+            //     }
+            // })(i)
+
+            // （2）不使用闭包
+            arr[i] = function (){
+                console.log(i)
+            }
+        }
+
+        // 先执行完for循环再执行arr[]()
+        // （1）使用闭包
+        arr[0]()//0
+        arr[1]()//1
+        arr[2]()//2
+
+        // （2）不使用闭包-var i= 0;i<3;i++  var变量提升
+        // 3 3 3
+
+        // （3）不使用闭包-let i= 0;i<3;i++   每次都会产生一个let块级作用域
+        // 0 1 2
+    </script>
+    
+  </body>
+</html>

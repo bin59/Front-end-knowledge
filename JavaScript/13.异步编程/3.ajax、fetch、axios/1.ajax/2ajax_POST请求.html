@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POST请求</title>
+</head>
+<body>
+    <!-- *
+        GET请求和POST请求的区别
+        1、GET参数是直接放在url地址栏，对数据来说是不安全的,post请求的操作对于用户来说是不可见的
+        2、GET请求的参数是会有历史保留记录
+        3、GET请求传输的数据相对于POST比较小，原因是url地址栏有长度限制，POST请求参数一般不做限制
+
+        与 POST 相比，GET 更简单也更快，并且在大部分情况下都能用。
+            但是在以下情况中，请使用 POST 请求：
+                无法使用缓存文件（更新服务器上的文件或数据库）
+                向服务器发送大量数据（POST 没有数据量限制）
+                发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠
+     *-->
+    <button class="getColdJoke">获取冷笑话</button>
+    <button class="getImg">获取冷图片</button>
+    <div class="content"></div>
+    <script>
+        let coldJoke = document.querySelector(".getColdJoke"),
+            img = document.querySelector(".getImg"),
+            content = document.querySelector(".content")
+
+        // 获取冷笑话
+        coldJoke.addEventListener("click",()=>{
+            content.innerHTML=""
+            
+            let xhr =new XMLHttpRequest(),//XMLHttpRequest()不能放在外面，否在在全局，之前的记录也在
+                data = {
+                    "type":"冷笑话"
+                }
+            xhr.open("POST","http://studentback.dfbuff.xyz/postMethod")
+            // 设置请求头
+            // 提交数据格式为json格式
+            xhr.setRequestHeader("Content-Type","application/json")
+            // 把json对象转换为json字符串
+            xhr.send(JSON.stringify(data))
+            xhr.addEventListener("readystatechange",()=>{
+                if(xhr.readyState == 4){
+                   if(xhr.status ==200){
+                       let newArr = JSON.parse(xhr.responseText).result
+                       newArr.forEach(val => {
+                           content.innerHTML += val.content + '<hr>'
+                       }); 
+                    } 
+                }
+            })
+        })
+
+        // 获取图片
+        img.addEventListener("click",()=>{
+            content.innerHTML=""
+            let xhr =new XMLHttpRequest(),
+                data = {
+                    "type":"图片"
+                } 
+            xhr.open("POST","http://studentback.dfbuff.xyz/postMethod")
+            // 设置请求头
+            // 提交数据格式为json格式
+            xhr.setRequestHeader("Content-Type","application/json")
+            // 把json对象转换为json字符串
+            xhr.send(JSON.stringify(data))
+            xhr.addEventListener("readystatechange",()=>{
+                if(xhr.readyState == 4){
+                   if(xhr.status ==200){
+                       let newArr = JSON.parse(xhr.responseText).result
+                        newArr.forEach(val => {
+                            let newImg = document.createElement("img")
+                                newImg.setAttribute("src",val.content)
+                            content.appendChild(newImg)
+                        }); 
+                    } 
+                }
+            })
+        })
+
+    </script>
+</body>
+</html>

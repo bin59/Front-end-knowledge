@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My CSS</title>
+    <link rel="stylesheet" href="./css/index.min.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <p id="nav">
+          <a href="#box1">1</a>
+          <a href="#box2">2</a>
+          <a href="#box3">3</a>
+        </p>
+      </header>
+
+      <main>
+        <div id="box1">
+          <p>
+            <a href="#nav">section 1</a>
+          </p>
+
+          <div class="cursor">
+            <p>改变光标</p>
+            <span>alias</span>
+            <span>all-scroll</span>
+            <span>auto</span>
+            <span>cell</span>
+            <span>context-menu</span>
+            <span>col-resize</span>
+            <span>copy</span>
+            <span>crosshair</span>
+            <span>default</span>
+            <span>e-resize</span>
+            <span>ew-resize</span>
+            <span>grab</span>
+            <span>grabbing</span>
+          </div>
+
+          <div class="filter"><p>filter过滤器</p></div>
+        </div>
+
+        <div id="box2">
+          <p><a href="#nav">section 2</a></p>
+          <p>插入符号颜色,更改输入、文本区域或任何可编辑元素中光标的颜色</p>
+          <input type="text" />
+        </div>
+
+        <div id="box3">
+          <p><a href="#nav">section 3</a></p>
+          <p>1.:empty 选择器</p>
+          <div class="empty"></div>
+
+          <br />
+
+          <p>2.gap 属性适用于 Grid 布局、Flex 布局以及多列布局</p>
+          <p>例如：让每个元素之间隔开 20px</p>
+          <div class="gap">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+          </div>
+
+          <br />
+
+          <div class="invalid">
+            <p>3.:invalid 伪类</p>
+            <p>:invalid 表示任意内容未通过验证的 input 或其他 form 元素。</p>
+            <br />
+            <div>
+              <form>
+                <label for="url_input">Enter a URL:</label>
+                <input type="url" id="url_input" />
+                <br />
+                <label for="email_input">Enter an email address:</label>
+                <input type="email" id="email_input" required />
+              </form>
+            </div>
+          </div>
+          <br />
+
+          <div class="focus-within">
+            <p>4.focus-within伪类</p>
+            <p>
+              :focus-within 表示一个元素获得焦点，或该元素的后代元素获得焦点
+            </p>
+            <form>
+              <input type="text" id="ipt" placeholder="请输入..." />
+            </form>
+          </div>
+          <br />
+
+          <div class="mix-blend-mode-difference">
+            <p>5. mix-blend-mode:difference</p>
+            <p>
+              mix-blend-mode:difference
+              属性描述了元素的内容应该与元素的直系父元素的内容和元素的背景如何混合。
+            </p>
+            <div class="mode">
+              <div class="dark"></div>
+              <div class="light"></div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer></footer>
+    </div>
+  </body>
+</html>

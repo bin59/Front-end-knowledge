@@ -1,0 +1,388 @@
+@charset "UTF-8";
+html, body, div, span, applet, object, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big,
+cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  line-height: 1;
+  font: inherit;
+  font-weight: normal;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+ol, ul, li {
+  /* 去除项目符号，列表前面的点、数字 */
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th, td {
+  vertical-align: middle;
+}
+
+/* custom */
+a {
+  outline: none;
+  color: #000000;
+  /* 去除下划线 */
+  text-decoration: none;
+  /* -webkit-backface-visibility:hidden; */
+}
+
+a:focus {
+  outline: none;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: -webkit-focus-ring-color auto 0;
+}
+
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  /* block和table都可以解决高度塌陷的问题，但是table既可以解决高度塌陷又可以解决外边距重叠的问题，所以直接使用table*/
+  /* display: table; */
+  display: table;
+  /* height为0避免生成内容破坏原有布局的高度 */
+  height: 0;
+  clear: both;
+  /* 使生成的内容不可见，并允许可能被生成内容盖住的内容可以进行点击和交互 */
+  visibility: hidden;
+}
+
+.clearfix {
+  /*为IE6，7的兼容性设置*/
+  zoom: 1;
+}
+
+/* 单行文本溢出处理 */
+.textOverflow_Single {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 多行文本溢出处理 */
+.textOverflow_Multiple {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  /* ! Autoprefixer: off */
+  -webkit-box-orient: vertical;
+}
+
+html .wrapper #box1 .filter,
+body .wrapper #box1 .filter {
+  width: 200px;
+  height: 200px;
+  background-color: darkseagreen;
+  border-radius: 50%;
+  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0px 0px 20px red);
+}
+html .wrapper #box1 .filter p,
+body .wrapper #box1 .filter p {
+  text-align: center;
+  line-height: 200px;
+}
+
+.wrapper {
+  /*
+  相当于：
+      #nav a:hover,
+      #box1 a:hover,
+      #box2 a:hover,
+      #box3 a:hover{
+          color: crimson;
+          cursor: pointer;
+      }
+  */
+  /* 向后兼容的版本:-*-any()
+  (It is not possible to group selectors into single rule,
+  because presence of invalid selector would invalidate whole rule.)*/
+}
+.wrapper :is(#nav, #box1, #box2, #box3) a:hover {
+  color: crimson;
+  cursor: pointer;
+}
+.wrapper :-webkit-any(#nav, #box1, #box2, #box3) a:hover {
+  color: crimson;
+  cursor: pointer;
+}
+.wrapper :-moz-any(#nav, #box1, #box2, #box3) a:hover {
+  color: crimson;
+  cursor: pointer;
+}
+.wrapper :matches(#nav, #box1, #box2, #box3) a:hover {
+  color: crimson;
+  cursor: pointer;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 10px;
+}
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px rgba(112, 109, 109, 0.9);
+}
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(243, 144, 87);
+  outline: 2px solid rgb(151, 151, 148);
+  border-radius: 30px;
+}
+html .wrapper #nav,
+body .wrapper #nav {
+  height: 5vh;
+  display: flex;
+  justify-content: space-around;
+}
+html .wrapper #nav a,
+body .wrapper #nav a {
+  text-align: center;
+  flex: 1;
+  display: block;
+  line-height: 5vh;
+}
+html .wrapper #nav a:nth-child(2),
+body .wrapper #nav a:nth-child(2) {
+  border-left: 2px solid darksalmon;
+  border-right: 2px solid darksalmon;
+}
+html .wrapper :is(#box1, #box2, #box3),
+body .wrapper :is(#box1, #box2, #box3) {
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+html .wrapper #box1,
+body .wrapper #box1 {
+  height: 95vh;
+  background-color: blanchedalmond;
+}
+html .wrapper #box1 .cursor,
+body .wrapper #box1 .cursor {
+  width: 150px;
+  height: 400px;
+  background-color: rgb(235, 229, 155);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+html .wrapper #box1 .cursor span,
+body .wrapper #box1 .cursor span {
+  color: rgb(0, 132, 255);
+}
+html .wrapper #box1 .cursor span:nth-child(1),
+body .wrapper #box1 .cursor span:nth-child(1) {
+  cursor: alias;
+}
+html .wrapper #box1 .cursor span:nth-child(2),
+body .wrapper #box1 .cursor span:nth-child(2) {
+  cursor: all-scroll;
+}
+html .wrapper #box1 .cursor span:nth-child(3),
+body .wrapper #box1 .cursor span:nth-child(3) {
+  cursor: auto;
+}
+html .wrapper #box1 .cursor span:nth-child(4),
+body .wrapper #box1 .cursor span:nth-child(4) {
+  cursor: cell;
+}
+html .wrapper #box1 .cursor span:nth-child(5),
+body .wrapper #box1 .cursor span:nth-child(5) {
+  cursor: context-menu;
+}
+html .wrapper #box1 .cursor span:nth-child(6),
+body .wrapper #box1 .cursor span:nth-child(6) {
+  cursor: col-resize;
+}
+html .wrapper #box1 .cursor span:nth-child(7),
+body .wrapper #box1 .cursor span:nth-child(7) {
+  cursor: copy;
+}
+html .wrapper #box1 .cursor span:nth-child(8),
+body .wrapper #box1 .cursor span:nth-child(8) {
+  cursor: crosshair;
+}
+html .wrapper #box1 .cursor span:nth-child(9),
+body .wrapper #box1 .cursor span:nth-child(9) {
+  cursor: default;
+}
+html .wrapper #box1 .cursor span:nth-child(10),
+body .wrapper #box1 .cursor span:nth-child(10) {
+  cursor: e-resize;
+}
+html .wrapper #box1 .cursor span:nth-child(11),
+body .wrapper #box1 .cursor span:nth-child(11) {
+  cursor: ew-resize;
+}
+html .wrapper #box1 .cursor span:nth-child(12),
+body .wrapper #box1 .cursor span:nth-child(12) {
+  cursor: grab;
+}
+html .wrapper #box1 .cursor span:nth-child(13),
+body .wrapper #box1 .cursor span:nth-child(13) {
+  cursor: grabbing;
+}
+html .wrapper #box2,
+body .wrapper #box2 {
+  height: 100vh;
+  background-color: cadetblue;
+}
+html .wrapper #box2 input,
+body .wrapper #box2 input {
+  caret-color: red;
+}
+html .wrapper #box3,
+body .wrapper #box3 {
+  height: 100vh;
+  background-color: darksalmon;
+  /* 
+  一般做法
+  <div>
+      <template v-if="data.length">
+          ...
+      </template>
+      <template v-else>
+          <div>暂无数据</div>
+      </template>
+  </div>
+
+  通过 :empty 选中内容为空的容器，然后通过伪元素为空容器添加提示。
+  */
+}
+html .wrapper #box3 .empty,
+body .wrapper #box3 .empty {
+  width: 200px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  background-color: white;
+}
+html .wrapper #box3 .empty:empty::after,
+body .wrapper #box3 .empty:empty::after {
+  content: "没有数据";
+}
+html .wrapper #box3 .gap,
+body .wrapper #box3 .gap {
+  width: 200px;
+  height: 100px;
+  display: flex;
+  gap: 20px;
+  background-color: wheat;
+}
+html .wrapper #box3 .gap > div,
+body .wrapper #box3 .gap > div {
+  width: 50px;
+  height: 50px;
+  background-color: aquamarine;
+}
+html .wrapper #box3 .invalid > div > form input:invalid,
+body .wrapper #box3 .invalid > div > form input:invalid {
+  background-color: #ffdddd;
+}
+html .wrapper #box3 .invalid > div > form form:invalid,
+body .wrapper #box3 .invalid > div > form form:invalid {
+  border: 5px solid #ffdddd;
+}
+html .wrapper #box3 .invalid > div > form input:valid,
+body .wrapper #box3 .invalid > div > form input:valid {
+  background-color: #ddffdd;
+}
+html .wrapper #box3 .invalid > div > form form:valid,
+body .wrapper #box3 .invalid > div > form form:valid {
+  border: 5px solid #ddffdd;
+}
+html .wrapper #box3 .invalid > div > form input:required,
+body .wrapper #box3 .invalid > div > form input:required {
+  border-color: #800000;
+  border-width: 3px;
+}
+html .wrapper #box3 .invalid > div > form input:required:invalid,
+body .wrapper #box3 .invalid > div > form input:required:invalid {
+  border-color: #c00000;
+}
+html .wrapper #box3 .focus-within form,
+body .wrapper #box3 .focus-within form {
+  border: 1px solid;
+  width: 400px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+html .wrapper #box3 .focus-within form:focus-within,
+body .wrapper #box3 .focus-within form:focus-within {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+  background-color: beige;
+}
+html .wrapper #box3 .mix-blend-mode-difference .mode,
+body .wrapper #box3 .mix-blend-mode-difference .mode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  mix-blend-mode: difference;
+}
+html .wrapper #box3 .mix-blend-mode-difference .dark,
+body .wrapper #box3 .mix-blend-mode-difference .dark {
+  position: relative;
+  left: 6px;
+  height: 24px;
+  width: 24px;
+  background-color: grey;
+  border-radius: 50%;
+}
+html .wrapper #box3 .mix-blend-mode-difference .light,
+body .wrapper #box3 .mix-blend-mode-difference .light {
+  mix-blend-mode: difference;
+  position: relative;
+  left: -6px;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  border: 4px solid grey;
+}/*# sourceMappingURL=index.css.map */

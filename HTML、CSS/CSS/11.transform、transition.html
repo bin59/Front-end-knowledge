@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+        padding: 200px;
+        }
+        /*          
+        一、transform变形
+        1.变形功能的诞生
+        在以前的变形上，仅仅是视觉效果上的变形，在底层的坐标方格上没有发生改变。自从CSS3诞生后，
+    元素的特效就从二维走向了三维。之前我们通过浮动、margin这些操作，都是让元素平移。
+        在CSS3中，就诞生了这么一个属性:transform。这个变形功能，不仅可以平移元素，还能旋转、
+    元素翻转或者其他更加强大的自定义特效。
+
+        2变形transform
+        变形只有一个属性: transform，不过有很多辅助的属性值用于控制如何变形。对于变形元素，
+    要注意点，变形的元素有自己的堆叠上下文︰经过缩放、平移变形后的元素，在视觉上虽然比以前大或者
+    比以前小了，但是元素在页面上所占用的空间仍然与变形前的大小一致。
+        transform:<transform-list> | none;
+       
+        2.1二维变形
+        二维变形，就是通过平移、旋转、放大缩小和扭曲产生的形变，这个形变只在x和y轴上发生改变。
+               值                        描述
+            rotate()、                    转
+            translate()、                 平移
+            scale()、                    放大缩小
+            skew()、                     扭曲/斜切
+
+            2.1.1旋转
+            transform:rotate(30deg);
+            这段代码表示让元素以顺时针方向旋转30度，正数为顺时针，负数为逆时针。deg表示的是旋转
+        的角度。默认情况下，是以元素的中心点来旋转的。
+            如果旋转的角度设置大于360度，那旋转函数就会对角度值进行取余。例如，旋转1080deg，
+        那 1080%360等于0度，旋转900度，则是900%360等于180度。刚刚提到，元素默认的旋转中心是元
+        素的中心位置，这个位置可以通过transform-origin来改变
+
+            transform-origin: left top;
+        它的属性值，可以使用left、center、right;top、center、bottom来表示，也可以使用百
+        分比或者具体的长度单位来表示。第一个值表示水平方向，第二个值表示垂直方向。
+
+            2.1.2平移
+            transform: translate ( 50px,100px) ;
+            平移的单位为px，用于设置水平方向和垂直方向的位移。它可以传递两个参数，第一个参数就
+        是表示水平方向，第二个参数就是垂直方向。当传递一个参数时，它代表水平方向，垂直位移会设为0。
+
+            transform: translatex ( 50px) ;
+            transform: translateY ( 100px) ;
+            其中，translate的值可以设置为负值。水平方向的正方向为右，垂直方向的正方向为下。负值就代表反方向平移
+            
+            2.1.3缩放
+            transform: scale( 2 ) ;
+            scale表示缩放，不需要单位，可以为小数。1表示百分百的原始大小，在0~1之间表示缩小，
+        大于1表示放大。它同样存在两个值，第一个表示水平方向，第二个表示垂直方向。
+
+            2.1.4 扭曲
+            transform: skew ( 15deg ) ;
+            该属性代表扭曲或者斜切，单位和旋转一样，使用deg作为扭曲的角度，可以为负值。由于使用
+        skew会导致图像和内容失真变形，因此在实际开发时很少使用。
+
+        
+        2.2 三维变形
+        三维变形和二维变形一样，还是使用transform属性。那么怎样让浏览器知道，这段代码是以3D的
+    形式去进行解读呢?通常有两种方法
+
+        a.直接提前告知浏览器变形方式
+        -webkit-transform-style:preserve-3d;
+        这段代码需要添加给三维变形元素的附近，提前告知浏览器︰我的子元素要3D变形了，然后浏览器
+    会按照三维变形的方式渲染父级以及父级内部的元素。
+
+        b.直接使用CSS3三维变形语法  不写a第一种的话会调用内存，可能会出现页面卡顿
+        transform:translate3D(100px,200px,300px);
+        transform:translateX(10px) translateY(100px) translateZ(10px);
+        在三维变形的属性中，都可以按照这种三维书写方式来写。除了skew，因为它的三维和二维没有任何变化。
+
+        思考问题
+        1.变形的顺序会不会影响最终的效果?
+        当一个变形中，并不仅仅存在一个变形时〈即需要旋转，也需要平移)，不同变形的书写顺序可能会影响最终的效果。
+        
+        transform: translate( 100px) rotatez ( 30deg) ;
+        transform: rotatez ( 30deg) translate ( 100px);
+        第一段代码表示的是，先平移，后旋转﹔第二段则是先旋转后平移。可以发现，在第二段明显发生了垂直
+    方向上的位移，这时因为如果元素先旋转，元素的X与Y轴的位置发生改变，接着平移的位置再按照新的x轴方向进行
+    位移，这就导致了在页面垂直方向上发生了位移的改变。所以说，在写变形效果时，需要先考虑好变形的顺序，再进行代码的书写。
+
+        2.对于 0deg 不能简写为 0
+
+      */
+        .box1{
+            width: 100px;
+            height: 3px;
+            background-color: turquoise;
+            transform: rotate(30deg);
+            transform-origin:right;
+            /* transform: translatex(100px); */
+            /* transform: scale(2); */
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            margin-top:100px;
+            background-color: yellowgreen;
+            /* transform: scale(4); */
+            /* transform: skew(30deg); */
+        }
+
+        /* 2.2 三维变形 */
+        div.father{
+            margin-top: 100px;
+            -webkit-transform-style: preserve-3d;
+            transform:perspective(600px) rotateY(30deg);
+            transition: 2s;
+        }
+        .father:hover{
+            transform:perspective(600px) rotateY(300deg);
+
+        }
+        .box3{
+            width: 300px;
+            height: 200px;
+            background:linear-gradient(pink, rgb(124, 217, 240),rgb(155, 241, 166));
+            /* transform:rolate3D(30deg); */
+            transform:perspective(600px) rotateY(30deg);
+            -webkit-transform-style: preserve-3d;
+        }
+        .bottom{
+            width: 300px;
+            height: 200px;
+            background:linear-gradient(pink, rgb(124, 217, 240),rgb(155, 241, 166));
+            -webkit-transform-style: preserve-3d;
+            transform: perspective(600px) rotateX(60deg) translateY(100px);
+        }
+        /* 
+
+        二、transition过渡
+            在之前变形transform的学习过程中，我们知道在触发变形的阶段，会存在一个始态和一个终态。属性的
+        新值替换旧值的持续时间是毫秒级的。受影响的内容在这短暂的时间内重新进行绘制，所以在我们视角看来，
+        这段效果是一个瞬时间完成的。通过过渡效果，我们可以将这个阶段平滑得分配到一个时间段上。
+        1.过渡
+            CSS过渡能控制一段时间内属性的值如何变成另一个值，因此，我们可以让属性的值变化过程时间延长，
+        让整个阶段看着更加自然，平滑。
+        1.1 过渡的基本属性
+            在CSS中，过渡使用4个属性进行定义:
+            transition-property∶表示哪个属性需要过渡，比如修改了颜色，就可以写color，更改了宽度，
+        就可以写width;如果是旋转、平移，那需要设置transform而不是rorate ;如果想针对所有属性进行过渡，
+        那可以写all;
+            transition-duration∶表示过渡所需要的时间，单位为秒(s)，也可以使用毫秒(ms);
+            transition-timing-function︰表示过渡的方式，对于属性过渡的效果有不同的过渡方法，
+        这主要体现在始态到终态过程中，不同阶段有着不同的运动速度;
+                -linear:线性过渡;
+                -ease:平滑过渡;
+                -ease-in:由慢到快;
+                -ease-out:由快到慢;
+                -ease-in-out:由慢到快再到慢;
+            transition-delay:表示过渡到延迟的时间
+        1.2 transition 简写属性
+
+        思考题
+        1. transition和display 冲突的问题
+        transition过渡能控制一段时间内属性的值如何变成另外的值，但是通过 display 控制元素的隐藏
+    显示时，过渡是不起效果的。这是因为 display: none 的时候，页面文档流已经不存在该元素了。transition
+    属性无法对一个从无到有的元素进行过渡显示。display: none它会触发页面的回流事件，而这个事件是一个
+    异步延时事件，所以浏览器在解析过渡动画代码的后，再执行display 的代码。所以要进行元素的显示隐藏过渡，
+    可以使用透明度来实现。
+        */
+
+        /* transition过渡 */
+        .box4{
+            width: 100px;
+            height: 3px;
+            margin-top: 100px;
+            background-color: turquoise;
+            transform: rotate(10deg);
+            transform-origin:right;
+            transition:transform 2s ease-in;
+        }
+        .box4:hover{
+            transform: rotate(720deg);
+        } 
+
+        /* transition和display 冲突的问题 */
+        /* 渐隐渐现 */
+        .outer{
+            width: 200px;
+            height: 200px;
+            margin-top:100px ;
+            background-color: turquoise;
+            transition: all 1s;
+            /* display: block; */
+            opacity: 1;
+        }
+       .outer:hover{
+            /* display: none; */
+            opacity: 0;
+       }
+    </style>
+</head>
+<body>
+     <div class="box1"></div>
+     <div class="box2"></div>
+     <div class="father">
+         <div class="box3"></div>
+         <div class="bottom"></div>
+     </div>
+     
+     <div class="box4"></div>
+
+     <div class="outer"></div>
+</body>
+</html>

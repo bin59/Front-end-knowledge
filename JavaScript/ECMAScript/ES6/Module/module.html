@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- 
+        ES6 module
+        (js的模块体系[模块化开发] ,将一个大程序拆分多个相互依赖的小文件)
+     -->
+    <script type="module">
+        // 引入模块
+        // import    from '路径'
+        import  a  from './module.js'
+
+        import  {name,obj}  from './module.js'
+        
+        console.log(a,name,obj)
+    </script>
+</body>
+</html>

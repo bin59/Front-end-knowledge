@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>发布订阅模式</title>
+  </head>
+  <body>
+    <!-- 
+        发布订阅模式的经典例子
+        $ emit $on的实现
+
+        事件中心
+
+        微信   用户1  用户2
+
+        发布订阅模式:
+            用户通过监听事件中心，当事件中心发布内容的时候,
+                用户可以获取对应的内容
+     -->
+    <script>
+      class EventEmitter {
+        constructor() {
+          //  定义的是一个数组
+          // 作用存放监听的用户
+          this.subs = {}
+        }
+        $on(event, handler) {
+          // event 事件类型  click
+          // handler 对应的事件处理函数  cb1
+          // sub:{
+          // click:[cb1]
+          // }
+          this.sub[click] = this.sub[event] || []
+          this.subs[event].push(handler)
+          {
+          }
+          //   1.监听事件的类型
+          //   2.在事件中心，记录事件类型和事件处理函数
+        }
+        $emit(eventType) {
+          // 派发对应的事件，依次执行该事件的所有cb函数
+          // 1.根据传递进来的事件，找到中心的cb数组
+          this.subs[evebtType].forEath(ele => ele())
+        }
+      }
+
+      let weixin = new EventEmitter()
+      weixin.$on('click', () => {
+        console.log('cb1')
+      })
+      weixin.$on('click', () => {
+        console.log('cb2')
+      })
+      weixin.$on('gotobaba', () => {
+        console.log('cb3')
+      })
+      weixin.$emit('click')
+      weixin.$emit('gotobaba')
+      //   weixin.$on('监听名', 事件处理函数1)
+      //   weixin.$on('监听名', 事件处理函数2)
+      //   weixin.$on('监听名', 事件处理函数3)
+      //   weixin.$on('监听名', 事件处理函数4)
+      //   weixin.$emit('发布时间名', 数据)
+    </script>
+  </body>
+</html>

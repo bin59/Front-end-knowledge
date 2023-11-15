@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <demo :list='list'></demo>     
+        <demo1 :list='list'></demo1>     
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        // 函数式组件写法一
+        Vue.component('demo',{
+            functional:true,
+            props:['list'],
+            // 开启functional，template失效,使用render代替
+            render(createElement,content){
+                console.log(this.list)//undefined
+                // 没有this，用content指上下文
+                // 简单理解:指的是当前Vue的demo组件所有的内容
+                console.log(content)//FunctionalRenderContext{}
+                console.log(content.props.list)//['alex', 'jimmy', 'tommy', __ob__: Observer]
+
+                /*  
+                    创建节点
+                    参数1渲染的节点
+                    参数2是一个对象，用来面熟这个节点属性，可以不写，推荐{}
+                    参数3填写参数1子节点，如果是字符串, 代表文本节点，如果参数1这个节点中嵌套很多的子节点
+                    需要写成数组的形式。
+                        注意: 数组里面的节点都需要通过createElement这个方法来创建
+                */
+                // return createElement('h1',{attrs:{class:'demo'}},[
+                //     createElement('div',{},'alex'),
+                //     createElement('div',{},'小黑')
+                // ])
+                return createElement('h1',{attrs:{class:'demo'}},content.props.list.map(name=>{
+                    return createElement('div',{on:{click:()=>{console.log(name)}}},`${name}`)
+                }))
+            }
+
+        })
+
+        // 函数式组件写法二:通过是用render函数去渲染结构，比上面的写法做了小小的改进(有了this)
+        Vue.component('demo1',{
+            // 注意两点: 1. functional:true,不需要设置
+            // 2. rende r函数传递的参数createElement , content只需传递 h函数
+            props:['list'],
+            render(h){
+                console.log(this.list)//['alex', 'jimmy', 'tommy', __ob__: Observer]
+                return h('h2',{attrs:{class:'demo'}},'小黑')
+            }
+        })
+
+
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                list:['alex','jimmy','tommy']
+            }
+        })
+    </script>
+</body>
+</html>

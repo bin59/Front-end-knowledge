@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>call、apply、bind</title>
+</head>
+<body>
+    <!-- 
+        1、call（调用对象，传入的参数1、传入的参数2...）
+            第一个参数默认值是null
+            第二个参数以参数列表形式传入
+            call里面的参数不写的情况下，默认的是window调用
+
+        2、apply（调用对象，[参数1，参数2]）
+            第一个参数默认值是null
+            第二个参数以数组(类数组)形式传入
+
+        2、bind（调用对象，传入的参数1、传入的参数2...）
+            第一个参数默认值是null
+            第二个参数以参数列表形式传入
+            返回值是一个新的函数, 需要的时候才调用
+     -->
+
+     <script>
+
+        let obj1 ={
+            name:'obj1',
+            fn:function (a,b){
+                console.log(arguments)//'aa', 'bb'
+                console.log(this)//{name: 'obj1', fn: ƒ}
+                console.log(this.name)//obj1
+                console.log(this.id)//undefined
+                console.log('---obj1---');
+            }
+        }
+        // obj1.fn()//obj1
+
+         let obj2 = {
+            name:'obj2',
+            id:2,
+            objFn:function (){
+            console.log(this)
+            console.log(this.name)
+            console.log('---obj1---');
+            }
+         }
+        //  obj2.objFn()//{objFn: ƒ}
+
+        //  使用call改变obj1的this
+        // obj1.fn.call(obj2,'aa','bb')
+
+        // 使用apply改变obj1的this
+        // obj1.fn.apply(obj2,['aa','bb'])
+
+        //  使用bind改变obj1的this
+        // obj1.fn.bind(obj2,'aa','bb')()
+
+       let a = obj1.fn.bind(obj2,'aa','bb')
+       a()
+       
+     </script>
+</body>
+</html>

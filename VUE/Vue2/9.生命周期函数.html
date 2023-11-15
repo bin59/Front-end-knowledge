@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        生命周期函数，就是自动执行的函数，在不同的阶段会自动执行某些函数。
+        Vue的生命的执行顺序
+        分三大阶段：
+            1、初始化阶段
+                beforeCreate
+                *created  (常用)
+                beforeMount
+                *mounted (常用)
+
+                为什么Vue的生命周期中需要分渲染前后?
+                答: Vue是利用虚拟dom去渲染页面，(特点 :批量处理,异步) .
+                beforeMount主要作用不是去渲染页面，收集节点关系和数据，丢到内存中处理
+                mounted通过Fragument批量的去做渲染真实dom
+
+                数据修改大多数是同步操作，Fragument 批量处理是异步操作
+                数据全部修改完毕之后，一次性渲染页面，避免之前无用的dom操作
+
+            2、数据更新阶段
+                beforeUpdate
+                updated
+
+                当Vue的响应式数据发生变化的时候，就会触发
+
+            3、销毁阶段
+                beforeDestory
+                bestoryed
+
+                作用:清除定时器，清除事件监听等等的操作
+
+                只有在关闭浏览器的时候触发，很难看到效果
+                基本不会在全局的生命周期中使用，常用在组件的生命周期
+                (全局的生命周期，指的是Vue的根节点app的生命周期)
+
+        组件的生命周期：和全局的生命周期一样
+
+        当我们引入并调用组件的时候, 进入到组件的生命周期函数，也同样经历
+        了上述的三大阶段
+            1.初始化
+            2.数据更新
+            3.销毁
+
+        当生命周期遇到父子组件的时候，注意他们的执行顺序?
+        他们的初始化阶段如下：
+            beforeCreate
+            created
+            beforeMount
+            demo的beforeCreate
+            demo的created
+            demo的beforeMount
+            demo的mounted
+            mounted
+        注意：
+            1、如果涉及ajax的返回值传递到组件的时候，-定要注意生命周期的选择
+            2、当Vue的数据发生变化的时候，父子组件的update阶段生命周期函数，是如何执行的?
+                如果父子组件共享了某个数据,并且数据发生改变的时候，
+                他们的更新阶段的生命周期函数执行如下:
+                    爸爸beforeUpdate
+                    beforeUpdate
+                    updated
+                    爸爸updated
+
+        小总结：1、能够描述出Vue有多少个生命周期，并且每个生命周期的作用?
+               2、父子间生命周期的执行顺序又是什么?
+               3、为什么Vue的生命周期中需要分渲染前后?
+
+     -->
+    <div id="app">
+        <div class='demo'>小龙虾</div>
+        {{msg}}
+        <demo v-if='isShow' :msg='msg'></demo>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        Vue.component('demo',{
+            props:['msg'],
+            template:`<div>aaa</div>`,
+            data(){
+                return{
+                    age:18,
+                    count:0,
+                    Timer:null
+                }
+            },
+            beforeCreate(){
+                console.log('demo的beforeCreate')
+                // 这里只是演示，实战不到万不可以不要写DOM操作
+                // let demo = document.querySelector('.demo')
+                // console.log(demo)
+                // demo.innerHTML='皮皮虾'
+                // console.log(this)
+                // console.log(this.msg)//undefined
+                /*
+                    模版已经被编译,节点可以获取，但是
+                    无法获取Vue中的数据，因为数据data还没有注入到Vue中,
+                    说明此时的数据并非响应式(数据驱动)
+                    作用：1.绝对不再这里操作数据
+                        2.在这个地方做一些初始化的工作:如，第三方插件
+                    这里常写一些插件的准备工作
+                    不常用
+                */
+            },
+            created(){
+                console.log('demo的created')
+                // console.log(this.msg)//hello
+                /*
+                    能够访问data中变量，说明当前的数据是响应式
+                    并且这里是最快能够拿到Vue的响应式数据的生命周期
+                    因此我们会在这个地方去做ajax请求， 然后做数据渲染的工作。
+                    比如、页面的请求都是在这里做
+
+                */
+                // this.Timer = setInterval(()=>{
+                //     this.count++
+                //     console.log(this.count);
+                // },1000)
+            },
+            beforeMount(){
+                // 渲染前
+                console.log('demo的beforeMount')
+                // let demo = document.querySelector('.demo')
+                // console.log(demo)
+                // demo.innerHTML='帝王蟹'
+                // console.log(demo)
+                /*
+                    能够获取DOM节点，但是不能在这里左dom操作（做了没效果）
+                    作用：处理一些数据（不常用）
+                */
+            },
+            mounted(){
+                // 渲染后
+                console.log('demo的mounted')
+                // let demo = document.querySelector('.demo')
+                // console.log(demo)
+                // demo.innerHTML='帝王蟹'
+                // console.log(demo)
+                /*
+                    作用：1、可以做DOM操作，
+                        2、ajax请求，进行页面数据的操作
+                */
+               setTimeout(()=>{
+                   this.msg='哈哈'
+               })
+            },
+            beforeUpdate(){
+                console.log('demo的beforeUpdate')
+            },
+            updated(){
+                console.log('demo的updated')
+            },
+            beforeDestory(){
+                console.log('demo的beforeDestory')
+                this.Timer
+                
+            },
+            destoryed(){
+                console.log('demo的destoryed')
+            }
+
+        })
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello',
+                isShow:true
+            },
+            beforeCreate(){
+                console.log('beforeCreate')
+            //     // 这里只是演示，实战不到万不可以不要写DOM操作
+            //     let demo = document.querySelector('.demo')
+            //     console.log(demo)
+            //     demo.innerHTML='皮皮虾'
+            //     console.log(this)
+            //     console.log(this.msg)//undefined
+            //     /*
+            //         模版已经被编译,节点可以获取，但是
+            //         无法获取Vue中的数据，因为数据data还没有注入到Vue中,
+            //         说明此时的数据并非响应式(数据驱动)
+            //         作用：1.绝对不再这里操作数据
+            //             2.在这个地方做一些初始化的工作:如，第三方插件
+            //         这里常写一些插件的准备工作
+            //         不常用
+            //     */
+            },
+            created(){
+                console.log('created')
+            //     console.log(this.msg)//hello
+            //     /*
+            //         能够访问data中变量，说明当前的数据是响应式
+            //         并且这里是最快能够拿到Vue的响应式数据的生命周期
+            //         因此我们会在这个地方去做ajax请求， 然后做数据渲染的工作。
+            //         比如、页面的请求都是在这里做
+
+            //     */
+            },
+            beforeMount(){
+                // 渲染前
+                console.log('beforeMount')
+            //     let demo = document.querySelector('.demo')
+            //     console.log(demo)
+            //     demo.innerHTML='帝王蟹'
+            //     console.log(demo)
+            //     /*
+            //         能够获取DOM节点，但是不能在这里左dom操作（做了没效果）
+            //         作用：处理一些数据（不常用）
+            //     */
+            },
+            mounted(){
+                // 渲染后
+                console.log('mounted')
+            //     let demo = document.querySelector('.demo')
+            //     console.log(demo)
+            //     demo.innerHTML='帝王蟹'
+            //     console.log(demo)
+            //     /*
+            //         作用：1、可以做DOM操作，
+            //             2、ajax请求，进行页面数据的操作
+            //     */
+            },
+            beforeUpdate(){
+                console.log('beforeUpdate')
+            },
+            updated(){
+                console.log('updated')
+            },
+            // beforeDestory(){
+            //     console.log('beforeDestory')
+            // },
+            // destoryed(){
+            //     console.log('destoryed')
+            // }
+        })
+    </script>
+</body>
+</html>

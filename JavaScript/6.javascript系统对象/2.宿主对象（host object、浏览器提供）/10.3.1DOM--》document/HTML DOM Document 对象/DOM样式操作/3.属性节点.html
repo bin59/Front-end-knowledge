@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="../../../../../../../../../back6.png"  width="300px" title="1">
+    <button class="btn">按钮</button>
+    <!-- 
+        setAttribute(属性名，属性值)  设置元素属性
+        getAttribute(属性名) 获取元素属性值
+        removeAttribute(属性名)  删除元素属性
+        
+     -->
+    <script>
+        let btn = document.querySelector(".btn");
+        let img = document.querySelector("img");
+
+        btn.onclick = function(){
+            //设置元素属性
+            img.setAttribute("src","../../../../../../../../../back6.png");
+            img.setAttribute("weigth","./500px");
+            img.setAttribute("data-num","1");
+
+            // 获取元素属性值
+            console.log(img.getAttribute("src"));
+            console.log(img.getAttribute("weigth"));
+            console.log(img.getAttribute("data-num"));
+
+            img.removeAttribute("title");
+            
+        }
+    </script>
+</body>
+</html>

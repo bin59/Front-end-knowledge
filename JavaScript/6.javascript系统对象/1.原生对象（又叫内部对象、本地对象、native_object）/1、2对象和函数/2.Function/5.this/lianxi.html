@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = 'window'
+        var objData ={
+            a:'objData'
+        }
+        var obj ={
+            a:'obj',
+            fn1:function (){
+                console.log(this.a)//
+            },
+            fn2:()=>{
+                console.log(this.a)//
+            },
+            fn3:function (){
+               return function (){
+                    console.log(this.a)//
+                }
+            },
+            fn4:function (){
+                return  ()=>{
+                    console.log(this.a)//
+                }
+            }
+        }
+
+        obj.fn1()//'obj'
+        obj.fn1.call(objData)//'objData'
+
+        obj.fn2()//'wiindow'
+        obj.fn2.call(objData)//'window'
+
+        obj.fn3()()//
+        obj.fn3().call(objData)//
+        obj.fn3.call(objData)()//
+
+        obj.fn4()()
+        obj.fn4().call(objData)
+        obj.fn4.call(objData)()
+
+        // obj
+        // objData
+
+        // window
+        // window
+
+        // window
+        // objData
+        // window
+
+        // obj
+        // obj
+        // objData
+
+    </script>
+</body>
+</html>

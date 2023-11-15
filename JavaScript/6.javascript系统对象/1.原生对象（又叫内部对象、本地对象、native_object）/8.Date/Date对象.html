@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <div class="date" id="date"></div>
+</body>
+<script>
+// Date对象
+    //1.不填参数
+    //  new Date();
+    console.log(new Date());//Thu Sep 02 2021 16:12:36 GMT+0800 (中国标准时间)
+
+    // 2.填写时间戳
+    console.log(new Date(1630570501));//Tue Jan 20 1970 04:56:10 GMT+0800 (中国标准时间)
+
+    // 3.填写日期
+    console.log(new Date("2021 11 11 00:00:00"));//Thu Nov 11 2021 00:00:00 GMT+0800 (中国标准时间)
+    console.log(new Date(2021,11,11,00,00,00));//Sat Dec 11 2021 00:00:00 GMT+0800 (中国标准时间)
+    // 下面的11是Dec，因为从0开始，0就是1月，11---》12
+/*
+Date对象的方法
+    1.getFullYear()            获取年份
+    2.getMonth()               获取月份（从0开始，0就是1月）
+    3.getDate()                获取当前日（1-x）
+    4.getDay()                 获取星期（从0开始，0 - - ->周日，6---》周六）
+    5.getHours()               获取小时
+    6.getMinutes()             获取分钟
+    7.getSeconds()             获取秒
+    7.getTime() /Date.now()    获取毫秒  返回 1970 年 1 月 1 日至今的毫秒数。
+    8.toLocaleString()         根据本地时间把 Date 对象转换为字符串
+    9.toDateString()           把 Date 对象的日期部分转换为字符串
+*/
+    console.log(new Date().getFullYear());//2021
+    console.log(new Date().getMonth() + 1 );//9
+
+    // 获取时间戳
+    console.log(new Date().getTime() );//1630572147420
+    console.log(Date.now());//1630572147420
+    console.log(+new Date()) //1631072280623
+
+    // toLocaleString() 根据本地时间把 Date 对象转换为字符串：
+    let text=new Date().toLocaleString();//  2021/9/2 下午4:39:50
+    document.getElementById("date").innerHTML=text;
+
+    // toDateString()把 Date 对象的日期部分转换为字符串
+    console.log(new Date().toDateString());//Wed Sep 08 2021
+
+
+
+
+
+
+    // Date.now 与 new Date().getTime() 
+    // 都可以获取时间戳，但是实际上性能是不一样的（虽然差别不大，但是也算是一种性能的追求）
+   
+    // +new Date()
+    console.time('+new Date()')
+    for(var i = 0; i < 650000; i++) {
+        var o = + new Date()
+    }
+    console.timeEnd('+new Date()')
+
+    // new Date().getTime
+    console.time('new Date().getTime:')
+    for(var j = 0; j < 650000; j++) {
+        var p = new Date().getTime();
+    }
+    console.timeEnd('new Date().getTime:')
+
+    // Date.now()
+    console.time('Date.now()')
+    for(var k = 0; k < 650000; k++) {
+        var q = Date.now()
+    }
+    console.timeEnd('Date.now()')
+
+    /****
+        +new Date(): 286.554ms
+        new Date().getTime:: 163.262ms
+        Date.now(): 81.747ms
+
+        +new Date() 用的时间最多，因为它涉及到类型转换，转换成数字；
+        Date.now() 用的时间最少 它与其它获取时间戳最大的区别就是：
+            一个是 constructor的属性，其它是 constructor.prptotype的属性
+            实例化的区别，显然实例化对象花的时间更多
+    ****/
+    console.log(new Date().toString() );
+console.log(new Date());
+
+</script>
+</html>

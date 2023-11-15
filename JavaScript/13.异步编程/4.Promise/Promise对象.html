@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Promise对象(ES6)
+            Promise对象代表了未来将要发生的事件，用来传递异步操作的消息
+        Promise的两大特点
+            1、对象的状态不受外界影响
+                (1)pending:初始状态，不是成功或者失败状态
+                (2)fulfilled:当前操作成功
+                (3)rejected:当前操作失败
+            2、一旦状态改变或者是确认，就会不会再变化(成功或失败)
+                pending-->fulfilled
+                pending-->rejected
+        Promise优缺点
+            避免了ES5使用Ajax出现的回调地狱，控制异步操作更加简单;
+            一旦状态改变或者是确认，就会不会再变化(成功或失败);
+
+            处于pending状态的时候，无法判断当前进展的阶段(究竟是刚刚开始?还是即将完成?)
+        */
+      {
+        //实例化Promise 对象
+        const p = new Promise((resolve, reject) => {
+          // reslove 解析（成功）
+          // let jsonData = {
+          //     id:1,
+          //     num:99
+          // }
+          // resolve(jsonData)
+
+          // reject 拒绝（失败）
+          reject({
+            code: 404,
+            msg: '无法访问该页面',
+          })
+        })
+
+        // 写法一
+        //调用 promise 对象的 .then 方法获取成功状态的内容
+        // .catch获取失败的内容
+
+        // （异步操作（异步任务->微任务））
+        p.then(val => {
+          console.log(val)
+        }).catch(err => {
+          console.log(err)
+        })
+
+        // 写法二  .then
+        p.then(
+          function (value) {
+            console.log(value)
+          },
+          function (reason) {
+            // console.error(reason);
+            console.log(reason)
+          }
+        )
+      }
+
+      // 模拟请求
+      {
+        new Promise((res, rej) => {
+          // 模拟请求数据
+          setTimeout(() => {
+            res({
+              // code:201,
+              code: 200,
+              msg: '操作成功',
+            })
+          }, 1000)
+        })
+          .then(res => {
+            // 模拟再次请求下一个接口
+            return new Promise((res1, rej1) => {
+              if (res.code == 200) {
+                setTimeout(() => {
+                  res1('操作成功2')
+                  console.log(res)
+                }, 1000)
+              } else {
+                setTimeout(() => {
+                  rej1('操作失败2')
+                }, 1000)
+              }
+            })
+          })
+          .then(
+            res => {
+              console.log(res)
+            },
+            err => {
+              console.log(err)
+            }
+          )
+        // .catch(err=>{
+        //     console.log(err);
+        // })
+      }
+    </script>
+  </body>
+</html>

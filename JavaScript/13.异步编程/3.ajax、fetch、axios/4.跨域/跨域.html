@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="https://mp.weixin.qq.com/s/NKJY2iYj6KXntSvip5nyjw">10 种跨域解决方案（附终极方案）</a>
+    <!-- 
+        CORS跨域
+            CORS跨域是w3C提出，它定义了在跨域访问资源时服务器和浏览器之间的通信，CORS在http请求头允
+            许浏览器和浏览器之间的通信
+
+        同源策略（浏览器的最基本的安全功能）
+            同源：
+                协议（http\https）、域名（127.0.0.1、localhost）、端口号（5500、8888）
+
+        后台如何解决跨域
+            （后端设置响应头，设置白名单）
+            Access-Control-Allow-Origin:"指定的域名地址" || *
+
+        前端如何解决跨域
+            1、jsonp 最早的解决方案
+                原理：利用script的src属性  不考虑跨越问题
+                缺点:需要服务的支持、只能获取GET请求方式的数据
+            2、正向代理和反向代理
+                原理：服务器之间的访问是不存在跨域问题的
+                方法：建立自己的服务器，向别的服务器发送请求，获取数据后，再返回给自己
+
+                如：nginx反向代理
+                    思路：利用nginx反向代理把跨域为不跨域，支持各种请求方式
+                    缺点：需要在nginx进行额外配置，语义不清晰
+            3、CORS
+                规范化的跨域请求解决方案，安全可靠。
+                优势：
+                    在服务端进行控制是否允许跨域，可自定义规则
+                    支持各种请求方式
+                缺点：会产生额外的请求
+     -->
+     <script>
+        //   jsonp 
+        // 创建一个新的script标签
+        // let newScript = document.createElement("script")
+        // // src设置成请求的地址（接口）
+        // newScript.src = "http://jsonp.dfbuff.xyz/api/jsonp?callback=jsonFn"
+        // // 追加到htmlye页面
+        // document.body.appendChild(newScript)
+
+        // // 后台需要传callback键名（规定）
+        // function jsonFn(res){
+        //     console.log(res)
+        // }
+
+
+         fetch("http://jsonp.dfbuff.xyz/api/jsonp")
+         .then(res=>{
+             return res.text()
+         }).then(json=>{
+             console.log(json)
+         }).catch(err=>{
+             console.log(err)
+         })
+     </script>
+</body>
+</html>

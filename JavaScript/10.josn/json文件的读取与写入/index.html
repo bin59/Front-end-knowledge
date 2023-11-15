@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+    JavaScript — json文件的读取与写入
+        应用场景
+    网站配置的导入与导出。当一个网站在测试服开发完成后上线到正式服，为了避免重复配置数据，采取代码的方式来减少一些不必要的人工操作。
+    后台接口接收的是 json 格式而不是文件格式的时候，前端可以采用文件的形式来保存这些数据，在导入导出的时候做一下文件与数据之间的转换。
+
+    导出 —— 数据写入文件保存
+    导入 —— 文件上传，然后读取数据
+    代码实现
+    首先需要一个 上传文件的 input 框 和 两个按钮 -->
+
+    <input type="file" accept=".json" id="file">
+    <button id="read">读取</button>
+    <button id="write">写入</button>
+    <script>
+        const file = document.getElementById('file');
+        const readBtn = document.getElementById('read');
+        const writeBtn = document.getElementById('write');
+
+        // 导入：将上传的 .json 文件中的内容读取出来，请求接口，将数据传给后台
+        readBtn.onclick = function () {
+            const fileList = file.files;
+            if (!fileList.length) {
+                return;
+            }
+            const reader = new FileReader();
+            reader.readAsText(fileList[0], "UTF-8");
+            reader.onload = function (event) {
+                console.log(event.target.result);
+            }
+        }
+
+        // 导出：请求接口，将获取到的数据序列化，然后写入到 json 文件中
+        writeBtn.onclick = function () {
+    // 字符内容转变成blob地址
+    const content = JSON.stringify([{ name: '张三' }]);
+    const blob = new Blob([content]);
+
+    // 创建一个 a 标签，添加属性
+    let eleLink = document.createElement('a');
+    eleLink.download = "1.json";
+    eleLink.style.display = 'none';
+    eleLink.href = URL.createObjectURL(blob);
+
+    // 触发点击，然后移除
+    document.body.appendChild(eleLink);
+    eleLink.click();
+    document.body.removeChild(eleLink);
+};
+
+
+    </script>
+</body>
+
+</html>

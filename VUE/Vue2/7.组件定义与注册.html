@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件</title>
+</head>
+<body>
+    <!-- 定义组件的模板 -->
+    <template id="myAccount">
+        <div>
+            <div v-for='item in arr' v-if='isShow'>{{msg}}{{item}}</div>
+        </div>
+    </template>
+    <template id="mojito">
+        <div>{{name}}</div>
+    </template>
+    <template id="loginTmp">
+        <h3>这是私有的login组件</h3>
+    </template>
+    <div id="app">
+        <!-- 
+            组件`Component`是 Vue.js 最强大的功能之一。
+            组件可以扩展 HTML 元素，封装可重用的代码。
+
+            模块化和组件化的区别
+            - 模块化：是从代码逻辑的角度进行划分的；方便代码分层开发，保证每个功能模块的职能单一
+            - 组件化：是从UI界面的角度进行划分的；前端的组件化，方便UI组件的重用
+
+            例如：选项卡
+            在同一个项目中，不同的页面都有选项卡的功能，只是数据不一样而已
+
+            特点：可以多次调用，维护性高
+
+            如何在Vue中使用组件
+                1、定义组件
+                    全局定义
+                    
+                        Vue.component ('',{}) 定义 +注册
+                    局部定义
+                        使用components定义私有组件
+                        在Vue外定义好了组件的配置,如:let mojito = {填写配置}
+                2、注册组件
+                    全局定义
+                        在Vue的配置对象中的componets属性中注册组件
+                3、调用组件
+                    在视图上调用即可
+         -->
+
+        <!-- 调用组件 -->
+         <alex></alex>
+         <!-- 如果在注册私有组件时，组件的名称是驼峰命名
+        那么，在标签中使用组件时，需要把大写的驼峰改为小写的字母，同时两个单词之间使用`-`进行连接 -->
+         <mo-jito></mo-jito>
+         <ha-haha></ha-haha>
+         <mylogin></mylogin>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        /*
+            1、全局定义 Vue.component ('',{})
+
+            Vue.component(参数1，参数2)
+            参数1:定义当前组件的名称，将来在视图上使用的
+            参数2:定义这个组件的配置，是-个对象。
+                对象中有若干个参数，都是用来描述当前组件的一些内容。
+                    如：
+                    template:描述当前组件在视图中渲染的标签
+                        在这个属性中所有的vue的规则都是正常识别的
+                        要求  template的根节点只能是一个
+                    data:是一个函数，还必须返回一个对象才行,用来定义组件中用到的数据
+
+                    经典面试：为什么组件中的data是一个函数呢
+
+                    因为对象是引用数据类型,保存的是数据的地址，当同一个组件多次调用的时候，如果发生数据的变化,
+                    那么多个组件的数据会一起变化，导致数据混乱。
+
+                    因此我们使用函数，函数会在调用组件的时候，
+                    开辟一个独立作用域来保存数据，让每个组件都有自己独立的数据存储,每个组件之间不会受影响
+
+        */
+        Vue.component('alex',{
+            // 一定要用一个大的根元素（例如`<div>`）包裹起来。
+            // template:`<div>
+            //             <div v-for='item in arr' v-if='isShow'>{{msg}}{{item}}</div>
+            //         </div>`,
+
+            // 还可以把模板的定义存放在`<template>`标签中
+            template:'#myAccount',
+            data(){
+                return{
+                    msg:'hello',
+                    isShow:true,
+                    arr:[1,2,3]
+                }
+            }
+        })
+
+        // 2、局部定义
+        // 写法一
+        let moJito ={
+            // template:`<div>{{name}}</div>`,
+            template:'#mojito',
+            data(){
+                return{
+                    name:'mojito'
+                }
+            }
+        }
+
+        let vm = new Vue({
+            el:'#app',
+
+            components: {
+                // es6：key和value相同，可简写  moJito：moJito  =>  moJito  
+                moJito,
+                //（左边）用在视图上的组件名:（右边）组件的配置信息
+                haHaha:moJito,
+
+                // 写法二
+                mylogin: {
+                    template: '#loginTmp'
+                }
+                
+            }
+        })
+    </script>
+</body>
+</html>

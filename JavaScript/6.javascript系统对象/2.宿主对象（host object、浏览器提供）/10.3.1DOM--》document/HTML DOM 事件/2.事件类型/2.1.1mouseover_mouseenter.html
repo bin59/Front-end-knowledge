@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        ul{
+            width: 300px;
+            height: 200px;
+            padding-top: 10px;
+            padding-left: 50px;
+            background-color: #0ff;
+        }
+        ul li{
+            width: 200px;
+            height: 50px;
+            list-style: none;
+            background-color: #0b6;
+            margin-top: 30px;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="a">
+            我是li.a
+        </li>
+        <li class="b">
+            我是li.b
+        </li>
+    </ul>
+    <script>
+        let i=1;
+            document.querySelector("ul").onmouseover=()=>console.log(i++);
+    </script>
+</body>
+</html>

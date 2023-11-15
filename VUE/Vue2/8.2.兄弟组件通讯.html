@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <bluej></bluej>
+        <yonghu></yonghu>
+        <alex></alex>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+            /*
+            非父子通讯
+                使用场景:当出现多层组件需要数据交互的时候
+                实现的核心:两个Vue的核心api和主线Bus（本质是一个Vue的实例对象）
+                    $emit() 事件派发
+                    $on() 事件监听
+            */
+
+        // 发布-订阅模式 是一个设计模式，讲Vue原理的时候用到
+        let bluej={
+            template:`<div>
+                            bluej公众号
+                            <button @click='publish'>发布文章</button>
+                        </div>`,
+
+            methods: {
+                publish(){
+                    // 发布文章
+                    bus.$emit('msg','今天周六')
+                }
+            }
+        }
+        let yonghu = {
+            template:`<div>普通用户
+                        <button @click='look'>关注bluej</button>
+                    </div>`,
+            created(){
+                // 生命周期函数   自动执行的函数
+                // 调用组件的时候，生命周期函数会自动执行
+                // create其中的一个函数
+                console.log('yonghu组件的created的生命周期函数');
+                bus.$on('msg',(data)=>{
+                    console.log('当有msg事件时触发的cb',data,'yonghu');
+                })
+            },
+            methods: {
+                look(){
+                   console.log('yonghu');
+                }
+            }
+        }
+        let alex = {
+            template:`<div>
+                alex用户
+                <button @click='look'>关注bluej</button>
+                </div>`,
+            methods: {
+                look(){
+                    console.log('alex');
+                    bus.$on('msg',(data)=>{
+                    console.log('当有msg事件时触发的cb',data,'alex');
+                })
+                }
+            }
+        }
+        let bus = new Vue()
+        let vm = new Vue({
+            el:'#app',
+            components: {
+                bluej,
+                alex,
+                yonghu
+            }
+        })
+    </script>
+</body>
+</html>

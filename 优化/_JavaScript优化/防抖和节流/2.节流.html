@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节流</title>
+</head>
+<body>
+    <!--
+        什么是节流
+            当持续触发一个事件，保证在一定的时间内触发一次
+            (假设一个用户一直触发同一个事件，且每次触发的时间间隔小
+            于规定的时间，函数节流会每隔一段时间去执行一次)
+
+        使用节流
+            将多次执行行为变为最后一次执行，节流将多次执行变为每隔一段时间执行
+
+        例子：
+            1、鼠标不断点击(click事件)、移动(mousemove事件)
+            2、页面滚动scroll事件
+     -->
+     <script>
+        //  let flag = true //默认开启
+        //  document.addEventListener("mousemove",()=>{
+        //      if(flag){
+        //         flag = false
+        //         //  设置打印间隔时间
+        //         setTimeout(function(){
+        //             console.log(Math.random())
+        //             flag = true
+        //         },1000)
+        //      }
+        //  })
+
+        //  封装节流函数
+        function throttle(_time,_fn){
+            let flag = true //默认开启
+            return function(){
+                if(flag){
+                    flag = false
+                    //  设置打印间隔时间
+                    setTimeout(()=>{
+                        console.log(this)
+                        flag = true
+                        _fn()
+                    },_time)
+                }
+            }
+        }
+        document.addEventListener("mousemove",throttle(1000,function(){
+            console.log(Math.random())
+        }))
+     </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4.事件流</title>
+  </head>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: #87ebda;
+    }
+    p {
+      width: 100px;
+      height: 100px;
+      background-color: rgb(0, 183, 255);
+    }
+    span {
+      display: block;
+      width: 50px;
+      height: 50px;
+      background-color: rgb(237, 162, 240);
+    }
+  </style>
+  <body>
+    <!--
+        事件流
+            事件流表述的页面中接受事件的触发顺序，页面触发一个事件，会按照一定的顺序来
+            响应事件，事件的响应过程就是事件流。
+
+        事件流的三个阶段：
+            冒泡阶段（IE提出）  false
+                事件冒泡，即事件开始时由最具体的元素接收，然后逐级向上传播不具体的节点
+                组织冒泡事件  false不出现
+                    event.stopPropagation();    ---正常浏览器通用
+                    window.event.cancelBubble = true  ---IE浏览器
+
+            目标阶段  触发事件对象（target）
+            捕获阶段（网景提出）  true
+                事件流的捕获阶段触发，具体的元素接收事件，从最外层html元素往里面查找捕获
+
+            阻止默认事件，如组织a,input的默认事件
+                event.preventDefault()----------正常浏览器通用
+                window.event.returnValue = false ----IE浏览器    
+     -->
+
+    <div class="box">
+      div标签
+      <p>
+        p标签
+        <span> span标签 </span>
+      </p>
+    </div>
+
+    <a href="https://www.baidu.com">跳转百度</a>
+
+    <script>
+      let span = document.querySelector("span"),
+        p = document.querySelector("p"),
+        div = document.querySelector("div"),
+        a = document.querySelector("a");
+
+        // 阻止默认事件
+        a.addEventListener("click",(e)=>{
+          e.preventDefault();
+        });
+
+        // dom2级事件监听
+        span.addEventListener("click", (event) =>{
+            // event.stopPropagation();// 阻止冒泡，false不出现
+
+            // 兼容IE
+            e = window.event || e;
+            e.stopPropagation();
+
+            console.log("我是span标签")
+      } , true);
+      p.addEventListener("click", () =>{
+          console.log("我是p标签")
+      } , false);
+      div.addEventListener("click", () =>{
+          console.log("我是div标签")
+      },true);
+      document.body.addEventListener("click",() => {
+           console.log("我是body标签")
+      },false);
+
+    // false  捕获阶段
+    //点击span时，都触发：我是span标签  我是p标签  我是div标签  我是body标签
+    //p:  我是p标签  我是div标签  我是body标签
+    // div:我是div标签  我是body标签
+
+    // true  冒泡阶段
+    //点span：我是body标签 我是div标签 我是p标签 我是span标签     
+    //p:   我是body标签  我是div标签 我是p标签  
+    // div: 我是body标签  我是div标签 
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        什么是防抖
+            当持续触发一个事件，一定时间段没有再触发事件，事件处理函数才会执行一次，
+            如果设置的时间到来之前，又一次触发事件，就重新开始延时
+
+        使用防抖
+            触发高频事件后n秒函数只会执行一次，如果n秒之内高频事件再次触发，则重新
+            计算时间
+
+        例子：
+            1、搜索框的模糊搜索功能
+            2、改变window窗口大小，resize事件
+     -->
+
+     <input type="text" name="" id="search">
+     <script>
+        let search =document.getElementById("search")
+
+        // 封装防抖
+        function PreventJitter(_time,_fn){
+            let timer = null
+            // 返回一个函数
+            return function(){
+                // 保存this指向
+                // let _this=this
+                // console.log(this)
+                // 清除上一个定时器
+                clearTimeout(timer)
+                // 用定时器模拟1秒之后打印数据
+                timer = setTimeout(function(){
+                    _fn()
+                    // console.log(this)//window
+                    // 把this指向调用者input
+                    // _fn.call(_this)
+                    // console.log(this);
+                },_time)
+            }
+        }
+        
+        search.addEventListener("input",PreventJitter(100,function(){
+            // console.log(this)//window
+            console.log(search.value)
+        }))
+
+
+</script>
+</body>
+</html>

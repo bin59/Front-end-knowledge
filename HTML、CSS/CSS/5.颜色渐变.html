@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>颜色渐变</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            float: left;
+        }
+        img{
+            width: 500px;
+        }
+        img.b{
+            width: 300px;
+        }
+        /* 颜色渐变 */
+        /*         
+            1.线性渐变
+            线性渐变指的是沿线性向量的方向填充得到的渐变，而这个线下向量一般叫做
+            linear-gradient(<angle>/to <side>,<color>,[color-hint],<color-stop>);
+                第一个值：<angle>/to <side> 可以设置具体的角度，或者说设置对应的方向如 left right top bottom，但
+                    这种方向的写法在前面一定要加 to
+                第二个值：<color> 列出一系列的色标和中色点，color-hint代表渐变的具体位置，color代表当前位置的具体颜色
+                第三个值：代表结束时的颜色
+        */
+        .ex01{
+            background: linear-gradient(90deg,pink ,rgb(124, 217, 240) );
+        }
+        .ex02{
+            background: linear-gradient(-135deg,pink ,rgb(124, 217, 240) );
+        }
+        .ex03{
+            /* 起始角度并不是零度，而是180度。0度表示从下往上，180度才是从上往下 */
+            /* 默认的角度是180度 */
+            background: linear-gradient(pink,rgb(124, 217, 240) );
+            /* background: linear-gradient(0deg,pink,rgb(124, 217, 240) ); */
+            /* background: linear-gradient(180deg,pink,rgb(124, 217, 240) ); */
+        }
+        /* 如果要通过具体方向来设置对角方向的渐变，可以使用两个值来指定某个角 */
+        .ex04{
+            background: linear-gradient(to  bottom left,pink ,rgb(124, 217, 240) );
+        }
+        /* 多色标的使用 */
+        .ex05{
+            background: linear-gradient(pink rgb(124, 217, 240),yellow );
+        }
+        /* 某个颜色在特定位置达到临界值 */
+        .ex06{
+            background: linear-gradient(pink ,rgb(124, 217, 240) 80%,yellow );  
+        }
+        
+        /* 
+             2.径向渐变
+            线性渐变已经能够满足大部分的渐变效果了，但是存在一些比较特殊的渐变，比如:聚光灯、圆形阴影。径向渐变的语法和线性渐变基本一致:
+            background: radial-gradient(形状和尺寸 ,色标,最终色标); 
+
+            2.1 尺寸
+            一同往常，指定径向渐变的尺寸可以只提供一个非负的长度值（得到的是圆形)，同样的，也可以提供两个非负的长度值（椭圆形)。
+            尺寸的值，同样可以设置百分比。但是使用百分比时,必须是椭圆形的径向渐变才行，如果是圆形径向渐变，那整个声明都会失效。
+
+            2.2形状
+            默认值是 ellipse，指定椭圆形的径向渐变;
+            可选值是 circle,指定以圆形的径向渐变。
+        */
+        .ex07{
+            background: radial-gradient(pink ,rgb(124, 217, 240) ,pink ,rgb(124, 217, 240) );  
+        }
+        .ex08{
+            background: radial-gradient(50px 100px,pink ,rgb(124, 217, 240) ,pink ,rgb(124, 217, 240)  );  
+        }
+        .ex09{
+            width: 200px;
+            height: 100px;
+            background: radial-gradient(50px 100px,pink ,rgb(124, 217, 240) ,pink ,rgb(124, 217, 240)  );  
+        }
+
+        /* list-style-image */
+
+    </style>
+</head>
+<body>
+    <!-- 1.线性渐变 -->
+    <div class="box ex01"></div>
+    <div class="box ex02"></div>
+    <div class="box ex03"></div>
+    <div class="box ex04"></div>
+    <div class="box ex05"></div>
+    <br>
+    <img src="./picture/html/linear-gradient/4VUE9`G[0{(QV`][4$6NYP1.jpg" alt="">
+    <img src="./picture/html/linear-gradient/Y~T)6ZNWP3X}E6Q}OXY7R22.jpg" clasas="b" alt="b">
+    <br>
+    <!-- 2.径向渐变 -->
+    <div class="box ex06"></div>
+    <div class="box ex07"></div>
+    <div class="box ex08"></div>
+    <div class="box ex09"></div>
+
+</body>
+</html>

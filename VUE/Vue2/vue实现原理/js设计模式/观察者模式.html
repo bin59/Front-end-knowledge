@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>观察者模式</title>
+  </head>
+  <body>
+    <!-- 
+          观察者和发布订阅这两个模式非常相似，但是还是有本质上的区别
+        他们两个模式都有-个发布中心，但是他们触发回调函数的方式是有所不同的
+        (触发方法不一样)
+
+       -->
+    <script>
+      // 发布中心
+      class Dep {
+        constructor() {
+          // 记录所有的订阅者
+          this.subs = []
+        }
+        // 添加订阅者
+        addsub(sub) {
+          // 将这个观察者放到subs数组中
+          // 进入该数组有一个前提
+          // sub中=一定要有updata方法(观察者模式)
+          if (sub && sub.updata) {
+            this.subs.push(sub)
+          }
+        }
+        notisfy() {
+          // 当事件触发时，调用所有的观察者的updata方法
+          this.subs.forEach(sub => {
+            sub.updata()
+          })
+        }
+      }
+      // 观察者
+      class Watcher {
+        updata() {
+          //
+        }
+      }
+      let dep = new Dep()
+      let watcher1 = new Watcher()
+      let watcher2 = new Watcher()
+      let watcher3 = new Watcher()
+      // 在发布中心的数组，每一个元素一定要具有Wetcher和updata类方法
+      // 进入发布中心subs数组一定要有updata方法，不然不能加入数组
+
+      //   添加订阅者到事件中心
+      dep.addsub(watcher1)
+      dep.addsub(watcher2)
+      dep.addsub(watcher3)
+      dep.notisfy()
+    </script>
+  </body>
+</html>

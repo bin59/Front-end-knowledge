@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档碎片</title>
+</head>
+<body>
+    <ol>
+
+    </ol>
+    <!-- 
+        document.creatDocumentFragment(节点)
+        创建文档碎片
+        创建虚拟节点对象
+     -->
+     <script>
+
+        //  添加五个li到ol里面
+         let ol = document.querySelector("ol");
+
+        //  for(let i=1;i<=5;i++){
+        //        // 这样有多少就要操作多少次appendChild（）,会消耗页面性能
+        //     ol.appendChild(document.createElement("li"));
+        //  };
+        
+
+        // 创建文档碎片
+        let Frag = document.createDocumentFragment();
+        for(let i=1;i<=5;i++){
+            //在虚拟节点对象添加碎片（新的li）
+            Frag.appendChild(document.createElement("li"));
+         };
+         console.log(Frag);
+
+        //  相当于一次性加入所以数据
+         ol.appendChild(Frag);
+
+         
+     </script>
+</body>
+</html>
