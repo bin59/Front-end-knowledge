@@ -1,29 +1,4 @@
-<details markdown="1">
-  <summary>目录</summary>
-- [Vue](#vue)
-  - [1 Vue 核心:](#1-vue-核心)
-  - [2 常用指令](#2-常用指令)
-  - [3 操作样式](#3-操作样式)
-  - [4 事件绑定](#4-事件绑定)
-  - [5 vue 表单操作](#5-vue-表单操作)
-  - [6 v-model 的实现原理](#6-v-model-的实现原理)
-    - [6.1 计算属性](#61-计算属性)
-  - [7 组件的定义与注册](#7-组件的定义与注册)
-    - [7.1 组件的切换](#71-组件的切换)
-  - [8、组件](#8组件)
-    - [8.1 父子组件通讯\_Tab](#81-父子组件通讯_tab)
-    - [8.2 兄弟组件通讯](#82-兄弟组件通讯)
-    - [8.3 插 slot 槽](#83-插-slot-槽)
-    - [8.4 v-model 在组件中的使用](#84-v-model-在组件中的使用)
-  - [9 生命周期函数](#9-生命周期函数)
-  - [10 Vue 的函数式组件](#10-vue-的函数式组件)
-    - [10.1 render 函数的妙用](#101-render-函数的妙用)
-
-</details>
-
 # Vue
-
-<a id=1>
 
 ## 1 Vue 核心:
 
@@ -43,8 +18,10 @@ v-if 条件渲染 true 显示 false 隐藏
 v-if\else 中间不要穿插其他内容 ,会有警告
 除了可以设置 ture 或 falsel 以后，还可以写条件表达式
 
-<div v-if='1==1'>你可以看到我</div>
+```html
+<div v-if="1==1">你可以看到我</div>
 <div v-else>你可以看到我</div>
+```
 
 v-show 更 v-if 很像  
  v-show 是控制 css 来决定元素的显示
@@ -53,10 +30,8 @@ v-if 是控制节点是否存在
 
 不推荐 v-for 和 v-if 一起使用
 
-```js
-<div v-for="item in obj2" v-if="item.age>20">
-  {{ item }}
-</div>
+```html
+<div v-for="item in obj2" v-if="item.age>20">{{ item }}</div>
 ```
 
 如何做这种数据的过滤呢?
@@ -68,8 +43,9 @@ step3:回到视图，在双胡子模版语法写这个函数名
 
 补充:功能: 1. 过滤的操作 2.计算属性是具有缓存性
 
-```js
-<div>age大于20的 :{{newData}}</div><br>
+```html
+<div>age大于20的 :{{newData}}</div>
+<br />
 
 <p>简单的模板字符串：{{firstname+lastname}}</p>
 <p>计算属性完成：{{fullName}}</p>
@@ -96,48 +72,34 @@ computed: {
 }
 ```
 
-<a id=3>
-
 ## 3 操作样式
 
 style 行内(面试) class 类型 (经常用)
 
-```js
-<div class="box" v-bind:style="styleObj">
-    今晚吃吃鸡
-</div>
+```html
+<div class="box" v-bind:style="styleObj">今晚吃吃鸡</div>
 <!-- 第一种：对象设置法，控制class是否存在,true-存在，false-不存在 -->
-<div class="box" v-bind:class='classObj'>
-    对象设置法
-</div>
+<div class="box" v-bind:class="classObj">对象设置法</div>
 <!-- 第二种 数组设置法-->
-<div class="box" v-bind:class='classArr'>
-    数组设置法
-</div>
+<div class="box" v-bind:class="classArr">数组设置法</div>
 <!-- 第三种 数组对象混合设置 -->
-<div class="box" v-bind:class='classArr'>
-    数组对象混合设置
-</div>
+<div class="box" v-bind:class="classArr">数组对象混合设置</div>
 <!-- 第四种 字符设置法 -->
-<div class="box" v-bind:class='classStr'>
-    字符设置法
-</div>
-
-
-
- let vm = new Vue({
-    el:'#app',
-    data:{
-        styleObj:{fontSize:'30px','width':'500px'},
-        classObj:{active:true},
-        classArr:['active','big'],
-        classAO:['big',{active:false}],
-        classStr:'big active'
-    }
-})
+<div class="box" v-bind:class="classStr">字符设置法</div>
 ```
 
-<a id=4>
+```js
+let vm = new Vue({
+  el: '#app',
+  data: {
+    styleObj: { fontSize: '30px', width: '500px' },
+    classObj: { active: true },
+    classArr: ['active', 'big'],
+    classAO: ['big', { active: false }],
+    classStr: 'big active',
+  },
+})
+```
 
 ## 4 事件绑定
 
@@ -177,11 +139,10 @@ methods: {
 
 如下点击 son，baba 也会触发,加修饰符就可以阻止
 
-```js
-<div class="baba" @click='babaHandler'>
-    <div class="son" @click.stop='sonHandler'></div>
+```html
+<div class="baba" @click="babaHandler">
+  <div class="son" @click.stop="sonHandler"></div>
 </div>
-
 ```
 
 keyup
@@ -196,11 +157,9 @@ keyup
 .left
 .right
 
-```js
-<input type="text" v-model='ipt'  @keyup.enter="keyUp">{{ipt}}
+```html
+<input type="text" v-model="ipt" @keyup.enter="keyUp" />{{ipt}}
 ```
-
-<a id=5>
 
 ## 5 vue 表单操作
 
@@ -209,60 +168,54 @@ v-model 主要作用:用在表单操作上，实现数据的双向绑定
 
 V- -model : 1.在表单上的基础使用 2. v-mode1 的实现原理 3. v-model 在组件上的使用(放到组件后讲)
 
-```js
- <!-- 单行表单 -->
-<input type="text" v-model='ipt'>
+```html
+<!-- 单行表单 -->
+<input type="text" v-model="ipt" />
 {{ipt}}
 <!-- 多行文本 -->
-<textarea name="" id="" cols="30" rows="10" v-model='areaipt'></textarea>
+<textarea name="" id="" cols="30" rows="10" v-model="areaipt"></textarea>
 {{areaipt}}
 
 <!-- 多选框 -->
 <h3>选择你的喜欢</h3>
-<span v-for='item in food'>
-    {{item}}
-    <input type="checkbox" :value='item' v-model='checkedFood'>
+<span v-for="item in food">
+  {{item}}
+  <input type="checkbox" :value="item" v-model="checkedFood" />
 </span>
 <h3>已选择</h3>
-<span v-for="item in checkedFood">
-    {{item}}
-</span>
+<span v-for="item in checkedFood"> {{item}} </span>
 
 <!-- 单选框 radio-->
 <h3>性别</h3>
-<span v-for='item in gender'>
-    {{item}}
-    <input type="radio" :value='item' v-model='chooseGender'>
+<span v-for="item in gender">
+  {{item}}
+  <input type="radio" :value="item" v-model="chooseGender" />
 </span>
 <p>{{chooseGender}}</p>
 
 <!-- 下拉框 -->
-<select name="" id="" v-model='chooseCity'>
-    <option value="">请选择</option>
-    <option v-for='item in city' :value="item" >
-        {{item}}
-    </option>
+<select name="" id="" v-model="chooseCity">
+  <option value="">请选择</option>
+  <option v-for="item in city" :value="item">{{item}}</option>
 </select>
 <p>{{chooseCity}}</p>
-
-
-
-let vm = new Vue({
-    el:'#app',
-    data:{
-        ipt:'',
-        areaipt:'',
-        food:['口水鸡','叫花鸡','炸鸡'],
-        checkedFood:[],
-        gender:['男','女','不详'],
-        chooseGender:'',
-        city:['1','2','3'],
-        chooseCity:''
-    }
-})
 ```
 
-<a id=6>
+```js
+let vm = new Vue({
+  el: '#app',
+  data: {
+    ipt: '',
+    areaipt: '',
+    food: ['口水鸡', '叫花鸡', '炸鸡'],
+    checkedFood: [],
+    gender: ['男', '女', '不详'],
+    chooseGender: '',
+    city: ['1', '2', '3'],
+    chooseCity: '',
+  },
+})
+```
 
 ## 6 v-model 的实现原理
 
@@ -275,26 +228,28 @@ v-model 实现原理:
 v-model 是 vue 指令中的语法糖，
 它的实现原理等同于 @input="ipt=$event.target.value" :value="ipt"
 
-```js
-<input type="text" v-model='ipt'>
+```html
+<input type="text" v-model="ipt" />
 // 相当于
 
-<input type="text" @input='handler' :value='ipt'>
+<input type="text" @input="handler" :value="ipt" />
 // 或
-<input type="text" @input='ipt=$event.target.value' :value='ipt'>
+<input type="text" @input="ipt=$event.target.value" :value="ipt" />
 <p>{{ipt}}</p>
+```
 
- let vm = new Vue({
-    el:'#app',
-    data:{
-        ipt:""
-    },
-    methods: {
-        // handler(e){
-        //     console.log(e.target.value);
-        //     this.ipt=e.target.value
-        // }
-    }
+```js
+let vm = new Vue({
+  el: '#app',
+  data: {
+    ipt: '',
+  },
+  methods: {
+    // handler(e){
+    //     console.log(e.target.value);
+    //     this.ipt=e.target.value
+    // }
+  },
 })
 ```
 

@@ -43,8 +43,8 @@ export default {
         ],
       },
       {
-        text: 'vuepress搭建',
-        link: '/vuepress搭建.md',
+        text: 'vuepress搭建知识库',
+        link: '/vuepress搭建知识库.md',
       },
 
       // 控制元素何时被激活

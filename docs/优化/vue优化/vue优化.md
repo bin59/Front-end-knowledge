@@ -55,9 +55,9 @@ if (!options.supportWebp) return
 }
 }
 });
- 
+
 2、资源提前请求
-经测试，Vue 项目中各文件的加载顺序为：router.js、main.js、App.vue、[page].vue、[component].vue，如图：
+经测试，Vue 项目中各文件的加载顺序为：router.js、main.js、App.vue、page.vue、component.vue，如图：
 
 image
 其中，router 的加载时间相比于 page.vue 快近 100ms，如果 page.vue 的文件较多，时间差异会更大 所以，可以在页面挂载、渲染的同时去请求接口数据，如在 router.js 中请求数据：
@@ -66,7 +66,7 @@ import Router from 'vue-router'
 import store from './store'
 
 store.dispatch('initAjax')
- 
+
 3、异步路由
 使用异步路由可以根据 URL 自动加载所需页面的资源，并且不会造成页面阻塞，较适用于移动端页面
 
@@ -78,37 +78,39 @@ store.dispatch('initAjax')
 path: '/order',
 component: () => import('./views/order.vue')
 }
- 
+
 4、异步组件
 不需要首屏加载的组件都使用异步组件的方式来加载（如多 tab），包括需要触发条件的动作也使用异步组件（如弹窗） 使用方式为：v-if 来控制显示时机，引入组件的 Promise 即可
 
+```html
 <template>
   <div>
     <HellowWorld v-if="showHello" />
   </div>
 </template>
 <script>
-export default {
-  components: { HellowWorld: () => import('../components/HelloWorld.vue') },
-  data() {
-    return {
-      showHello: false
-    }
-  },
-  methods: {
-    initAsync() {
-      addEventListener('scroll', (e) => {
-        if (scrollY > 100) {
-          this.showHello = true
-        }
-      })
-    }
+  export default {
+    components: { HellowWorld: () => import('../components/HelloWorld.vue') },
+    data() {
+      return {
+        showHello: false,
+      }
+    },
+    methods: {
+      initAsync() {
+        addEventListener('scroll', e => {
+          if (scrollY > 100) {
+            this.showHello = true
+          }
+        })
+      },
+    },
   }
-}
 </script>
- 
+```
+
 5、使用轻量级插件、异步插件
-使用webpack-bundle-analyzer查看项目所有包的体积大小，较大的插件包尽量寻找轻量级的替代方案
+使用 webpack-bundle-analyzer 查看项目所有包的体积大小，较大的插件包尽量寻找轻量级的替代方案
 
 首屏用不到的插件、或只在特定场景才会用到的插件使用异步加载（如定位插件，部分情况可以通过 URL 传递经纬度；或生成画报插件，需要在点击时触发）；插件第一次加载后缓存在本地，使用方式为：
 
@@ -122,7 +124,7 @@ if (!latitude || !longitude) {
 if (!this.WhereAmI) this.WhereAmI = (await import('locationPlugin')).default
 // do sth...
 }
- 
+
 6、公用 CDN
 使用公用的 CDN 资源，可以起到缓存作用，并减少打包体积
 
@@ -141,6 +143,7 @@ prefetch 会预加载页面将来可能用到的一些资源，优先级较低�
 
 三者的使用方式，在 head 标签中添加（vue-cli-3 已经做了相应配置）：
 
+```html
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -156,9 +159,10 @@ prefetch 会预加载页面将来可能用到的一些资源，优先级较低�
   <!-- prefetch写法 -->
   <link href="/dist/js/chunk-vendors.04343b1f.js" rel="prefetch" />
 </head>
- 
+```
+
 3、PWA
-PWA支持缓存HTML文档、接口（get）等，降低页面白屏时间 这样即使在弱网甚至断网情况下，也能迅速展示出页面
+PWA 支持缓存 HTML 文档、接口（get）等，降低页面白屏时间 这样即使在弱网甚至断网情况下，也能迅速展示出页面
 
 编译打包优化
 1、升级 Vue-Cli-3

@@ -1,20 +1,4 @@
-<details markdown="1">
-  <summary>目录</summary>
-
-- [HTML 基础](#html基础)
-  - [简介](#简介)
-  - [HTML5 的基本结构](#html5-的基本结构)
-    - [文档声明（doctype）](#文档声明doctype)
-    - [html 的根标签（元素）](#html-的根标签元素)
-    - [head 网页的头部](#head-网页的头部)
-    - [meta 元信息](#meta-元信息)
-    - [title：网页的标题](#title网页的标题)
-    - [CSS -层叠样式表](#css--层叠样式表)
-  - [标题标签](#标题标签)
-
-</details>
- 
-# HTML基础
+# HTML 基础
 
 ## 简介
 
@@ -891,7 +875,7 @@ body 是 HTML 的子元素，表示网页的主体，网页中所有的可见内
                         -如，背景可以用
                         效果一样，用文件小的,效果不一样，用效果最好的
             -->
-            <img src="./picture/binbin.jpg" alt="好看动漫图图片">
+            <!-- <img src="./picture/binbin.jpg" alt="好看动漫图图片"> -->
 
             <!-- 从网页中引入图片，一般不用，图片一删除就没，有的没版-->
             <img width="50px" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimage.biaobaiju.com%2Fuploads%2F20190928%2F19%2F1569670620-jXRFnBhPEC.jpg&refer=http%3A%2F%2Fimage.biaobaiju.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617931986&t=2ef246ceab10e86a177f10b1fd135b7c" alt="好看图片">

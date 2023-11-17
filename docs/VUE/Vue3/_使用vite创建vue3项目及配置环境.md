@@ -1,58 +1,5 @@
 # Vue3 项目搭建
 
-<details markdown="1">
-  <summary>目录</summary>
-
-- [Vue3 项目搭建](#vue3-项目搭建)
-  - [使用 vite 创建 vue3 项目](#使用-vite-创建-vue3-项目)
-- [硅谷甄选运营平台](#硅谷甄选运营平台)
-  - [一、vue3 组件通信方式](#一vue3-组件通信方式)
-    - [1.1props](#11props)
-    - [1.2 自定义事件](#12-自定义事件)
-      - [1.2.1 原生 DOM 事件](#121-原生-dom-事件)
-      - [1.2.2 自定义事件](#122-自定义事件)
-    - [1.3 全局事件总线](#13-全局事件总线)
-    - [1.4v-model](#14v-model)
-    - [1.5useAttrs](#15useattrs)
-    - [1.6ref 与$parent](#16ref-与parent)
-    - [1.7provide 与 inject](#17provide-与-inject)
-    - [1.8pinia](#18pinia)
-    - [1.9slot](#19slot)
-  - [二、搭建后台管理系统模板](#二搭建后台管理系统模板)
-    - [2.1 项目初始化](#21-项目初始化)
-      - [2.1.1 环境准备](#211-环境准备)
-      - [2.1.2 初始化项目](#212-初始化项目)
-    - [2.2 项目配置](#22-项目配置)
-      - [一、eslint 配置](#一eslint-配置)
-        - [1.1vue3 环境代码校验插件](#11vue3-环境代码校验插件)
-        - [1.2 修改.eslintrc.cjs 配置文件](#12-修改eslintrccjs-配置文件)
-        - [1.3.eslintignore 忽略文件](#13eslintignore-忽略文件)
-        - [1.4 运行脚本](#14-运行脚本)
-      - [二、配置**prettier**](#二配置prettier)
-        - [2.1 安装依赖包](#21-安装依赖包)
-        - [2.2.prettierrc.json 添加规则](#22prettierrcjson-添加规则)
-        - [2.3.prettierignore 忽略文件](#23prettierignore-忽略文件)
-      - [三、配置 stylelint](#三配置-stylelint)
-        - [3.1`.stylelintrc.cjs`**配置文件**](#31stylelintrccjs配置文件)
-        - [3.2.stylelintignore 忽略文件](#32stylelintignore-忽略文件)
-        - [3.3 运行脚本](#33-运行脚本)
-      - [四、配置 husky](#四配置-husky)
-      - [五、配置 commitlint](#五配置-commitlint)
-      - [六、强制使用 pnpm 包管理器工具](#六强制使用-pnpm-包管理器工具)
-  - [三、项目集成](#三项目集成)
-    - [3.1 集成 element-plus](#31-集成-element-plus)
-    - [3.2src 别名的配置](#32src-别名的配置)
-    - [3.3 环境变量的配置](#33-环境变量的配置)
-    - [3.4SVG 图标配置](#34svg-图标配置)
-      - [3.4.1svg 封装为全局组件](#341svg-封装为全局组件)
-    - [3.5 集成 sass](#35-集成-sass)
-    - [3.6mock 数据](#36mock-数据)
-    - [3.7axios 二次封装](#37axios-二次封装)
-    - [3.8API 接口统一管理](#38api-接口统一管理)
-  - [四、项目的资源地址](#四项目的资源地址)
-
-</details>
-
 ## 使用 vite 创建 vue3 项目
 
 参考：b 站硅谷甄选

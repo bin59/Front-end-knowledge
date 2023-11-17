@@ -4,26 +4,6 @@
 
 > 学习视频地址：https://www.bilibili.com/video/BV1Xh411V7b5?p=2
 
-<details markdown="1">
-  <summary>目录</summary>
-
-- [vue3 组件通讯方式](#vue3-组件通讯方式)
-  - [一、比较 vue2 的通讯方式](#一比较-vue2-的通讯方式)
-  - [二、vue3 组件通讯方式](#二vue3-组件通讯方式)
-    - [1.props](#1props)
-    - [2.自定义事件](#2自定义事件)
-      - [2.1 vue2 和 vue3 中的自定义事件和原生事件对比：](#21-vue2-和-vue3-中的自定义事件和原生事件对比)
-      - [2.2 $emit 和 defineEmits](#22-emit-和-defineemits)
-    - [3.全局事件总线$bus](#3全局事件总线bus)
-    - [4.v-model](#4v-model)
-    - [5.useAttrs](#5useattrs)
-    - [6.ref 和 $parent](#6ref-和-parent)
-    - [7.provide 与 inject](#7provide-与-inject)
-    - [8.pinia](#8pinia)
-    - [9.slot](#9slot)
-
-</details>
-
 ## 一、比较 vue2 的通讯方式
 
 `props`:可以实现父子组件、子父组件、甚至兄弟组件通信,props 数据还是只读的

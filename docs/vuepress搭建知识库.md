@@ -1,6 +1,6 @@
 # vuepress 搭建知识库
 
-<img src="/docs/.vuepress/public/images/vuepress.png"  width="100px" />
+<img src="/images/vuepress.png"  width="100px" />
 
 ## 一、vuepress 初始化
 
