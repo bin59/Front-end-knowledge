@@ -1,12 +1,3 @@
-<!--
- * @Author: binbin59 zbin59@163.com
- * @Date: 2021-12-10 17:11:46
- * @LastEditors: binbin 1959409749@qq.com
- * @LastEditTime: 2022-10-26 23:09:36
- * @FilePath: \web\study\front-end\NodeJs\nodejs.md
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
--->
-
 [bilibili--Nodejs 全栈开发之 nodejs 高级编程](https://www.bilibili.com/video/BV1sA41137qw?p=1&vd_source=ff8322757e2b3b0c90286101be0cdd18)
 
 - Node.js 是什么
