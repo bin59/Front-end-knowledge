@@ -281,22 +281,34 @@ $children和$parent 并不保证顺序，也不是响应式的
 
 3.7 $refs
 // 父组件
+
+```js
+
 <home ref="home"/>
 
 mounted(){
 console.log(this.$refs.home) //即可拿到子组件的实例,就可以直接操作 data 和 methods
 }
+```
+
 3.8 $root
 // 父组件
+
+```js
+
 mounted(){
   console.log(this.$root) //获取根实例,最后所有组件都是挂载到根实例上
 console.log(this.$root.$children[0]) //获取根实例的一级子组件
 console.log(this.$root.$children[0].$children[0]) //获取根实例的二级子组件
 }
+```
+
 3.9 .sync
 在 vue@1.x 的时候曾作为双向绑定功能存在，即子组件可以修改父组件中的值;
 在 vue@2.0 的由于违背单项数据流的设计被干掉了;
 在 vue@2.3.0+ 以上版本又重新引入了这个 .sync 修饰符;
+
+````js
 
 // 父组件
 <home :title.sync="title" />
@@ -508,7 +520,7 @@ store.count = count
     },
   }
 </script>
-```
+````
 
 4.render 函数 1.场景:有些代码在 template 里面写会重复很多,所以这个时候 render 函数就有作用啦
 
@@ -1305,7 +1317,7 @@ config.resolve.alias
 
 36.2 deep 属性
 
-```html
+```css
 // 上面样式加一个 /deep/
 <style lang="less" scoped>
   .demo {
@@ -1328,3 +1340,7 @@ config.resolve.alias
 ```
 
 [Vue 开发必须知道的 36 个技巧](https://zhuanlan.zhihu.com/p/609112106?utm_campaign=&utm_medium=social&utm_oi=929397358943428608&utm_psn=1625052635417063424&utm_source=qq)
+
+```
+
+```
