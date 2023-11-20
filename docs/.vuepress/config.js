@@ -1,4 +1,5 @@
 import { backToTopPlugin } from '@vuepress/plugin-back-to-top'
+import { docsearchPlugin } from '@vuepress/plugin-docsearch'
 import { defaultTheme } from 'vuepress'
 export default {
   lang: 'zh-CN',
@@ -229,9 +230,15 @@ export default {
       },
       {
         text: 'vuepress搭建知识库',
-        link: '/vuepress搭建知识库.md',
+        link: '/vuepress搭建知识库/vuepress搭建知识库.md',
       },
     ],
   }),
-  plugins: [backToTopPlugin()],
+  plugins: [
+    backToTopPlugin(),
+    docsearchPlugin({
+      // https://vuepress.github.io/zh/reference/plugin/docsearch.html#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95
+      // 配置项
+    }),
+  ],
 }
