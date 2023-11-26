@@ -1,4 +1,20 @@
+---
+# 配置参考：https://vuepress.github.io/zh/reference/default-theme/frontmatter.html#%E9%A6%96%E9%A1%B5
+home: true
+# heroImage: '/images/touxiang.jpg'
+# 首页的页脚。
+footer:
+  'Apache Licensed | Copyright © 2023-present zhubn <a href="https://beian.miit.gov.cn/" target="_blank"
+  >皖ICP备2023022695号</a
+  >'
+
+# 是否允许页脚中使用 HTML 。
+footerHtml: true
+---
+
 # 欢迎来到晚霞的前端学习知识库！:tada: :tada: :tada:
+
+<img src="/images/bg-index.jpg" />
 
 主要内容为前端学习的经历，各种知识、技巧等
 
@@ -9,9 +25,10 @@
 ## 知识库内容-`持续更新中ing`
 
 - [前端开发必备网站](/前端开发必备网站.md)
-- [HTML、CSS](/HTML、CSS)
+- [HTML](/HTML、CSS/HTML/HTML介绍.md)
+- [CSS](/HTML、CSS/HTML/1.CSS介绍.md)
 - [JavaScript](/JavaScript/JavaScript介绍.md)
-- [ECMAScript](/ECMAScript/1.ECMAScript简介.md)
+- [ECMAScript](/JavaScript/ECMAScript/1.ECMAScript简介.md)
 - [TypeScript](/TypeScript/TypeScript.md)
 - [Vue2](/VUE/Vue2/vue2学习.md)
 - [Vue3](/VUE/Vue3/1.认识Vue3.md)
