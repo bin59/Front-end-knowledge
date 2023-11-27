@@ -5,10 +5,10 @@ export default {
   lang: 'zh-CN',
   // 站点的标题。
   // 它将会作为所有页面标题的后缀，并且在默认主题的导航栏中显示
-  title: '晚霞的前端博客',
+  title: '晚霞的博客',
   // 站点的描述。
   // 它将会在最终渲染出的 HTML 中作为 <meta name="description" /> 标签的 content 属性。它会被每个页面的 Frontmatter 中的 description 字段覆盖。
-  description: '欢迎来到晚霞的前端学习博客！',
+  description: '欢迎来到晚霞的博客！',
   // 在最终渲染出的 HTML 的 <head> 标签内加入的额外标签
   head: [['link', { rel: 'icon', href: '/images/touxiang.jpg' }]],
 
@@ -106,6 +106,15 @@ export default {
                   },
                 ], */
           },
+          {
+            text: '浏览器渲染机制',
+            link: '/浏览器/浏览器渲染机制.md',
+          },
+
+          {
+            text: 'HTTP状态码',
+            link: '/HTTP/HTTP状态码.md',
+          },
         ],
       },
       {
@@ -120,74 +129,27 @@ export default {
             link: '/TypeScript/TypeScript.md',
           },
           {
-            text: 'VUE',
-            children: [
-              {
-                text: 'Vue2',
-                link: '/VUE/Vue2/vue2学习.md',
-              },
-              {
-                text: 'Vue3',
-                link: '/VUE/Vue3/1.认识Vue3.md',
-              },
-              {
-                text: 'Vue2和Vue3的区别',
-                link: '/VUE/Vue2和Vue3的区别.md',
-              },
-            ],
+            text: 'Vue2',
+            link: '/VUE/Vue2/vue2学习.md',
           },
-        ],
-      },
-
-      {
-        text: 'NodoJs',
-        children: [
           {
-            text: 'NodeJs简介',
-            link: '/NodeJs/NodeJs.md',
+            text: 'Vue3',
+            link: '/VUE/Vue3/1.认识Vue3.md',
           },
-        ],
-      },
-      {
-        text: 'webpack',
-        children: [
-          {
-            text: 'webpack简介及快速上手',
-            link: '/webpack/webpack简介及快速上手.md',
-          },
-        ],
-      },
-      {
-        text: '小程序',
-        children: [
           {
             text: '小程序',
             link: '/小程序/小程序.md',
           },
-        ],
-      },
-      {
-        text: '优化',
-        children: [
           {
-            text: 'html、css优化',
-            link: '/优化/html、css优化/html、css优化.md',
+            text: 'webpack',
+            link: '/webpack/webpack简介及快速上手.md',
           },
           {
-            text: 'JavaScript优化',
-            link: '/优化/JavaScript优化/JavaScript优化.md',
-          },
-          {
-            text: 'vue优化',
-            link: '/优化/vue优化/vue优化.md',
-          },
-          {
-            text: '加载优化',
-            link: '/优化/加载优化.md',
+            text: 'NodeJs',
+            link: '/NodeJs/NodeJs.md',
           },
         ],
       },
-
       {
         text: '前端工具',
         children: [
@@ -213,25 +175,29 @@ export default {
           },
         ],
       },
+
       {
-        text: '浏览器',
+        text: '优化',
         children: [
           {
-            text: '浏览器渲染机制',
-            link: '/浏览器/浏览器渲染机制.md',
+            text: 'html、css优化',
+            link: '/优化/html、css优化/html、css优化.md',
+          },
+          {
+            text: 'JavaScript优化',
+            link: '/优化/JavaScript优化/JavaScript优化.md',
+          },
+          {
+            text: 'vue优化',
+            link: '/优化/vue优化/vue优化.md',
+          },
+          {
+            text: '加载优化',
+            link: '/优化/加载优化.md',
           },
         ],
       },
 
-      {
-        text: 'HTTP',
-        children: [
-          {
-            text: 'HTTP状态码',
-            link: '/HTTP/HTTP状态码.md',
-          },
-        ],
-      },
       {
         text: 'js算法',
         children: [
@@ -248,6 +214,25 @@ export default {
     ],
     // 侧边栏
     sidebar: {
+      '/JavaScript/': [
+        {
+          text: '1.JavaScript书写位置',
+          link: '/JavaScript/1.JavaScript的书写位置.html',
+        },
+        {
+          text: '2.变量',
+          link: ['/JavaScript/2.变量.md'],
+        },
+        {
+          text: '3.数据类型',
+          collapsible: true, //是否可折叠
+          children: [
+            '/JavaScript/3.数据类型/3.1数据类型.md',
+            '/JavaScript/3.数据类型/3.2判断数据类型.md',
+            '/JavaScript/3.数据类型/3.3数据类型转换.md',
+          ],
+        },
+      ],
       '/tools/': [
         {
           text: 'npm',

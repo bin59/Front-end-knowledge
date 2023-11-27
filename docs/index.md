@@ -12,13 +12,11 @@ footer:
 footerHtml: true
 ---
 
-# 欢迎来到晚霞的前端学习知识库！:tada: :tada: :tada:
-
 <img src="/images/bg-index.jpg" />
 
-主要内容为前端学习的经历，各种知识、技巧等
+本博客主要内容为前端学习的经历，各种知识、技巧等
 
-该知识库使用 **[vuepress](https://vuepress.github.io/zh/)搭建**
+使用 **[vuepress](https://vuepress.github.io/zh/)搭建**
 
 我的搭建过程：[vuepress 搭建知识库](/vuepress搭建知识库/vuepress搭建知识库.md)
 
