@@ -23,8 +23,8 @@ footerHtml: true
 ## 知识库内容-`持续更新中ing`
 
 - [前端开发必备网站](/前端开发必备网站.md)
-- [HTML](/HTML、CSS/HTML/HTML介绍.md)
-- [CSS](/HTML、CSS/HTML/1.CSS介绍.md)
+- [HTML](/HTML-CSS/HTML/HTML基础.md)
+- [CSS](/HTML-CSS/HTML/1.CSS介绍.md)
 - [JavaScript](/JavaScript/JavaScript介绍.md)
 - [ECMAScript](/JavaScript/ECMAScript/1.ECMAScript简介.md)
 - [TypeScript](/TypeScript/TypeScript.md)
@@ -33,7 +33,7 @@ footerHtml: true
 - [NodoJs](/NodeJs/NodeJs.md)
 - [webpack](/webpack/webpack简介及快速上手.md)
 - [小程序](/小程序/小程序.md)
-- [优化](/优化/html、css优化/html、css优化.md)
+- [优化](/优化/HTML-CSS优化/HTML-CSS优化.md)
 - [npm](/tools/npm/npm.md)
 - [pnpm](/tools/pnpm/pnpm.md)
 - [yarn](/tools/yarn/yarn.md)

@@ -37,74 +37,15 @@ export default {
         children: [
           {
             text: 'HTML',
-            link: '/HTML、CSS/HTML/HTML介绍.md',
+            link: '/HTML-CSS/HTML/HTML基础.md',
           },
           {
             text: 'CSS',
-            link: '/HTML、CSS/CSS/1.CSS介绍.md',
+            link: '/HTML-CSS/CSS/1.CSS介绍.md',
           },
           {
             text: 'JavaScript',
             link: '/JavaScript/JavaScript介绍.md',
-            /*  children: [
-                  {
-                    text: 'JavaScript介绍',
-                    link: '/JavaScript/JavaScript介绍.md',
-                  },
-                  {
-                    text: '2.变量',
-                    link: '/',
-                  },
-                  {
-                    text: '3.数据类型',
-                    link: '/',
-                  },
-                  {
-                    text: '4.运算符',
-                    link: '/',
-                  },
-                  {
-                    text: '5.流程控制',
-                    link: '/',
-                  },
-                  {
-                    text: '6.javascript系统对象',
-                    link: '/JavaScript//javascript系统对象.md',
-                  },
-                  {
-                    text: '7.js预编译',
-                    link: '/',
-                  },
-
-                  {
-                    text: '8.堆、栈、深浅拷贝',
-                    link: '/',
-                  },
-                  {
-                    text: '9.元素的位置坐标',
-                    link: '/',
-                  },
-                  {
-                    text: '10.josn',
-                    link: '/JavaScript/10.josn/14.json.html',
-                  },
-                  {
-                    text: '11.浏览器存储',
-                    link: '/JavaScript/11.浏览器存储/cookie/cookie.html',
-                  },
-                  {
-                    text: '12.懒加载、预加载',
-                    link: '/JavaScript/12.懒加载、预加载/懒加载.html',
-                  },
-                  {
-                    text: ' 13.异步编程',
-                    link: '/JavaScript/12.懒加载、预加载/懒加载.html',
-                  },
-                  {
-                    text: '14.try_catch语句',
-                    link: '/JavaScript/14.try_catch语句/try_catch语句.md',
-                  },
-                ], */
           },
           {
             text: '浏览器渲染机制',
@@ -180,8 +121,8 @@ export default {
         text: '优化',
         children: [
           {
-            text: 'html、css优化',
-            link: '/优化/html、css优化/html、css优化.md',
+            text: 'HTML-CSS优化',
+            link: '/优化/HTML-CSS优化/HTML-CSS优化.md',
           },
           {
             text: 'JavaScript优化',
@@ -208,12 +149,51 @@ export default {
         ],
       },
       {
-        text: 'vuepress搭建知识库',
+        text: 'vuepress使用',
         link: '/vuepress搭建知识库/vuepress搭建知识库.md',
       },
     ],
     // 侧边栏
     sidebar: {
+      '/HTML-CSS': [
+        {
+          text: 'HTML-CSS',
+          collapsible: true, //是否可折叠
+          children: [
+            '/HTML-CSS/HTML/HTML基础.md',
+            '/HTML-CSS/CSS/1.CSS.md',
+            {
+              text: 'Canvas',
+              link: 'canvas简介.md',
+            },
+          ],
+        },
+      ],
+      '/浏览器': [
+        {
+          text: '浏览器渲染机制',
+          link: '/浏览器/浏览器渲染机制.md',
+        },
+      ],
+      '/小程序': [
+        {
+          text: '小程序',
+          link: '/小程序/小程序.md',
+        },
+      ],
+
+      '/优化': [
+        {
+          text: '优化',
+          collapsible: true, //是否可折叠
+          children: [
+            '/优化/HTML-CSS优化/HTML-CSS优化.md',
+            '/优化/JavaScript优化/javascript优化.md',
+            '/优化/vue优化/vue优化.md',
+          ],
+        },
+      ],
+
       '/JavaScript/': [
         {
           text: '1.JavaScript书写位置',
@@ -232,6 +212,79 @@ export default {
             '/JavaScript/3.数据类型/3.3数据类型转换.md',
           ],
         },
+        /* 
+         children: [
+                  {
+                    text: 'JavaScript介绍',
+                    link: '/JavaScript/JavaScript介绍.md',
+                  },
+                  {
+                    text: '2.变量',
+                    link: '/',
+                  },
+                  {
+                    text: '3.数据类型',
+                    link: '/',
+                  },
+                  {
+                    text: '4.运算符',
+                    link: '/',
+                  },
+                  {
+                    text: '5.流程控制',
+                    link: '/',
+                  },
+                  {
+                    text: '6.javascript系统对象',
+                    link: '/JavaScript//javascript系统对象.md',
+                  },
+                  {
+                    text: '7.js预编译',
+                    link: '/',
+                  },
+
+                  {
+                    text: '8.堆、栈、深浅拷贝',
+                    link: '/',
+                  },
+                  {
+                    text: '9.元素的位置坐标',
+                    link: '/',
+                  },
+                  {
+                    text: '10.josn',
+                    link: '/JavaScript/10.josn/14.json.html',
+                  },
+                  {
+                    text: '11.浏览器存储',
+                    link: '/JavaScript/11.浏览器存储/cookie/cookie.html',
+                  },
+                  {
+                    text: '12.懒加载、预加载',
+                    link: '/JavaScript/12.懒加载、预加载/懒加载.html',
+                  },
+                  {
+                    text: ' 13.异步编程',
+                    link: '/JavaScript/12.懒加载、预加载/懒加载.html',
+                  },
+                  {
+                    text: '14.try_catch语句',
+                    link: '/JavaScript/14.try_catch语句/try_catch语句.md',
+                  },
+                ], */
+      ],
+      '/NodeJs': [
+        {
+          text: 'NodeJs',
+          collapsible: true, //是否可折叠
+          children: ['/NodeJs/NodeJs.md'],
+        },
+
+        {
+          text: 'NodeJS实现API服务',
+          collapsible: true, //是否可折叠
+          children: ['/NodeJs/NodeJS实现API服务/NodeJS实现API服务.md'],
+        },
       ],
       '/tools/': [
         {
@@ -240,9 +293,32 @@ export default {
           children: ['/tools/npm/npm.md'],
         },
         {
+          text: 'nvm',
+          collapsible: true, //是否可折叠
+          children: ['/tools/nvm/nvm.md'],
+        },
+        {
           text: 'pnpm',
           collapsible: true,
           children: ['/tools/pnpm/pnpm.md'],
+        },
+        {
+          text: 'Scss',
+          collapsible: true,
+          children: ['/tools/Scss/Scss.md'],
+        },
+        {
+          text: 'yarn',
+          collapsible: true,
+          children: ['/tools/yarn/yarn.md'],
+        },
+        {
+          text: 'nodejs版本对应node-sass、sass-loader版本',
+          link: '/tools/nodejs对应node-sass、sass-loader.md',
+        },
+        {
+          text: 'vscode配置、插件...',
+          link: '/tools/vscode.md',
         },
       ],
     },

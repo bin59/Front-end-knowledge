@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        /* 
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      /* 
 
         animation 动画
             CSS动画与过渡的相同点是CSS属性都在一段时间内发生变化，而不同点就是动画对变化的方式有更
@@ -140,22 +140,22 @@
 
             
         */
-        @keyframes handsome{
-            from{
-                transform:translate(0,0);
-                width: 0;
-                height: 0;
-                background-color: yellow;
-            }
-            to{
-                transfrom:translate(500px,500px);
-                width: 100px;
-                height: 100px;
-                background-color: turquoise;
-            }
+      @keyframes handsome {
+        from {
+          transform: translate(0, 0);
+          width: 0;
+          height: 0;
+          background-color: yellow;
         }
-        .box{
-            /* animation-name:handsome;
+        to {
+          transfrom: translate(500px, 500px);
+          width: 100px;
+          height: 100px;
+          background-color: turquoise;
+        }
+      }
+      .box {
+        /* animation-name:handsome;
             animation-duration: 2s;
             animation-iteration-count:infinite;
             animation-direction:normal;
@@ -163,38 +163,37 @@
             animation-timing-function: ease-in-out;
             animation-fill-mode: forwards;
             animation-play-state: paused; */
-            animation:handsome 2s .5s normal .5s ease-in paused forwards;
-        }
+        animation: handsome 2s 0.5s normal 0.5s ease-in paused forwards;
+      }
 
-
-        /* 逐帧动画 */
-        @keyframes rocket{
-            from{
-                background-position: 0 0;
-            }
-            to{
-                background-position: -892px 0;
-            }
+      /* 逐帧动画 */
+      @keyframes rocket {
+        from {
+          background-position: 0 0;
         }
-        .a{
-            width: 149px;
-            height: 250px;
-            background-image:url(./picture/html、css/12.animation\ 动画/p.jpg);
-            background-position: -892px 0;
-            animation: rocket 2s steps(6) infinite;
+        to {
+          background-position: -892px 0;
         }
-        .b{
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background-color: pink;
-        }
+      }
+      .a {
+        width: 149px;
+        height: 250px;
+        background-image: url(./picture/HTML-CSS/12.animation\ 动画/p.jpg);
+        background-position: -892px 0;
+        animation: rocket 2s steps(6) infinite;
+      }
+      .b {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background-color: pink;
+      }
     </style>
-    <link rel="stylesheet" href="./style/animate.css-4.1.1/animate.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./style/animate.css-4.1.1/animate.css" />
+  </head>
+  <body>
     <div class="box"></div>
     <div class="a"></div>
     <div class="b animate_animated animate_rubbrBand"></div>
-</body>
+  </body>
 </html>
