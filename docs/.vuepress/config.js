@@ -212,66 +212,70 @@ export default {
             '/JavaScript/3.数据类型/3.3数据类型转换.md',
           ],
         },
-        /* 
-         children: [
-                  {
-                    text: 'JavaScript介绍',
-                    link: '/JavaScript/JavaScript介绍.md',
-                  },
-                  {
-                    text: '2.变量',
-                    link: '/',
-                  },
-                  {
-                    text: '3.数据类型',
-                    link: '/',
-                  },
-                  {
-                    text: '4.运算符',
-                    link: '/',
-                  },
-                  {
-                    text: '5.流程控制',
-                    link: '/',
-                  },
-                  {
-                    text: '6.javascript系统对象',
-                    link: '/JavaScript//javascript系统对象.md',
-                  },
-                  {
-                    text: '7.js预编译',
-                    link: '/',
-                  },
 
-                  {
-                    text: '8.堆、栈、深浅拷贝',
-                    link: '/',
-                  },
-                  {
-                    text: '9.元素的位置坐标',
-                    link: '/',
-                  },
-                  {
-                    text: '10.josn',
-                    link: '/JavaScript/10.josn/14.json.html',
-                  },
-                  {
-                    text: '11.浏览器存储',
-                    link: '/JavaScript/11.浏览器存储/cookie/cookie.html',
-                  },
-                  {
-                    text: '12.懒加载、预加载',
-                    link: '/JavaScript/12.懒加载、预加载/懒加载.html',
-                  },
-                  {
-                    text: ' 13.异步编程',
-                    link: '/JavaScript/12.懒加载、预加载/懒加载.html',
-                  },
-                  {
-                    text: '14.try_catch语句',
-                    link: '/JavaScript/14.try_catch语句/try_catch语句.md',
-                  },
-                ], */
+        {
+          text: '4.运算符',
+          link: '/',
+        },
+        {
+          text: '5.流程控制',
+          link: '/',
+        },
+        {
+          text: '6.javascript系统对象',
+          link: '/JavaScript//javascript系统对象.md',
+        },
+        {
+          text: '7.js预编译',
+          link: '/',
+        },
+
+        {
+          text: '8.堆、栈、深浅拷贝',
+          link: '/',
+        },
+        {
+          text: '9.元素的位置坐标',
+          link: '/',
+        },
+        {
+          text: '10.josn',
+          link: '/JavaScript/10.josn/14.json.html',
+        },
+        {
+          text: '11.浏览器存储',
+          link: '/JavaScript/11.浏览器存储/cookie/cookie.html',
+        },
+        {
+          text: '12.懒加载、预加载',
+          link: '/JavaScript/12.懒加载、预加载/懒加载.html',
+        },
+        {
+          text: ' 13.异步编程',
+          link: '/JavaScript/12.懒加载、预加载/懒加载.html',
+        },
+        {
+          text: '14.try_catch语句',
+          link: '/JavaScript/14.try_catch语句/try_catch语句.md',
+        },
+      ],
+
+      '/VUE': [
+        {
+          text: 'Vue2',
+          collapsible: true, //是否可折叠
+          children: ['/VUE/Vue2/vue2学习.md'],
+        },
+
+        {
+          text: 'Vue3',
+          collapsible: true, //是否可折叠
+          children: ['/VUE/Vue3/1.认识Vue3.md.md'],
+        },
+        {
+          text: 'Vue2和Vue3的区别',
+          link: '/VUE/Vue2和Vue3的区别.md',
+        },
       ],
       '/NodeJs': [
         {
