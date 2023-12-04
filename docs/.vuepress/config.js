@@ -143,8 +143,16 @@ export default {
         text: 'js算法',
         children: [
           {
-            text: 'js算法',
-            link: '/算法/算法.md',
+            text: '素数',
+            link: '/算法/素数.md',
+          },
+          {
+            text: '去重',
+            link: '/算法/去重.md',
+          },
+          {
+            text: '比较大小',
+            link: '/算法/比较大小.md',
           },
         ],
       },
@@ -270,7 +278,7 @@ export default {
         {
           text: 'Vue3',
           collapsible: true, //是否可折叠
-          children: ['/VUE/Vue3/1.认识Vue3.md.md'],
+          children: ['/VUE/Vue3/1.认识Vue3.md'],
         },
         {
           text: 'Vue2和Vue3的区别',
