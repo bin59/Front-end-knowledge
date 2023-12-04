@@ -4,7 +4,7 @@ home: true
 # heroImage: '/images/touxiang.jpg'
 # 首页的页脚。
 footer:
-  'Apache Licensed | Copyright © 2023-present zhubn <a href="https://beian.miit.gov.cn/" target="_blank"
+  'Apache Licensed | Copyright © 2023-present zhubin <a href="https://beian.miit.gov.cn/" target="_blank"
   >皖ICP备2023022695号</a
   >'
 
