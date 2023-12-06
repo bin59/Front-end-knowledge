@@ -122,7 +122,7 @@ export default {
         children: [
           {
             text: 'HTML-CSS优化',
-            link: '/优化/HTML-CSS优化/HTML-CSS优化.md',
+            link: '/优化/html-css优化/html-css优化.md',
           },
           {
             text: 'JavaScript优化',
@@ -333,11 +333,16 @@ export default {
           link: '/tools/vscode.md',
         },
       ],
+      '/算法': [
+        {
+          text: '算法',
+          collapsible: true, //是否可折叠
+          children: ['/算法/比较大小.md', '/算法/去重.md', '/算法/素数.md'],
+        },
+      ],
     },
   }),
-  /* The `backToTopPlugin()` is a plugin provided by the `@vuepress/plugin-back-to-top`
-  package. It adds a "back to top" button to the website, allowing users to easily scroll
-  back to the top of the page. */
+
   plugins: [
     // 回到顶部
     backToTopPlugin(),
