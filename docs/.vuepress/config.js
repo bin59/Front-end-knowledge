@@ -141,20 +141,7 @@ export default {
 
       {
         text: 'js算法',
-        children: [
-          {
-            text: '素数',
-            link: '/算法/素数.md',
-          },
-          {
-            text: '去重',
-            link: '/算法/去重.md',
-          },
-          {
-            text: '比较大小',
-            link: '/算法/比较大小.md',
-          },
-        ],
+        link: '/算法/算法.md',
       },
       {
         text: 'vuepress使用',
