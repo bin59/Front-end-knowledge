@@ -1,12 +1,3 @@
-<!--
- * @Author: binbin59 zbin59@163.com
- * @Date: 2021-11-10 11:08:03
- * @LastEditors: bina 1959409749@qq.com
- * @LastEditTime: 2022-11-20 19:49:04
- * @FilePath: \myf:\binbin\web\study\front-end\命令\yarn.md
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
--->
-
 ### 1、安装 yarn
 
 **yarn 的安装和使用**：https://blog.csdn.net/yw00yw/article/details/81354533
