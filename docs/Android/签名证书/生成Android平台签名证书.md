@@ -1,4 +1,6 @@
-# 生成签名证书
+# 生成 Android 平台签名证书
+
+## 生成签名证书
 
 [Android 平台签名证书(.keystore)生成指南](https://ask.dcloud.net.cn/article/35777)
 
@@ -35,3 +37,27 @@ Is CN=XX, OU=XX, O=XX, L=XX, ST=XX, C=XX correct?
 Enter key password for <testalias>
         (RETURN if same as keystore password):  //确认证书密码与证书文件密码一样（HBuilder|HBuilderX要求这两个密码一致），直接回车就可以
 ```
+
+![](./img/1.生成签名证书.png)
+
+## 查看证书信息：
+
+```bash
+keytool -list -v -keystore test.keystore
+```
+
+![](./img/2.查看证书信息.png)
+
+其中证书指纹信息（Certificate fingerprints）：
+
+- MD5
+
+证书的 MD5 指纹信息（安全码 MD5）
+
+- SHA1
+
+证书的 SHA1 指纹信息（安全码 SHA1）
+
+- SHA256
+
+证书的 SHA256 指纹信息（安全码 SHA245）
