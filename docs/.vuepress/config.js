@@ -5,10 +5,10 @@ export default {
   lang: 'zh-CN',
   // 站点的标题。
   // 它将会作为所有页面标题的后缀，并且在默认主题的导航栏中显示
-  title: '晚霞的博客',
+  title: '晚霞的前端知识库',
   // 站点的描述。
   // 它将会在最终渲染出的 HTML 中作为 <meta name="description" /> 标签的 content 属性。它会被每个页面的 Frontmatter 中的 description 字段覆盖。
-  description: '欢迎来到晚霞的博客！',
+  description: '欢迎来到晚霞的前端知识库！',
   // 在最终渲染出的 HTML 的 <head> 标签内加入的额外标签
   head: [['link', { rel: 'icon', href: '/images/touxiang.jpg' }]],
 
@@ -29,8 +29,8 @@ export default {
     //导航栏
     navbar: [
       {
-        text: '前端开发必备网站',
-        link: '/前端开发必备网站.md',
+        text: '前端必备网站',
+        link: '/前端必备网站.md',
       },
       {
         text: '基础知识',

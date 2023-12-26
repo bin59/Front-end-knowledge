@@ -1,7 +1,5 @@
 # vuepress 搭建知识库
 
-<img src="/images/vuepress.png"  width="100px" />
-
 ## 一、vuepress 初始化
 
 **1.依赖环境**
