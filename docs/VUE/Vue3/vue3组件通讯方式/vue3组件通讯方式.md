@@ -1,9 +1,5 @@
 # vue3 组件通讯方式
 
-> 学习小破站 vue3 组件通讯方式 的笔记
-
-> 学习视频地址：https://www.bilibili.com/video/BV1Xh411V7b5?p=2
-
 ## 一、比较 vue2 的通讯方式
 
 `props`:可以实现父子组件、子父组件、甚至兄弟组件通信,props 数据还是只读的
