@@ -16,7 +16,7 @@
 
 ### vue 相关
 
-1. Volar(Vue Language Features): 为 vue3 开发
+1. Vue - Official 为 vue3 开发
 2. vetur 主要是 vue2
 
 ### 代码相关
