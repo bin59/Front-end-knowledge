@@ -1,1 +1,0 @@
-[让人眼前一亮的console.log 替代方案汇总](https://mp.weixin.qq.com/s?__biz=MjM5MDA2MTI1MA==&mid=2649129824&idx=2&sn=50a6886901261cd842a32f81d0c957e7&chksm=be58a4cd892f2ddb5122a96ef1688efdcac40580b94907a6822cdd57814008b4d27b7dd5a5d0&mpshare=1&scene=23&srcid=0721jIPHf0xq4krVOA76Iqqs&sharer_sharetime=1658372743746&sharer_shareid=ac46cb1a80a6719941bc4d33d7960aba#rd)
